@@ -1,4 +1,13 @@
 break
-===
+=======
 
-Nuestro Proyecto
+Proyecto Organizacional
+
+Integrantes
+=======
+
+*Apaza Arroyo, Felix
+*
+*
+*
+*
