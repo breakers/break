@@ -8,6 +8,6 @@ Integrantes
 
 *Apaza Arroyo, Felix
 *Delgado Guerra, Renzo
-*
+*Quevedo Grimaldo, Ricardo
 *
 *
