@@ -7,7 +7,7 @@ Integrantes
 =======
 
 *Apaza Arroyo, Felix
-*
+*Delgado Guerra, Renzo
 *
 *
 *
