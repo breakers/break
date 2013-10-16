@@ -7,7 +7,7 @@ Integrantes
 =======
 
 *Apaza Arroyo, Felix
-*
+*Quevedo Grimaldo, Ricardo
 *
 *
 *
