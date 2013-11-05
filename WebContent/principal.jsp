@@ -276,10 +276,10 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="principal.jsp" class="dropdown-toggle">
-								<img class="nav-user-photo" src="img/user.jpg" alt="Jason&#39;s Photo">
+								<img class="nav-user-photo" src="img/user1.jpg" alt="Jason&#39;s Photo">
 								<span class="user-info">
 									<small>Bienvenido,</small>
-									Felix
+									Renzo
 								</span>
 
 								<i class="icon-caret-down"></i>
