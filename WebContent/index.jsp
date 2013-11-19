@@ -8,6 +8,10 @@
     <%
     			HttpSession sesion=request.getSession();
 				String nombre= (String)sesion.getAttribute("NombreCompleto");
+				
+				if(nombre==null){
+					response.sendRedirect("login.jsp");
+				}
     %>
 <title>Dashboard - SEDAPAR <%=nombre %> </title>
 <meta name="viewport"
@@ -25,7 +29,6 @@
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    
 
 </head>
 <body>
@@ -50,7 +53,7 @@
 								EGrappler.com <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="javascript:;">Profile</a></li>
-								<li><a href="javascript:;">Logout</a></li>
+								<li><a href="cerrarsesion">Logout</a></li>
 							</ul></li>
 					</ul>
 					<form class="navbar-search pull-right">

@@ -9,6 +9,9 @@
 	<%
     			HttpSession sesion=request.getSession();
 				String nombre= (String)sesion.getAttribute("NombreCompleto");
+				if(nombre==null){
+					response.sendRedirect("login.jsp");
+				}
     %>
     <title>404 - SEDAPAR <%=nombre %> </title>
 

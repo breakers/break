@@ -9,6 +9,9 @@
 	<%
     			HttpSession sesion=request.getSession();
 				String nombre= (String)sesion.getAttribute("NombreCompleto");
+				if(nombre==null){
+					response.sendRedirect("login.jsp");
+				}
     %>
     <title>Account Upgrade - SEDAPAR <%=nombre %> </title>
     
@@ -76,7 +79,7 @@
 						
 						<ul class="dropdown-menu">
 							<li><a href="javascript:;">Profile</a></li>
-							<li><a href="javascript:;">Logout</a></li>
+							<li><a href="cerrarsesion">Logout</a></li>
 						</ul>						
 					</li>
 				</ul>

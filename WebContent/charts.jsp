@@ -8,6 +8,9 @@
 	<%
     			HttpSession sesion=request.getSession();
 				String nombre= (String)sesion.getAttribute("NombreCompleto");
+				if(nombre==null){
+					response.sendRedirect("login.jsp");
+				}
     %>
     <title>Charts - SEDAPAR <%=nombre %> </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -45,7 +48,7 @@
                             class="icon-user"></i> EGrappler.com <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="javascript:;">Profile</a></li>
-                                <li><a href="javascript:;">Logout</a></li>
+                                <li><a href="cerrarsesion">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
