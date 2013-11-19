@@ -1,8 +1,11 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
+
 <!DOCTYPE html>
 <html lang="en">
   
  <head>
-    <meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Signup - Bootstrap Admin Template</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -33,20 +36,20 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
+			<a class="brand" href="index.jsp">
 				Bootstrap Admin Template				
 			</a>		
 			
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
 					<li class="">						
-						<a href="login.html" class="">
+						<a href="login.jsp" class="">
 							Already have an account? Login now
 						</a>
 						
 					</li>
 					<li class="">						
-						<a href="index.html" class="">
+						<a href="index.jsp" class="">
 							<i class="icon-chevron-left"></i>
 							Back to Homepage
 						</a>
@@ -124,7 +127,7 @@
 
 <!-- Text Under Box -->
 <div class="login-extra">
-	Already have an account? <a href="login.html">Login to your account</a>
+	Already have an account? <a href="login.jsp">Login to your account</a>
 </div> <!-- /login-extra -->
 
 

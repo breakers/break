@@ -1,10 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html lang="en">
   
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login - Bootstrap Admin Template</title>
+    <title>Login - SEDAPAR</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes"> 
@@ -34,22 +35,22 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Bootstrap Admin Template				
+			<a class="brand" href="index.jsp">
+				SEDAPAR Administracion				
 			</a>		
 			
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
 					
 					<li class="">						
-						<a href="signup.html" class="">
+						<a href="signup.jsp" class="">
 							Don't have an account?
 						</a>
 						
 					</li>
 					
 					<li class="">						
-						<a href="index.html" class="">
+						<a href="index.jsp" class="">
 							<i class="icon-chevron-left"></i>
 							Back to Homepage
 						</a>

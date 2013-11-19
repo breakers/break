@@ -1,9 +1,16 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
+
 <!DOCTYPE html>
 <html lang="en">
   
 <head>
-    <meta charset="utf-8">
-    <title>FAQ - Bootstrap Admin Template</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<%
+    			HttpSession sesion=request.getSession();
+				String nombre= (String)sesion.getAttribute("NombreCompleto");
+    %>
+    <title>FAQ - SEDAPAR <%=nombre %> </title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">    
@@ -23,6 +30,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+        
   </head>
 
 <body>
@@ -37,8 +45,8 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Bootstrap Admin Template				
+			<a class="brand" href="index.jsp">
+				SEDAPAR <%=nombre %> 				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -95,7 +103,7 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="index.jsp">
 						<i class="icon-dashboard"></i>
 						<span>Dashboard</span>
 					</a>	    				
@@ -104,14 +112,14 @@
 				
 				
 				<li>
-					<a href="reports.html">
+					<a href="reports.jsp">
 						<i class="icon-list-alt"></i>
 						<span>Reports</span>
 					</a>    				
 				</li>
 				
 				<li class="active">					
-					<a href="guidely.html">
+					<a href="guidely.jsp">
 						<i class="icon-facetime-video"></i>
 						<span>App Tour</span>
 					</a>  									
@@ -119,7 +127,7 @@
                 
                 
                 <li>					
-					<a href="charts.html">
+					<a href="charts.jsp">
 						<i class="icon-bar-chart"></i>
 						<span>Charts</span>
 					</a>  									
@@ -127,7 +135,7 @@
                 
                 
                 <li>					
-					<a href="shortcodes.html">
+					<a href="shortcodes.jsp">
 						<i class="icon-code"></i>
 						<span>Shortcodes</span>
 					</a>  									
@@ -141,12 +149,12 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                    	<li><a href="icons.html">Icons</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-                        <li><a href="pricing.html">Pricing Plans</a></li>
-                        <li><a href="login.html">Login</a></li>
-						<li><a href="signup.html">Signup</a></li>
-						<li><a href="error.html">404</a></li>
+                    	<li><a href="icons.jsp">Icons</a></li>
+						<li><a href="faq.jsp">FAQ</a></li>
+                        <li><a href="pricing.jsp">Pricing Plans</a></li>
+                        <li><a href="login.jsp">Login</a></li>
+						<li><a href="signup.jsp">Signup</a></li>
+						<li><a href="error.jsp">404</a></li>
                     </ul>    				
 				</li>
 			

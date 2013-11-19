@@ -1,13 +1,20 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
+
 <!DOCTYPE html>
 <html lang="en">
   
-<head>
-    <meta charset="utf-8">
-    <title>Account Upgrade - Bootstrap Admin Template</title>
+ <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<%
+    			HttpSession sesion=request.getSession();
+				String nombre= (String)sesion.getAttribute("NombreCompleto");
+    %>
+    <title>Reports - SEDAPAR <%=nombre %> </title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">    
-    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     
@@ -16,13 +23,13 @@
     
     <link href="css/style.css" rel="stylesheet">
     
-    
-    <link href="css/pages/plans.css" rel="stylesheet"> 
+    <link href="css/pages/reports.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+        
 
   </head>
 
@@ -40,8 +47,8 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
-				Bootstrap Admin Template				
+			<a class="brand" href="index.jsp">
+				SEDAPAR <%=nombre %> 				
 			</a>		
 			
 			<div class="nav-collapse">
@@ -98,7 +105,7 @@
 			<ul class="mainnav">
 			
 				<li>
-					<a href="index.html">
+					<a href="index.jsp">
 						<i class="icon-dashboard"></i>
 						<span>Dashboard</span>
 					</a>	    				
@@ -106,15 +113,15 @@
 				
 				
 				
-				<li>
-					<a href="reports.html">
+				<li class="active">
+					<a href="reports.jsp">
 						<i class="icon-list-alt"></i>
 						<span>Reports</span>
 					</a>    				
 				</li>
 				
 				<li>					
-					<a href="guidely.html">
+					<a href="guidely.jsp">
 						<i class="icon-facetime-video"></i>
 						<span>App Tour</span>
 					</a>  									
@@ -122,7 +129,7 @@
                 
                 
                 <li>					
-					<a href="charts.html">
+					<a href="charts.jsp">
 						<i class="icon-bar-chart"></i>
 						<span>Charts</span>
 					</a>  									
@@ -130,13 +137,13 @@
                 
                 
                 <li>					
-					<a href="shortcodes.html">
+					<a href="shortcodes.jsp">
 						<i class="icon-code"></i>
 						<span>Shortcodes</span>
 					</a>  									
 				</li>
 				
-				<li class="active dropdown">					
+				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-long-arrow-down"></i>
 						<span>Drops</span>
@@ -144,12 +151,12 @@
 					</a>	
 				
 					<ul class="dropdown-menu">
-                    	<li><a href="icons.html">Icons</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-                        <li><a href="pricing.html">Pricing Plans</a></li>
-                        <li><a href="login.html">Login</a></li>
-						<li><a href="signup.html">Signup</a></li>
-						<li><a href="error.html">404</a></li>
+                    	<li><a href="icons.jsp">Icons</a></li>
+						<li><a href="faq.jsp">FAQ</a></li>
+                        <li><a href="pricing.jsp">Pricing Plans</a></li>
+                        <li><a href="login.jsp">Login</a></li>
+						<li><a href="signup.jsp">Signup</a></li>
+						<li><a href="error.jsp">404</a></li>
                     </ul>    				
 				</li>
 			
@@ -161,133 +168,100 @@
 
 </div> <!-- /subnavbar -->
     
+
     
 <div class="main">
 	
 	<div class="main-inner">
 
 	    <div class="container">
+	    	
+	     <div class="row">
+	      	
+	      	<div class="span12">
+	      
+	      	<div class="info-box">
+               <div class="row-fluid stats-box">
+                  <div class="span4">
+                  	<div class="stats-box-title">Vizitor</div>
+                    <div class="stats-box-all-info"><i class="icon-user" style="color:#3366cc;"></i> 555K</div>
+                    <div class="wrap-chart"><div id="visitor-stat" class="chart" style="padding: 0px; position: relative;"><canvas id="bar-chart1" class="chart-holder" height="150" width="325"></canvas></div></div>
+                  </div>
+                  
+                  <div class="span4">
+                    <div class="stats-box-title">Likes</div>
+                    <div class="stats-box-all-info"><i class="icon-thumbs-up"  style="color:#F30"></i> 66.66</div>
+                    <div class="wrap-chart"><div id="order-stat" class="chart" style="padding: 0px; position: relative;"><canvas id="bar-chart2" class="chart-holder" height="150" width="325"></canvas></div></div>
+                  </div>
+                  
+                  <div class="span4">
+                    <div class="stats-box-title">Orders</div>
+                    <div class="stats-box-all-info"><i class="icon-shopping-cart" style="color:#3C3"></i> 15.55</div>
+                    <div class="wrap-chart">
+                    
+                    <div id="user-stat" class="chart" style="padding: 0px; position: relative;"><canvas id="bar-chart3" class="chart-holder" height="150" width="325"></canvas></div>
+                    
+                    </div>
+                  </div>
+               </div>
+               
+               
+             </div>
+               
+               
+         </div>
+         </div>      
+	      	
+	  	  <!-- /row -->
 	
 	      <div class="row">
 	      	
-	      	<div class="span12">
+	      	<div class="span6">
 	      		
 	      		<div class="widget">
 						
 					<div class="widget-header">
-						<i class="icon-th-large"></i>
-						<h3>Choose Your Plan</h3>
+						<i class="icon-star"></i>
+						<h3>Some Stats</h3>
 					</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
-						
-						<div class="pricing-plans plans-3">
-							
-						<div class="plan-container">
-					        <div class="plan">
-						        <div class="plan-header">
-					                
-						        	<div class="plan-title">
-						        		First Agent	        		
-					        		</div> <!-- /plan-title -->
-					                
-						            <div class="plan-price">
-					                	$0<span class="term">For Life</span>
-									</div> <!-- /plan-price -->
-									
-						        </div> <!-- /plan-header -->	        
-						        
-						        <div class="plan-features">
-									<ul>
-										<li><strong>Perfect</strong> for a small company looking to tackle  customer service across email.</li>
-										<li>Easy to upgrade anytime</li>
-										<li>Pay only what you need</li>
-										<li>Chat support</li>
-									</ul>
-								</div> <!-- /plan-features -->
-								
-								<div class="plan-actions">				
-									<a href="javascript:;" class="btn">Signup Now</a>				
-								</div> <!-- /plan-actions -->
-					
-							</div> <!-- /plan -->
-					    </div> <!-- /plan-container -->
-					    
-					    
-					    
-					    <div class="plan-container">
-					        <div class="plan green">
-						        <div class="plan-header">
-					                
-						        	<div class="plan-title">
-						        		Flex Package	        		
-					        		</div> <!-- /plan-title -->
-					                
-						            <div class="plan-price">
-					                	$5<span class="term">Per Agent</span>
-									</div> <!-- /plan-price -->
-									
-						        </div> <!-- /plan-header -->	          
-						        
-						        <div class="plan-features">
-									<ul>					
-										<li><strong>Perfect</strong> for mid size companies with round the clock support </li>
-										<li>Flexible package</li>
-										<li>Email & Chat support</li>
-										<li>Multimedia support</li>
-									</ul>
-								</div> <!-- /plan-features -->
-								
-								<div class="plan-actions">				
-									<a href="javascript:;" class="btn">Signup Now</a>				
-								</div> <!-- /plan-actions -->
-					
-							</div> <!-- /plan -->
-					    </div> <!-- /plan-container -->
-					    
-					    <div class="plan-container">
-					        <div class="plan">
-						        <div class="plan-header">
-					                
-						        	<div class="plan-title">
-						        		Virtual Agent	        		
-					        		</div> <!-- /plan-title -->
-					                
-						            <div class="plan-price">
-					                	$30<span class="term">Per Month</span>
-									</div> <!-- /plan-price -->
-									
-						        </div> <!-- /plan-header -->	       
-						        
-						        <div class="plan-features">
-									<ul>
-										<li><strong>Perfect</strong> for big companies with round the clock support and knwledge base.</li>
-										<li>Easy to setup and use</li>
-										<li>Mobile agent and multimedia support</li>
-										<li>Universal inbox and cases</li>
-									</ul>
-								</div> <!-- /plan-features -->
-								
-								<div class="plan-actions">				
-									<a href="javascript:;" class="btn">Signup Now</a>				
-								</div> <!-- /plan-actions -->
-					
-							</div> <!-- /plan -->
-							
-					    </div> <!-- /plan-container -->
-				
-				
-					</div> <!-- /pricing-plans -->
-						
+						<canvas id="pie-chart" class="chart-holder" height="250" width="538"></canvas>
 					</div> <!-- /widget-content -->
 						
-				</div> <!-- /widget -->					
+				</div> <!-- /widget -->
 				
-		    </div> <!-- /span12 -->     	
+	      		
+	      		
+	      		
+		    </div> <!-- /span6 -->
 	      	
+	      	
+	      	<div class="span6">
+	      		
+	      		<div class="widget">
+							
+					<div class="widget-header">
+						<i class="icon-list-alt"></i>
+						<h3>Another Chart</h3>
+					</div> <!-- /widget-header -->
+					
+					<div class="widget-content">
+						<canvas id="bar-chart" class="chart-holder" height="250" width="538"></canvas>
+					</div> <!-- /widget-content -->
+				
+				</div> <!-- /widget -->
+									
+		      </div> <!-- /span6 -->
 	      	
 	      </div> <!-- /row -->
-	
+	      
+	      
+	      
+	      
+			
+	      
+	      
 	    </div> <!-- /container -->
 	    
 	</div> <!-- /main-inner -->
@@ -295,6 +269,7 @@
 </div> <!-- /main -->
     
 
+    
 
 <div class="extra">
 
@@ -378,13 +353,55 @@
 </div> <!-- /footer -->
     
 
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jquery-1.7.2.min.js"></script>
-
+<script src="js/excanvas.min.js"></script>
+<script src="js/chart.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/base.js"></script>
+<script>
+
+    var pieData = [
+				{
+				    value: 30,
+				    color: "#F38630"
+				},
+				{
+				    value: 50,
+				    color: "#E0E4CC"
+				},
+				{
+				    value: 100,
+				    color: "#69D2E7"
+				}
+
+			];
+
+    var myPie = new Chart(document.getElementById("pie-chart").getContext("2d")).Pie(pieData);
+
+    var barChartData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+				{
+				    fillColor: "rgba(220,220,220,0.5)",
+				    strokeColor: "rgba(220,220,220,1)",
+				    data: [65, 59, 90, 81, 56, 55, 40]
+				},
+				{
+				    fillColor: "rgba(151,187,205,0.5)",
+				    strokeColor: "rgba(151,187,205,1)",
+				    data: [28, 48, 40, 19, 96, 27, 100]
+				}
+			]
+
+    }
+
+    var myLine = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData);
+	var myLine = new Chart(document.getElementById("bar-chart1").getContext("2d")).Bar(barChartData);
+	var myLine = new Chart(document.getElementById("bar-chart2").getContext("2d")).Bar(barChartData);
+	var myLine = new Chart(document.getElementById("bar-chart3").getContext("2d")).Bar(barChartData);
+	
+	</script>
+
 
   </body>
 

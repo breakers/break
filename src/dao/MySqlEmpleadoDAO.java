@@ -38,7 +38,6 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 										rs.getString("usu_emp"), 
 										rs.getString("pass_emp"), 
 										rs.getString("foto_emp"));
-				System.out.println("si hay empleado");
 			}
 			
 			rs.close();

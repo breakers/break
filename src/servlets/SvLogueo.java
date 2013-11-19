@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.EmpleadoDTO;
 
@@ -49,16 +50,13 @@ public class SvLogueo extends HttpServlet {
 		
 		String usu_emp = (String)request.getParameter("usuario");
 		String pass_emp = (String)request.getParameter("password");
-		System.out.println("usu:" +usu_emp + " pass:" +pass_emp);
 		
 		EmpleadoDTO empleado = servicioEmpleado.validarUsuario(usu_emp, pass_emp);
 		
 		if (empleado!=null) {
 			bienvenido(empleado,request,response);
-			System.out.println("yahoo");
 		}else{
 			paginaerror(request,response);
-			System.out.println("i dont understand o.O");
 		}
 		
 	}
@@ -67,7 +65,11 @@ public class SvLogueo extends HttpServlet {
 	private void bienvenido(EmpleadoDTO empleado, HttpServletRequest request,
 			HttpServletResponse response) {
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+		HttpSession sesion = request.getSession();
+		sesion.setAttribute("usuario", empleado.getCod_emp());
+		sesion.setAttribute("NombreCompleto", empleado.getNom_emp()+" "+empleado.getApep_emp());
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 						request.setAttribute("EmpleadoDTO", empleado);
 						try {
 							rd.forward(request, response);
