@@ -9,4 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+	  <servlet-name>logueo</servlet-name>
+	  <servlet-class>servlets.SvLogueo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>logueo</servlet-name>
+	  <url-pattern>/logueo</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -6,14 +6,14 @@ import java.sql.SQLException;
 
 public class MySQL {
 
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			//lys.no-ip.biz
 			 Connection cn = 
 		          DriverManager.getConnection(
-		            "jdbc:mysql://localhost:3306/sedapar",
+		            "jdbc:mysql://localhost:3306/sedapar_lp2",
 		            "root", 
 		            "mysql");
 			 

@@ -2,13 +2,13 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `sedapar` DEFAULT CHARACTER SET utf8 ;
-USE `sedapar` ;
+CREATE SCHEMA IF NOT EXISTS `sedapar_lp2` DEFAULT CHARACTER SET utf8 ;
+USE `sedapar_lp2` ;
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_departamento`
+-- Table `sedapar_lp2`.`tb_departamento`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_departamento` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_departamento` (
   `COD_DEPT` CHAR(4) NOT NULL ,
   `NOM_DEPT` VARCHAR(40) NOT NULL ,
   PRIMARY KEY (`COD_DEPT`) )
@@ -17,24 +17,24 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_provincia`
+-- Table `sedapar_lp2`.`tb_provincia`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_provincia` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_provincia` (
   `COD_DEPT` CHAR(4) NOT NULL ,
   `COD_PROV` CHAR(4) NOT NULL ,
   `NOM_PROV` VARCHAR(40) NOT NULL ,
   PRIMARY KEY (`COD_DEPT`, `COD_PROV`) ,
   CONSTRAINT `tb_provincia_ibfk_1`
     FOREIGN KEY (`COD_DEPT` )
-    REFERENCES `sedapar`.`tb_departamento` (`COD_DEPT` ))
+    REFERENCES `sedapar_lp2`.`tb_departamento` (`COD_DEPT` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_distrito`
+-- Table `sedapar_lp2`.`tb_distrito`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_distrito` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_distrito` (
   `COD_DEPT` CHAR(4) NOT NULL ,
   `COD_PROV` CHAR(4) NOT NULL ,
   `COD_DIST` CHAR(4) NOT NULL ,
@@ -42,15 +42,15 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_distrito` (
   PRIMARY KEY (`COD_DEPT`, `COD_PROV`, `COD_DIST`) ,
   CONSTRAINT `tb_distrito_ibfk_1`
     FOREIGN KEY (`COD_DEPT` , `COD_PROV` )
-    REFERENCES `sedapar`.`tb_provincia` (`COD_DEPT` , `COD_PROV` ))
+    REFERENCES `sedapar_lp2`.`tb_provincia` (`COD_DEPT` , `COD_PROV` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_cliente`
+-- Table `sedapar_lp2`.`tb_cliente`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_cliente` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_cliente` (
   `COD_CLI` CHAR(6) NOT NULL ,
   `NOM_CLI` VARCHAR(30) NULL DEFAULT NULL ,
   `APEP_CLI` VARCHAR(20) NULL DEFAULT NULL ,
@@ -58,7 +58,7 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_cliente` (
   `TELF_CLI` VARCHAR(9) NULL DEFAULT NULL ,
   `CORREOE_CLI` VARCHAR(40) NULL DEFAULT NULL ,
   `DIRECC_CLI` VARCHAR(60) NOT NULL ,
-  `FOTO_CLI` MEDIUMBLOB NULL DEFAULT NULL ,
+  `FOTO_CLI` VARCHAR(250) NULL DEFAULT NULL ,
   `COD_DEPT` CHAR(4) NOT NULL ,
   `COD_PROV` CHAR(4) NOT NULL ,
   `COD_DIST` CHAR(4) NOT NULL ,
@@ -67,15 +67,15 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_cliente` (
   INDEX `COD_DEPT` (`COD_DEPT` ASC, `COD_PROV` ASC, `COD_DIST` ASC) ,
   CONSTRAINT `tb_cliente_ibfk_1`
     FOREIGN KEY (`COD_DEPT` , `COD_PROV` , `COD_DIST` )
-    REFERENCES `sedapar`.`tb_distrito` (`COD_DEPT` , `COD_PROV` , `COD_DIST` ))
+    REFERENCES `sedapar_lp2`.`tb_distrito` (`COD_DEPT` , `COD_PROV` , `COD_DIST` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_tip_pago`
+-- Table `sedapar_lp2`.`tb_tip_pago`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_tip_pago` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_tip_pago` (
   `COD_TIP_PAGO` CHAR(6) NOT NULL ,
   `DESC_TIP_PAGO` VARCHAR(15) NOT NULL ,
   PRIMARY KEY (`COD_TIP_PAGO`) )
@@ -84,9 +84,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_tipo_empleado`
+-- Table `sedapar_lp2`.`tb_tipo_empleado`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_tipo_empleado` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_tipo_empleado` (
   `COD_TIP_EMP` CHAR(6) NOT NULL ,
   `DESC_TIP_EMP` VARCHAR(15) NOT NULL ,
   PRIMARY KEY (`COD_TIP_EMP`) )
@@ -95,9 +95,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_empleado`
+-- Table `sedapar_lp2`.`tb_empleado`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_empleado` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_empleado` (
   `COD_EMP` CHAR(6) NOT NULL ,
   `NOM_EMP` VARCHAR(25) NOT NULL ,
   `APEP_EMP` VARCHAR(15) NOT NULL ,
@@ -106,20 +106,20 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_empleado` (
   `COD_TIP_EMP` CHAR(6) NOT NULL ,
   `USU_EMP` VARCHAR(25) NOT NULL UNIQUE,
   `PASS_EMP` VARCHAR(25) NOT NULL ,
-  `FOTO_EMP` MEDIUMBLOB NULL DEFAULT NULL ,
+  `FOTO_EMP` VARCHAR(250) NULL DEFAULT NULL ,
   PRIMARY KEY (`COD_EMP`) ,
   INDEX `COD_TIP_EMP` (`COD_TIP_EMP` ASC) ,
   CONSTRAINT `tb_empleado_ibfk_1`
     FOREIGN KEY (`COD_TIP_EMP` )
-    REFERENCES `sedapar`.`tb_tipo_empleado` (`COD_TIP_EMP` ))
+    REFERENCES `sedapar_lp2`.`tb_tipo_empleado` (`COD_TIP_EMP` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_tipo_servicio`
+-- Table `sedapar_lp2`.`tb_tipo_servicio`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_tipo_servicio` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_tipo_servicio` (
   `COD_TIP_SER` CHAR(4) NOT NULL ,
   `DESC_TIP_SER` VARCHAR(30) NOT NULL ,
   PRIMARY KEY (`COD_TIP_SER`) )
@@ -128,9 +128,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_tipo_predio`
+-- Table `sedapar_lp2`.`tb_tipo_predio`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_tipo_predio` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_tipo_predio` (
   `COD_TIP_PRE` CHAR(6) NOT NULL ,
   `DESC_TIP_PRE` VARCHAR(40) NOT NULL ,
   `PRECIO_TIP_PRE` DOUBLE NOT NULL ,
@@ -140,9 +140,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_estado_predio`
+-- Table `sedapar_lp2`.`tb_estado_predio`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_estado_predio` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_estado_predio` (
   `COD_EST_PRE` CHAR(6) NOT NULL ,
   `DESC_EST_PRE` VARCHAR(40) NOT NULL ,
   `PRECIO_EST_PRE` DOUBLE NOT NULL ,
@@ -152,9 +152,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_predio`
+-- Table `sedapar_lp2`.`tb_predio`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_predio` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_predio` (
   `COD_PRE` CHAR(6) NOT NULL ,
   `DIR_PRE` VARCHAR(100) NOT NULL ,
   `COD_DEPT` CHAR(4) NOT NULL ,
@@ -170,21 +170,21 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_predio` (
   INDEX `COD_TIP_PRE` (`COD_TIP_PRE` ASC) ,
   CONSTRAINT `tb_predio_ibfk_3`
     FOREIGN KEY (`COD_TIP_PRE` )
-    REFERENCES `sedapar`.`tb_tipo_predio` (`COD_TIP_PRE` ),
+    REFERENCES `sedapar_lp2`.`tb_tipo_predio` (`COD_TIP_PRE` ),
   CONSTRAINT `tb_predio_ibfk_1`
     FOREIGN KEY (`COD_DEPT` , `COD_PROV` , `COD_DIST` )
-    REFERENCES `sedapar`.`tb_distrito` (`COD_DEPT` , `COD_PROV` , `COD_DIST` ),
+    REFERENCES `sedapar_lp2`.`tb_distrito` (`COD_DEPT` , `COD_PROV` , `COD_DIST` ),
   CONSTRAINT `tb_predio_ibfk_2`
     FOREIGN KEY (`COD_EST_PRE` )
-    REFERENCES `sedapar`.`tb_estado_predio` (`COD_EST_PRE` ))
+    REFERENCES `sedapar_lp2`.`tb_estado_predio` (`COD_EST_PRE` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_cuenta`
+-- Table `sedapar_lp2`.`tb_cuenta`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_cuenta` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_cuenta` (
   `COD_CUENTA` CHAR(6) NOT NULL ,
   `COD_CLI` CHAR(6) NOT NULL ,
   `FEC_CUENTA` DATE NOT NULL ,
@@ -196,15 +196,15 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_cuenta` (
   INDEX `COD_EMP` (`COD_EMP` ASC) ,
   CONSTRAINT `tb_solicitud_ibfk_3`
     FOREIGN KEY (`COD_EMP` )
-    REFERENCES `sedapar`.`tb_empleado` (`COD_EMP` )
+    REFERENCES `sedapar_lp2`.`tb_empleado` (`COD_EMP` )
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
   CONSTRAINT `tb_solicitud_ibfk_1`
     FOREIGN KEY (`COD_CLI` )
-    REFERENCES `sedapar`.`tb_cliente` (`COD_CLI` ),
+    REFERENCES `sedapar_lp2`.`tb_cliente` (`COD_CLI` ),
   CONSTRAINT `tb_solicitud_ibfk_2`
     FOREIGN KEY (`COD_PRE` )
-    REFERENCES `sedapar`.`tb_predio` (`COD_PRE` )
+    REFERENCES `sedapar_lp2`.`tb_predio` (`COD_PRE` )
     ON DELETE RESTRICT
     ON UPDATE RESTRICT)
 ENGINE = InnoDB
@@ -212,9 +212,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_contrato`
+-- Table `sedapar_lp2`.`tb_contrato`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_contrato` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_contrato` (
   `COD_CONT` CHAR(6) NOT NULL ,
   `MONTO_CONT` DOUBLE NOT NULL ,
   `COD_TIP_PAGO` CHAR(6) NOT NULL ,
@@ -230,18 +230,18 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_contrato` (
   INDEX `FEC_CONT` (`FEC_CONT` ASC) ,
   CONSTRAINT `tb_contrato_ibfk_2`
     FOREIGN KEY (`COD_TIP_PAGO` )
-    REFERENCES `sedapar`.`tb_tip_pago` (`COD_TIP_PAGO` ),
+    REFERENCES `sedapar_lp2`.`tb_tip_pago` (`COD_TIP_PAGO` ),
   CONSTRAINT `tb_contrato_ibfk_1`
     FOREIGN KEY (`COD_TIP_SER` )
-    REFERENCES `sedapar`.`tb_tipo_servicio` (`COD_TIP_SER` ),
+    REFERENCES `sedapar_lp2`.`tb_tipo_servicio` (`COD_TIP_SER` ),
   CONSTRAINT `tb_contrato_ibfk_3`
     FOREIGN KEY (`COD_CUENTA` )
-    REFERENCES `sedapar`.`tb_cuenta` (`COD_CUENTA` )
+    REFERENCES `sedapar_lp2`.`tb_cuenta` (`COD_CUENTA` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `tb_contrato_ibfk_4`
     FOREIGN KEY (`COD_EMP` )
-    REFERENCES `sedapar`.`tb_empleado` (`COD_EMP` )
+    REFERENCES `sedapar_lp2`.`tb_empleado` (`COD_EMP` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -249,9 +249,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `sedapar`.`tb_cuotas`
+-- Table `sedapar_lp2`.`tb_cuotas`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_cuotas` (
+CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_cuotas` (
   `COD_CONT` CHAR(6) NOT NULL ,
   `NUM_CUOT` INT(11) NOT NULL ,
   `FEC_VEN_CUOT` DATE NOT NULL ,
@@ -260,13 +260,13 @@ CREATE  TABLE IF NOT EXISTS `sedapar`.`tb_cuotas` (
   PRIMARY KEY (`COD_CONT`, `NUM_CUOT`) ,
   CONSTRAINT `tb_cron_cuotas_ibfk_1`
     FOREIGN KEY (`COD_CONT` )
-    REFERENCES `sedapar`.`tb_contrato` (`COD_CONT` )
+    REFERENCES `sedapar_lp2`.`tb_contrato` (`COD_CONT` )
     ON DELETE RESTRICT
     ON UPDATE RESTRICT)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-USE `sedapar` ;
+USE `sedapar_lp2` ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

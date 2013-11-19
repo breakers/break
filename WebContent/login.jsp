@@ -1,8 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   
 <head>
-    <meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Login - Bootstrap Admin Template</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -70,7 +71,7 @@
 	
 	<div class="content clearfix">
 		
-		<form action="#" method="post">
+		<form name="formu" method="post" action="logueo">
 		
 			<h1>Member Login</h1>		
 			
@@ -80,24 +81,26 @@
 				
 				<div class="field">
 					<label for="username">Username</label>
-					<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
+					<input type="text" name="usuario" placeholder="Username" class="login username-field" />
 				</div> <!-- /field -->
 				
 				<div class="field">
 					<label for="password">Password:</label>
-					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
+					<input type="password" name="password" value="" placeholder="Password" class="login password-field"/>
 				</div> <!-- /password -->
 				
 			</div> <!-- /login-fields -->
 			
 			<div class="login-actions">
 				
+				<!--
 				<span class="login-checkbox">
 					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
 					<label class="choice" for="Field">Keep me signed in</label>
 				</span>
+				-->
 									
-				<button class="button btn btn-success btn-large">Sign In</button>
+				<input type="submit" value="Sing In" class="button btn btn-success btn-large">
 				
 			</div> <!-- .actions -->
 			
