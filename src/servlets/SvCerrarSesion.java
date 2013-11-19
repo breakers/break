@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CerrarSesion
+ * Servlet implementation class SvCerrarSesion
  */
-@WebServlet("/CerrarSesion")
-public class CerrarSesion extends HttpServlet {
+@WebServlet("/SvCerrarSesion")
+public class SvCerrarSesion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CerrarSesion() {
+    public SvCerrarSesion() {
         super();
         // TODO Auto-generated constructor stub
     }

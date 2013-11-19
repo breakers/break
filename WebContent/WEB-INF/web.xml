@@ -20,7 +20,7 @@
   
   <servlet>
   	<servlet-name>cerrarSesion</servlet-name>
-  	<servlet-class>servlets.CerrarSesion</servlet-class>
+  	<servlet-class>servlets.SvCerrarSesion</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>cerrarSesion</servlet-name>
