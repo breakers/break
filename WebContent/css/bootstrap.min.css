@@ -1285,7 +1285,7 @@ background-repeat:no-repeat;
 .icon-refresh {
 	background-position: -240px -24px;
 }
-.icon-list-alt {
+.icon-alt {
 	background-position: -264px -24px;
 }
 .icon-lock {
@@ -1366,7 +1366,7 @@ background-repeat:no-repeat;
 .icon-indent-right {
 	background-position: -408px -48px;
 }
-.icon-facetime-video {
+.fa fa-video-camera {
 	background-position: -432px -48px;
 }
 .icon-picture {

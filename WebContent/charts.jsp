@@ -33,19 +33,19 @@
         <div class="navbar-inner">
             <div class="container">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    class="fa fa-bar"></span><span class="fa fa-bar"></span><span class="fa fa-bar"></span>
                 </a><a class="brand" href="index.jsp">SEDAPAR <%=nombre %>  </a>
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-cog"></i> Account <b class="caret"></b></a>
+                            class="fa fa-cog"></i> Account <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="javascript:;">Settings</a></li>
                                 <li><a href="javascript:;">Help</a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i> EGrappler.com <b class="caret"></b></a>
+                            class="fa fa-user"></i> EGrappler.com <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="javascript:;">Profile</a></li>
                                 <li><a href="cerrarsesion">Logout</a></li>
@@ -67,15 +67,15 @@
         <div class="subnavbar-inner">
             <div class="container">
                 <ul class="mainnav">
-                    <li><a href="index.jsp"><i class="icon-dashboard"></i><span>Dashboard</span> </a>
+                    <li><a href="index.jsp"><i class="fa fa-tachometer"></i><span>Dashboard</span> </a>
                     </li>
-                    <li><a href="reports.jsp"><i class="icon-list-alt"></i><span>Reports</span> </a>
+                    <li><a href="reports.jsp"><i class="fa fa-list-alt"></i><span>Reports</span> </a>
                     </li>
-                    <li><a href="guidely.jsp"><i class="icon-facetime-video"></i><span>App Tour</span>
+                    <li><a href="guidely.jsp"><i class="fa fa-video-camera"></i><span>App Tour</span>
                     </a></li>
-                    <li class="active"><a href="charts.jsp"><i class="icon-bar-chart"></i><span>Charts</span> </a>
+                    <li class="active"><a href="charts.jsp"><i class="fa fa-bar-chart-o"></i><span>Charts</span> </a>
                     </li>
-                    <li><a href="shortcodes.jsp"><i class="icon-code"></i><span>Shortcodes</span> </a>
+                    <li><a href="shortcodes.jsp"><i class="fa fa-code"></i><span>Shortcodes</span> </a>
                     </li>
                     <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
@@ -102,7 +102,7 @@
                     <div class="span6">
                         <div class="widget">
                             <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
+                                <i class="fa fa-bar-chart-o"></i>
                                 <h3>
                                     Bar Chart</h3>
                             </div>
@@ -117,7 +117,7 @@
                         <!-- /widget -->
                         <div class="widget">
                             <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
+                                <i class="fa fa-bar-chart-o"></i>
                                 <h3>
                                     Line Chart</h3>
                             </div>
@@ -132,7 +132,7 @@
                         <!-- /widget -->
                         <div class="widget">
                             <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
+                                <i class="fa fa-bar-chart-o"></i>
                                 <h3>
                                     Pie Chart</h3>
                             </div>
@@ -150,7 +150,7 @@
                     <div class="span6">
                         <div class="widget">
                             <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
+                                <i class="fa fa-bar-chart-o"></i>
                                 <h3>
                                     Donut Chart</h3>
                             </div>
@@ -165,7 +165,7 @@
                         <!-- /widget -->
                         <div class="widget">
                             <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
+                                <i class="fa fa-bar-chart-o"></i>
                                 <h3>
                                     A Chart</h3>
                             </div>

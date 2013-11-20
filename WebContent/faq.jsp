@@ -43,9 +43,9 @@
 		<div class="container">
 			
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+				<span class="fa fa-bar"></span>
+				<span class="fa fa-bar"></span>
+				<span class="fa fa-bar"></span>
 			</a>
 			
 			<a class="brand" href="index.jsp">
@@ -56,7 +56,7 @@
 				<ul class="nav pull-right">
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-cog"></i>
+							<i class="fa fa-cog"></i>
 							Account
 							<b class="caret"></b>
 						</a>
@@ -69,7 +69,7 @@
 			
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-user"></i> 
+							<i class="fa fa-user"></i> 
 							EGrappler.com
 							<b class="caret"></b>
 						</a>
@@ -107,7 +107,7 @@
 			
 				<li>
 					<a href="index.jsp">
-						<i class="icon-dashboard"></i>
+						<i class="fa fa-tachometer"></i>
 						<span>Dashboard</span>
 					</a>	    				
 				</li>
@@ -116,14 +116,14 @@
 				
 				<li>
 					<a href="reports.jsp">
-						<i class="icon-list-alt"></i>
+						<i class="fa fa-list-alt"></i>
 						<span>Reports</span>
 					</a>    				
 				</li>
 				
 				<li>					
 					<a href="guidely.jsp">
-						<i class="icon-facetime-video"></i>
+						<i class="fa fa-video-camera"></i>
 						<span>App Tour</span>
 					</a>  									
 				</li>
@@ -131,7 +131,7 @@
                 
                 <li>					
 					<a href="charts.jsp">
-						<i class="icon-bar-chart"></i>
+						<i class="fa fa-bar-chart-o"></i>
 						<span>Charts</span>
 					</a>  									
 				</li>
@@ -139,7 +139,7 @@
                 
                 <li>					
 					<a href="shortcodes.jsp">
-						<i class="icon-code"></i>
+						<i class="fa fa-code"></i>
 						<span>Shortcodes</span>
 					</a>  									
 				</li>

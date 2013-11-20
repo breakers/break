@@ -56,7 +56,7 @@
 				<ul class="nav pull-right">
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-cog"></i>
+							<i class="fa fa-cog"></i>
 							Account
 							<b class="caret"></b>
 						</a>
@@ -69,7 +69,7 @@
 			
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-user"></i> 
+							<i class="fa fa-user"></i> 
 							EGrappler.com
 							<b class="caret"></b>
 						</a>
@@ -107,7 +107,7 @@
 			
 				<li>
 					<a href="index.jsp">
-						<i class="icon-dashboard"></i>
+						<i class="fa fa-tachometer"></i>
 						<span>Dashboard</span>
 					</a>	    				
 				</li>
@@ -116,14 +116,14 @@
 				
 				<li>
 					<a href="reports.jsp">
-						<i class="icon-list-alt"></i>
+						<i class="fa fa-list-alt"></i>
 						<span>Reports</span>
 					</a>    				
 				</li>
 				
 				<li class="active">					
 					<a href="guidely.jsp">
-						<i class="icon-facetime-video"></i>
+						<i class="fa fa-video-camera"></i>
 						<span>App Tour</span>
 					</a>  									
 				</li>
@@ -131,7 +131,7 @@
                 
                 <li>					
 					<a href="charts.jsp">
-						<i class="icon-bar-chart"></i>
+						<i class="fa fa-bar-chart-o"></i>
 						<span>Charts</span>
 					</a>  									
 				</li>
@@ -139,14 +139,14 @@
                 
                 <li>					
 					<a href="shortcodes.jsp">
-						<i class="icon-code"></i>
+						<i class="fa fa-code"></i>
 						<span>Shortcodes</span>
 					</a>  									
 				</li>
 				
 				<li class="  dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
+						<i class="fa fa-long-arrow-down"></i>
 						<span>Drops</span>
 						<b class="caret"></b>
 					</a>	

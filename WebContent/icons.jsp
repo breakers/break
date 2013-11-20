@@ -43,9 +43,9 @@
 		<div class="container">
 			
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+				<span class="fa fa-bar"></span>
+				<span class="fa fa-bar"></span>
+				<span class="fa fa-bar"></span>
 			</a>
 			
 			<a class="brand" href="index.jsp">
@@ -56,7 +56,7 @@
 				<ul class="nav pull-right">
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-cog"></i>
+							<i class="fa fa-cog"></i>
 							Account
 							<b class="caret"></b>
 						</a>
@@ -69,7 +69,7 @@
 			
 					<li class="dropdown">						
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-user"></i> 
+							<i class="fa fa-user"></i> 
 							EGrappler.com
 							<b class="caret"></b>
 						</a>
@@ -107,7 +107,7 @@
 			
 				<li>
 					<a href="index.jsp">
-						<i class="icon-dashboard"></i>
+						<i class="fa fa-tachometer"></i>
 						<span>Dashboard</span>
 					</a>	    				
 				</li>
@@ -116,14 +116,14 @@
 				
 				<li>
 					<a href="reports.jsp">
-						<i class="icon-list-alt"></i>
+						<i class="fa fa-list-alt"></i>
 						<span>Reports</span>
 					</a>    				
 				</li>
 				
 				<li>					
 					<a href="guidely.jsp">
-						<i class="icon-facetime-video"></i>
+						<i class="fa fa-video-camera"></i>
 						<span>App Tour</span>
 					</a>  									
 				</li>
@@ -131,7 +131,7 @@
                 
                 <li>					
 					<a href="charts.jsp">
-						<i class="icon-bar-chart"></i>
+						<i class="fa fa-bar-chart-o"></i>
 						<span>Charts</span>
 					</a>  									
 				</li>
@@ -139,14 +139,14 @@
                 
                 <li>					
 					<a href="shortcodes.jsp">
-						<i class="icon-code"></i>
+						<i class="fa fa-code"></i>
 						<span>Shortcodes</span>
 					</a>  									
 				</li>
 				
 				<li class="active dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-long-arrow-down"></i>
+						<i class="fa fa-long-arrow-down"></i>
 						<span>Drops</span>
 						<b class="caret"></b>
 					</a>	
@@ -179,7 +179,7 @@
     
     <div class="widget">
                             <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
+                                <i class="fa fa-bar-chart-o"></i>
                                 <h3>
                                     Icons</h3>
                             </div>
@@ -189,224 +189,224 @@
                               <div class="span3 ML0">
           <ul>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-glass
-"></i> icon-glass
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-glass
+"></i> fa fa-glass
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-music
-"></i> icon-music
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-music
+"></i> fa fa-music
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-search
-"></i> icon-search
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-search
+"></i> fa fa-search
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-envelope
-"></i> icon-envelope
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-envelope
+"></i> fa fa-envelope
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-heart
-"></i> icon-heart
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-heart
+"></i> fa fa-heart
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-star
-"></i> icon-star
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-star
+"></i> fa fa-star
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-star-empty
-"></i> icon-star-empty
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-star-empty
+"></i> fa fa-star-empty
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-user
-"></i> icon-user
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-user
+"></i> fa fa-user
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-film
-"></i> icon-film
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-film
+"></i> fa fa-film
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-th-large
-"></i> icon-th-large
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-th-large
+"></i> fa fa-th-large
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-th
-"></i> icon-th
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-th
+"></i> fa fa-th
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-th-list
-"></i> icon-th-list
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-th-list
+"></i> fa fa-th-list
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-ok
-"></i> icon-ok
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-ok
+"></i> fa fa-ok
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-remove
-"></i> icon-remove
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-remove
+"></i> fa fa-remove
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-zoom-in
-"></i> icon-zoom-in
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-zoom-in
+"></i> fa fa-zoom-in
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-zoom-out
-"></i> icon-zoom-out
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-zoom-out
+"></i> fa fa-zoom-out
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-off
-"></i> icon-off
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-off
+"></i> fa fa-off
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-signal
-"></i> icon-signal
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-signal
+"></i> fa fa-signal
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-cog
-"></i> icon-cog
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-cog
+"></i> fa fa-cog
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-trash
-"></i> icon-trash
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-trash
+"></i> fa fa-trash
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-home
-"></i> icon-home
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-home
+"></i> fa fa-home
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-file
-"></i> icon-file
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-file
+"></i> fa fa-file
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-time
-"></i> icon-time
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-time
+"></i> fa fa-time
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-road
-"></i> icon-road
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-road
+"></i> fa fa-road
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-download-alt
-"></i> icon-download-alt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-download-alt
+"></i> fa fa-download-alt
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-download
-"></i> icon-download
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-download
+"></i> fa fa-download
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-upload
-"></i> icon-upload
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-upload
+"></i> fa fa-upload
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-inbox
-"></i> icon-inbox
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-inbox
+"></i> fa fa-inbox
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-play-circle
-"></i> icon-play-circle
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-play-circle
+"></i> fa fa-play-circle
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-repeat
-"></i> icon-repeat
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-repeat
+"></i> fa fa-repeat
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-refresh
-"></i> icon-refresh
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-refresh
+"></i> fa fa-refresh
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-list-alt
-"></i> icon-list-alt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-list-alt
+"></i> fa fa-list-alt
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-lock
-"></i> icon-lock
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-lock
+"></i> fa fa-lock
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-flag
-"></i> icon-flag
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-flag
+"></i> fa fa-flag
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-headphones
-"></i> icon-headphones
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-headphones
+"></i> fa fa-headphones
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-volume-off
-"></i> icon-volume-off
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-volume-off
+"></i> fa fa-volume-off
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-volume-down
-"></i> icon-volume-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-volume-down
+"></i> fa fa-volume-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-volume-up
-"></i> icon-volume-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-volume-up
+"></i> fa fa-volume-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-qrcode
-"></i> icon-qrcode
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-qrcode
+"></i> fa fa-qrcode
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-barcode
-"></i> icon-barcode
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-barcode
+"></i> fa fa-barcode
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-tag
-"></i> icon-tag
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-tag
+"></i> fa fa-tag
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-tags
-"></i> icon-tags
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-tags
+"></i> fa fa-tags
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-book
-"></i> icon-book
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-book
+"></i> fa fa-book
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-bookmark
-"></i> icon-bookmark
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-bookmark
+"></i> fa fa-bookmark
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-print
-"></i> icon-print
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-print
+"></i> fa fa-print
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-camera
-"></i> icon-camera
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-camera
+"></i> fa fa-camera
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-font
-"></i> icon-font
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-font
+"></i> fa fa-font
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-bold
-"></i> icon-bold
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-bold
+"></i> fa fa-bold
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-italic
-"></i> icon-italic
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-italic
+"></i> fa fa-italic
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-text-height
-"></i> icon-text-height
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-text-height
+"></i> fa fa-text-height
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-text-width
-"></i> icon-text-width
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-text-width
+"></i> fa fa-text-width
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-align-left
-"></i> icon-align-left
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-align-left
+"></i> fa fa-align-left
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-align-center
-"></i> icon-align-center
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-align-center
+"></i> fa fa-align-center
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-align-right
-"></i> icon-align-right
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-align-right
+"></i> fa fa-align-right
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-align-justify
-"></i> icon-align-justify
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-align-justify
+"></i> fa fa-align-justify
 </li>
             
           </ul>
@@ -415,224 +415,224 @@
         <div class="span3 ML0">
           <ul>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-list
-"></i> icon-list
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-list
+"></i> fa fa-list
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-indent-left
-"></i> icon-indent-left
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-outdent
+"></i> fa fa-outdent
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-indent-right
-"></i> icon-indent-right
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-indent
+"></i> fa fa-indent
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-facetime-video
-"></i> icon-facetime-video
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-video-camera
+"></i> fa fa-video-camera
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-picture
-"></i> icon-picture
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-picture
+"></i> fa fa-picture
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-pencil
-"></i> icon-pencil
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-pencil
+"></i> fa fa-pencil
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-map-marker
-"></i> icon-map-marker
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-map-marker
+"></i> fa fa-map-marker
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-adjust
-"></i> icon-adjust
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-adjust
+"></i> fa fa-adjust
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-tint
-"></i> icon-tint
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-tint
+"></i> fa fa-tint
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-edit
-"></i> icon-edit
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-pencil-square-o
+"></i> fa fa-pencil-square-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-share
-"></i> icon-share
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-share
+"></i> fa fa-share
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-check
-"></i> icon-check
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-check-square-o
+"></i> fa fa-check-square-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-move
-"></i> icon-move
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-move
+"></i> fa fa-move
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-step-backward
-"></i> icon-step-backward
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-step-backward
+"></i> fa fa-step-backward
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-fast-backward
-"></i> icon-fast-backward
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-fast-backward
+"></i> fa fa-fast-backward
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-backward
-"></i> icon-backward
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-backward
+"></i> fa fa-backward
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-play
-"></i> icon-play
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-play
+"></i> fa fa-play
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-pause
-"></i> icon-pause
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-pause
+"></i> fa fa-pause
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-stop
-"></i> icon-stop
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-stop
+"></i> fa fa-stop
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-forward
-"></i> icon-forward
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-forward
+"></i> fa fa-forward
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-fast-forward
-"></i> icon-fast-forward
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-fast-forward
+"></i> fa fa-fast-forward
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-step-forward
-"></i> icon-step-forward
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-step-forward
+"></i> fa fa-step-forward
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-eject
-"></i> icon-eject
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-eject
+"></i> fa fa-eject
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-chevron-left
-"></i> icon-chevron-left
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-chevron-left
+"></i> fa fa-chevron-left
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-chevron-right
-"></i> icon-chevron-right
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-chevron-right
+"></i> fa fa-chevron-right
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-plus-sign
-"></i> icon-plus-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-plus-sign
+"></i> fa fa-plus-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-minus-sign
-"></i> icon-minus-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-minus-sign
+"></i> fa fa-minus-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-remove-sign
-"></i> icon-remove-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-remove-sign
+"></i> fa fa-remove-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-ok-sign
-"></i> icon-ok-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-ok-sign
+"></i> fa fa-ok-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-question-sign
-"></i> icon-question-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-question-sign
+"></i> fa fa-question-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-info-sign
-"></i> icon-info-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-info-circle
+"></i> fa fa-info-circle
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-screenshot
-"></i> icon-screenshot
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-screenshot
+"></i> fa fa-screenshot
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-remove-circle
-"></i> icon-remove-circle
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-remove-circle
+"></i> fa fa-remove-circle
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-ok-circle
-"></i> icon-ok-circle
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-ok-circle
+"></i> fa fa-ok-circle
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-ban-circle
-"></i> icon-ban-circle
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-ban
+"></i> fa fa-ban
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-arrow-left
-"></i> icon-arrow-left
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-left
+"></i> fa fa-arrow-left
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-arrow-right
-"></i> icon-arrow-right
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-right
+"></i> fa fa-arrow-right
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-arrow-up
-"></i> icon-arrow-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-up
+"></i> fa fa-arrow-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-arrow-down
-"></i> icon-arrow-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-down
+"></i> fa fa-arrow-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-share-alt
-"></i> icon-share-alt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-share-alt
+"></i> fa fa-share-alt
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-resize-full
-"></i> icon-resize-full
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-resize-full
+"></i> fa fa-resize-full
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-resize-small
-"></i> icon-resize-small
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-resize-small
+"></i> fa fa-resize-small
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-plus
-"></i> icon-plus
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-plus
+"></i> fa fa-plus
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-minus
-"></i> icon-minus
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-minus
+"></i> fa fa-minus
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-asterisk
-"></i> icon-asterisk
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-asterisk
+"></i> fa fa-asterisk
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-exclamation-sign
-"></i> icon-exclamation-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-exclamation-circle
+"></i> fa fa-exclamation-circle
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-gift
-"></i> icon-gift
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-gift
+"></i> fa fa-gift
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-leaf
-"></i> icon-leaf
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-leaf
+"></i> fa fa-leaf
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-fire
-"></i> icon-fire
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-fire
+"></i> fa fa-fire
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-eye-open
-"></i> icon-eye-open
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-eye
+"></i> fa fa-eye
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-eye-close
-"></i> icon-eye-close
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-eye-slash
+"></i> fa fa-eye-slash
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-warning-sign
-"></i> icon-warning-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-warning-sign
+"></i> fa fa-warning-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-plane
-"></i> icon-plane
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-plane
+"></i> fa fa-plane
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-calendar
-"></i> icon-calendar
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-calendar
+"></i> fa fa-calendar
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-random
-"></i> icon-random
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-random
+"></i> fa fa-random
 </li>
             
           </ul>
@@ -641,224 +641,224 @@
         <div class="span3">
           <ul>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-comment
-"></i> icon-comment
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-comment
+"></i> fa fa-comment
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-magnet
-"></i> icon-magnet
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-magnet
+"></i> fa fa-magnet
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-chevron-up
-"></i> icon-chevron-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-chevron-up
+"></i> fa fa-chevron-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-chevron-down
-"></i> icon-chevron-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-chevron-down
+"></i> fa fa-chevron-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-retweet
-"></i> icon-retweet
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-retweet
+"></i> fa fa-retweet
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-shopping-cart
-"></i> icon-shopping-cart
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-shopping-cart
+"></i> fa fa-shopping-cart
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-folder-close
-"></i> icon-folder-close
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-folder
+"></i> fa fa-folder
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-folder-open
-"></i> icon-folder-open
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-folder-open
+"></i> fa fa-folder-open
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-resize-vertical
-"></i> icon-resize-vertical
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-resize-vertical
+"></i> fa fa-resize-vertical
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-resize-horizontal
-"></i> icon-resize-horizontal
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-resize-horizontal
+"></i> fa fa-resize-horizontal
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-bar-chart
-"></i> icon-bar-chart
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-bar-chart-o
+"></i> fa fa-bar-chart-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-twitter-sign
-"></i> icon-twitter-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-twitter-sign
+"></i> fa fa-twitter-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-facebook-sign
-"></i> icon-facebook-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-facebook-square
+"></i> fa fa-facebook-square
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-camera-retro
-"></i> icon-camera-retro
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-camera-retro
+"></i> fa fa-camera-retro
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-key
-"></i> icon-key
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-key
+"></i> fa fa-key
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-cogs
-"></i> icon-cogs
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-cogs
+"></i> fa fa-cogs
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-comments
-"></i> icon-comments
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-comments
+"></i> fa fa-comments
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-thumbs-up
-"></i> icon-thumbs-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-thumbs-up
+"></i> fa fa-thumbs-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-thumbs-down
-"></i> icon-thumbs-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-thumbs-down
+"></i> fa fa-thumbs-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-star-half
-"></i> icon-star-half
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-star-half
+"></i> fa fa-star-half
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-heart-empty
-"></i> icon-heart-empty
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-heart-o
+"></i> fa fa-heart-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-signout
-"></i> icon-signout
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-signout
+"></i> fa fa-signout
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-linkedin-sign
-"></i> icon-linkedin-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-linkedin-sign
+"></i> fa fa-linkedin-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-pushpin
-"></i> icon-pushpin
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-pushpin
+"></i> fa fa-pushpin
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-external-link
-"></i> icon-external-link
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-external-link
+"></i> fa fa-external-link
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-signin
-"></i> icon-signin
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-signin
+"></i> fa fa-signin
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-trophy
-"></i> icon-trophy
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-trophy
+"></i> fa fa-trophy
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-github-sign
-"></i> icon-github-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-github-square
+"></i> fa fa-github-square
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-upload-alt
-"></i> icon-upload-alt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-upload-alt
+"></i> fa fa-upload-alt
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-lemon
-"></i> icon-lemon
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-lemon-o
+"></i> fa fa-lemon-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-phone
-"></i> icon-phone
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-phone
+"></i> fa fa-phone
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-check-empty
-"></i> icon-check-empty
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-square-o
+"></i> fa fa-square-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-bookmark-empty
-"></i> icon-bookmark-empty
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-bookmark-empty
+"></i> fa fa-bookmark-empty
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-phone-sign
-"></i> icon-phone-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-phone-sign
+"></i> fa fa-phone-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-twitter
-"></i> icon-twitter
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-twitter
+"></i> fa fa-twitter
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-facebook
-"></i> icon-facebook
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-facebook
+"></i> fa fa-facebook
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-github
-"></i> icon-github
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-github
+"></i> fa fa-github
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-unlock
-"></i> icon-unlock
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-unlock
+"></i> fa fa-unlock
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-credit-card
-"></i> icon-credit-card
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-credit-card
+"></i> fa fa-credit-card
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-rss
-"></i> icon-rss
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-rss
+"></i> fa fa-rss
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-hdd
-"></i> icon-hdd
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-hdd-o
+"></i> fa fa-hdd-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-bullhorn
-"></i> icon-bullhorn
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-bullhorn
+"></i> fa fa-bullhorn
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-bell
-"></i> icon-bell
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-bell
+"></i> fa fa-bell
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-certificate
-"></i> icon-certificate
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-certificate
+"></i> fa fa-certificate
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-hand-right
-"></i> icon-hand-right
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-hand-o-right
+"></i> fa fa-hand-o-right
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-hand-left
-"></i> icon-hand-left
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-hand-o-left
+"></i> fa fa-hand-o-left
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-hand-up
-"></i> icon-hand-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-hand-o-up
+"></i> fa fa-hand-o-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-hand-down
-"></i> icon-hand-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-hand-o-down
+"></i> fa fa-hand-o-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-circle-arrow-left
-"></i> icon-circle-arrow-left
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-circle-left
+"></i> fa fa-arrow-circle-left
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-circle-arrow-right
-"></i> icon-circle-arrow-right
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-circle-right
+"></i> fa fa-arrow-circle-right
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-circle-arrow-up
-"></i> icon-circle-arrow-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-circle-up
+"></i> fa fa-arrow-circle-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-circle-arrow-down
-"></i> icon-circle-arrow-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrow-circle-down
+"></i> fa fa-arrow-circle-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-globe
-"></i> icon-globe
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-globe
+"></i> fa fa-globe
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-wrench
-"></i> icon-wrench
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-wrench
+"></i> fa fa-wrench
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-tasks
-"></i> icon-tasks
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-tasks
+"></i> fa fa-tasks
 </li>
             
           </ul>
@@ -867,184 +867,184 @@
         <div class="span3 MR0">
           <ul>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-filter
-"></i> icon-filter
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-filter
+"></i> fa fa-filter
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-briefcase
-"></i> icon-briefcase
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-briefcase
+"></i> fa fa-briefcase
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-fullscreen
-"></i> icon-fullscreen
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-arrows-alt
+"></i> fa fa-arrows-alt
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-group
-"></i> icon-group
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-users
+"></i> fa fa-users
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-link
-"></i> icon-link
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-link
+"></i> fa fa-link
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-cloud
-"></i> icon-cloud
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-cloud
+"></i> fa fa-cloud
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-beaker
-"></i> icon-beaker
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-flask
+"></i> fa fa-flask
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-cut
-"></i> icon-cut
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-scissors
+"></i> fa fa-scissors
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-copy
-"></i> icon-copy
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-files-o
+"></i> fa fa-files-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-paper-clip
-"></i> icon-paper-clip
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-paper-clip
+"></i> fa fa-paper-clip
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-save
-"></i> icon-save
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-save
+"></i> fa fa-save
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-sign-blank
-"></i> icon-sign-blank
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-sign-blank
+"></i> fa fa-sign-blank
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-reorder
-"></i> icon-reorder
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-reorder
+"></i> fa fa-reorder
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-list-ul
-"></i> icon-list-ul
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-list-ul
+"></i> fa fa-list-ul
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-list-ol
-"></i> icon-list-ol
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-list-ol
+"></i> fa fa-list-ol
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-strikethrough
-"></i> icon-strikethrough
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-strikethrough
+"></i> fa fa-strikethrough
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-underline
-"></i> icon-underline
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-underline
+"></i> fa fa-underline
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-table
-"></i> icon-table
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-table
+"></i> fa fa-table
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-magic
-"></i> icon-magic
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-magic
+"></i> fa fa-magic
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-truck
-"></i> icon-truck
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-truck
+"></i> fa fa-truck
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-pinterest
-"></i> icon-pinterest
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-pinterest
+"></i> fa fa-pinterest
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-pinterest-sign
-"></i> icon-pinterest-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-pinterest-sign
+"></i> fa fa-pinterest-sign
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-google-plus-sign
-"></i> icon-google-plus-sign
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-google-plus-square
+"></i> fa fa-google-plus-square
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-google-plus
-"></i> icon-google-plus
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-google-plus
+"></i> fa fa-google-plus
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-money
-"></i> icon-money
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-money
+"></i> fa fa-money
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-caret-down
-"></i> icon-caret-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-caret-down
+"></i> fa fa-caret-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-caret-up
-"></i> icon-caret-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-caret-up
+"></i> fa fa-caret-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-caret-left
-"></i> icon-caret-left
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-caret-left
+"></i> fa fa-caret-left
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-caret-right
-"></i> icon-caret-right
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-caret-right
+"></i> fa fa-caret-right
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-columns
-"></i> icon-columns
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-columns
+"></i> fa fa-columns
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-sort
-"></i> icon-sort
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-sort
+"></i> fa fa-sort
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-sort-down
-"></i> icon-sort-down
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-sort-down
+"></i> fa fa-sort-down
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-sort-up
-"></i> icon-sort-up
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-sort-up
+"></i> fa fa-sort-up
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-envelope-alt
-"></i> icon-envelope-alt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-envelope-o
+"></i> fa fa-envelope-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-linkedin
-"></i> icon-linkedin
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-linkedin
+"></i> fa fa-linkedin
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-undo
-"></i> icon-undo
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-undo
+"></i> fa fa-undo
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-legal
-"></i> icon-legal
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-gavel
+"></i> fa fa-gavel
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-dashboard
-"></i> icon-dashboard
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-tachometer
+"></i> fa fa-tachometer
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-comment-alt
-"></i> icon-comment-alt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-comment-o
+"></i> fa fa-comment-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-comments-alt
-"></i> icon-comments-alt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-comments-o
+"></i> fa fa-comments-o
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-bolt
-"></i> icon-bolt
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-bolt
+"></i> fa fa-bolt
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-sitemap
-"></i> icon-sitemap
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-sitemap
+"></i> fa fa-sitemap
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-umbrella
-"></i> icon-umbrella
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-umbrella
+"></i> fa fa-umbrella
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-paste
-"></i> icon-paste
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-paste
+"></i> fa fa-paste
 </li>
             
-                <li style="line-height: 32px;"><i class="icon-large icon-user-md
-"></i> icon-user-md
+                <li style="line-height: 32px;"><i class="fa-lg fa fa-user-md
+"></i> fa fa-user-md
 </li>
             
           </ul>
