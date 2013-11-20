@@ -72,7 +72,7 @@
 			<div class="container">
 				<ul class="mainnav">
 					<li class="active"><a href="index.jsp"><i
-							class="fa fa-tachometer"></i><span>Dashboard</span> </a></li>
+							class="icon-dashboard"></i><span>Dashboard</span> </a></li>
 					<li><a href="reports.jsp"><i class="icon-list-alt"></i><span>Reports</span>
 					</a></li>
 					<li><a href="guidely.jsp"><i class="icon-facetime-video"></i><span>App
@@ -184,11 +184,11 @@
 														<ul class="dropdown-menu " role="menu"
 															aria-labelledby="dLabel">
 															<li><a href="#"><i
-																	class=" icon-share-alt fa-lg"></i> Reply</a></li>
+																	class=" icon-share-alt icon-large"></i> Reply</a></li>
 															<li><a href="#"><i
-																	class=" icon-trash fa-lg"></i> Delete</a></li>
+																	class=" icon-trash icon-large"></i> Delete</a></li>
 															<li><a href="#"><i
-																	class=" icon-share fa-lg"></i> Share</a></li>
+																	class=" icon-share icon-large"></i> Share</a></li>
 														</ul>
 													</div>
 												</div>
@@ -215,11 +215,11 @@
 														<ul class="dropdown-menu " role="menu"
 															aria-labelledby="dLabel">
 															<li><a href="#"><i
-																	class=" icon-share-alt fa-lg"></i> Reply</a></li>
+																	class=" icon-share-alt icon-large"></i> Reply</a></li>
 															<li><a href="#"><i
-																	class=" icon-trash fa-lg"></i> Delete</a></li>
+																	class=" icon-trash icon-large"></i> Delete</a></li>
 															<li><a href="#"><i
-																	class=" icon-share fa-lg"></i> Share</a></li>
+																	class=" icon-share icon-large"></i> Share</a></li>
 														</ul>
 													</div>
 												</div>
@@ -246,11 +246,11 @@
 														<ul class="dropdown-menu " role="menu"
 															aria-labelledby="dLabel">
 															<li><a href="#"><i
-																	class=" icon-share-alt fa-lg"></i> Reply</a></li>
+																	class=" icon-share-alt icon-large"></i> Reply</a></li>
 															<li><a href="#"><i
-																	class=" icon-trash fa-lg"></i> Delete</a></li>
+																	class=" icon-trash icon-large"></i> Delete</a></li>
 															<li><a href="#"><i
-																	class=" icon-share fa-lg"></i> Share</a></li>
+																	class=" icon-share icon-large"></i> Share</a></li>
 														</ul>
 													</div>
 												</div>
@@ -276,11 +276,11 @@
 														<ul class="dropdown-menu " role="menu"
 															aria-labelledby="dLabel">
 															<li><a href="#"><i
-																	class=" icon-share-alt fa-lg"></i> Reply</a></li>
+																	class=" icon-share-alt icon-large"></i> Reply</a></li>
 															<li><a href="#"><i
-																	class=" icon-trash fa-lg"></i> Delete</a></li>
+																	class=" icon-trash icon-large"></i> Delete</a></li>
 															<li><a href="#"><i
-																	class=" icon-share fa-lg"></i> Share</a></li>
+																	class=" icon-share icon-large"></i> Share</a></li>
 														</ul>
 													</div>
 												</div>

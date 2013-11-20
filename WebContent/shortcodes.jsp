@@ -109,7 +109,7 @@
 			
 				<li>
 					<a href="index.jsp">
-						<i class="fa fa-tachometer"></i>
+						<i class="icon-dashboard"></i>
 						<span>Dashboard</span>
 					</a>	    				
 				</li>
