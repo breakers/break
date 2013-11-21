@@ -7,13 +7,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<%
-    			HttpSession sesion=request.getSession();
+    			/*HttpSession sesion=request.getSession();
 				String nombre= (String)sesion.getAttribute("NombreCompleto");
 				if(nombre==null){
 					response.sendRedirect("login.jsp");
-				}
+				}*/
     %>
-    <title>404 - SEDAPAR <%=nombre %> </title>
+    <title>404 - SEDAPAR <%/*=nombre */%> </title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes"> 
@@ -44,7 +44,7 @@
 			</a>
 			
 			<a class="brand" href="index.jsp">
-				SEDAPAR <%=nombre %> 				
+				SEDAPAR <%/*=nombre*/ %> 				
 			</a>		
 			
 			<div class="nav-collapse">

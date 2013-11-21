@@ -83,7 +83,7 @@ public class SvLogueo extends HttpServlet {
 	private void paginaerror(HttpServletRequest request,
 			HttpServletResponse response) {
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/error.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 		request.setAttribute("msj", "Datos incorrectos, pruebe nuevamente");
 		try {
 			rd.forward(request, response);

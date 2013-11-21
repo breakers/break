@@ -124,7 +124,12 @@
 <script src="js/bootstrap.js"></script>
 
 <script src="js/signin.js"></script>
-
+<%
+				String msj= (String)request.getAttribute("msj");
+				if(msj!=null){
+					response.sendRedirect("login.jsp");
+				}
+    %>
 </body>
 
 </html>
