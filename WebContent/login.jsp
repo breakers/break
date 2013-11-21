@@ -74,7 +74,7 @@
 		
 		<form name="formu" method="post" action="logueo" >
 		
-			<h1>Ingreso a la Intranet</h1>		
+			<img src="img/login/intranet_logo.png">	
 			<br>
 			<div class="login-fields">
 				
