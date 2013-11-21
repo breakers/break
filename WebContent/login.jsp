@@ -22,7 +22,7 @@
 </head>
 
 <body>
-	
+	<div class="page-wrap">
 	<div class="navbar navbar-fixed-top">
 	
 	<div class="navbar-inner">
@@ -72,28 +72,28 @@
 	
 	<div class="content clearfix">
 		
-		<form name="formu" method="post" action="logueo">
+		<form name="formu" method="post" action="logueo" >
 		
-			<h1>Member Login</h1>		
-			
+			<h1>Ingreso a la Intranet</h1>		
+			<br>
 			<div class="login-fields">
 				
-				<p>Please provide your details</p>
+				<!-- <p>Please provide your details</p> -->
 				
 				<div class="field">
 					<label for="username">Username</label>
-					<input type="text" name="usuario" placeholder="Username" class="login username-field" />
+					<input type="text" name="usuario" placeholder="Usuario" class="login username-field" />
 				</div> <!-- /field -->
 				
 				<div class="field">
 					<label for="password">Password:</label>
-					<input type="password" name="password" value="" placeholder="Password" class="login password-field"/>
+					<input type="password" name="password" value="" placeholder="Contraseña" class="login password-field"/>
 				</div> <!-- /password -->
-				
+				<p style="font-size:smaller;">Ingresa tu usuario y contraseña.<br>
+					Luego da clic en "Entrar" o presione "Enter".</p>
 			</div> <!-- /login-fields -->
 			
-			<div class="login-actions">
-				
+			<div class="login-actions">				
 				<!--
 				<span class="login-checkbox">
 					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
@@ -101,23 +101,19 @@
 				</span>
 				-->
 									
-				<input type="submit" value="Sing In" class="button btn btn-success btn-large">
-				
-			</div> <!-- .actions -->
-			
-			
+				<input type="submit" value="Entrar" class="button btn btn-success btn-large">
+					<div class="login-extra">
+						<a href="#">¿Olvidaste tu clave?</a>
+					</div> <!-- /login-extra -->
+			</div> <!-- .actions -->		
 			
 		</form>
 		
 	</div> <!-- /content -->
-	
+		
 </div> <!-- /account-container -->
 
 
-
-<div class="login-extra">
-	<a href="#">Reset Password</a>
-</div> <!-- /login-extra -->
 
 
 <script src="js/jquery-1.7.2.min.js"></script>
@@ -147,7 +143,10 @@ if(usu!=null){%>
  }	 
  %>  
     
-    
+    </div>
+    <div class="footer-inner" style="font-size:12px;">
+			    BREAKERS ©. 2013. Todos los Derechos reservados
+			</div>
 </body>
 
 </html>

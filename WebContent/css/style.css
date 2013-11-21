@@ -313,11 +313,16 @@ textarea {
 }
 
 .footer-inner {
-	padding: 15px 0;
-	
+	padding: 8px 0;
+		
 	font-size: 12px;
-	background: #111;
-	color: #999;
+	background: #DCDCDC;
+	color: #111;
+	
+	width: 100%;
+	height: 17px;
+	margin: -40px auto 0;
+	
 }
 
 .footer a {
@@ -329,6 +334,26 @@ textarea {
 	text-decoration: none;
 }
 
+/*
+	* MARGEN TAMAÑO 100% PARA UBICAR EL FOOTER AL ÚLTIMO DE LA PÁGINA
+*/
+
+.page-wrap{
+margin: auto;
+height: auto;
+min-height:100%;
+}
+ 
+.page-wrap:after{
+width: 100%;
+height:150px;
+display:block;
+clear:both;
+}
+
+html,body{
+height:100%;
+}
 
 /*------------------------------------------------------------------
 [6. Widget / .widget]
