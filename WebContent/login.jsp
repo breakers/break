@@ -7,9 +7,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Login - SEDAPAR</title>
 
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes"> 
-    
+    <meta name="apple-mobile-web-app-capable" content="yes">     
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 
@@ -122,14 +122,32 @@
 
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/bootstrap.js"></script>
-
+<script src="js/bootbox.js"></script>
 <script src="js/signin.js"></script>
+
+
+<script type="text/javascript">
 <%
-				String msj= (String)request.getAttribute("msj");
-				if(msj!=null){
-					response.sendRedirect("login.jsp");
-				}
-    %>
+String usu= (String)request.getAttribute("UsuarioInvalido");
+if(usu!=null){%>
+	bootbox.alert("Usuario o Contraseña incorrectos. Intente nuevamente por favor.",function(){
+		location.href="login.jsp";
+	});
+	
+		
+<%	
+}
+%>
+</script>
+
+ <%
+ String sesioncerrada =(String)request.getAttribute("sesioncerrada");
+ if(sesioncerrada!=null){
+	 response.sendRedirect("login.jsp");
+ }	 
+ %>  
+    
+    
 </body>
 
 </html>

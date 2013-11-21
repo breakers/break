@@ -84,7 +84,7 @@ public class SvLogueo extends HttpServlet {
 			HttpServletResponse response) {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-		request.setAttribute("msj", "Datos incorrectos, pruebe nuevamente");
+		request.setAttribute("UsuarioInvalido", "Datos incorrectos, pruebe nuevamente");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException e) {
