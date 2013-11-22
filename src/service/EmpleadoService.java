@@ -33,7 +33,9 @@ public class EmpleadoService {
 		return objEmpleadoDAO.buscarPorId(cod_emp);
 	}
 	
-	
+	public EmpleadoDTO validarSoloUsuario(String usu_emp) {
+		return objEmpleadoDAO.validarSoloUsuario(usu_emp);
+	}
 	
 	
 }

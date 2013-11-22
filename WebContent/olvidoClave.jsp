@@ -5,7 +5,7 @@
   
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login - SEDAPAR</title>
+    <title>Cambiar contraseña - SEDAPAR</title>
 
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -72,9 +72,9 @@
 	
 	<div class="content clearfix">
 		
-		<form name="formu" method="post" action="logueo" >
+		<form name="formu" method="get" action="logueo" >
 		
-			<img src="img/login/intranet_logo.png">	
+			<h2>¿Olvidó su Clave?</h2>
 			<br>
 			<div class="login-fields">
 				
@@ -85,12 +85,7 @@
 					<input type="text" name="usuario" placeholder="Usuario" class="login username-field" />
 				</div> <!-- /field -->
 				
-				<div class="field">
-					<label for="password">Password:</label>
-					<input type="password" name="password" value="" placeholder="Contraseña" class="login password-field"/>
-				</div> <!-- /password -->
-				<p style="font-size:smaller;">Ingresa tu usuario y contraseña.<br>
-					Luego da clic en "Entrar" o presione "Enter".</p>
+				<p style="font-size:smaller;">Si olvidaste tu clave digita tu usuario y pulsa continuar.</p>
 			</div> <!-- /login-fields -->
 			
 			<div class="login-actions">				
@@ -100,11 +95,12 @@
 					<label class="choice" for="Field">Keep me signed in</label>
 				</span>
 				-->
-									
-				<input type="submit" value="Entrar" class="button btn btn-success btn-large">
-					<div class="login-extra">
-						<a href="olvidoClave.jsp">¿Olvidaste tu clave?</a>
-					</div> <!-- /login-extra -->
+				<table align="right">				
+				<tr>
+					<td><input type="submit" value="Continuar" class="button btn btn-success btn-large"></td>
+					<td><input type="button" value="Cancelar" class="button btn btn-success btn-large" onclick="cancelarCambioClave()"></td>
+					</tr></table>	
+					
 			</div> <!-- .actions -->		
 			
 		</form>
@@ -123,11 +119,22 @@
 
 
 <script type="text/javascript">
+function cancelarCambioClave(){
+	bootbox.confirm("Seguro que desea cancelar la operación?","No","Si",function(confirmed){
+		if(confirmed){
+			location.href="login.jsp";
+		}
+	});
+}
+</script>
+
+
+<script type="text/javascript">
 <%
 String usu= (String)request.getAttribute("UsuarioInvalido");
 if(usu!=null){%>
-	bootbox.alert("Usuario o Contraseña incorrectos. Intente nuevamente por favor.",function(){
-		location.href="login.jsp";
+	bootbox.alert("Usuario incorrecto. Intente nuevamente por favor.",function(){
+		location.href="olvidoClave.jsp";
 	});
 	
 		

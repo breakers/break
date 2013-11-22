@@ -32,7 +32,7 @@ public class SvLogueo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Logueo(request, response);
+		ValidarSoloUsuario(request, response);
 	}
 
 	/**
@@ -94,6 +94,35 @@ public class SvLogueo extends HttpServlet {
 		}
 		
 	}
-
+	
+	private void ValidarSoloUsuario(HttpServletRequest request, HttpServletResponse response) {
+		String usu_emp = request.getParameter("usuario");
+		
+		EmpleadoDTO empleado = servicioEmpleado.validarSoloUsuario(usu_emp);
+		
+		if (empleado!=null) {
+			RequestDispatcher rd = request.getRequestDispatcher("/confirmarIdentidad.jsp");
+			
+			request.setAttribute("empleado", empleado);
+			try {
+				rd.forward(request, response);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else{
+			RequestDispatcher rd = request.getRequestDispatcher("/olvidoClave.jsp");
+			request.setAttribute("UsuarioInvalido", "Datos incorrectos, pruebe nuevamente");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 
 }

@@ -16,6 +16,6 @@ public interface EmpleadoDAO {
 	
 	public EmpleadoDTO buscarPorId(String cod_emp);
 	
-	
+	public EmpleadoDTO validarSoloUsuario(String usu_emp);
 	
 }

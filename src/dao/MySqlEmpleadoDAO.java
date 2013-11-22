@@ -79,6 +79,46 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 		return null;
 	}
 
+	@Override
+	public EmpleadoDTO validarSoloUsuario(String usu_emp) {
+		EmpleadoDTO emp = null;
+		Connection cn = MySQL.getConnection(); 
+		
+		String sql = "SELECT * FROM tb_empleado WHERE usu_emp = ?";
+		
+		try {
+			PreparedStatement ps = cn.prepareStatement(sql);
+			ps.setString(1, usu_emp);
+			
+			ResultSet rs=ps.executeQuery();
+			
+			if (rs.next()) {
+				emp = new EmpleadoDTO(	rs.getString("cod_emp"),
+										rs.getString("nom_emp"), 
+										rs.getString("apep_emp"), 
+										rs.getString("apem_emp"), 
+										rs.getString("dni_emp"), 
+										rs.getString("cod_tip_emp"), 
+										rs.getString("usu_emp"), 
+										rs.getString("pass_emp"), 
+										rs.getString("foto_emp"));
+			}
+			
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return emp;
+	}
+
 
 
 }
