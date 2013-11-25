@@ -142,7 +142,7 @@ if(request.getAttribute("empleado") != null){
 					</tr>
 					<tr>															
 						<td align="right">Respuesta secreta:&emsp;</td>
-						<td><input type="text" name="respuesta" style="width: 100px;height: 6px" readonly="readonly"/></td>
+						<td><input type="text" name="respuesta" style="width: 100px;height: 6px" /></td>
 					</tr> 
 				</table>
 				<br>
