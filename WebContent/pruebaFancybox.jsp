@@ -30,7 +30,7 @@
 
 </head>
 <body>
-<a class="fancybox" href="img/popup/80anios.jpg" data-fancybox-group="gallery" title="Prueba para Home Pop-Up Proyecto SEDAPAR"></a>
+<a class="fancybox" href="http://www.presidentobamagames.com/inkagames/obama_potter.swf" data-fancybox-group="gallery" title="Prueba para Home Pop-Up Proyecto SEDAPAR, mientras diviertanse con OBAMA POTTER, lol" type="swf"></a>
 Es una idea para poner una presentación del grupo del proyecto como un pop-up en el home de SEDAPAR
 </body>
 </html>
