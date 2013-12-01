@@ -1,9 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- saved from url=(0041) -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<%
+    			HttpSession sesion=request.getSession();
+				String nombre= (String)sesion.getAttribute("NombreCompleto");
+				
+				if(nombre==null){
+					response.sendRedirect("login.jsp");
+				}
+    %>
 		<meta charset="utf-8">
-		<title>contenido - Felix Apaza</title>
+		<title>Contenido - <%=nombre %></title>
 
 		<meta name="description" content="overview &amp; stats">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +57,7 @@
 		<![endif]-->
 	<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
 
-	<body class="navbar-fixed breadcrumbs-fixed" style="">
+	<body class="navbar-fixed breadcrumbs-fixed skin-1" style="">
 		<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 			<script type="text/javascript">
 				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -276,10 +286,10 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="img/users/user1.jpg" alt="Jason&#39;s Photo">
+								<img class="nav-user-photo" src="img/users/u000001.jpg" alt="Jason&#39;s Photo">
 								<span class="user-info">
 									<small>Welcome,</small>
-									Felix
+									<%=nombre %>
 								</span>
 
 								<i class="icon-caret-down"></i>
@@ -303,7 +313,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="#">
+									<a href="cerrarsesion">
 										<i class="icon-off"></i>
 										Logout
 									</a>
@@ -385,35 +395,35 @@
 
 							<ul class="submenu">
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/elements.html">
+									<a href="#elements.html">
 										<i class="icon-double-angle-right"></i>
 										Elements
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/buttons.html">
+									<a href="#buttons.html">
 										<i class="icon-double-angle-right"></i>
 										Buttons &amp; Icons
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/treeview.html">
+									<a href="#treeview.html">
 										<i class="icon-double-angle-right"></i>
 										Treeview
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/jquery-ui.html">
+									<a href="#jquery-ui.html">
 										<i class="icon-double-angle-right"></i>
 										jQuery UI
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/nestable-list.html">
+									<a href="#nestable-list.html">
 										<i class="icon-double-angle-right"></i>
 										Nestable Lists
 									</a>
@@ -474,14 +484,14 @@
 
 							<ul class="submenu">
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/tables.html">
+									<a href="#tables.html">
 										<i class="icon-double-angle-right"></i>
 										Simple &amp; Dynamic
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/jqgrid.html">
+									<a href="#jqgrid.html">
 										<i class="icon-double-angle-right"></i>
 										jqGrid plugin
 									</a>
@@ -499,28 +509,28 @@
 
 							<ul class="submenu">
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/form-elements.html">
+									<a href="#form-elements.html">
 										<i class="icon-double-angle-right"></i>
 										Form Elements
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/form-wizard.html">
+									<a href="#form-wizard.html">
 										<i class="icon-double-angle-right"></i>
 										Wizard &amp; Validation
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/wysiwyg.html">
+									<a href="#wysiwyg.html">
 										<i class="icon-double-angle-right"></i>
 										Wysiwyg &amp; Markdown
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/dropzone.html">
+									<a href="#dropzone.html">
 										<i class="icon-double-angle-right"></i>
 										Dropzone File Upload
 									</a>
@@ -529,14 +539,14 @@
 						</li>
 
 						<li>
-							<a href="http://192.69.216.111/themes/preview/ace/widgets.html">
+							<a href="#widgets.html">
 								<i class="icon-list-alt"></i>
 								<span class="menu-text"> Widgets </span>
 							</a>
 						</li>
 
 						<li>
-							<a href="http://192.69.216.111/themes/preview/ace/calendar.html">
+							<a href="#calendar.html">
 								<i class="icon-calendar"></i>
 
 								<span class="menu-text">
@@ -549,7 +559,7 @@
 						</li>
 
 						<li>
-							<a href="http://192.69.216.111/themes/preview/ace/gallery.html">
+							<a href="#gallery.html">
 								<i class="icon-picture"></i>
 								<span class="menu-text"> Gallery </span>
 							</a>
@@ -565,42 +575,42 @@
 
 							<ul class="submenu">
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/profile.html">
+									<a href="#profile.html">
 										<i class="icon-double-angle-right"></i>
 										User Profile
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/inbox.html">
+									<a href="#inbox.html">
 										<i class="icon-double-angle-right"></i>
 										Inbox
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/pricing.html">
+									<a href="#pricing.html">
 										<i class="icon-double-angle-right"></i>
 										Pricing Tables
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/invoice.html">
+									<a href="#invoice.html">
 										<i class="icon-double-angle-right"></i>
 										Invoice
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/timeline.html">
+									<a href="#timeline.html">
 										<i class="icon-double-angle-right"></i>
 										Timeline
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/login.html">
+									<a href="#login.html">
 										<i class="icon-double-angle-right"></i>
 										Login &amp; Register
 									</a>
@@ -622,35 +632,35 @@
 
 							<ul class="submenu">
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/faq.html">
+									<a href="#faq.html">
 										<i class="icon-double-angle-right"></i>
 										FAQ
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/error-404.html">
+									<a href="#error-404.html">
 										<i class="icon-double-angle-right"></i>
 										Error 404
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/error-500.html">
+									<a href="#error-500.html">
 										<i class="icon-double-angle-right"></i>
 										Error 500
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/grid.html">
+									<a href="#grid.html">
 										<i class="icon-double-angle-right"></i>
 										Grid
 									</a>
 								</li>
 
 								<li>
-									<a href="http://192.69.216.111/themes/preview/ace/blank.html">
+									<a href="#blank.html">
 										<i class="icon-double-angle-right"></i>
 										Blank Page
 									</a>

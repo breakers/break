@@ -341,7 +341,7 @@ INSERT INTO TB_DISTRITO VALUES ('DT01', 'PR01', 'DI05', 'San Isidro');
 
 -- provincias de Arequipa
 INSERT INTO TB_PROVINCIA VALUES('DT03','PR01','Arequipa');
-INSERT INTO TB_PROVINCIA VALUES('DT03','PR02','Camaná');
+INSERT INTO TB_PROVINCIA VALUES('DT03','PR02','CamanÃ¡');
 INSERT INTO TB_PROVINCIA VALUES('DT03','PR03','Caraveli');
 INSERT INTO TB_PROVINCIA VALUES('DT03','PR04','Castilla');
 INSERT INTO TB_PROVINCIA VALUES('DT03','PR05','Caylloma');
@@ -364,7 +364,7 @@ INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI10','Mollebaya');
 INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI11','Paucarpata');
 INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI12','Pocsi');
 INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI13','Polobaya');
-INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI14','Quequeña');
+INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI14','QuequeÃ±a');
 INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI15','Sabandia');
 INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI16','Sachaca');
 INSERT INTO TB_DISTRITO VALUES('DT03','PR01','DI17','San Juan de Siguas');
@@ -392,70 +392,70 @@ INSERT INTO TB_DISTRITO VALUES('DT05', 'PR06', 'DI07', 'Tarucachi');
 INSERT INTO TB_DISTRITO VALUES('DT05', 'PR06', 'DI08', 'Ticaco');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI001','Juan','Perez','Camacho','1234567','jperez@gmail.com',
-'Av. Angamos N° 201',NULL, 'DT01', 'PR01', 'DI01', '99999998');
+'Av. Angamos NÂ° 201',NULL, 'DT01', 'PR01', 'DI01', '99999998');
 INSERT INTO TB_CLIENTE VALUES ('CLI002','Jorge','Ramos','Alvarez','1234567','jramos@gmail.com',
-'Av. Larco N° 150',NULL, 'DT01', 'PR01', 'DI01','99999997');
+'Av. Larco NÂ° 150',NULL, 'DT01', 'PR01', 'DI01','99999997');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI003','Eduardo','Arguedas','Carrasco','2345671','earguedas@yahoo.es',
-'Jr. La Playa N° 599',NULL, 'DT03','PR01','DI16','99999996');
+'Jr. La Playa NÂ° 599',NULL, 'DT03','PR01','DI16','99999996');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI004','Armando','Bacilio','Carrera','3456712','abacilio@gmail.com',
-'Av. Angamos N° 300',NULL, 'DT03', 'PR01', 'DI27','99999995');
+'Av. Angamos NÂ° 300',NULL, 'DT03', 'PR01', 'DI27','99999995');
 
 
 INSERT INTO TB_CLIENTE VALUES ('CLI005','Bertha','Banda','Chambi','2341567','berta@gmail.com',
-'Av. Luciano N° 999',NULL, 'DT03','PR01','DI04','99999994');
+'Av. Luciano NÂ° 999',NULL, 'DT03','PR01','DI04','99999994');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI006','Victoria','Baraynar','Chavez','4561237','vicbara@gmail.com',
-'Av. Argentina N° 100',NULL, 'DT03','PR01','DI09','99999993');
+'Av. Argentina NÂ° 100',NULL, 'DT03','PR01','DI09','99999993');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI007','Cielo','Barba','Chumbe','6712345','cielito@gmail.com',
-'Av. Miraflores N° 300',NULL, 'DT03','PR01','DI21','99999992');
+'Av. Miraflores NÂ° 300',NULL, 'DT03','PR01','DI21','99999992');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI008','Daniela','Barrantes','Cordero','4567123','danielita2010@gmail.com',
-'Av. Jose Olaya N° 320',NULL, 'DT03','PR01','DI26','99999991');
+'Av. Jose Olaya NÂ° 320',NULL, 'DT03','PR01','DI26','99999991');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI009','Daniel','Barrera','Damian','4512367','dani4ever@gmail.com',
-'Av. Mendoza N° 590',NULL, 'DT03','PR01','DI18','99999990');
+'Av. Mendoza NÂ° 590',NULL, 'DT03','PR01','DI18','99999990');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI010','Alexandra','Belito','Delgado','2345617','alexbeli@gmail.com',
-'Av. Descalzos N° 590',NULL, 'DT03','PR01','DI16','99999989');
+'Av. Descalzos NÂ° 590',NULL, 'DT03','PR01','DI16','99999989');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI011','Andrea','Benavides','Diaz','5671234','andree@gmail.com',
-'Av. Maravi N° 600',NULL, 'DT03','PR01','DI14','99999988');
+'Av. Maravi NÂ° 600',NULL, 'DT03','PR01','DI14','99999988');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI012','Lucia','Campos','Diaz','1234756','lucicampos@gmail.com',
-'Av. Junin N° 550',NULL, 'DT03','PR01','DI10','99999987');
+'Av. Junin NÂ° 550',NULL, 'DT03','PR01','DI10','99999987');
 
 INSERT INTO TB_CLIENTE VALUES ('CLI013','Alexis','Cordova','Chara','4512367','acordo@gmail.com',
-'Av. Arequipa N° 450',NULL, 'DT03','PR01','DI23','99999986');
+'Av. Arequipa NÂ° 450',NULL, 'DT03','PR01','DI23','99999986');
 
-INSERT INTO TB_TIPO_SERVICIO VALUES('TS01','Conexión de agua');
-INSERT INTO TB_TIPO_SERVICIO VALUES('TS02','Conexión de alcantarillado');
+INSERT INTO TB_TIPO_SERVICIO VALUES('TS01','ConexiÃ³n de agua');
+INSERT INTO TB_TIPO_SERVICIO VALUES('TS02','ConexiÃ³n de alcantarillado');
 
 INSERT INTO TB_ESTADO_PREDIO VALUES('EST01','En construccion', '500');
 INSERT INTO TB_ESTADO_PREDIO VALUES('EST02','Construido', '750');
 
-INSERT INTO TB_TIPO_PREDIO VALUES('TP01','Doméstico', '400');
+INSERT INTO TB_TIPO_PREDIO VALUES('TP01','DomÃ©stico', '400');
 INSERT INTO TB_TIPO_PREDIO VALUES('TP02','Comercial', '650');
 
 INSERT INTO TB_PREDIO VALUES('PRE001','Urbanizacion Monterrico,Avenida Angamos 240', 'DT01', 'PR01', 'DI01', 'Cerca a Ace Home Center','400m2','EST01','TP01');
 
 INSERT INTO TB_TIPO_EMPLEADO VALUES('TE01','Administrador');
-INSERT INTO TB_TIPO_EMPLEADO VALUES('TE02','Técnico');
+INSERT INTO TB_TIPO_EMPLEADO VALUES('TE02','TÃ©cnico');
 INSERT INTO TB_TIPO_EMPLEADO VALUES('TE03','Cajero');
 
 
-INSERT INTO TB_EMPLEADO VALUES('EMP001','Felix','Apaza','Arroyo','43836055','TE01','lysander','root',NULL);
+INSERT INTO TB_EMPLEADO VALUES('EMP001','Felix','Apaza','Arroyo','43836055','TE01','lysander','root','u000001');
+INSERT INTO TB_EMPLEADO VALUES('EMP003','Renzo','Delgado','Guerra','89999992','TE01','rdelgado','testing','u000002');
 INSERT INTO TB_EMPLEADO VALUES('EMP002','Ricardo','Quevedo','Grimaldo','89999991','TE02','oldkefka','qv2',NULL);
-INSERT INTO TB_EMPLEADO VALUES('EMP003','Renzo','Delgado','Guerra','89999992','TE03','rdelgado','testing',NULL);
 INSERT INTO TB_EMPLEADO VALUES('EMP004','Carlos','Sonan','Yonashiro','89999993','TE03','csonan','testing',NULL);
 INSERT INTO TB_EMPLEADO VALUES('EMP005','Andre','Coquis','Raffo','89999994','TE03','acoquis','testing',NULL);
 
 INSERT INTO TB_CUENTA VALUES('CAA001','CLI001','2013-07-12','PRE001','EMP001');
 
 INSERT INTO TB_TIP_PAGO VALUES('TP01','Contado');
-INSERT INTO TB_TIP_PAGO VALUES('TP02','Crédito');
+INSERT INTO TB_TIP_PAGO VALUES('TP02','CrÃ©dito');
 
 INSERT INTO TB_CONTRATO VALUES('CT0001', '900','TP02','TS01', 'CAA001','EMP001','2013-06-11');
 
