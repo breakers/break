@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- saved from url=(0041) -->
-<html lang="en">
+<html lang="es">
 <head>
 	<%
     			HttpSession sesion=request.getSession();
@@ -11,7 +10,6 @@
 				if(nombre==null){
 					response.sendRedirect("login.jsp");
 				}else{
-					System.out.println("Foto>"+foto);
 					if(foto==null){
 						foto="nofoto";
 					}

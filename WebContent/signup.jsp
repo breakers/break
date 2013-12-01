@@ -36,7 +36,7 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.jsp">
+			<a class="brand" href="login.jsp">
 				Bootstrap Admin Template				
 			</a>		
 			
@@ -49,7 +49,7 @@
 						
 					</li>
 					<li class="">						
-						<a href="index.jsp" class="">
+						<a href="login.jsp" class="">
 							<i class="icon-chevron-left"></i>
 							Back to Homepage
 						</a>

@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!-- Add jQuery library -->
 	<script type="text/javascript" src="js/fancybox/lib/jquery-1.10.1.min.js"></script>
@@ -31,6 +30,6 @@
 </head>
 <body>
 <a class="fancybox" href="http://www.presidentobamagames.com/inkagames/obama_potter.swf" data-fancybox-group="gallery" title="Prueba para Home Pop-Up Proyecto SEDAPAR, mientras diviertanse con OBAMA POTTER, lol" type="swf"></a>
-Es una idea para poner una presentación del grupo del proyecto como un pop-up en el home de SEDAPAR
+Es una idea para poner una presentaciÃ³n del grupo del proyecto como un pop-up en el home de SEDAPAR
 </body>
 </html>

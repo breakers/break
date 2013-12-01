@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -50,7 +50,7 @@
 					</li> -->
 					
 					<li class="">						
-						<a href="index.jsp" class="">
+						<a href="login.jsp" class="">
 							<i class="icon-chevron-left"></i>
 							Ir a la Página de Inicio
 						</a>

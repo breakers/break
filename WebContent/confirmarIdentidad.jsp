@@ -2,7 +2,7 @@
 <%@page session="true" %>
 <%@page import="bean.EmpleadoDTO" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   
 <head>
 <% 
@@ -63,7 +63,7 @@ if(request.getAttribute("empleado") != null){
 					</li> -->
 					
 					<li class="">						
-						<a href="index.jsp" class="">
+						<a href="login.jsp" class="">
 							<i class="icon-chevron-left"></i>
 							Ir a la Página de Inicio
 						</a>
