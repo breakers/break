@@ -69,6 +69,7 @@ public class SvLogueo extends HttpServlet {
 		sesion.setAttribute("usuario", empleado.getCod_emp());
 		sesion.setAttribute("NombreCompleto", empleado.getNom_emp()+" "+empleado.getApep_emp());
 		sesion.setAttribute("foto", empleado.getFoto_emp());
+		sesion.setAttribute("tipo", empleado.getCod_tip_emp());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 						request.setAttribute("EmpleadoDTO", empleado);

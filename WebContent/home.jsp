@@ -3,17 +3,27 @@
 <html lang="es">
 <head>
 	<%
-    			HttpSession sesion=request.getSession();
-				String nombre= (String)sesion.getAttribute("NombreCompleto");
-				String foto= (String)sesion.getAttribute("foto");
-				
-				if(nombre==null){
-					response.sendRedirect("login.jsp");
-				}else{
-					if(foto==null){
-						foto="nofoto";
-					}
-				}
+    	HttpSession sesion=request.getSession();
+		String nombre= (String)sesion.getAttribute("NombreCompleto");
+		String foto= (String)sesion.getAttribute("foto");
+		int tipo=0;
+		String skin="default";
+		
+		if(nombre==null){
+			response.sendRedirect("login.jsp");
+		}else{
+			if(foto==null){
+				foto="nofoto";
+			}
+			
+			tipo=(Integer)sesion.getAttribute("tipo");
+			switch(tipo){
+			case 1: skin="skin-1"; break;
+			case 2: skin="skin-2"; break;
+			default:skin="default";
+			}
+			
+		}
     %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
@@ -90,7 +100,7 @@
 </style>
 </head>
 
-<body class="navbar-fixed breadcrumbs-fixed skin-1" style="" >
+<body class="navbar-fixed breadcrumbs-fixed <%=skin %>" style="" >
 	<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 		<script type="text/javascript">
 			try {

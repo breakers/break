@@ -7,14 +7,14 @@ public class EmpleadoDTO {
 	private String apep_emp;
 	private String apem_emp;
 	private String dni_emp;
-	private String cod_tip_emp;
+	private int cod_tip_emp;
 	private String usu_emp;
 	private String pass_emp;
 	private String foto_emp;
 	
 	
 	public EmpleadoDTO(String cod_emp, String nom_emp, String apep_emp,
-			String apem_emp, String dni_emp, String cod_tip_emp,
+			String apem_emp, String dni_emp, int cod_tip_emp,
 			String usu_emp, String pass_emp, String foto_emp) {
 		super();
 		this.cod_emp = cod_emp;
@@ -79,12 +79,12 @@ public class EmpleadoDTO {
 	}
 
 
-	public String getCod_tip_emp() {
+	public int getCod_tip_emp() {
 		return cod_tip_emp;
 	}
 
 
-	public void setCod_tip_emp(String cod_tip_emp) {
+	public void setCod_tip_emp(int cod_tip_emp) {
 		this.cod_tip_emp = cod_tip_emp;
 	}
 

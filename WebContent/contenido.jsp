@@ -5,12 +5,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<%
-    			HttpSession sesion=request.getSession();
-				String nombre= (String)sesion.getAttribute("NombreCompleto");
-				
-				if(nombre==null){
-					response.sendRedirect("login.jsp");
-				}
+    	HttpSession sesion=request.getSession();
+		String nombre= (String)sesion.getAttribute("NombreCompleto");
+		String foto= (String)sesion.getAttribute("foto");
+		int tipo=0;
+		String skin="default";
+		
+		if(nombre==null){
+			response.sendRedirect("login.jsp");
+		}else{
+			if(foto==null){
+				foto="nofoto";
+			}
+			
+			tipo=(Integer)sesion.getAttribute("tipo");
+			switch(tipo){
+			case 1: skin="skin-1"; break;
+			case 2: skin="skin-2"; break;
+			default:skin="default";
+			}
+			
+		}
     %>
 		<meta charset="utf-8">
 		<title>Contenido - <%=nombre %></title>
@@ -57,7 +72,7 @@
 		<![endif]-->
 	<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
 
-	<body class="navbar-fixed breadcrumbs-fixed skin-1" style="">
+	<body class="navbar-fixed breadcrumbs-fixed <%=skin %>" style="">
 		<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 			<script type="text/javascript">
 				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -286,7 +301,7 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="img/users/u000001.jpg" alt="Jason&#39;s Photo">
+								<img class="nav-user-photo" src="img/users/<%=foto %>.jpg" alt="Jason&#39;s Photo">
 								<span class="user-info">
 									<small>Welcome,</small>
 									<%=nombre %>
@@ -331,7 +346,7 @@
 			</script>
 
 			<div class="main-container-inner">
-				<a class="menu-toggler" id="menu-toggler" href="contenido.html#">
+				<a class="menu-toggler" id="menu-toggler" href="contenido.jsp#">
 					<span class="menu-text"></span>
 				</a>
 
@@ -379,14 +394,14 @@
 						</li>
 
 						<li class="active">
-							<a href="contenido.html">
+							<a href="contenido.jsp">
 								<i class="icon-github"></i>
 								<span class="menu-text"> Contenido </span>
 							</a>
 						</li>
 
 						<li>
-							<a href="contenido.html#" class="dropdown-toggle">
+							<a href="contenido.jsp#" class="dropdown-toggle">
 								<i class="icon-desktop"></i>
 								<span class="menu-text"> UI Elements </span>
 
@@ -430,7 +445,7 @@
 								</li>
 
 								<li>
-									<a href="contenido.html#" class="dropdown-toggle">
+									<a href="contenido.jsp#" class="dropdown-toggle">
 										<i class="icon-double-angle-right"></i>
 
 										Three Level Menu
@@ -439,14 +454,14 @@
 
 									<ul class="submenu">
 										<li>
-											<a href="contenido.html#">
+											<a href="contenido.jsp#">
 												<i class="icon-leaf"></i>
 												Item #1
 											</a>
 										</li>
 
 										<li>
-											<a href="contenido.html#" class="dropdown-toggle">
+											<a href="contenido.jsp#" class="dropdown-toggle">
 												<i class="icon-pencil"></i>
 
 												4th level
@@ -455,14 +470,14 @@
 
 											<ul class="submenu">
 												<li>
-													<a href="contenido.html#">
+													<a href="contenido.jsp#">
 														<i class="icon-plus"></i>
 														Add Product
 													</a>
 												</li>
 
 												<li>
-													<a href="contenido.html#">
+													<a href="contenido.jsp#">
 														<i class="icon-eye-open"></i>
 														View Products
 													</a>
@@ -475,7 +490,7 @@
 						</li>
 
 						<li>
-							<a href="contenido.html#" class="dropdown-toggle">
+							<a href="contenido.jsp#" class="dropdown-toggle">
 								<i class="icon-list"></i>
 								<span class="menu-text"> Tables </span>
 
@@ -500,7 +515,7 @@
 						</li>
 
 						<li>
-							<a href="contenido.html#" class="dropdown-toggle">
+							<a href="contenido.jsp#" class="dropdown-toggle">
 								<i class="icon-edit"></i>
 								<span class="menu-text"> Forms </span>
 
@@ -566,7 +581,7 @@
 						</li>
 
 						<li>
-							<a href="contenido.html#" class="dropdown-toggle">
+							<a href="contenido.jsp#" class="dropdown-toggle">
 								<i class="icon-tag"></i>
 								<span class="menu-text"> More Pages </span>
 
@@ -619,7 +634,7 @@
 						</li>
 
 						<li>
-							<a href="contenido.html#" class="dropdown-toggle">
+							<a href="contenido.jsp#" class="dropdown-toggle">
 								<i class="icon-file-alt"></i>
 
 								<span class="menu-text">
@@ -737,7 +752,7 @@
 									<option data-skin="skin-1" value="#222A2D">#222A2D</option>
 									<option data-skin="skin-2" value="#C6487E">#C6487E</option>
 									<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-								</select><div class="dropdown dropdown-colorpicker"><a data-toggle="dropdown" class="dropdown-toggle" href="contenido.html#"><span class="btn-colorpicker" style="background-color:#438EB9"></span></a><ul class="dropdown-menu dropdown-caret"><li><a class="colorpick-btn selected" href="contenido.html#" style="background-color:#438EB9;" data-color="#438EB9"></a></li><li><a class="colorpick-btn" href="contenido.html#" style="background-color:#222A2D;" data-color="#222A2D"></a></li><li><a class="colorpick-btn" href="contenido.html#" style="background-color:#C6487E;" data-color="#C6487E"></a></li><li><a class="colorpick-btn" href="contenido.html#" style="background-color:#D0D0D0;" data-color="#D0D0D0"></a></li></ul></div>
+								</select><div class="dropdown dropdown-colorpicker"><a data-toggle="dropdown" class="dropdown-toggle" href="contenido.jsp#"><span class="btn-colorpicker" style="background-color:#438EB9"></span></a><ul class="dropdown-menu dropdown-caret"><li><a class="colorpick-btn selected" href="contenido.jsp#" style="background-color:#438EB9;" data-color="#438EB9"></a></li><li><a class="colorpick-btn" href="contenido.jsp#" style="background-color:#222A2D;" data-color="#222A2D"></a></li><li><a class="colorpick-btn" href="contenido.jsp#" style="background-color:#C6487E;" data-color="#C6487E"></a></li><li><a class="colorpick-btn" href="contenido.jsp#" style="background-color:#D0D0D0;" data-color="#D0D0D0"></a></li></ul></div>
 							</div>
 							<span>&nbsp; Choose Skin</span>
 						</div>
@@ -773,7 +788,7 @@
 				</div><!-- /#ace-settings-container -->
 			</div><!-- /.main-container-inner -->
 
-			<a href="contenido.html#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+			<a href="contenido.jsp#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="icon-double-angle-up icon-only bigger-110"></i>
 			</a>
 		</div><!-- /.main-container -->

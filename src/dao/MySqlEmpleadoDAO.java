@@ -34,7 +34,7 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 										rs.getString("apep_emp"), 
 										rs.getString("apem_emp"), 
 										rs.getString("dni_emp"), 
-										rs.getString("cod_tip_emp"), 
+										rs.getInt("cod_tip_emp"), 
 										rs.getString("usu_emp"), 
 										rs.getString("pass_emp"), 
 										rs.getString("foto_emp"));
@@ -98,7 +98,7 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 										rs.getString("apep_emp"), 
 										rs.getString("apem_emp"), 
 										rs.getString("dni_emp"), 
-										rs.getString("cod_tip_emp"), 
+										rs.getInt("cod_tip_emp"), 
 										rs.getString("usu_emp"), 
 										rs.getString("pass_emp"), 
 										rs.getString("foto_emp"));
