@@ -362,107 +362,129 @@
 								Dashboard </span>
 					</a></li>
 
-					<li><a href="contenido.jsp"> <i class="icon-github"></i> <span
-							class="menu-text"> Contenido </span>
-					</a></li>
 
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-desktop"></i> <span class="menu-text"> UI
-								Elements </span> <b class="arrow icon-angle-down"></b>
+							class="icon-edit"></i> <span class="menu-text"> Contratos
+							 </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-							<li><a href="elements.html"> <i
-									class="icon-double-angle-right"></i> Elements
-							</a></li>
-
-							<li><a href="buttons.html"> <i
-									class="icon-double-angle-right"></i> Buttons &amp; Icons
-							</a></li>
-
-							<li><a href="treeview.html"> <i
-									class="icon-double-angle-right"></i> Treeview
-							</a></li>
-
-							<li><a href="jquery-ui.html"> <i
-									class="icon-double-angle-right"></i> jQuery UI
-							</a></li>
-
-							<li><a href="nestable-list.html"> <i
-									class="icon-double-angle-right"></i> Nestable Lists
-							</a></li>
-
 							<li><a href="#" class="dropdown-toggle"> <i
-									class="icon-double-angle-right"></i> Three Level Menu <b
+									class="icon-double-angle-right"></i> Solicitudes <b
 									class="arrow icon-angle-down"></b>
-							</a>
+								</a>
 
 								<ul class="submenu">
-									<li><a href="#"> <i class="icon-tint blue"></i> Item #1
+									<li><a href="#"> <i class="icon-tint blue"></i> Revisar
 									</a></li>
 
-									<li><a href="#" class="dropdown-toggle"> <i
-											class="icon-pencil"></i> 4th level <b
-											class="arrow icon-angle-down"></b>
-									</a>
+									<li><a href="#"> <i class="icon-eye-open"></i> Consultar
+									</a></li>
+								</ul>
+							</li>
 
-										<ul class="submenu">
-											<li><a href="#"> <i class="icon-plus"></i> Add
-													Product
-											</a></li>
+							<li><a href="#buttons.html"> <i
+									class="icon-double-angle-right"></i> Cotizacion de Servicios
+							</a></li>
 
-											<li><a href="#"> <i class="icon-eye-open"></i> View
-													Products
-											</a></li>
-										</ul></li>
-								</ul></li>
+							<li><a href="#treeview.html"> <i
+									class="icon-double-angle-right"></i> Generar Contrato
+							</a></li>
+
+							<li><a href="#jquery-ui.html"> <i
+									class="icon-double-angle-right"></i> Consulta Contrato
+							</a></li>
+
+
 						</ul></li>
 
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-list"></i> <span class="menu-text"> Tables </span> <b
+							class="icon-share"></i> <span class="menu-text"> Cambio Categoria </span> <b
 							class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-							<li><a href="tables.html"> <i
-									class="icon-double-angle-right"></i> Simple &amp; Dynamic
+							<li><a href="#ccsolicitudes.html"> <i
+									class="icon-double-angle-right"></i> Solicitudes
 							</a></li>
 
-							<li><a href="jqgrid.html"> <i
-									class="icon-double-angle-right"></i> jqGrid plugin
+							<li><a href="#ccrutainspeccion.html"> <i
+									class="icon-double-angle-right"></i> Ruta de Inspeccion
+							</a></li>
+
+							<li><a href="#ccinformeinspeccion.html"> <i
+									class="icon-double-angle-right"></i> Informe de Inpeccion
+							</a></li>
+
+							<li><a href="#ccevaluarexpediente.html"> <i
+									class="icon-double-angle-right"></i> Evaluar Expediente
+							</a></li>
+
+							<li><a href="#ccverificarexpediente.html"> <i
+									class="icon-double-angle-right"></i> Verificar Expediente
 							</a></li>
 						</ul></li>
 
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-edit"></i> <span class="menu-text"> Forms </span> <b
+							class="icon-dollar"></i> <span class="menu-text"> Liquidacion </span> <b
 							class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-							<li><a href="form-elements.html"> <i
-									class="icon-double-angle-right"></i> Form Elements
+							<li><a href="#form-elements.html"> <i
+									class="icon-double-angle-right"></i> Consulta Deudas
 							</a></li>
 
-							<li><a href="form-wizard.html"> <i
-									class="icon-double-angle-right"></i> Wizard &amp; Validation
+							<li><a href="#form-wizard.html"> <i
+									class="icon-double-angle-right"></i> Registrar Pago
 							</a></li>
 
-							<li><a href="wysiwyg.html"> <i
-									class="icon-double-angle-right"></i> Wysiwyg &amp; Markdown
-							</a></li>
-
-							<li><a href="dropzone.html"> <i
-									class="icon-double-angle-right"></i> Dropzone File Upload
-							</a></li>
 						</ul></li>
 
-					<li><a href="widgets.html"> <i class="icon-list-alt"></i>
-							<span class="menu-text"> Widgets </span>
+					<li><a href="#reportes.html" class="dropdown-toggle"> <i
+							class="icon-list-alt"></i> <span class="menu-text"> Reportes 
+						</span> <b class="arrow icon-angle-down"></b>
+					</a>
+						<ul class="submenu">
+							<li><a href="#form-elements.html"> <i
+									class="icon-double-angle-right"></i> Servicios Contratados
+							</a></li>
+
+							<li><a href="#form-wizard.html"> <i
+									class="icon-double-angle-right"></i> Estadistica de Contrataciones
+							</a></li>
+
+						</ul></li>
+
+
+					<li><a href="#mantenimiento.html" class="dropdown-toggle"> <i
+							class="icon-group"></i> <span class="menu-text"> Mantenimiento
+						</span> <b class="arrow icon-angle-down"></b>
+					</a>
+						<ul class="submenu">
+							<li><a href="#faq.html"> <i
+									class="icon-double-angle-right"></i> Clientes
+							</a></li>
+
+							<li><a href="#error-404.html"> <i
+									class="icon-double-angle-right"></i> Empleados
+							</a></li>
+
+							<li><a href="#error-500.html"> <i
+									class="icon-double-angle-right"></i> Perfiles
+							</a></li>
+
+							<li><a href="#grid.html"> <i
+									class="icon-double-angle-right"></i> Usuario
+							</a></li>
+						</ul></li>
+					<li><a href="#gallery.html"> <i class="icon-envelope-alt"></i> 
+						<span class="menu-text"> Buzon 
+							<span class="badge badge-primary ">5</span>
+						</span>
 					</a></li>
-
-					<li><a href="calendar.html"> <i class="icon-calendar"></i>
-
-							<span class="menu-text"> Calendar <span
+					<li><a href="#calendar.html"> <i class="icon-calendar"></i>
+							<span class="menu-text"> Calendario <span
 								class="badge badge-transparent tooltip-error" title=""
 								data-original-title="2 Important Events"> <i
 									class="icon-warning-sign red bigger-130"></i>
@@ -470,68 +492,13 @@
 						</span>
 					</a></li>
 
-					<li><a href="gallery.html"> <i class="icon-picture"></i> <span
-							class="menu-text"> Gallery </span>
+					<li><a href="#gallery.html"> <i class="icon-code-fork"></i> <span
+							class="menu-text"> Linea de Tiempo </span>
 					</a></li>
-
-					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-tag"></i> <span class="menu-text"> More Pages
-						</span> <b class="arrow icon-angle-down"></b>
-					</a>
-
-						<ul class="submenu">
-							<li><a href="profile.html"> <i
-									class="icon-double-angle-right"></i> User Profile
-							</a></li>
-
-							<li><a href="inbox.html"> <i
-									class="icon-double-angle-right"></i> Inbox
-							</a></li>
-
-							<li><a href="pricing.html"> <i
-									class="icon-double-angle-right"></i> Pricing Tables
-							</a></li>
-
-							<li><a href="invoice.html"> <i
-									class="icon-double-angle-right"></i> Invoice
-							</a></li>
-
-							<li><a href="timeline.html"> <i
-									class="icon-double-angle-right"></i> Timeline
-							</a></li>
-
-							<li><a href="login.html"> <i
-									class="icon-double-angle-right"></i> Login &amp; Register
-							</a></li>
-						</ul></li>
-
-					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-file-alt"></i> <span class="menu-text"> Other
-								Pages <span class="badge badge-primary ">5</span>
-						</span> <b class="arrow icon-angle-down"></b>
-					</a>
-
-						<ul class="submenu">
-							<li><a href="#faq.html"> <i
-									class="icon-double-angle-right"></i> FAQ
-							</a></li>
-
-							<li><a href="#error-404.html"> <i
-									class="icon-double-angle-right"></i> Error 404
-							</a></li>
-
-							<li><a href="#error-500.html"> <i
-									class="icon-double-angle-right"></i> Error 500
-							</a></li>
-
-							<li><a href="#grid.html"> <i
-									class="icon-double-angle-right"></i> Grid
-							</a></li>
-
-							<li><a href="#blank.html"> <i
-									class="icon-double-angle-right"></i> Blank Page
-							</a></li>
-						</ul></li>
+					
+					<li><a href="contenido.jsp"> <i class="icon-github"></i> <span
+							class="menu-text"> Contenido </span>
+					</a></li>
 				</ul>
 				<!-- /.nav-list -->
 
