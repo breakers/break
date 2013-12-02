@@ -112,7 +112,7 @@
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
 				<a href="#" class="navbar-brand"> <small> <i
-						class="icon-leaf"></i> Sedapar Administracion
+						class="icon-tint lightcyan"></i> Sedapar Administracion
 				</small>
 				</a>
 				<!-- /.brand -->
@@ -398,7 +398,7 @@
 							</a>
 
 								<ul class="submenu">
-									<li><a href="#"> <i class="icon-leaf"></i> Item #1
+									<li><a href="#"> <i class="icon-tint blue"></i> Item #1
 									</a></li>
 
 									<li><a href="#" class="dropdown-toggle"> <i
@@ -512,23 +512,23 @@
 					</a>
 
 						<ul class="submenu">
-							<li><a href="faq.html"> <i
+							<li><a href="#faq.html"> <i
 									class="icon-double-angle-right"></i> FAQ
 							</a></li>
 
-							<li><a href="error-404.html"> <i
+							<li><a href="#error-404.html"> <i
 									class="icon-double-angle-right"></i> Error 404
 							</a></li>
 
-							<li><a href="error-500.html"> <i
+							<li><a href="#error-500.html"> <i
 									class="icon-double-angle-right"></i> Error 500
 							</a></li>
 
-							<li><a href="grid.html"> <i
+							<li><a href="#grid.html"> <i
 									class="icon-double-angle-right"></i> Grid
 							</a></li>
 
-							<li><a href="blank.html"> <i
+							<li><a href="#blank.html"> <i
 									class="icon-double-angle-right"></i> Blank Page
 							</a></li>
 						</ul></li>
@@ -1974,7 +1974,7 @@
 	<!-- page specific plugin scripts -->
 
 	<!--[if lte IE 8]>
-		  <script src="assets/js/excanvas.min.js"></script>
+		  <script src="js/excanvas.min.js"></script>
 		<![endif]-->
 
 	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>

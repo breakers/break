@@ -82,7 +82,7 @@
 				<div class="navbar-header pull-left">
 					<a href="#" class="navbar-brand">
 						<small>
-							<i class="icon-leaf"></i>
+							<i class="icon-tint lightcyan"></i>
 							Sedapar Administracion
 						</small>
 					</a><!-- /.brand -->
@@ -455,7 +455,7 @@
 									<ul class="submenu">
 										<li>
 											<a href="contenido.jsp#">
-												<i class="icon-leaf"></i>
+												<i class="icon-tint blue"></i>
 												Item #1
 											</a>
 										</li>
@@ -827,7 +827,7 @@
 		<!-- page specific plugin scripts -->
 
 		<!--[if lte IE 8]>
-		  <script src="assets/js/excanvas.min.js"></script>
+		  <script src="js/excanvas.min.js"></script>
 		<![endif]-->
 
 		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>

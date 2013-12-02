@@ -87,7 +87,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `sedapar_lp2`.`tb_tipo_empleado`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_tipo_empleado` (
-  `COD_TIP_EMP` CHAR(6) NOT NULL ,
+  `COD_TIP_EMP` INT NOT NULL ,
   `DESC_TIP_EMP` VARCHAR(15) NOT NULL ,
   PRIMARY KEY (`COD_TIP_EMP`) )
 ENGINE = InnoDB
@@ -103,7 +103,7 @@ CREATE  TABLE IF NOT EXISTS `sedapar_lp2`.`tb_empleado` (
   `APEP_EMP` VARCHAR(15) NOT NULL ,
   `APEM_EMP` VARCHAR(15) NOT NULL ,
   `DNI_EMP` CHAR(8) NOT NULL UNIQUE,
-  `COD_TIP_EMP` CHAR(6) NOT NULL ,
+  `COD_TIP_EMP` INT NOT NULL ,
   `USU_EMP` VARCHAR(25) NOT NULL UNIQUE,
   `PASS_EMP` VARCHAR(25) NOT NULL ,
   `FOTO_EMP` VARCHAR(250) NULL DEFAULT NULL ,
@@ -441,16 +441,16 @@ INSERT INTO TB_TIPO_PREDIO VALUES('TP02','Comercial', '650');
 
 INSERT INTO TB_PREDIO VALUES('PRE001','Urbanizacion Monterrico,Avenida Angamos 240', 'DT01', 'PR01', 'DI01', 'Cerca a Ace Home Center','400m2','EST01','TP01');
 
-INSERT INTO TB_TIPO_EMPLEADO VALUES('TE01','Administrador');
-INSERT INTO TB_TIPO_EMPLEADO VALUES('TE02','Técnico');
-INSERT INTO TB_TIPO_EMPLEADO VALUES('TE03','Cajero');
+INSERT INTO TB_TIPO_EMPLEADO VALUES('1','Administrador');
+INSERT INTO TB_TIPO_EMPLEADO VALUES('2','Técnico');
+INSERT INTO TB_TIPO_EMPLEADO VALUES('3','Cajero');
 
 
-INSERT INTO TB_EMPLEADO VALUES('EMP001','Felix','Apaza','Arroyo','43836055','TE01','lysander','root','u000001');
-INSERT INTO TB_EMPLEADO VALUES('EMP003','Renzo','Delgado','Guerra','89999992','TE01','rdelgado','testing','u000002');
-INSERT INTO TB_EMPLEADO VALUES('EMP002','Ricardo','Quevedo','Grimaldo','89999991','TE02','oldkefka','qv2',NULL);
-INSERT INTO TB_EMPLEADO VALUES('EMP004','Carlos','Sonan','Yonashiro','89999993','TE03','csonan','testing',NULL);
-INSERT INTO TB_EMPLEADO VALUES('EMP005','Andre','Coquis','Raffo','89999994','TE03','acoquis','testing',NULL);
+INSERT INTO TB_EMPLEADO VALUES('EMP001','Felix','Apaza','Arroyo','43836055','1','lysander','root','u000001');
+INSERT INTO TB_EMPLEADO VALUES('EMP003','Renzo','Delgado','Guerra','89999992','1','rdelgado','testing','u000002');
+INSERT INTO TB_EMPLEADO VALUES('EMP002','Ricardo','Quevedo','Grimaldo','89999991','2','oldkefka','qv2',NULL);
+INSERT INTO TB_EMPLEADO VALUES('EMP004','Carlos','Sonan','Yonashiro','89999993','3','csonan','testing',NULL);
+INSERT INTO TB_EMPLEADO VALUES('EMP005','Andre','Coquis','Raffo','89999994','3','acoquis','testing',NULL);
 
 INSERT INTO TB_CUENTA VALUES('CAA001','CLI001','2013-07-12','PRE001','EMP001');
 
