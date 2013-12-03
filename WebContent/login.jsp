@@ -303,6 +303,15 @@
 			 jQuery('#'+id).addClass('visible');
 			}
 		</script>
+		
+		<script type="text/javascript">
+		<%if(request.getAttribute("UsuarioInvalido")!=null){%>
+			document.location.href="login.jsp"
+		<%}
+		
+		%>	
+	</script>
+	
 	</body>
 </html>
 
