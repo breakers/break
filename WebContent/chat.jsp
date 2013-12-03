@@ -25,7 +25,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Contenido - <%=nombre %></title>
+<title>Chat - <%=nombre %></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,13 +51,15 @@
 <link rel="stylesheet" href="css/ace.min.css">
 <link rel="stylesheet" href="css/ace-rtl.min.css">
 <link rel="stylesheet" href="css/ace-skins.min.css">
+<link type="text/css" href="css/chat.css" rel="stylesheet" />
+<link type="text/css" href="css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet" />
 
 <!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
 
 <!-- inline styles related to this page -->
-
+<script src="js/wsclient.js"></script>
 <!-- ace settings handler -->
 
 <script src="js/ace-extra.min.js"></script>
@@ -559,8 +561,8 @@
 				<div class="page-content">
 					<div class="page-header">
 						<h1>
-							Contenido <small> <i class="icon-double-angle-right"></i>
-								Contenido de la pagina X12. 
+							Chat <small> <i class="icon-double-angle-right"></i>
+								Demo de chat. 
 							</small>
 						</h1>
 					</div>
@@ -570,12 +572,33 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							Aqui sera el contenido!! :P!!! </br>
+							
+					<h3>Chat breakers - Demo</h3>
+					<div id="container">
+					    <div class="leftPanel">
+					        <div class="userInfo">
+					            <span class="disconnected" id="status">Desconectado</span>
+					            Nombre: <input type="text" id="userName" value="<%=nombre %>" readonly"/><span class="onLineUserName"></span>
+					        </div>
+					        <div>
+					            <button id="connect" onclick="wsclient.connect(document.getElementById('userName').value);">Conectar</button>
+					            <button id="disconnect" disabled="disabled" onclick="wsclient.disconnect();">Desconexión</button>
+					        </div>
+					        <div id="onLineUsersPanel">
+					            <h3>Usuarios conectados:</h3>
+					            <ul id="onlineUsers">
+					
+					            </ul>
+					        </div>
+					    </div>
+					
+					    <div id="conversations">
+					        <ul>
+					        </ul>
+					    </div>
+					</div>
 
-							Mientras mira el 
-							<a href="chat.jsp"> Demo de Chat <i
-									class="icon-arrow-right"></i>
-							</a>
+
 
 
 
