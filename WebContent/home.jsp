@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<%
-    	HttpSession sesion=request.getSession();
+
+	<% HttpSession sesion=request.getSession();
 		String nombre= (String)sesion.getAttribute("NombreCompleto");
 		String foto= (String)sesion.getAttribute("foto");
 		int tipo=0;
@@ -20,11 +20,9 @@
 			switch(tipo){
 			case 1: skin="skin-1"; break;
 			case 2: skin="skin-2"; break;
-			default:skin="default";
-			}
-			
-		}
-    %>
+			default:skin="default";}
+		} %>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>Dashboard - <%=nombre %></title>
@@ -111,7 +109,7 @@
 
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
-				<a href="#" class="navbar-brand"> <small> <i
+				<a href="home.jsp" class="navbar-brand"> <small> <i
 						class="icon-tint lightcyan"></i> Sedapar Administracion
 				</small>
 				</a>
@@ -178,7 +176,7 @@
 									</div>
 							</a></li>
 
-							<li><a href="#"> See tasks with details <i
+							<li><a href="procesos.jsp"> See tasks with details <i
 									class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
@@ -226,7 +224,7 @@
 									</div>
 							</a></li>
 
-							<li><a href="#"> See all notifications <i
+							<li><a href="notificaciones.jsp"> See all notifications <i
 									class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
@@ -275,7 +273,7 @@
 								</span>
 							</a></li>
 
-							<li><a href="inbox.html"> See all messages <i
+							<li><a href="buzon.jsp"> See all messages <i
 									class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
@@ -289,10 +287,10 @@
 
 						<ul
 							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="#"> <i class="icon-cog"></i> Settings
+							<li><a href="configuracion.jsp"> <i class="icon-cog"></i> Settings
 							</a></li>
 
-							<li><a href="#"> <i class="icon-user"></i> Profile
+							<li><a href="perfil.jsp"> <i class="icon-user"></i> Profile
 							</a></li>
 
 							<li class="divider"></li>
@@ -375,23 +373,23 @@
 								</a>
 
 								<ul class="submenu">
-									<li><a href="#"> <i class="icon-tint blue"></i> Revisar
+									<li><a href="con_sol_revision.jsp"> <i class="icon-ok blue"></i> Revisar
 									</a></li>
 
-									<li><a href="#"> <i class="icon-eye-open"></i> Consultar
+									<li><a href="con_sol_consulta.jsp"> <i class="icon-eye-open"></i> Consultar
 									</a></li>
 								</ul>
 							</li>
 
-							<li><a href="#buttons.html"> <i
+							<li><a href="con_cotizacion.jsp"> <i
 									class="icon-double-angle-right"></i> Cotizacion de Servicios
 							</a></li>
 
-							<li><a href="#treeview.html"> <i
+							<li><a href="con_contrato.jsp"> <i
 									class="icon-double-angle-right"></i> Generar Contrato
 							</a></li>
 
-							<li><a href="#jquery-ui.html"> <i
+							<li><a href="con_consulta.jsp"> <i
 									class="icon-double-angle-right"></i> Consulta Contrato
 							</a></li>
 
@@ -404,25 +402,39 @@
 					</a>
 
 						<ul class="submenu">
-							<li><a href="#ccsolicitudes.html"> <i
-									class="icon-double-angle-right"></i> Solicitudes
-							</a></li>
+							<li><a href="#" class="dropdown-toggle"> <i
+									class="icon-double-angle-right"></i> Solicitudes <b
+									class="arrow icon-angle-down"></b>
+								</a>
 
-							<li><a href="#ccrutainspeccion.html"> <i
+								<ul class="submenu">
+									<li><a href="cc_sol_revision.jsp"> <i class="icon-ok blue"></i> Revisar
+									</a></li>
+
+									<li><a href="cc_sol_consulta.jsp"> <i class="icon-eye-open"></i> Consultar
+									</a></li>
+								</ul>
+							</li>
+
+							<li><a href="cc_ruta.jsp"> <i
 									class="icon-double-angle-right"></i> Ruta de Inspeccion
 							</a></li>
 
-							<li><a href="#ccinformeinspeccion.html"> <i
-									class="icon-double-angle-right"></i> Informe de Inpeccion
+							<li><a href="cc_inspeccion.jsp"> <i
+									class="icon-double-angle-right"></i> Informe de Inspeccion
 							</a></li>
 
-							<li><a href="#ccevaluarexpediente.html"> <i
+							<li><a href="cc_evaluar.jsp"> <i
 									class="icon-double-angle-right"></i> Evaluar Expediente
 							</a></li>
 
-							<li><a href="#ccverificarexpediente.html"> <i
+							<li><a href="cc_validar.jsp"> <i
 									class="icon-double-angle-right"></i> Verificar Expediente
 							</a></li>
+							<li><a href="cc_consulta_oficio"> <i
+									class="icon-double-angle-right"></i> Consultar Oficio
+							</a></li>
+
 						</ul></li>
 
 					<li><a href="#" class="dropdown-toggle"> <i
@@ -431,59 +443,59 @@
 					</a>
 
 						<ul class="submenu">
-							<li><a href="#form-elements.html"> <i
+							<li><a href="liq_consulta.jsp"> <i
 									class="icon-double-angle-right"></i> Consulta Deudas
 							</a></li>
 
-							<li><a href="#form-wizard.html"> <i
+							<li><a href="liq_pago.jsp"> <i
 									class="icon-double-angle-right"></i> Registrar Pago
 							</a></li>
 
 						</ul></li>
 
-					<li><a href="#reportes.html" class="dropdown-toggle"> <i
+					<li><a href="#reportes" class="dropdown-toggle"> <i
 							class="icon-list-alt"></i> <span class="menu-text"> Reportes 
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="#form-elements.html"> <i
+							<li><a href="rep_servicios.jsp"> <i
 									class="icon-double-angle-right"></i> Servicios Contratados
 							</a></li>
 
-							<li><a href="#form-wizard.html"> <i
+							<li><a href="rep_estadistica.jsp"> <i
 									class="icon-double-angle-right"></i> Estadistica de Contrataciones
 							</a></li>
 
 						</ul></li>
 
 
-					<li><a href="#mantenimiento.html" class="dropdown-toggle"> <i
+					<li><a href="#mantenimiento" class="dropdown-toggle"> <i
 							class="icon-group"></i> <span class="menu-text"> Mantenimiento
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="#faq.html"> <i
+							<li><a href="man_clientes.jsp"> <i
 									class="icon-double-angle-right"></i> Clientes
 							</a></li>
 
-							<li><a href="#error-404.html"> <i
+							<li><a href="man_empleados.jsp"> <i
 									class="icon-double-angle-right"></i> Empleados
 							</a></li>
 
-							<li><a href="#error-500.html"> <i
+							<li><a href="man_perfiles.jsp"> <i
 									class="icon-double-angle-right"></i> Perfiles
 							</a></li>
 
-							<li><a href="#grid.html"> <i
+							<li><a href="man_usuarios.jsp"> <i
 									class="icon-double-angle-right"></i> Usuario
 							</a></li>
 						</ul></li>
-					<li><a href="#gallery.html"> <i class="icon-envelope-alt"></i> 
+					<li><a href="buzon.jsp"> <i class="icon-envelope-alt"></i> 
 						<span class="menu-text"> Buzon 
 							<span class="badge badge-primary ">5</span>
 						</span>
 					</a></li>
-					<li><a href="#calendar.html"> <i class="icon-calendar"></i>
+					<li><a href="calendario.jsp"> <i class="icon-calendar"></i>
 							<span class="menu-text"> Calendario <span
 								class="badge badge-transparent tooltip-error" title=""
 								data-original-title="2 Important Events"> <i
@@ -492,7 +504,7 @@
 						</span>
 					</a></li>
 
-					<li><a href="#gallery.html"> <i class="icon-code-fork"></i> <span
+					<li><a href="timeline.jsp"> <i class="icon-code-fork"></i> <span
 							class="menu-text"> Linea de Tiempo </span>
 					</a></li>
 					
@@ -526,7 +538,7 @@
 					</script>
 
 					<ul class="breadcrumb">
-						<li><i class="icon-home home-icon"></i> <a href="#">Home</a>
+						<li><i class="icon-home home-icon"></i> <a href="home.jsp">Home</a>
 						</li>
 						<li class="active">Dashboard</li>
 					</ul>
@@ -548,7 +560,7 @@
 					<div class="page-header">
 						<h1>
 							Dashboard <small> <i class="icon-double-angle-right"></i>
-								overview &amp; stats
+								estadisticas &amp; resumen
 							</small>
 						</h1>
 					</div>
@@ -563,9 +575,9 @@
 									<i class="icon-remove"></i>
 								</button>
 
-								<i class="icon-ok green"></i> Welcome to <strong class="green">
-									Ace <small>(v1.2)</small>
-								</strong> , the lightweight, feature-rich and easy to use admin template.
+								<i class="icon-ok green"></i> Bienvenido a <strong class="green">
+									break <small>(v6.1)</small>
+								</strong> , el sistema de gestion rico en caracteristicas y facil de usar.
 							</div>
 
 							<div class="row">
@@ -579,7 +591,7 @@
 
 										<div class="infobox-data">
 											<span class="infobox-data-number">32</span>
-											<div class="infobox-content">comments + 2 reviews</div>
+											<div class="infobox-content">comentarios + 2 reviews</div>
 										</div>
 										<div class="stat stat-success">8%</div>
 									</div>
@@ -591,7 +603,7 @@
 
 										<div class="infobox-data">
 											<span class="infobox-data-number">11</span>
-											<div class="infobox-content">new followers</div>
+											<div class="infobox-content">nuevos seguidores</div>
 										</div>
 
 										<div class="badge badge-success">
@@ -606,7 +618,7 @@
 
 										<div class="infobox-data">
 											<span class="infobox-data-number">8</span>
-											<div class="infobox-content">new orders</div>
+											<div class="infobox-content">nuevas ordenes</div>
 										</div>
 										<div class="stat stat-important">4%</div>
 									</div>
@@ -618,7 +630,7 @@
 
 										<div class="infobox-data">
 											<span class="infobox-data-number">7</span>
-											<div class="infobox-content">experiments</div>
+											<div class="infobox-content">experimentos</div>
 										</div>
 									</div>
 
@@ -632,7 +644,7 @@
 
 										<div class="infobox-data">
 											<span class="infobox-data-number">6,251</span>
-											<div class="infobox-content">pageviews</div>
+											<div class="infobox-content">visitas</div>
 										</div>
 
 										<div class="badge badge-success">
@@ -651,10 +663,10 @@
 										</div>
 
 										<div class="infobox-data">
-											<span class="infobox-text">traffic used</span>
+											<span class="infobox-text">trafico usado</span>
 
 											<div class="infobox-content">
-												<span class="bigger-110">~</span> 58GB remaining
+												<span class="bigger-110">~</span> 58GB disponible
 											</div>
 										</div>
 									</div>
@@ -672,8 +684,8 @@
 										</div>
 
 										<div class="infobox-data">
-											<div class="infobox-content">Task</div>
-											<div class="infobox-content">Completion</div>
+											<div class="infobox-content">Tarea</div>
+											<div class="infobox-content">Completada</div>
 										</div>
 									</div>
 
@@ -685,7 +697,7 @@
 										</div>
 
 										<div class="infobox-data">
-											<div class="infobox-content">Earnings</div>
+											<div class="infobox-content">Ganancias</div>
 											<div class="infobox-content">$32,000</div>
 										</div>
 									</div>
@@ -696,7 +708,7 @@
 										</div>
 
 										<div class="infobox-data">
-											<div class="infobox-content">Downloads</div>
+											<div class="infobox-content">Descargas</div>
 											<div class="infobox-content">1,205</div>
 										</div>
 									</div>
@@ -709,35 +721,35 @@
 										<div
 											class="widget-header widget-header-flat widget-header-small">
 											<h5>
-												<i class="icon-signal"></i> Traffic Sources
+												<i class="icon-signal"></i> Trafico de Recursos
 											</h5>
 
 											<div class="widget-toolbar no-border">
 												<button class="btn btn-minier btn-primary dropdown-toggle"
 													data-toggle="dropdown">
-													This Week <i
+													Esta Semana <i
 														class="icon-angle-down icon-on-right bigger-110"></i>
 												</button>
 
 												<ul
 													class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret">
 													<li class="active"><a href="#" class="blue"> <i
-															class="icon-caret-right bigger-110">&nbsp;</i> This Week
+															class="icon-caret-right bigger-110">&nbsp;</i> Esta Semana
 													</a></li>
 
 													<li><a href="#"> <i
 															class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-															Last Week
+															Ultima Semana
 													</a></li>
 
 													<li><a href="#"> <i
 															class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-															This Month
+															Este Mes
 													</a></li>
 
 													<li><a href="#"> <i
 															class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-															Last Month
+															Ultimo Mes
 													</a></li>
 												</ul>
 											</div>
@@ -766,7 +778,7 @@
 																			<div
 																				style="width: 4px; height: 0; border: 5px solid #68BC31; overflow: hidden"></div>
 																		</div></td>
-																	<td class="legendLabel">social networks</td>
+																	<td class="legendLabel">redes sociales</td>
 																</tr>
 																<tr>
 																	<td class="legendColorBox"><div
@@ -774,7 +786,7 @@
 																			<div
 																				style="width: 4px; height: 0; border: 5px solid #2091CF; overflow: hidden"></div>
 																		</div></td>
-																	<td class="legendLabel">search engines</td>
+																	<td class="legendLabel">buscadores</td>
 																</tr>
 																<tr>
 																	<td class="legendColorBox"><div
@@ -782,7 +794,7 @@
 																			<div
 																				style="width: 4px; height: 0; border: 5px solid #AF4E96; overflow: hidden"></div>
 																		</div></td>
-																	<td class="legendLabel">ad campaigns</td>
+																	<td class="legendLabel">campañas AD</td>
 																</tr>
 																<tr>
 																	<td class="legendColorBox"><div
@@ -790,7 +802,7 @@
 																			<div
 																				style="width: 4px; height: 0; border: 5px solid #DA5430; overflow: hidden"></div>
 																		</div></td>
-																	<td class="legendLabel">direct traffic</td>
+																	<td class="legendLabel">trafico directo</td>
 																</tr>
 																<tr>
 																	<td class="legendColorBox"><div
@@ -798,7 +810,7 @@
 																			<div
 																				style="width: 4px; height: 0; border: 5px solid #FEE074; overflow: hidden"></div>
 																		</div></td>
-																	<td class="legendLabel">other</td>
+																	<td class="legendLabel">otros</td>
 																</tr>
 															</tbody>
 														</table>
@@ -848,7 +860,7 @@
 									<div class="widget-box transparent">
 										<div class="widget-header widget-header-flat">
 											<h4 class="lighter">
-												<i class="icon-star orange"></i> Popular Domains
+												<i class="icon-star orange"></i> Dominios Populares
 											</h4>
 
 											<div class="widget-toolbar">
@@ -863,18 +875,18 @@
 												<table class="table table-bordered table-striped">
 													<thead class="thin-border-bottom">
 														<tr>
-															<th><i class="icon-caret-right blue"></i> name</th>
+															<th><i class="icon-caret-right blue"></i> nombre</th>
 
-															<th><i class="icon-caret-right blue"></i> price</th>
+															<th><i class="icon-caret-right blue"></i> precio</th>
 
 															<th class="hidden-480"><i
-																class="icon-caret-right blue"></i> status</th>
+																class="icon-caret-right blue"></i> estado</th>
 														</tr>
 													</thead>
 
 													<tbody>
 														<tr>
-															<td>internet.com</td>
+															<td>break.com</td>
 
 															<td><small> <s class="red">$29.99</s>
 															</small> <b class="green">$19.99</b></td>
@@ -885,7 +897,7 @@
 														</tr>
 
 														<tr>
-															<td>online.com</td>
+															<td>sedapar.com</td>
 
 															<td><small> <s class="red"></s>
 															</small> <b class="green">$16.45</b></td>
@@ -896,7 +908,7 @@
 														</tr>
 
 														<tr>
-															<td>newnet.com</td>
+															<td>sedapar.com.pe</td>
 
 															<td><small> <s class="red"></s>
 															</small> <b class="green">$15.00</b></td>
@@ -906,7 +918,7 @@
 														</tr>
 
 														<tr>
-															<td>web.com</td>
+															<td>sedaparbreak.com</td>
 
 															<td><small> <s class="red">$24.99</s>
 															</small> <b class="green">$19.95</b></td>
@@ -917,7 +929,7 @@
 														</tr>
 
 														<tr>
-															<td>domain.com</td>
+															<td>sedapar.pe</td>
 
 															<td><small> <s class="red"></s>
 															</small> <b class="green">$12.00</b></td>
@@ -940,7 +952,7 @@
 									<div class="widget-box transparent">
 										<div class="widget-header widget-header-flat">
 											<h4 class="lighter">
-												<i class="icon-signal"></i> Sale Stats
+												<i class="icon-signal"></i> Stats de Ventas
 											</h4>
 
 											<div class="widget-toolbar">
@@ -1030,7 +1042,7 @@
 																			<div
 																				style="width: 4px; height: 0; border: 5px solid rgb(203, 75, 75); overflow: hidden"></div>
 																		</div></td>
-																	<td class="legendLabel">Services</td>
+																	<td class="legendLabel">Servicios</td>
 																</tr>
 															</tbody>
 														</table>
@@ -1052,18 +1064,18 @@
 									<div class="widget-box transparent" id="recent-box">
 										<div class="widget-header">
 											<h4 class="lighter smaller">
-												<i class="icon-rss orange"></i> RECENT
+												<i class="icon-rss orange"></i> RECIENTES
 											</h4>
 
 											<div class="widget-toolbar no-border">
 												<ul class="nav nav-tabs" id="recent-tab">
 													<li class="active"><a data-toggle="tab"
-														href="#task-tab">Tasks</a></li>
+														href="#task-tab">Tareas</a></li>
 
-													<li><a data-toggle="tab" href="#member-tab">Members</a>
+													<li><a data-toggle="tab" href="#member-tab">Miembros</a>
 													</li>
 
-													<li><a data-toggle="tab" href="#comment-tab">Comments</a>
+													<li><a data-toggle="tab" href="#comment-tab">Comentarios</a>
 													</li>
 												</ul>
 											</div>
@@ -1074,14 +1086,14 @@
 												<div class="tab-content padding-8 overflow-visible">
 													<div id="task-tab" class="tab-pane active">
 														<h4 class="smaller lighter green">
-															<i class="icon-list"></i> Sortable Lists
+															<i class="icon-list"></i> Listas Clasificadas
 														</h4>
 
 														<ul id="tasks" class="item-list ui-sortable">
 															<li class="item-orange clearfix"><label
 																class="inline"> <input type="checkbox"
 																	class="ace"> <span class="lbl">
-																		Answering customer questions</span>
+																		Responder a las preguntas de los clientes</span>
 															</label>
 
 																<div
@@ -1094,7 +1106,7 @@
 
 															<li class="item-red clearfix"><label class="inline">
 																	<input type="checkbox" class="ace"> <span
-																	class="lbl"> Fixing bugs</span>
+																	class="lbl"> Correccion de bugs</span>
 															</label>
 
 																<div class="pull-right action-buttons">
@@ -1109,8 +1121,7 @@
 
 															<li class="item-default clearfix"><label
 																class="inline"> <input type="checkbox"
-																	class="ace"> <span class="lbl"> Adding
-																		new features</span>
+																	class="ace"> <span class="lbl"> Adicion de nuevas caracteristicas</span>
 															</label>
 
 																<div
@@ -1139,23 +1150,22 @@
 
 															<li class="item-blue clearfix"><label class="inline">
 																	<input type="checkbox" class="ace"> <span
-																	class="lbl"> Upgrading scripts used in template</span>
+																	class="lbl"> Mejora de scripts usados</span>
 															</label></li>
 
 															<li class="item-grey clearfix"><label class="inline">
 																	<input type="checkbox" class="ace"> <span
-																	class="lbl"> Adding new skins</span>
+																	class="lbl"> Agregando nuevos skins</span>
 															</label></li>
 
 															<li class="item-green clearfix"><label
 																class="inline"> <input type="checkbox"
-																	class="ace"> <span class="lbl"> Updating
-																		server software up</span>
+																	class="ace"> <span class="lbl"> Actualizacion de software</span>
 															</label></li>
 
 															<li class="item-pink clearfix"><label class="inline">
 																	<input type="checkbox" class="ace"> <span
-																	class="lbl"> Cleaning up</span>
+																	class="lbl"> Limpieza</span>
 															</label></li>
 														</ul>
 													</div>
@@ -1170,7 +1180,7 @@
 
 																<div class="body">
 																	<div class="name">
-																		<a href="#">Bob Doe</a>
+																		<a href="#">Felix Apaza</a>
 																	</div>
 
 																	<div class="time">
@@ -1221,12 +1231,12 @@
 															<div class="itemdiv memberdiv">
 																<div class="user">
 																	<img alt="Joe Doe&#39;s avatar"
-																		src="img/users/avatar2.png">
+																		src="img/users/avatar4.png">
 																</div>
 
 																<div class="body">
 																	<div class="name">
-																		<a href="#">Joe Doe</a>
+																		<a href="#">Renzo Delgado</a>
 																	</div>
 
 																	<div class="time">
@@ -1277,12 +1287,12 @@
 															<div class="itemdiv memberdiv">
 																<div class="user">
 																	<img alt="Jim Doe&#39;s avatar"
-																		src="img/users/avatar.png">
+																		src="img/users/avatar5.png">
 																</div>
 
 																<div class="body">
 																	<div class="name">
-																		<a href="#">Jim Doe</a>
+																		<a href="#">Ricardo Quevedo</a>
 																	</div>
 
 																	<div class="time">
@@ -1333,12 +1343,12 @@
 															<div class="itemdiv memberdiv">
 																<div class="user">
 																	<img alt="Alex Doe&#39;s avatar"
-																		src="img/users/avatar5.png">
+																		src="img/users/avatar3.png">
 																</div>
 
 																<div class="body">
 																	<div class="name">
-																		<a href="#">Alex Doe</a>
+																		<a href="#">Carlos Sonan</a>
 																	</div>
 
 																	<div class="time">
@@ -1360,7 +1370,7 @@
 
 																<div class="body">
 																	<div class="name">
-																		<a href="#">Bob Doe</a>
+																		<a href="#">Andre</a>
 																	</div>
 
 																	<div class="time">
@@ -1377,12 +1387,12 @@
 															<div class="itemdiv memberdiv">
 																<div class="user">
 																	<img alt="Susan&#39;s avatar"
-																		src="img/users/avatar3.png">
+																		src="img/users/avatar.png">
 																</div>
 
 																<div class="body">
 																	<div class="name">
-																		<a href="#">Susan</a>
+																		<a href="#">Kevin</a>
 																	</div>
 
 																	<div class="time">
@@ -1398,12 +1408,17 @@
 															<div class="itemdiv memberdiv">
 																<div class="user">
 																	<img alt="Phil Doe&#39;s avatar"
-																		src="img/users/avatar4.png">
+
+
+
+
+
+																		src="img/users/avatar2.png">
 																</div>
 
 																<div class="body">
 																	<div class="name">
-																		<a href="#">Phil Doe</a>
+																		<a href="#">Tomoya</a>
 																	</div>
 
 																	<div class="time">
@@ -1825,72 +1840,6 @@
 			</div>
 			<!-- /.main-content -->
 
-			<div class="ace-settings-container" id="ace-settings-container">
-				<div class="btn btn-app btn-xs btn-warning ace-settings-btn"
-					id="ace-settings-btn">
-					<i class="icon-cog bigger-150"></i>
-				</div>
-
-				<div class="ace-settings-box" id="ace-settings-box">
-					<div>
-						<div class="pull-left">
-							<select id="skin-colorpicker" class="hide" style="display: none;">
-								<option data-skin="default" value="#438EB9">#438EB9</option>
-								<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-								<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-								<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-							</select>
-							<div class="dropdown dropdown-colorpicker">
-								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-									<span class="btn-colorpicker" style="background-color: #222A2D"></span>
-								</a>
-								<ul class="dropdown-menu dropdown-caret">
-									<li><a class="colorpick-btn" href="#"
-										style="background-color: #438EB9;" data-color="#438EB9"></a></li>
-									<li><a class="colorpick-btn selected" href="#"
-										style="background-color: #222A2D;" data-color="#222A2D"></a></li>
-									<li><a class="colorpick-btn" href="#"
-										style="background-color: #C6487E;" data-color="#C6487E"></a></li>
-									<li><a class="colorpick-btn" href="#"
-										style="background-color: #D0D0D0;" data-color="#D0D0D0"></a></li>
-								</ul>
-							</div>
-						</div>
-						<span>&nbsp; Choose Skin</span>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-navbar"> <label class="lbl"
-							for="ace-settings-navbar"> Fixed Navbar</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-sidebar"> <label class="lbl"
-							for="ace-settings-sidebar"> Fixed Sidebar</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-breadcrumbs"> <label class="lbl"
-							for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-rtl"> <label class="lbl"
-							for="ace-settings-rtl"> Right To Left (rtl)</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-add-container"> <label class="lbl"
-							for="ace-settings-add-container"> Inside <b>.container</b>
-						</label>
-					</div>
-				</div>
-			</div>
 			<!-- /#ace-settings-container -->
 		</div>
 		<!-- /.main-container-inner -->
@@ -2200,7 +2149,6 @@
 						else
 							$(this).closest('li').removeClass('selected');
 					});
-
 		})
 	</script>
 

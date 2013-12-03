@@ -25,7 +25,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Contenido - <%=nombre %></title>
+<title>Cambio de categoria - <%=nombre %></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -396,9 +396,11 @@
 
 						</ul></li>
 
-					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-share"></i> <span class="menu-text"> Cambio Categoria </span> <b
-							class="arrow icon-angle-down"></b>
+					<li class="active open">
+						<a href="#" class="dropdown-toggle"> 
+							<i class="icon-share"></i> 
+							<span class="menu-text"> Cambio Categoria </span> 
+							<b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
@@ -424,7 +426,7 @@
 									class="icon-double-angle-right"></i> Informe de Inspeccion
 							</a></li>
 
-							<li><a href="cc_evaluar.jsp"> <i
+							<li class="active"><a href="cc_evaluar.jsp"> <i
 									class="icon-double-angle-right"></i> Evaluar Expediente
 							</a></li>
 
@@ -540,7 +542,7 @@
 					<ul class="breadcrumb">
 						<li><i class="icon-home home-icon"></i> <a href="home.jsp">Home</a>
 						</li>
-						<li class="active">Contenido</li>
+						<li class="active">Cambio de Categoria</li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -559,8 +561,8 @@
 				<div class="page-content">
 					<div class="page-header">
 						<h1>
-							Contenido <small> <i class="icon-double-angle-right"></i>
-								Contenido de la pagina X12. 
+							Evaluar Expediente <small> <i class="icon-double-angle-right"></i>
+								Se evaluaran los expedientes de las solicitudes de cambio de categoria de servicios. 
 							</small>
 						</h1>
 					</div>
@@ -570,7 +572,7 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							Aqui sera el contenido!! :P!!!
+
 
 
 
