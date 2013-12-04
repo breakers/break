@@ -31,7 +31,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- basic styles -->
-
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
@@ -373,7 +373,10 @@
 								</a>
 
 								<ul class="submenu">
-									<li><a href="con_sol_revision.jsp"> <i class="icon-ok blue"></i> Revisar
+									<li><a href="con_sol_registro.jsp"> <i class="icon-pencil"></i> Registrar
+									</a></li>
+									
+									<li><a href="con_sol_revision.jsp"> <i class="icon-ok"></i> Revisar
 									</a></li>
 
 									<li><a href="con_sol_consulta.jsp"> <i class="icon-eye-open"></i> Consultar
@@ -408,6 +411,9 @@
 								</a>
 
 								<ul class="submenu">
+									<li><a href="cc_sol_registro.jsp"> <i class="icon-pencil"></i> Registrar
+									</a></li>
+									
 									<li><a href="cc_sol_revision.jsp"> <i class="icon-ok blue"></i> Revisar
 									</a></li>
 
