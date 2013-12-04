@@ -3,12 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>SEDAPAR - Agua para todos</title>
-<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 <link href="index/css/main.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <script type="text/javascript" src="index/js/jquery.js"></script>
 <script type="text/javascript" src="index/js/jquery.carousel.js"></script>
 <script type="text/javascript" src="index/js/jquery_carousellite.js"></script>
+ <link rel="shortcut icon" href="img/icon.png" type="image/png" />
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
 <script type="text/javascript" language="javascript">
 $( document ).ready( function() {
@@ -416,80 +417,23 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
 </div>
 <div class="wrapper">
   <div class="contain home">
-    <div class="CENTER">
-      <p><img src="index/img/sedapar_logo.png" alt="" width="355" height="79" class="logo"></p>
-<p> Somos una empresa Peruana-Americana, con más de 15 años en el mercado Internacional desarrollando soluciones a la medida de los requerimientos de nuestros clientes, con absoluta seriedad y calidad en los productos que entregamos. 
-        Nuestro software factory ha sido acreditado con el nivel 3 de CMMI...<a href="#" onclick="return notaPrensa();">ver más</a> </p>
-      <table>
-        <tr>
-          <td><img src="index/img/home/box_1.png" width="159" height="111"></td>
-          <td><p>Tenemos una amplia experiencia y relaciones de largo plazo con nuestros clientes en los sectores Naviero, Marítimo, Puertos, ...</p><div align="right"><a href="desarrollando.php"><img src="index/img/home/plus_1.png" width="18" height="18"></a></div></td>
-          <td><img src="index/img/home/home3.jpg" width="236" height="111"></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><img src="index/img/home/home1.jpg" width="236" height="111"></td>
-          <td><img src="index/img/home/box_2.png" width="159" height="111"></td>
-          <td><p>Existe una amplia diversidad de compañías consultoras en el mundo. Todas enfrentan un desafío común: proveer apoyo y soporte en TI ...</p><div align="right"><a href="nearshore.php"><img src="index/img/home/plus_2.png" width="18" height="18"></a></div></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><img src="index/img/home/box_3.png" width="159" height="111"></td>
-          <td><p>Mejoras en el rendimiento de la empresa líder en soluciones de información marítima ...</p><div align="right"><a href="transfor.php"><img src="index/img/home/plus_3.png" width="18" height="18"></a></div></td>
-          <td><img src="index/img/home/home2.jpg" width="236" height="111"></td>
-        </tr>
-      </table>
-    </div>
-    <div class="RIGHT">
-      <div id="soluciones1">
-        <h1>Servicios <img src="index/img/home/icon_laptop.png"></h1>
-        <ul class="sub_nav">
-          <li><a href="#">Solicitud de Contrato de nueva conexion</a></li>
-          <ul class="sub_nav">
-          <li><a href="cs_registro.jsp">Registro de Solicitud <i class="icon-edit"></i></a></li>
-          <li><a href="naviera.php">Consulta de Solicitud <i class="icon-search"></i></a></li>
-          </ul>
-          
-          <li><a href="transporte.php">Transporte</a></li>
-          <li> <a href="financiera.php">Financiera</a></li>
-          <li> <a href="salud.php">Salud</a></li>
-        </ul>
-      </div>
-      <div id="soluciones2">
-        <h1>Soluciones Tecnológicas<img src="index/img/home/icon_gears.png"></h1>
-        <ul class="sub_nav">
-          <li> <a href="moviles.php">Móviles </a></li>
-          <li> <a href="intelligence.php">Business Intelligence </a></li>
-          <li> <a href="integracion.php">Integración</a></li>
-          <li> <a href="net.php">Net y Java </a></li>
-          <li> <a href="b2b.php">B2B / EDI </a></li>
-        </ul>
-      </div>
-      <div id="soluciones3">
-        <h1>Soluciones Empresariales<img src="index/img/home/icon_world.png"></h1>
-        <ul class="sub_nav">
-          <!-- <li> <a href="selenne.php">Selenne ERP & BI </a></li>-->
-          <li><a href="rhpro.php">RH Pro X2</a></li>
-          <li><a href="logicx.php">Logistix</a></li>
-          <li><a href="Logistix.php">Logistix 3PL</a></li>
-          <li><a href="Agemap.php">Agemap</a></li>
-        </ul>
-      </div>
-      <hr>
-      <div align="center"><a href="http://cmmiinstitute.com/"><img src="index/img/somos/logo_1.png" width="132" height="110"></a></div>
-      <br>
-      <hr>
-      <div align="center"><img src="index/img/home/faq.png" width="100" height="108"></div>
-      <br>
-      <h3>Contamos con un equipo de profesionales altamente capacitados, orientados a
-        resultados y a satisfacer y superar las expectativas de nuestros clientes.</h3>
+    <div class="CENTER">     
+
+
+<!-- CONTENIDO -->
+
+<h1>--> PLANTILLA PARA LOS DEMAS PAGES</h1>
+
+
+
+     
       
       <!-- end .sidebar2 --></div>
     <!-- end .contain --></div>
   <!-- end .container --></div>
-﻿<div class="clear"></div>
+  
+<div class="clear"></div>
+
 <div class="container foot"></div>
 <div class="container" id="FOOTER">
   <h1>MAPA DEL SITE</h1>
