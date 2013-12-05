@@ -756,22 +756,22 @@ window.bootbox = window.bootbox || (function init($, undefined) {
     pl : {
       OK      : "OK",
       CANCEL  : "Anuluj",
-      CONFIRM : "Potwierdź"
+      CONFIRM : "PotwierdÅº"
     },
     ru : {
       OK      : "OK",
-      CANCEL  : "Отмена",
-      CONFIRM : "Применить"
+      CANCEL  : "ÐžÑ‚Ð¼ÐµÐ½Ð°",
+      CONFIRM : "ÐŸÑ€Ð¸Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ"
     },
     zh_CN : {
       OK      : "OK",
-      CANCEL  : "取消",
-      CONFIRM : "确认"
+      CANCEL  : "å�–æ¶ˆ",
+      CONFIRM : "ç¡®è®¤"
     },
     zh_TW : {
       OK      : "OK",
-      CANCEL  : "取消",
-      CONFIRM : "確認"
+      CANCEL  : "å�–æ¶ˆ",
+      CONFIRM : "ç¢ºèª�"
     }
   };
 

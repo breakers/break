@@ -49,7 +49,14 @@
 			<div class="main-content">
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
+						<div align="right">
+						<br>
+							<a href="index.jsp" onclick="irIndex()" style="color: white" >
+								<i class="icon-home"></i> Ir a la página de inicio													
+							</a>
+						</div>
 						<div class="login-container">
+						
 							<div class="center">
 								<h1>
 									<i class="icon-tint blue"></i>
@@ -58,9 +65,9 @@
 								</h1>
 								<h4 class="red">&copy; Breakers</h4>
 							</div>
-
+							
 							<div class="space-6"></div>
-
+							
 							<div class="position-relative">
 								<div id="login-box" class="login-box visible widget-box no-border">
 									<div class="widget-body">

@@ -10,12 +10,29 @@
 <script type="text/javascript" src="index/js/jquery.carousel.js"></script>
 <script type="text/javascript" src="index/js/jquery_carousellite.js"></script>
 
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="js/fancybox/lib/jquery-1.10.1.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="js/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="js/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+
+
 <script type="text/javascript" language="javascript">
 $( document ).ready( function() {
+	
+	$(".fancybox").fancybox();
+	$(".fancybox").trigger("click");
+	
 	//LOGOS
 	$('#logos ul').carouFredSel({
 		items       : 1
-	});	
+	});		
+	
 	
 	//NOTICIAS
 	$(".newsticker").jCarouselLite({
@@ -64,6 +81,8 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
 </head>
 
  <body>
+ <div><a class="fancybox" href="http://www.victorica.gob.ar/noticias/2010/img/agua.jpg" data-fancybox-group="gallery" title="Durmiendo... ent" type="jpg"></a></div>
+
 <div class="nav_main">
   <div class="contain">
     <div class="logo_trans"><a href="index.jsp"><img src="index/img/sedapar_logo.png" width="200"></a></div>
@@ -418,8 +437,8 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
   <div class="contain home">
     <div class="CENTER">
       <p><img src="index/img/sedapar_logo.png" alt="" width="355" height="79" class="logo"></p>
-<p> Somos una empresa Peruana-Americana, con m√°s de 15 a√±os en el mercado Internacional desarrollando soluciones a la medida de los requerimientos de nuestros clientes, con absoluta seriedad y calidad en los productos que entregamos. 
-        Nuestro software factory ha sido acreditado con el nivel 3 de CMMI...<a href="#" onclick="return notaPrensa();">ver m√°s</a> </p>
+<p> Somos una empresa Peruana-Americana, con m·s de 15 aÒos en el mercado Internacional desarrollando soluciones a la medida de los requerimientos de nuestros clientes, con absoluta seriedad y calidad en los productos que entregamos. 
+        Nuestro software factory ha sido acreditado con el nivel 3 de CMMI...<a href="#" onclick="return notaPrensa();">ver m·s</a> </p>
       <table>
         <tr>
           <td><img src="index/img/home/box_1.png" width="159" height="111"></td>
@@ -437,7 +456,7 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
       <table>
         <tr>
           <td><img src="index/img/home/box_3.png" width="159" height="111"></td>
-          <td><p>Mejoras en el rendimiento de la empresa l√≠der en soluciones de informaci√≥n mar√≠tima ...</p><div align="right"><a href="transfor.php"><img src="index/img/home/plus_3.png" width="18" height="18"></a></div></td>
+          <td><p>Mejoras en el rendimiento de la empresa lÌder en soluciones de informaciÛn marÌtima ...</p><div align="right"><a href="transfor.php"><img src="index/img/home/plus_3.png" width="18" height="18"></a></div></td>
           <td><img src="index/img/home/home2.jpg" width="236" height="111"></td>
         </tr>
       </table>
@@ -546,7 +565,7 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
         </li>
     </tr>
   </table>
-<!-- Inserta bot√≥n +1 de Google. ADC: 06/06/2012 --> 
+<!-- Inserta boton +1 de Google. ADC: 06/06/2012 --> 
 <!-- Place this tag where you want the +1 button to render. -->
 <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120" data-callback="plusone_vote" data-href="the_permalink()"></div>
 
@@ -562,13 +581,13 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
     <tr>
       <td><em>T</em> (51.1) 417 7100<br />
         <em>F</em> (51.1) 446 7685<br /></td>
-      <td><em>D</em> Jorge Ch√°vez 263 Of. 401 - 501<br />
+      <td><em>D</em> Jorge Ch·vez 263 Of. 401 - 501<br />
         &nbsp;&nbsp;&nbsp;L 18, Per√∫</td>
       <td><a href="mailto:postmaster@tss.com.pe">postmaster@tss.com.pe</a><br />
         <a href="http://www.trans-i.com">www.trans-i.com</a></td>
-      <td><a href="../ES/"><strong>Espa√±ol</strong></a><br />
+      <td><a href="../ES/"><strong>EspaÒol</strong></a><br />
         <a href="../EN/"><strong>English</strong></a></td>
-      <td>Copyright ¬© 2013 Breakers.</td>
+      <td>Copyright © 2013 Breakers.</td>
     </tr>
   </table>
 </div>
@@ -591,5 +610,9 @@ imgsrc = location.protocol + '//www.visitortracklog.com/loghit.asp?id=107187&vr=
 document.write('<img border="0" alt="" src="' + imgsrc + '">');
 </script> 
 <!--End VisitorTrack Code-->
+
+
+
+
 </body>
 </html>
