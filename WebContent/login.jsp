@@ -98,7 +98,7 @@
 
 														<button type="submit" value="Entrar" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="icon-key"></i>
-															Login
+															Ingresar
 														</button>
 													</div>
 
@@ -189,7 +189,7 @@
 										<div class="widget-main">
 											<h4 class="header green lighter bigger">
 												<i class="icon-group blue"></i>
-												Registracion de nuevo Usuario
+												Registro de nuevo Usuario
 											</h4>
 
 											<div class="space-6"></div>
@@ -282,7 +282,8 @@
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='js/jquery-2.0.3.min.js'>"+"<"+"/script>");
 		</script>
-
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootbox.js"></script>
 		<!-- <![endif]-->
 
 		<!--[if IE]>
@@ -306,10 +307,12 @@
 		
 		<script type="text/javascript">
 		<%if(request.getAttribute("UsuarioInvalido")!=null){%>
-			document.location.href="login.jsp"
-		<%}
+		bootbox.alert("Usuario o Contraseña incorrectos. Intente nuevamente por favor",function(){
+			document.location.href="login.jsp";
+		});	
 		
-		%>	
+		<%}		
+		%>				
 	</script>
 	
 	</body>
