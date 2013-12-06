@@ -24,7 +24,11 @@
 <script type="text/javascript" language="javascript">
 $( document ).ready( function() {
 	
-	$(".fancybox").fancybox();
+	$(".fancybox").fancybox({
+		'hideOnOverlayClick':	false,
+		'hideOnContentClick':	true
+	}
+	);
 	$(".fancybox").trigger("click");
 	
 	//LOGOS
@@ -82,7 +86,7 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
 </head>
 
  <body>
- <div><a class="fancybox" href="http://www.victorica.gob.ar/noticias/2010/img/agua.jpg" data-fancybox-group="gallery" title="Durmiendo... ent" type="jpg"></a></div>
+ <div><a id="fancybox" class="fancybox" href="http://www.victorica.gob.ar/noticias/2010/img/agua.jpg" data-fancybox-group="gallery" title="Bienvenido a la Página SEDAPAR" type="jpg"></a></div>
 
 <div class="nav_main">
   <div class="contain">
