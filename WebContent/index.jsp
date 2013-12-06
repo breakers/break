@@ -11,7 +11,6 @@
 <script type="text/javascript" src="index/js/jquery_carousellite.js"></script>
 
 	<!-- Add jQuery library -->
-	<script type="text/javascript" src="js/fancybox/lib/jquery-1.10.1.min.js"></script>
 
 	<!-- Add mousewheel plugin (this is optional) -->
 	<script type="text/javascript" src="js/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -42,6 +41,8 @@ $( document ).ready( function() {
 		auto:2000,
 		speed:500
 	});
+	
+	
 });
 </script>
 <!-- Inicio del seguimiento con Google Analytics ADC: 06/06/2012-->
@@ -610,9 +611,6 @@ imgsrc = location.protocol + '//www.visitortracklog.com/loghit.asp?id=107187&vr=
 document.write('<img border="0" alt="" src="' + imgsrc + '">');
 </script> 
 <!--End VisitorTrack Code-->
-
-
-
 
 </body>
 </html>
