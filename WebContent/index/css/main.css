@@ -127,7 +127,7 @@ p {
 }
 
 .tdata {
-	width:430px;
+	width:600px;
 	
 	border:#CCC solid 1px;
 }
@@ -141,7 +141,7 @@ p {
 .tdata th {
 	font-weight:bold;
 	text-align:center;
-	background-color: #50BEE2;
+	background-color: #DCE1F0;
 }
 
 .demo h3 {padding: 5px 0; cursor:pointer; background: url("index/img/core/state2.gif") no-repeat 100% 10px; display:block; text-decoration:none; margin:0; margin-top:10px; text-align:left;}  
