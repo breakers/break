@@ -3,39 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>SEDAPAR - Agua para todos</title>
-<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 <link href="index/css/main.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <script type="text/javascript" src="index/js/jquery.js"></script>
 <script type="text/javascript" src="index/js/jquery.carousel.js"></script>
 <script type="text/javascript" src="index/js/jquery_carousellite.js"></script>
-
-	<!-- Add jQuery library -->
-
-	<!-- Add mousewheel plugin (this is optional) -->
-	<script type="text/javascript" src="js/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-
-	<!-- Add fancyBox main JS and CSS files -->
-	<script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
-	<link rel="stylesheet" type="text/css" href="js/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
-
-
+ <link rel="shortcut icon" href="img/icon.png" type="image/png" />
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
 <script type="text/javascript" language="javascript">
 $( document ).ready( function() {
-	
-	$(".fancybox").fancybox({
-		'hideOnOverlayClick':	false,
-		'hideOnContentClick':	true
-	}
-	);
-	$(".fancybox").trigger("click");
-	
 	//LOGOS
 	$('#logos ul').carouFredSel({
 		items       : 1
-	});		
-	
+	});	
 	
 	//NOTICIAS
 	$(".newsticker").jCarouselLite({
@@ -45,8 +26,6 @@ $( document ).ready( function() {
 		auto:2000,
 		speed:500
 	});
-	
-	
 });
 </script>
 <!-- Inicio del seguimiento con Google Analytics ADC: 06/06/2012-->
@@ -86,8 +65,6 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
 </head>
 
  <body>
- <div><a id="fancybox" class="fancybox" href="http://www.victorica.gob.ar/noticias/2010/img/agua.jpg" data-fancybox-group="gallery" title="Bienvenido a la Página SEDAPAR" type="jpg"></a></div>
-
 <div class="nav_main">
   <div class="contain">
     <div class="logo_trans"><a href="index.jsp"><img src="index/img/sedapar_logo.png" width="200"></a></div>
@@ -440,80 +417,34 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
 </div>
 <div class="wrapper">
   <div class="contain home">
-    <div class="CENTER">
-      <p><img src="index/img/sedapar_logo.png" alt="" width="355" height="79" class="logo"></p>
-<p> Somos una empresa Peruana-Americana, con más de 15 años en el mercado Internacional desarrollando soluciones a la medida de los requerimientos de nuestros clientes, con absoluta seriedad y calidad en los productos que entregamos. 
-        Nuestro software factory ha sido acreditado con el nivel 3 de CMMI...<a href="#" onclick="return notaPrensa();">ver más</a> </p>
-      <table>
-        <tr>
-          <td><img src="index/img/home/box_1.png" width="159" height="111"></td>
-          <td><p>Tenemos una amplia experiencia y relaciones de largo plazo con nuestros clientes en los sectores Naviero, MarÃ­timo, Puertos, ...</p><div align="right"><a href="desarrollando.php"><img src="index/img/home/plus_1.png" width="18" height="18"></a></div></td>
-          <td><img src="index/img/home/home3.jpg" width="236" height="111"></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><img src="index/img/home/home1.jpg" width="236" height="111"></td>
-          <td><img src="index/img/home/box_2.png" width="159" height="111"></td>
-          <td><p>Existe una amplia diversidad de compaÃ±Ã­as consultoras en el mundo. Todas enfrentan un desafÃ­o comÃºn: proveer apoyo y soporte en TI ...</p><div align="right"><a href="nearshore.php"><img src="index/img/home/plus_2.png" width="18" height="18"></a></div></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><img src="index/img/home/box_3.png" width="159" height="111"></td>
-          <td><p>Mejoras en el rendimiento de la empresa líder en soluciones de información marítima ...</p><div align="right"><a href="transfor.php"><img src="index/img/home/plus_3.png" width="18" height="18"></a></div></td>
-          <td><img src="index/img/home/home2.jpg" width="236" height="111"></td>
-        </tr>
-      </table>
-    </div>
-    <div class="RIGHT">
-      <div id="soluciones1">
-        <h1>Servicios <img src="index/img/home/icon_laptop.png"></h1>
-        <ul class="sub_nav">
-          <li><a href="#">Solicitud de Contrato de nueva conexion</a></li>
-          <ul class="sub_nav">
-          <li><a href="cs_registro.jsp">Registro de Solicitud <i class="icon-edit"></i></a></li>
-          <li><a href="naviera.php">Consulta de Solicitud <i class="icon-search"></i></a></li>
-          </ul>
-          
-          <li><a href="transporte.php">Transporte</a></li>
-          <li> <a href="financiera.php">Financiera</a></li>
-          <li> <a href="salud.php">Salud</a></li>
-        </ul>
-      </div>
-      <div id="soluciones2">
-        <h1>Soluciones TecnolÃ³gicas<img src="index/img/home/icon_gears.png"></h1>
-        <ul class="sub_nav">
-          <li> <a href="moviles.php">MÃ³viles </a></li>
-          <li> <a href="intelligence.php">Business Intelligence </a></li>
-          <li> <a href="integracion.php">IntegraciÃ³n</a></li>
-          <li> <a href="net.php">Net y Java </a></li>
-          <li> <a href="b2b.php">B2B / EDI </a></li>
-        </ul>
-      </div>
-      <div id="soluciones3">
-        <h1>Soluciones Empresariales<img src="index/img/home/icon_world.png"></h1>
-        <ul class="sub_nav">
-          <!-- <li> <a href="selenne.php">Selenne ERP & BI </a></li>-->
-          <li><a href="rhpro.php">RH Pro X2</a></li>
-          <li><a href="logicx.php">Logistix</a></li>
-          <li><a href="Logistix.php">Logistix 3PL</a></li>
-          <li><a href="Agemap.php">Agemap</a></li>
-        </ul>
-      </div>
-      <hr>
-      <div align="center"><a href="http://cmmiinstitute.com/"><img src="index/img/somos/logo_1.png" width="132" height="110"></a></div>
-      <br>
-      <hr>
-      <div align="center"><img src="index/img/home/faq.png" width="100" height="108"></div>
-      <br>
-      <h3>Contamos con un equipo de profesionales altamente capacitados, orientados a
-        resultados y a satisfacer y superar las expectativas de nuestros clientes.</h3>
-      
-      <!-- end .sidebar2 --></div>
-    <!-- end .contain --></div>
-  <!-- end .container --></div>
+    <div class="CENTER">     
+
+
+<!-- CONTENIDO -->
+<br>
+<h1>Misión</h1>
+	<p align="justify">Suministrar servicios de agua potable y alcantarillado de calidad, preservando el medio ambiente, contribuyendo a mejorar el nivel de vida de toda la población dentro del ámbito de SEDAPAR.</p>
+<h1>Visión</h1>
+	<p align="justify">Ser reconocida como la Empresa prestadora de servicios de saneamiento con mejores indicadores de gestión en el ámbito nacional, gozar de la aceptación y reconocimiento de nuestros clientes y la población en general por los servicios recibidos.</p>
+<h1>Valores</h1>	
+		<ul>
+			<li>1. Honestidad.</li>
+			<li>2. Responsabilidad.</li>
+			<li>3. Respeto.</li>
+			<li>4. Trabajo en Equipo.</li>
+			<li>5. Innovación, creatividad y anticipación.</li>
+			<li>6. Identificación y compromiso empresarial.</li>
+</ul>
+	<br><br>
+	      
+      <!-- end CENTER --></div>
+      	<div class="RIGHT"><img src="index/img/menu_empresa/vision.jpg" align="right"  />
+			</div>
+    <!-- end contain home --></div>
+  <!-- end wrapper --></div>
+  
 <div class="clear"></div>
+
 <div class="container foot"></div>
 <div class="container" id="FOOTER">
   <h1>MAPA DEL SITE</h1>
@@ -570,7 +501,7 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
         </li>
     </tr>
   </table>
-<!-- Inserta boton +1 de Google. ADC: 06/06/2012 --> 
+<!-- Inserta botÃ³n +1 de Google. ADC: 06/06/2012 --> 
 <!-- Place this tag where you want the +1 button to render. -->
 <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120" data-callback="plusone_vote" data-href="the_permalink()"></div>
 
@@ -586,13 +517,13 @@ location.href="/espanol/"+url.substring(part+1,url.lenght);
     <tr>
       <td><em>T</em> (51.1) 417 7100<br />
         <em>F</em> (51.1) 446 7685<br /></td>
-      <td><em>D</em> Jorge Chávez 263 Of. 401 - 501<br />
+      <td><em>D</em> Jorge ChÃ¡vez 263 Of. 401 - 501<br />
         &nbsp;&nbsp;&nbsp;L 18, PerÃº</td>
       <td><a href="mailto:postmaster@tss.com.pe">postmaster@tss.com.pe</a><br />
         <a href="http://www.trans-i.com">www.trans-i.com</a></td>
-      <td><a href="../ES/"><strong>Español</strong></a><br />
+      <td><a href="../ES/"><strong>EspaÃ±ol</strong></a><br />
         <a href="../EN/"><strong>English</strong></a></td>
-      <td>Copyright © 2013 Breakers.</td>
+      <td>Copyright Â© 2013 Breakers.</td>
     </tr>
   </table>
 </div>
@@ -615,6 +546,5 @@ imgsrc = location.protocol + '//www.visitortracklog.com/loghit.asp?id=107187&vr=
 document.write('<img border="0" alt="" src="' + imgsrc + '">');
 </script> 
 <!--End VisitorTrack Code-->
-
 </body>
 </html>
