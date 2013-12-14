@@ -1237,7 +1237,7 @@
 															<div class="itemdiv memberdiv">
 																<div class="user">
 																	<img alt="Joe Doe&#39;s avatar"
-																		src="img/users/avatar4.png">
+																		src="img/users/u000002.jpg">
 																</div>
 
 																<div class="body">
@@ -1704,7 +1704,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="John&#39;s Avatar" src="img/users/avatar.png">
+																<img alt="John&#39;s Avatar" src="img/users/u000002.jpg">
 															</div>
 
 															<div class="body">
@@ -1714,7 +1714,8 @@
 																</div>
 
 																<div class="name">
-																	<a href="#">John</a>
+																	<a href="#">Renzo</a><span
+																		class="label label-info arrowed arrowed-in-right">admin</span>
 																</div>
 																<div class="text">Raw denim you probably haven't
 																	heard of them jean shorts Austin.</div>
