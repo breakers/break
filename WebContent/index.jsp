@@ -1,13 +1,11 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="de" dir="ltr">
+<html lang="es" dir="ltr">
 
 <head>
   <meta charset="utf-8" />
 <link rel="shortcut icon" href="img/favicon.ico" />
 <meta name="generator" content="Drupal 7 (http://drupal.org)" />
-<link href="http://www.euroweb.de/ch" rel="alternate" hreflang="de-CH" title="Schweizerdeutsch" />
-<link href="http://www.euroweb.de/at" rel="alternate" hreflang="de-AT" title="Deutsch (Österreich)" />
 <meta name="description" content="Pagina principal de sedapar, empresa que brinda servicio de agua potable en la provincia de arequipa." />
   <title>Sedapar - Arequipa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -114,7 +112,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <h2><a href="http://radio.rpp.com.pe/cuidaelagua/habra-normal-abastecimiento-de-agua-para-lima-y-callao-este-ano/">Habrá normal abastecimiento de agua para Lima y Callao este año</a></h2>   
               <h3>Cuida el agua</h3>
 </hgroup>   
-              <div class="header-slide-body"><p>Al 100% se llenaron las represas y lagunas que constituyen las reservas de agua para Lima y Callao, permitiendo así garantizar el normal abastecimiento de agua potable para el periodo 2011 – 2012, y despejar cualquier amenaza de racionamiento, aseguró SEDAPAL.</p>
+              <div class="header-slide-body"><p>Al 100% se llenaron las represas y lagunas que constituyen las reservas de agua para Lima y Callao, permitiendo así­ garantizar el normal abastecimiento de agua potable para el periodo 2011 al 2012, y despejar cualquier amenaza de racionamiento, asegura SEDAPAL.</p>
 </div>
 </article>
 </div>   
@@ -172,9 +170,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <article>
 <hgroup>
 <h2><a href="http://www.euroweb-sportfoerderung.com">Importancia del agua potable o dulce </a></h2>   
-              <h3>Cómo influye en los seres vivos</h3>
+              <h3>Como influye en los seres vivos</h3>
 </hgroup>   
-              <div class="header-slide-body"><p>El agua potable es esencial para la vida. Es el líquido mas importante de la naturaleza sin el cual no podríamos vivir. El agua potable nos ayuda a estar sanos, a hacer la digestión, mantiene la musculatura en buen estado, actúa refrigerando o calentando el cuerpo  y ayuda a transportar el oxigeno entre las células de nuestro cuerpo.</p>
+              <div class="header-slide-body"><p>El agua potable es esencial para la vida. Es el líquido mas importante de la naturaleza sin el cual no podríamos vivir. El agua potable nos ayuda a estar sanos, a hacer la digestión, mantiene la musculatura en buen estado, actíva refrigerando o calentando el cuerpo  y ayuda a transportar el oxigeno entre las células de nuestro cuerpo.</p>
 </div>
 </article>
 </div>   
@@ -325,7 +323,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <a class="button right" href="#/portfolio">Mas tecnologia</a></article>
 <article class="column4" id="teaser-service">
     <h2><span class="icon-teaser-service">&nbsp;</span> Servicios</h2>
-    <p>Estamos conectados las 24 horas del dia , los 365 dias del año.</p>
+    <p>Estamos conectados las 24 horas del dia , los 365 dias del aÃ±o.</p>
     <a class="button right" href="#/service" title="Service">Mas servicios</a></article>
 <article class="column4 last" id="teaser-support">
     <h2><span class="icon-teaser-support">&nbsp;</span> Ayuda</h2>
@@ -382,8 +380,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	<div class="video-container"><iframe allowfullscreen="" frameborder="0" height="402" src="http://www.youtube.com/embed/_qTKJ2FcDNI?rel=0" width="714"></iframe></div>
 </div>
 <div class="video-copy last">
-	<p>La celebración del Día Mundial del Agua tiene por objeto fomentar la comprensión de la importancia de los recursos hídricos en la productividad económica y el bienestar social. El agua limpia es vida y nuestras vidas dependen de la manera en que protejamos la calidad de nuestras aguas.</p>
-	<p>La calidad de los recursos hídricos se ve cada vez más amenazada por la contaminación. Durante los últimos 50 años la actividad humana ha provocado la contaminación de los recursos hídricos en una magnitud históricamente sin precedentes.</p>
+	<p>La celebraciÃ³n del DÃ­a Mundial del Agua tiene por objeto fomentar la comprensiÃ³n de la importancia de los recursos hÃ­dricos en la productividad econÃ³mica y el bienestar social. El agua limpia es vida y nuestras vidas dependen de la manera en que protejamos la calidad de nuestras aguas.</p>
+	<p>La calidad de los recursos hÃ­dricos se ve cada vez mÃ¡s amenazada por la contaminaciÃ³n. Durante los Ãºltimos 50 aÃ±os la actividad humana ha provocado la contaminaciÃ³n de los recursos hÃ­dricos en una magnitud histÃ³ricamente sin precedentes.</p>
 </div>
 <p>&nbsp;</p>
 		
@@ -436,7 +434,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
       <ul><li><a href="http://euroweb-group.com" title="Website der Euroweb Group">Sedapar Arequipa</a></li>
 <li><a href="http://euroweb-marketing.de" title="Website der Euroweb Marketing">Sedapal Lima</a></li>
 <li><a href="http://euroweb-stiftung.de" title="Website der Euroweb Stiftung">Sedapal Nacional</a></li>
-<li><a href="http://euroweb-sportfoerderung.com" title="Website der Euroweb Sportförderung">Sedapar en el Extranjero</a></li>
+<li><a href="http://euroweb-sportfoerderung.com" title="Website der Euroweb SportfÃ¶rderung">Sedapar en el Extranjero</a></li>
 <li><a href="http://www.businessworld.de/web/main_channel.cfm/Euroweb_Internet_GmbH/:var:crypt:Nein:FKT:AUS:faID:132073:Sprache:DE" title="Videos der Euroweb Internet GmbH bei Businessworld">Mundo de Negocios</a></li>
 </ul>      
             
@@ -466,7 +464,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
           <section class="block block-block " id="block-block-23">
             
             
-      <div id="karte"><a class="marker duesseldorf" href="http://www.euroweb.de/standort-duesseldorf" title="Unternehmensstandort der Euroweb in Düsseldorf">Comunicate con Sedapar</a> <a class="markerklein berlin" href="http://www.euroweb.de/standort-berlin" title="Unternehmensstandort der Euroweb in Berlin">Comunicate con Sedapar </a> <a class="markerklein oesterreich" href="http://www.euroweb.de/standort-salzburg" title="Unternehmensstandort der Euroweb in Salzburg">Comunicate con Sedapar  2</a> <a class="markerklein schweiz" href="http://www.euroweb.de/standort-wohlen" title="Unternehmensstandort der Euroweb Internet AG Schweiz in Wohlen">Comunicate con Sedapar  3</a> <a class="markerklein bulgarien" href="http://www.euroweb.de/standort-plovdiv" title="Unternehmensstandort der Euroweb in Plovdiv">Comunicate con Sedapar  4</a></div>      
+      <div id="karte"><a class="marker duesseldorf" href="http://www.euroweb.de/standort-duesseldorf" title="Unternehmensstandort der Euroweb in DÃ¼sseldorf">Comunicate con Sedapar</a> <a class="markerklein berlin" href="http://www.euroweb.de/standort-berlin" title="Unternehmensstandort der Euroweb in Berlin">Comunicate con Sedapar </a> <a class="markerklein oesterreich" href="http://www.euroweb.de/standort-salzburg" title="Unternehmensstandort der Euroweb in Salzburg">Comunicate con Sedapar  2</a> <a class="markerklein schweiz" href="http://www.euroweb.de/standort-wohlen" title="Unternehmensstandort der Euroweb Internet AG Schweiz in Wohlen">Comunicate con Sedapar  3</a> <a class="markerklein bulgarien" href="http://www.euroweb.de/standort-plovdiv" title="Unternehmensstandort der Euroweb in Plovdiv">Comunicate con Sedapar  4</a></div>      
             
       
     </section>
@@ -554,7 +552,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </li>
       <li class="jcarousel-item-12 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/footer-deloitte_0.png" width="138" height="90" alt="Deloitte Technology Fast 50" /></a>   
 </li>
-      <li class="jcarousel-item-13 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/footer-aktion.png" width="132" height="90" alt="IHK – Aktion wir unternehmen Zukunft" /></a>   
+      <li class="jcarousel-item-13 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/footer-aktion.png" width="132" height="90" alt="IHK â Aktion wir unternehmen Zukunft" /></a>   
 </li>
       <li class="jcarousel-item-14 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/webaward2008_0_0.png" width="77" height="90" alt="Webaward 2008" /></a>   
 </li>
@@ -564,11 +562,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </li>
       <li class="jcarousel-item-17 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/footer-diebesten_0.png" width="150" height="87" alt="Die Besten" /></a>   
 </li>
-      <li class="jcarousel-item-18 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/footer-zertifikat_0.png" width="139" height="90" alt="Zertifikat für Nachwuchsförderung" /></a>   
+      <li class="jcarousel-item-18 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/footer-zertifikat_0.png" width="139" height="90" alt="Zertifikat fÃ¼r NachwuchsfÃ¶rderung" /></a>   
 </li>
       <li class="jcarousel-item-19 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/entrepreneur2010.png" width="150" height="72" alt="Entrepreneur des Jahres 2010" /></a>   
 </li>
-      <li class="jcarousel-item-20 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/duesseldorfer-unternehmerpreis.png" width="131" height="90" alt="Düsseldorfer Unternehmerpreis" /></a>   
+      <li class="jcarousel-item-20 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/duesseldorfer-unternehmerpreis.png" width="131" height="90" alt="DÃ¼sseldorfer Unternehmerpreis" /></a>   
 </li>
       <li class="jcarousel-item-21 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/interactivemediaawards.png" width="96" height="90" alt="Interactive Media Awards" /></a>   
 </li>
@@ -612,7 +610,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 
 <!-- /.region -->
-						<span id="copyright">© breakers</span>
+						<span id="copyright">Â© breakers</span>
 													<a class="link-geprueft-de" href="http://www.geprueft.de" target="_blank"><img src="img/geprueft-de-logo.png" alt="Unternehmen bei geprueft.de" width="110" height="20" /></a>
 										</section>
 		</footer>
