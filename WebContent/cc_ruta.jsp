@@ -25,7 +25,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Cambio de categoria - <%=nombre %></title>
+<title>Contenido - <%=nombre %></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -418,7 +418,7 @@
 								</ul>
 							</li>
 
-							<li><a href="cc_ruta.jsp"> <i
+							<li  class="active"><a href="cc_ruta.jsp"> <i
 									class="icon-double-angle-right"></i> Ruta de Inspeccion
 							</a></li>
 
@@ -426,7 +426,7 @@
 									class="icon-double-angle-right"></i> Informe de Inspeccion
 							</a></li>
 
-							<li class="active"><a href="cc_evaluar.jsp"> <i
+							<li><a href="cc_evaluar.jsp"> <i
 									class="icon-double-angle-right"></i> Evaluar Expediente
 							</a></li>
 
@@ -542,7 +542,7 @@
 					<ul class="breadcrumb">
 						<li><i class="icon-home home-icon"></i> <a href="home.jsp">Home</a>
 						</li>
-						<li class="active">Cambio de Categoria</li>
+						<li class="active">Contenido</li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -561,8 +561,8 @@
 				<div class="page-content">
 					<div class="page-header">
 						<h1>
-							Evaluar Expediente <small> <i class="icon-double-angle-right"></i>
-								Se evaluaran los expedientes de las solicitudes de cambio de categoria de servicios. 
+							Contenido <small> <i class="icon-double-angle-right"></i>
+								Contenido de la pagina X12. 
 							</small>
 						</h1>
 					</div>
@@ -572,17 +572,9 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-
 							gui de referencia!!! </br>
 
-							<img src="img/guis/CC_EvaluarExpediente.jpg" />
-
-
-
-
-
-
-
+							<img src="img/guis/CC_GenerarRuta.jpg" />
 
 
 							<!-- PAGE CONTENT ENDS -->

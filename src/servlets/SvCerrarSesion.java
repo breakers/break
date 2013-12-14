@@ -49,7 +49,7 @@ public class SvCerrarSesion extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		sesion.invalidate();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		request.setAttribute("sesioncerrada", "Gracias por visitarnos");
 		try {
 			rd.forward(request, response);
