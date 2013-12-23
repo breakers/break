@@ -1,31 +1,50 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 
-	<% HttpSession sesion=request.getSession();
-		String nombre= (String)sesion.getAttribute("NombreCompleto");
-		String foto= (String)sesion.getAttribute("foto");
-		int tipo=0;
-		String skin="default";
-		
-		if(nombre==null){
-			response.sendRedirect("login.jsp");
-		}else{
-			if(foto==null){
-				foto="nofoto";
-			}
-			
-			tipo=(Integer)sesion.getAttribute("tipo");
-			switch(tipo){
-			case 1: skin="skin-1"; break;
-			case 2: skin="skin-2"; break;
-			default:skin="default";}
-		} %>
+<%
+	HttpSession sesion = request.getSession();
+	String nombre = (String) sesion.getAttribute("NombreCompleto");
+	String foto = (String) sesion.getAttribute("foto");
+	int tipo = 1;
+	String skin = "default";
+
+	if (nombre == null) {
+		response.sendRedirect("login.jsp");
+	} else {
+		if (foto == null) {
+			foto = "nofoto";
+		}
+
+		tipo = (Integer) sesion.getAttribute("tipo");
+		switch (tipo) {
+			case 1 :
+				skin = "skin-1";
+				break;
+			case 2 :
+				skin = "skin-2";
+				break;
+			default :
+				skin = "default";
+		}
+	}
+	String bandera="";
+	
+	if(bandera.equals("us")){
+		bandera="img/usa_flag.gif";
+	}else{
+		bandera="img/pe_flag.gif";
+	}
+%>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Dashboard - <%=nombre %></title>
+<title>Dashboard - <%=nombre%></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,8 +55,8 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!--[if IE 7]>
-		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
-		<![endif]-->
+		  <link rel="stylesheet" href="css/font-awesome-ie7.min.css" />
+<![endif]-->
 
 <!-- page specific plugin styles -->
 
@@ -53,8 +72,8 @@
 <link rel="stylesheet" href="css/ace-skins.min.css">
 
 <!--[if lte IE 8]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
-		<![endif]-->
+		  <link rel="stylesheet" href="css/ace-ie.min.css" />
+<![endif]-->
 
 <!-- inline styles related to this page -->
 
@@ -68,37 +87,16 @@
 <!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
-		<![endif]-->
-<style type="text/css">
-.jqstooltip {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	visibility: hidden;
-	background: rgb(0, 0, 0) transparent;
-	background-color: rgba(0, 0, 0, 0.6);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,
-		endColorstr=#99000000);
-	-ms-filter:
-		"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
-	color: white;
-	font: 10px arial, san serif;
-	text-align: left;
-	white-space: nowrap;
-	padding: 5px;
-	border: 1px solid white;
-	z-index: 10000;
-}
-
-.jqsfield {
-	color: white;
-	font: 10px arial, san serif;
-	text-align: left;
-}
-</style>
+<![endif]-->
 </head>
 
-<body class="navbar-fixed breadcrumbs-fixed <%=skin %>" style="" >
+<body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
+
+	<c:if test="${param.idioma != null}">
+		<fmt:setLocale value="${param.idioma}" scope="session" />
+	</c:if>
+
+
 	<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 		<script type="text/javascript">
 			try {
@@ -110,7 +108,8 @@
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
 				<a href="home.jsp" class="navbar-brand"> <small> <i
-						class="icon-tint lightcyan"></i> Sedapar Administracion
+						class="icon-tint lightcyan"></i>
+					<fmt:message key="label.cargo" />
 				</small>
 				</a>
 				<!-- /.brand -->
@@ -119,19 +118,57 @@
 
 			<div class="navbar-header pull-right" role="navigation">
 				<ul class="nav ace-nav">
-					<li class="grey"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <i class="icon-tasks"></i> <span
-							class="badge badge-grey">4</span>
+					<!-- BARRA IDIOMA -->
+					<li class="orange2"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#"> <img src=<%=bandera %>
+									class="msg-photo" alt="Idioma">  <span
+							class="badge badge-grey"><fmt:message key="label.actualidioma" /></span>
 					</a>
 
 						<ul
 							class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-							<li class="dropdown-header"><i class="icon-ok"></i> 4 Tasks
-								to complete</li>
+							<li class="dropdown-header"><i class="icon-ok"></i> <fmt:message key="label.seleccionaidioma" /></li>
+
+							
+							<li><a href="home.jsp?idioma=es"> 
+								<img src="img/pe_flag.gif"
+									class="msg-photo" alt="Castellano"> 
+									<span class="msg-body"> 
+										<span class="msg-title"> 
+											<span class="blue"><fmt:message key="label.español" /></span> 
+									</span> 
+								</span>
+							</a></li>
+							<li><a href="home.jsp?idioma=en"> 
+								<img src="img/usa_flag.gif"
+									class="msg-photo" alt="Ingles"> 
+									<span class="msg-body"> 
+										<span class="msg-title"> 
+											<span class="blue"><fmt:message key="label.ingles" /></span> 
+									</span> 
+								</span>
+							</a></li>
+
+							<li><a href="#">
+									<div class="progress progress-mini ">
+										<div style="width: 100%"
+											class="progress-bar progress-bar-danger"></div>
+									</div>
+							</a></li>
+						</ul></li>
+					<!-- FIN IDIOMA -->
+					<li class="grey"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#"> <i class="icon-tasks"></i> <span
+							class="badge badge-grey">2</span>
+					</a>
+
+						<ul
+							class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header"><i class="icon-ok"></i> 4 <fmt:message key="label.tareapendientes" /></li>
 
 							<li><a href="#">
 									<div class="clearfix">
-										<span class="pull-left">Software Update</span> <span
+										<span class="pull-left"><fmt:message key="label.tareacontratos" /></span> <span
 											class="pull-right">65%</span>
 									</div>
 
@@ -142,7 +179,7 @@
 
 							<li><a href="#">
 									<div class="clearfix">
-										<span class="pull-left">Hardware Upgrade</span> <span
+										<span class="pull-left"><fmt:message key="label.tareacambios" /></span> <span
 											class="pull-right">35%</span>
 									</div>
 
@@ -152,31 +189,7 @@
 									</div>
 							</a></li>
 
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Unit Testing</span> <span
-											class="pull-right">15%</span>
-									</div>
-
-									<div class="progress progress-mini ">
-										<div style="width: 15%"
-											class="progress-bar progress-bar-warning"></div>
-									</div>
-							</a></li>
-
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Bug Fixes</span> <span
-											class="pull-right">90%</span>
-									</div>
-
-									<div class="progress progress-mini progress-striped active">
-										<div style="width: 90%"
-											class="progress-bar progress-bar-success"></div>
-									</div>
-							</a></li>
-
-							<li><a href="procesos.jsp"> See tasks with details <i
+							<li><a href="procesos.jsp"> <fmt:message key="label.tareadetalles" /> <i
 									class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
@@ -190,7 +203,7 @@
 						<ul
 							class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
 							<li class="dropdown-header"><i class="icon-warning-sign"></i>
-								8 Notifications</li>
+								8 <fmt:message key="label.notificaciones" /></li>
 
 							<li><a href="#">
 									<div class="clearfix">
@@ -224,8 +237,8 @@
 									</div>
 							</a></li>
 
-							<li><a href="notificaciones.jsp"> See all notifications <i
-									class="icon-arrow-right"></i>
+							<li><a href="notificaciones.jsp"> <fmt:message key="label.notificacionesdetalles" />
+									<i class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
 
@@ -238,7 +251,7 @@
 						<ul
 							class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 							<li class="dropdown-header"><i class="icon-envelope-alt"></i>
-								5 Messages</li>
+								5 <fmt:message key="label.mensajes" /></li>
 
 							<li><a href="#"> <img src="img/users/avatar.png"
 									class="msg-photo" alt="Alex&#39;s Avatar"> <span
@@ -273,29 +286,32 @@
 								</span>
 							</a></li>
 
-							<li><a href="buzon.jsp"> See all messages <i
+							<li><a href="buzon.jsp"> <fmt:message key="label.mensajestodos" /> <i
 									class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
 
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
-							src="img/users/<%=foto %>.jpg" alt="Jason&#39;s Photo"> <span
-							class="user-info"> <small>Welcome,</small> <%=nombre %>
+							src="img/users/<%=foto%>.jpg" alt="Jason&#39;s Photo"> <span
+							class="user-info"> <small><fmt:message key="label.bienvenido" />,</small> <%=nombre%>
 						</span> <i class="icon-caret-down"></i>
 					</a>
 
 						<ul
 							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="configuracion.jsp"> <i class="icon-cog"></i> Settings
+							<li><a href="configuracion.jsp"> <i class="icon-cog"></i>
+									<fmt:message key="label.configuracion" />
 							</a></li>
 
-							<li><a href="perfil.jsp"> <i class="icon-user"></i> Profile
+							<li><a href="perfil.jsp"> <i class="icon-user"></i>
+									<fmt:message key="label.perfil" />
 							</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="cerrarsesion"> <i class="icon-off"></i> Logout
+							<li><a href="cerrarsesion"> <i class="icon-off"></i>
+									<fmt:message key="label.cerrar" />
 							</a></li>
 						</ul></li>
 				</ul>
@@ -356,166 +372,174 @@
 
 				<ul class="nav nav-list">
 					<li class="active"><a href="home.jsp"> <i
-							class="icon-dashboard"></i> <span class="menu-text">
-								Dashboard </span>
+							class="icon-dashboard"></i> <span class="menu-text"> <fmt:message
+									key="label.resumen" />
+						</span>
 					</a></li>
 
 
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-edit"></i> <span class="menu-text"> Contratos
-							 </span> <b class="arrow icon-angle-down"></b>
+							class="icon-edit"></i> <span class="menu-text"><fmt:message
+									key="label.Contratos" /> </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
 							<li><a href="#" class="dropdown-toggle"> <i
-									class="icon-double-angle-right"></i> Solicitudes <b
-									class="arrow icon-angle-down"></b>
-								</a>
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Solicitud" /> <b class="arrow icon-angle-down"></b>
+							</a>
 
 								<ul class="submenu">
-									<li><a href="con_sol_registro.jsp"> <i class="icon-pencil"></i> Registrar
-									</a></li>
-									
-									<li><a href="con_sol_revision.jsp"> <i class="icon-ok"></i> Revisar
+
+									<li><a href="con_sol_revision.jsp"> <i class="icon-ok"></i>
+										<fmt:message key="label.Revisar" />
 									</a></li>
 
-									<li><a href="con_sol_consulta.jsp"> <i class="icon-eye-open"></i> Consultar
+									<li><a href="con_sol_consulta.jsp"> <i
+											class="icon-eye-open"></i>
+										<fmt:message key="label.Buscar" />
 									</a></li>
-								</ul>
-							</li>
-
-							<li><a href="con_cotizacion.jsp"> <i
-									class="icon-double-angle-right"></i> Cotizacion de Servicios
-							</a></li>
+								</ul></li>
 
 							<li><a href="con_contrato.jsp"> <i
-									class="icon-double-angle-right"></i> Generar Contrato
+									class="icon-double-angle-right"></i>
+								<fmt:message key="label.Generar" />
 							</a></li>
 
 							<li><a href="con_consulta.jsp"> <i
-									class="icon-double-angle-right"></i> Consulta Contrato
+									class="icon-double-angle-right"></i>
+								<fmt:message key="label.Cc" />
 							</a></li>
 
 
 						</ul></li>
 
+
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-share"></i> <span class="menu-text"> Cambio Categoria </span> <b
-							class="arrow icon-angle-down"></b>
+							class="icon-share"></i> <span class="menu-text"><fmt:message
+									key="label.Categoria" /> </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
 							<li><a href="#" class="dropdown-toggle"> <i
-									class="icon-double-angle-right"></i> Solicitudes <b
-									class="arrow icon-angle-down"></b>
-								</a>
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Solicitud" /><b class="arrow icon-angle-down"></b>
+							</a>
 
 								<ul class="submenu">
-									<li><a href="cc_sol_registro.jsp"> <i class="icon-pencil"></i> Registrar
-									</a></li>
-									
-									<li><a href="cc_sol_revision.jsp"> <i class="icon-ok blue"></i> Revisar
+									<li><a href="cc_sol_registro.jsp"> <i
+											class="icon-pencil"></i> <fmt:message key="label.Registrar" />
 									</a></li>
 
-									<li><a href="cc_sol_consulta.jsp"> <i class="icon-eye-open"></i> Consultar
+									<li><a href="cc_sol_revision.jsp"> <i
+											class="icon-ok"></i>
+										<fmt:message key="label.Revisar" />
 									</a></li>
-								</ul>
-							</li>
+								</ul></li>
 
 							<li><a href="cc_ruta.jsp"> <i
-									class="icon-double-angle-right"></i> Ruta de Inspeccion
+									class="icon-double-angle-right"></i>
+								<fmt:message key="label.Ruta" />
 							</a></li>
 
 							<li><a href="cc_inspeccion.jsp"> <i
-									class="icon-double-angle-right"></i> Informe de Inspeccion
+									class="icon-double-angle-right"></i>
+								<fmt:message key="label.Ii" />
 							</a></li>
 
 							<li><a href="cc_evaluar.jsp"> <i
-									class="icon-double-angle-right"></i> Evaluar Expediente
+									class="icon-double-angle-right"></i>
+								<fmt:message key="label.Ee" />
 							</a></li>
 
 							<li><a href="cc_validar.jsp"> <i
-									class="icon-double-angle-right"></i> Verificar Expediente
+									class="icon-double-angle-right"></i>
+								<fmt:message key="label.Ve" />
 							</a></li>
-							<li><a href="cc_consulta_oficio"> <i
-									class="icon-double-angle-right"></i> Consultar Oficio
-							</a></li>
+
 
 						</ul></li>
 
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-dollar"></i> <span class="menu-text"> Liquidacion </span> <b
-							class="arrow icon-angle-down"></b>
+							class="icon-dollar"></i> <span class="menu-text"> <fmt:message
+									key="label.Liquidacion" />
+						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
 							<li><a href="liq_consulta.jsp"> <i
-									class="icon-double-angle-right"></i> Consulta Deudas
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Cd" />
 							</a></li>
 
 							<li><a href="liq_pago.jsp"> <i
-									class="icon-double-angle-right"></i> Registrar Pago
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Rp" />
 							</a></li>
 
 						</ul></li>
 
 					<li><a href="#reportes" class="dropdown-toggle"> <i
-							class="icon-list-alt"></i> <span class="menu-text"> Reportes 
+							class="icon-list-alt"></i> <span class="menu-text"> <fmt:message
+									key="label.Reportes" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
 							<li><a href="rep_servicios.jsp"> <i
-									class="icon-double-angle-right"></i> Servicios Contratados
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Sc" />
 							</a></li>
 
 							<li><a href="rep_estadistica.jsp"> <i
-									class="icon-double-angle-right"></i> Estadistica de Contrataciones
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Edc" />
 							</a></li>
 
 						</ul></li>
 
 
 					<li><a href="#mantenimiento" class="dropdown-toggle"> <i
-							class="icon-group"></i> <span class="menu-text"> Mantenimiento
+							class="icon-group"></i> <span class="menu-text"> <fmt:message
+									key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
 							<li><a href="man_clientes.jsp"> <i
-									class="icon-double-angle-right"></i> Clientes
-							</a></li>
-
-							<li><a href="man_empleados.jsp"> <i
-									class="icon-double-angle-right"></i> Empleados
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Clientes" />
 							</a></li>
 
 							<li><a href="man_perfiles.jsp"> <i
-									class="icon-double-angle-right"></i> Perfiles
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Perfiles" />
 							</a></li>
 
 							<li><a href="man_usuarios.jsp"> <i
-									class="icon-double-angle-right"></i> Usuario
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Usuario" />
 							</a></li>
 						</ul></li>
-					<li><a href="buzon.jsp"> <i class="icon-envelope-alt"></i> 
-						<span class="menu-text"> Buzon 
-							<span class="badge badge-primary ">5</span>
+					<li><a href="buzon.jsp"> <i class="icon-envelope-alt"></i>
+							<span class="menu-text"> <fmt:message key="label.Buzon" />
+								<span class="badge badge-primary ">5</span>
 						</span>
 					</a></li>
 					<li><a href="calendario.jsp"> <i class="icon-calendar"></i>
-							<span class="menu-text"> Calendario <span
+							<span class="menu-text"><fmt:message
+									key="label.Calendario" /> <span
 								class="badge badge-transparent tooltip-error" title=""
 								data-original-title="2 Important Events"> <i
 									class="icon-warning-sign red bigger-130"></i>
-							</span>
-						</span>
+							</span> </span>
 					</a></li>
 
-					<li><a href="timeline.jsp"> <i class="icon-code-fork"></i> <span
-							class="menu-text"> Linea de Tiempo </span>
+					<li><a href="timeline.jsp"> <i class="icon-code-fork"></i>
+							<span class="menu-text"><fmt:message
+									key="label.LineaTiempo" /> </span>
 					</a></li>
-					
+
 					<li><a href="contenido.jsp"> <i class="icon-github"></i> <span
-							class="menu-text"> Contenido </span>
+							class="menu-text"><fmt:message key="label.Contenido" /> </span>
 					</a></li>
 				</ul>
 				<!-- /.nav-list -->
@@ -583,7 +607,8 @@
 
 								<i class="icon-ok green"></i> Bienvenido a <strong class="green">
 									break <small>(v6.1)</small>
-								</strong> , el sistema de gestion rico en caracteristicas y facil de usar.
+								</strong> , el sistema de gestion rico en caracteristicas y facil de
+								usar.
 							</div>
 
 							<div class="row">
@@ -740,7 +765,8 @@
 												<ul
 													class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret">
 													<li class="active"><a href="#" class="blue"> <i
-															class="icon-caret-right bigger-110">&nbsp;</i> Esta Semana
+															class="icon-caret-right bigger-110">&nbsp;</i> Esta
+															Semana
 													</a></li>
 
 													<li><a href="#"> <i
@@ -1127,7 +1153,8 @@
 
 															<li class="item-default clearfix"><label
 																class="inline"> <input type="checkbox"
-																	class="ace"> <span class="lbl"> Adicion de nuevas caracteristicas</span>
+																	class="ace"> <span class="lbl"> Adicion
+																		de nuevas caracteristicas</span>
 															</label>
 
 																<div
@@ -1166,7 +1193,8 @@
 
 															<li class="item-green clearfix"><label
 																class="inline"> <input type="checkbox"
-																	class="ace"> <span class="lbl"> Actualizacion de software</span>
+																	class="ace"> <span class="lbl">
+																		Actualizacion de software</span>
 															</label></li>
 
 															<li class="item-pink clearfix"><label class="inline">
@@ -1414,11 +1442,6 @@
 															<div class="itemdiv memberdiv">
 																<div class="user">
 																	<img alt="Phil Doe&#39;s avatar"
-
-
-
-
-
 																		src="img/users/avatar2.png">
 																</div>
 
