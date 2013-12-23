@@ -33,7 +33,9 @@
 		}
 	}
 	String bandera="";
-	
+	/* Aqui va el algoritmo para capturar el idioma de la pagina
+	*/
+
 	if(bandera.equals("us")){
 		bandera="img/usa_flag.gif";
 	}else{
@@ -345,19 +347,19 @@
 
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
+						<button class="btn btn-success" onclick="location.href='con_sol_revision.jsp';">
 							<i class="icon-signal"></i>
 						</button>
 
-						<button class="btn btn-info">
+						<button class="btn btn-info" onclick="location.href='cc_sol_registro.jsp';">
 							<i class="icon-pencil"></i>
 						</button>
 
-						<button class="btn btn-warning">
+						<button class="btn btn-warning" onclick="location.href='man_clientes.jsp';">
 							<i class="icon-group"></i>
 						</button>
 
-						<button class="btn btn-danger">
+						<button class="btn btn-danger" onclick="location.href='rep_servicios.jsp';">
 							<i class="icon-cogs"></i>
 						</button>
 					</div>
