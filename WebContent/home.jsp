@@ -34,15 +34,6 @@
 				skin = "default";
 		}
 	}
-	String bandera="";
-	/* Aqui va el algoritmo para capturar el idioma de la pagina
-	*/
-
-	if(bandera.equals("us")){
-		bandera="img/usa_flag.gif";
-	}else{
-		bandera="img/pe_flag.gif";
-	}
 %>
 
 
@@ -96,9 +87,15 @@
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
 
-	<c:if test="${param.idioma != null}">
+	<c:choose>
+		<c:when test="${param.idioma != null}">
 		<fmt:setLocale value="${param.idioma}" scope="session" />
-	</c:if>
+		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
+		</c:when>
+		<c:otherwise>
+		<c:set var="bandera" value="es" scope="session"></c:set>
+		</c:otherwise>
+	</c:choose>
 
 
 	<div class="navbar navbar-default navbar-fixed-top" id="navbar">
@@ -123,7 +120,7 @@
 				<ul class="nav ace-nav">
 					<!-- BARRA IDIOMA -->
 					<li class="orange2"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img src=<%=bandera %>
+						class="dropdown-toggle" href="#"> <img src="img/${bandera}_flag.gif"
 									class="msg-photo" alt="Idioma">  <span
 							class="badge badge-grey"><fmt:message key="label.actualidioma" /></span>
 					</a>
@@ -133,8 +130,8 @@
 							<li class="dropdown-header"><i class="icon-ok"></i> <fmt:message key="label.seleccionaidioma" /></li>
 
 							
-							<li><a href="?idioma=es"> 
-								<img src="img/pe_flag.gif"
+							<li><a href="home.jsp?idioma=es"> 
+								<img src="img/es_flag.gif"
 									class="msg-photo" alt="Castellano"> 
 									<span class="msg-body"> 
 										<span class="msg-title"> 
@@ -142,8 +139,8 @@
 									</span> 
 								</span>
 							</a></li>
-							<li><a href="?idioma=en"> 
-								<img src="img/usa_flag.gif"
+							<li><a href="home.jsp?idioma=en"> 
+								<img src="img/en_flag.gif"
 									class="msg-photo" alt="Ingles"> 
 									<span class="msg-body"> 
 										<span class="msg-title"> 

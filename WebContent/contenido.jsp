@@ -97,10 +97,15 @@
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
 
-	<c:if test="${param.idioma != null}">
+	<c:choose>
+		<c:when test="${param.idioma != null}">
 		<fmt:setLocale value="${param.idioma}" scope="session" />
-	</c:if>
-
+		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
+		</c:when>
+		<c:otherwise>
+		<c:set var="bandera" value="es" scope="session"></c:set>
+		</c:otherwise>
+	</c:choose>
 
 	<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 		<script type="text/javascript">
@@ -124,7 +129,7 @@
 				<ul class="nav ace-nav">
 					<!-- BARRA IDIOMA -->
 					<li class="orange2"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img src=<%=bandera%>
+						class="dropdown-toggle" href="#"> <img src="img/${bandera}_flag.gif"
 							class="msg-photo" alt="Idioma"> <span
 							class="badge badge-grey"><fmt:message
 									key="label.actualidioma" /></span>
@@ -136,15 +141,15 @@
 									key="label.seleccionaidioma" /></li>
 
 
-							<li><a href="?idioma=es"> <img
-									src="img/pe_flag.gif" class="msg-photo" alt="Castellano">
+							<li><a href="contenido.jsp?idioma=es"> <img
+									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
 									<span class="msg-body"> <span class="msg-title">
 											<span class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
-							<li><a href="?idioma=en"> <img
-									src="img/usa_flag.gif" class="msg-photo" alt="Ingles"> <span
+							<li><a href="contenido.jsp?idioma=en"> <img
+									src="img/en_flag.gif" class="msg-photo" alt="Ingles"> <span
 									class="msg-body"> <span class="msg-title"> <span
 											class="blue"><fmt:message key="label.ingles" /></span>
 									</span>
