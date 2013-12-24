@@ -48,7 +48,8 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Dashboard - <%=nombre%></title>
+<!-- ########### Modificar Label -->
+<title><fmt:message key="label.Contenido" /> - <%=nombre%></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -576,7 +577,8 @@
 					<ul class="breadcrumb">
 						<li><i class="icon-home home-icon"></i> <a href="home.jsp">Home</a>
 						</li>
-						<li class="active">Zona</li>
+						<!-- ########### Modificar Pagina -->
+						<li class="active"><fmt:message key="label.Contenido" /></li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -594,8 +596,9 @@
 
 				<div class="page-content">
 					<div class="page-header">
-						<h1> Subzona
-							<small> <i class="icon-double-angle-right"></i> breve descripcion</small>
+						<!-- ########### Modificar Pagina -->
+						<h1> <fmt:message key="label.Contenido" />
+							<small> <i class="icon-double-angle-right"></i> etiqueta descripcion</small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
