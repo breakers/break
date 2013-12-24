@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.PerfilDTO;
 import bean.UsuarioDTO;
+import service.PerfilService;
 import service.UsuarioService;
 
 /**
@@ -20,6 +22,7 @@ import service.UsuarioService;
 public class SvLogueo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UsuarioService servicioUsuario= new UsuarioService();
+	PerfilService servicioPerfil= new PerfilService();
 
     /**
      * Default constructor. 
@@ -64,9 +67,13 @@ public class SvLogueo extends HttpServlet {
 	private void bienvenido(UsuarioDTO usuario, HttpServletRequest request,
 			HttpServletResponse response) {
 		
+		PerfilDTO profile = servicioPerfil.buscarPorId(usuario.getIdPerfil());
+		
+		
 		HttpSession sesion = request.getSession();
+		sesion.setAttribute("desPerfil", profile.getDesPerfil());
 		sesion.setAttribute("usuario", usuario.getUserUsuario());
-		sesion.setAttribute("NombreCompleto", usuario.getNomUsuario()+" "+usuario.getApepaUsuario());
+		sesion.setAttribute("nombreCompleto", usuario.getNomUsuario()+" "+usuario.getApepaUsuario());
 		sesion.setAttribute("foto", usuario.getIdUsuario());
 		sesion.setAttribute("tipo", usuario.getIdPerfil());
 		

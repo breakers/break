@@ -1,7 +1,6 @@
 package interfaces;
 
 import java.util.List;
-
 import bean.UsuarioDTO;
 
 public interface UsuarioDAO {

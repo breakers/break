@@ -8,9 +8,10 @@
 
 <%
 	HttpSession sesion = request.getSession();
-	String nombre = (String) sesion.getAttribute("NombreCompleto");
+	String nombre = (String) sesion.getAttribute("nombreCompleto");
 	String foto = (Integer) sesion.getAttribute("foto") + "";
-	String nombrePerfil = "Administrador";
+	String nombrePerfil = (String) sesion.getAttribute("desPerfil");
+	
 	int tipo = 1;
 	String skin = "default";
 
@@ -112,7 +113,7 @@
 			<div class="navbar-header pull-left">
 				<a href="home.jsp" class="navbar-brand">
 				 <i class="icon-tint lightcyan"></i>
-						Sedapar  <small><%=nombrePerfil %> </small>
+						Sedapar  <small class="light-blue"><%=nombrePerfil %> </small>
 				</a>
 				<!-- /.brand -->
 			</div>
@@ -132,7 +133,7 @@
 							<li class="dropdown-header"><i class="icon-ok"></i> <fmt:message key="label.seleccionaidioma" /></li>
 
 							
-							<li><a href="home.jsp?idioma=es"> 
+							<li><a href="?idioma=es"> 
 								<img src="img/pe_flag.gif"
 									class="msg-photo" alt="Castellano"> 
 									<span class="msg-body"> 
@@ -141,7 +142,7 @@
 									</span> 
 								</span>
 							</a></li>
-							<li><a href="home.jsp?idioma=en"> 
+							<li><a href="?idioma=en"> 
 								<img src="img/usa_flag.gif"
 									class="msg-photo" alt="Ingles"> 
 									<span class="msg-body"> 
