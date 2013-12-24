@@ -1,31 +1,53 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 
-	<% HttpSession sesion=request.getSession();
-		String nombre= (String)sesion.getAttribute("NombreCompleto");
-		String foto= (String)sesion.getAttribute("foto");
-		int tipo=0;
-		String skin="default";
-		
-		if(nombre==null){
-			response.sendRedirect("login.jsp");
-		}else{
-			if(foto==null){
-				foto="nofoto";
-			}
-			
-			tipo=(Integer)sesion.getAttribute("tipo");
-			switch(tipo){
-			case 1: skin="skin-1"; break;
-			case 2: skin="skin-2"; break;
-			default:skin="default";}
-		} %>
+<%
+	HttpSession sesion = request.getSession();
+	String nombre = (String) sesion.getAttribute("NombreCompleto");
+	String foto = (Integer) sesion.getAttribute("foto") + "";
+	String nombrePerfil = "Administrador";
+	int tipo = 1;
+	String skin = "default";
+
+	if (nombre == null) {
+		response.sendRedirect("login.jsp");
+	} else {
+		if (foto == "") {
+			foto = "nofoto";
+		}
+
+		tipo = (Integer) sesion.getAttribute("tipo");
+		switch (tipo) {
+			case 1 :
+				skin = "skin-1";
+				break;
+			case 2 :
+				skin = "skin-2";
+				break;
+			default :
+				skin = "default";
+		}
+	}
+	String bandera = "";
+	/* Aqui va el algoritmo para capturar el idioma de la pagina
+	 */
+
+	if (bandera.equals("us")) {
+		bandera = "img/usa_flag.gif";
+	} else {
+		bandera = "img/pe_flag.gif";
+	}
+%>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Contenido - <%=nombre %></title>
+<title>Dashboard - <%=nombre%></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,8 +58,8 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!--[if IE 7]>
-		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
-		<![endif]-->
+		  <link rel="stylesheet" href="css/font-awesome-ie7.min.css" />
+<![endif]-->
 
 <!-- page specific plugin styles -->
 
@@ -53,8 +75,8 @@
 <link rel="stylesheet" href="css/ace-skins.min.css">
 
 <!--[if lte IE 8]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
-		<![endif]-->
+		  <link rel="stylesheet" href="css/ace-ie.min.css" />
+<![endif]-->
 
 <!-- inline styles related to this page -->
 
@@ -68,37 +90,16 @@
 <!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
-		<![endif]-->
-<style type="text/css">
-.jqstooltip {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	visibility: hidden;
-	background: rgb(0, 0, 0) transparent;
-	background-color: rgba(0, 0, 0, 0.6);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,
-		endColorstr=#99000000);
-	-ms-filter:
-		"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
-	color: white;
-	font: 10px arial, san serif;
-	text-align: left;
-	white-space: nowrap;
-	padding: 5px;
-	border: 1px solid white;
-	z-index: 10000;
-}
-
-.jqsfield {
-	color: white;
-	font: 10px arial, san serif;
-	text-align: left;
-}
-</style>
+<![endif]-->
 </head>
 
-<body class="navbar-fixed breadcrumbs-fixed <%=skin %>" style="" >
+<body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
+
+	<c:if test="${param.idioma != null}">
+		<fmt:setLocale value="${param.idioma}" scope="session" />
+	</c:if>
+
+
 	<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 		<script type="text/javascript">
 			try {
@@ -109,8 +110,8 @@
 
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
-				<a href="home.jsp" class="navbar-brand"> <small> <i
-						class="icon-tint lightcyan"></i> Sedapar Administracion
+				<a href="home.jsp" class="navbar-brand"> <i
+					class="icon-tint lightcyan"></i> Sedapar <small><%=nombrePerfil%>
 				</small>
 				</a>
 				<!-- /.brand -->
@@ -119,20 +120,57 @@
 
 			<div class="navbar-header pull-right" role="navigation">
 				<ul class="nav ace-nav">
-					<li class="grey"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <i class="icon-tasks"></i> <span
-							class="badge badge-grey">4</span>
+					<!-- BARRA IDIOMA -->
+					<li class="orange2"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#"> <img src=<%=bandera%>
+							class="msg-photo" alt="Idioma"> <span
+							class="badge badge-grey"><fmt:message
+									key="label.actualidioma" /></span>
 					</a>
 
 						<ul
 							class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-							<li class="dropdown-header"><i class="icon-ok"></i> 4 Tasks
-								to complete</li>
+							<li class="dropdown-header"><i class="icon-ok"></i> <fmt:message
+									key="label.seleccionaidioma" /></li>
+
+
+							<li><a href="home.jsp?idioma=es"> <img
+									src="img/pe_flag.gif" class="msg-photo" alt="Castellano">
+									<span class="msg-body"> <span class="msg-title">
+											<span class="blue"><fmt:message key="label.español" /></span>
+									</span>
+								</span>
+							</a></li>
+							<li><a href="home.jsp?idioma=en"> <img
+									src="img/usa_flag.gif" class="msg-photo" alt="Ingles"> <span
+									class="msg-body"> <span class="msg-title"> <span
+											class="blue"><fmt:message key="label.ingles" /></span>
+									</span>
+								</span>
+							</a></li>
+
+							<li><a href="#">
+									<div class="progress progress-mini ">
+										<div style="width: 100%"
+											class="progress-bar progress-bar-danger"></div>
+									</div>
+							</a></li>
+						</ul></li>
+					<!-- FIN IDIOMA -->
+					<li class="grey"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#"> <i class="icon-tasks"></i> <span
+							class="badge badge-grey">2</span>
+					</a>
+
+						<ul
+							class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header"><i class="icon-ok"></i> 4 <fmt:message
+									key="label.tareapendientes" /></li>
 
 							<li><a href="#">
 									<div class="clearfix">
-										<span class="pull-left">Software Update</span> <span
-											class="pull-right">65%</span>
+										<span class="pull-left"><fmt:message
+												key="label.tareacontratos" /></span> <span class="pull-right">65%</span>
 									</div>
 
 									<div class="progress progress-mini ">
@@ -142,8 +180,8 @@
 
 							<li><a href="#">
 									<div class="clearfix">
-										<span class="pull-left">Hardware Upgrade</span> <span
-											class="pull-right">35%</span>
+										<span class="pull-left"><fmt:message
+												key="label.tareacambios" /></span> <span class="pull-right">35%</span>
 									</div>
 
 									<div class="progress progress-mini ">
@@ -152,32 +190,8 @@
 									</div>
 							</a></li>
 
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Unit Testing</span> <span
-											class="pull-right">15%</span>
-									</div>
-
-									<div class="progress progress-mini ">
-										<div style="width: 15%"
-											class="progress-bar progress-bar-warning"></div>
-									</div>
-							</a></li>
-
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Bug Fixes</span> <span
-											class="pull-right">90%</span>
-									</div>
-
-									<div class="progress progress-mini progress-striped active">
-										<div style="width: 90%"
-											class="progress-bar progress-bar-success"></div>
-									</div>
-							</a></li>
-
-							<li><a href="procesos.jsp"> See tasks with details <i
-									class="icon-arrow-right"></i>
+							<li><a href="procesos.jsp"> <fmt:message
+										key="label.tareadetalles" /> <i class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
 
@@ -190,7 +204,7 @@
 						<ul
 							class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
 							<li class="dropdown-header"><i class="icon-warning-sign"></i>
-								8 Notifications</li>
+								8 <fmt:message key="label.notificaciones" /></li>
 
 							<li><a href="#">
 									<div class="clearfix">
@@ -224,7 +238,8 @@
 									</div>
 							</a></li>
 
-							<li><a href="notificaciones.jsp"> See all notifications <i
+							<li><a href="notificaciones.jsp"> <fmt:message
+										key="label.notificacionesdetalles" /> <i
 									class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
@@ -238,7 +253,7 @@
 						<ul
 							class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 							<li class="dropdown-header"><i class="icon-envelope-alt"></i>
-								5 Messages</li>
+								5 <fmt:message key="label.mensajes" /></li>
 
 							<li><a href="#"> <img src="img/users/avatar.png"
 									class="msg-photo" alt="Alex&#39;s Avatar"> <span
@@ -273,29 +288,33 @@
 								</span>
 							</a></li>
 
-							<li><a href="buzon.jsp"> See all messages <i
-									class="icon-arrow-right"></i>
+							<li><a href="buzon.jsp"> <fmt:message
+										key="label.mensajestodos" /> <i class="icon-arrow-right"></i>
 							</a></li>
 						</ul></li>
 
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
-							src="img/users/<%=foto %>.jpg" alt="Jason&#39;s Photo"> <span
-							class="user-info"> <small>Welcome,</small> <%=nombre %>
+							src="img/users/<%=foto%>.jpg" alt="Users Photo"> <span
+							class="user-info"> <small><fmt:message
+										key="label.bienvenido" />,</small> <%=nombre%>
 						</span> <i class="icon-caret-down"></i>
 					</a>
 
 						<ul
 							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="configuracion.jsp"> <i class="icon-cog"></i> Settings
+							<li><a href="configuracion.jsp"> <i class="icon-cog"></i>
+									<fmt:message key="label.configuracion" />
 							</a></li>
 
-							<li><a href="perfil.jsp"> <i class="icon-user"></i> Profile
+							<li><a href="perfil.jsp"> <i class="icon-user"></i> <fmt:message
+										key="label.perfil" />
 							</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="cerrarsesion"> <i class="icon-off"></i> Logout
+							<li><a href="cerrarsesion"> <i class="icon-off"></i> <fmt:message
+										key="label.cerrar" />
 							</a></li>
 						</ul></li>
 				</ul>
@@ -329,19 +348,23 @@
 
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
+						<button class="btn btn-success"
+							onclick="location.href='con_sol_revision.jsp';">
 							<i class="icon-signal"></i>
 						</button>
 
-						<button class="btn btn-info">
+						<button class="btn btn-info"
+							onclick="location.href='cc_sol_registro.jsp';">
 							<i class="icon-pencil"></i>
 						</button>
 
-						<button class="btn btn-warning">
+						<button class="btn btn-warning"
+							onclick="location.href='man_clientes.jsp';">
 							<i class="icon-group"></i>
 						</button>
 
-						<button class="btn btn-danger">
+						<button class="btn btn-danger"
+							onclick="location.href='rep_servicios.jsp';">
 							<i class="icon-cogs"></i>
 						</button>
 					</div>
@@ -356,160 +379,172 @@
 
 				<ul class="nav nav-list">
 					<li><a href="home.jsp"> <i
-							class="icon-dashboard"></i> <span class="menu-text">
-								Dashboard </span>
+							class="icon-dashboard"></i> <span class="menu-text"> <fmt:message
+									key="label.resumen" />
+						</span>
 					</a></li>
 
 
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-edit"></i> <span class="menu-text"> Contratos
-							 </span> <b class="arrow icon-angle-down"></b>
+							class="icon-edit"></i> <span class="menu-text"><fmt:message
+									key="label.Contratos" /> </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
 							<li><a href="#" class="dropdown-toggle"> <i
-									class="icon-double-angle-right"></i> Solicitudes <b
-									class="arrow icon-angle-down"></b>
-								</a>
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Solicitud" /> <b class="arrow icon-angle-down"></b>
+							</a>
 
 								<ul class="submenu">
-									<li><a href="con_sol_revision.jsp"> <i class="icon-ok blue"></i> Revisar
+
+									<li><a href="con_sol_revision.jsp"> <i class="icon-ok"></i>
+											<fmt:message key="label.Revisar" />
 									</a></li>
 
-									<li><a href="con_sol_consulta.jsp"> <i class="icon-eye-open"></i> Consultar
+									<li><a href="con_sol_consulta.jsp"> <i
+											class="icon-eye-open"></i> <fmt:message key="label.Buscar" />
 									</a></li>
-								</ul>
-							</li>
-
-							<li><a href="con_cotizacion.jsp"> <i
-									class="icon-double-angle-right"></i> Cotizacion de Servicios
-							</a></li>
+								</ul></li>
 
 							<li><a href="con_contrato.jsp"> <i
-									class="icon-double-angle-right"></i> Generar Contrato
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Generar" />
 							</a></li>
 
 							<li><a href="con_consulta.jsp"> <i
-									class="icon-double-angle-right"></i> Consulta Contrato
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Cc" />
 							</a></li>
 
 
 						</ul></li>
 
+
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-share"></i> <span class="menu-text"> Cambio Categoria </span> <b
-							class="arrow icon-angle-down"></b>
+							class="icon-share"></i> <span class="menu-text"><fmt:message
+									key="label.Categoria" /> </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
 							<li><a href="#" class="dropdown-toggle"> <i
-									class="icon-double-angle-right"></i> Solicitudes <b
-									class="arrow icon-angle-down"></b>
-								</a>
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Solicitud" /><b class="arrow icon-angle-down"></b>
+							</a>
 
 								<ul class="submenu">
-									<li><a href="cc_sol_revision.jsp"> <i class="icon-ok blue"></i> Revisar
+									<li><a href="cc_sol_registro.jsp"> <i
+											class="icon-pencil"></i> <fmt:message key="label.Registrar" />
 									</a></li>
 
-									<li><a href="cc_sol_consulta.jsp"> <i class="icon-eye-open"></i> Consultar
+									<li><a href="cc_sol_revision.jsp"> <i class="icon-ok"></i>
+											<fmt:message key="label.Revisar" />
 									</a></li>
-								</ul>
-							</li>
+								</ul></li>
 
 							<li><a href="cc_ruta.jsp"> <i
-									class="icon-double-angle-right"></i> Ruta de Inspeccion
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Ruta" />
 							</a></li>
 
 							<li><a href="cc_inspeccion.jsp"> <i
-									class="icon-double-angle-right"></i> Informe de Inspeccion
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Ii" />
 							</a></li>
 
 							<li><a href="cc_evaluar.jsp"> <i
-									class="icon-double-angle-right"></i> Evaluar Expediente
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Ee" />
 							</a></li>
 
 							<li><a href="cc_validar.jsp"> <i
-									class="icon-double-angle-right"></i> Verificar Expediente
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Ve" />
 							</a></li>
-							<li><a href="cc_consulta_oficio"> <i
-									class="icon-double-angle-right"></i> Consultar Oficio
-							</a></li>
+
 
 						</ul></li>
 
 					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-dollar"></i> <span class="menu-text"> Liquidacion </span> <b
-							class="arrow icon-angle-down"></b>
+							class="icon-dollar"></i> <span class="menu-text"> <fmt:message
+									key="label.Liquidacion" />
+						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
 							<li><a href="liq_consulta.jsp"> <i
-									class="icon-double-angle-right"></i> Consulta Deudas
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Cd" />
 							</a></li>
 
 							<li><a href="liq_pago.jsp"> <i
-									class="icon-double-angle-right"></i> Registrar Pago
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Rp" />
 							</a></li>
 
 						</ul></li>
 
 					<li><a href="#reportes" class="dropdown-toggle"> <i
-							class="icon-list-alt"></i> <span class="menu-text"> Reportes 
+							class="icon-list-alt"></i> <span class="menu-text"> <fmt:message
+									key="label.Reportes" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
 							<li><a href="rep_servicios.jsp"> <i
-									class="icon-double-angle-right"></i> Servicios Contratados
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Sc" />
 							</a></li>
 
 							<li><a href="rep_estadistica.jsp"> <i
-									class="icon-double-angle-right"></i> Estadistica de Contrataciones
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Edc" />
 							</a></li>
 
 						</ul></li>
 
 
 					<li><a href="#mantenimiento" class="dropdown-toggle"> <i
-							class="icon-group"></i> <span class="menu-text"> Mantenimiento
+							class="icon-group"></i> <span class="menu-text"> <fmt:message
+									key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
 							<li><a href="man_clientes.jsp"> <i
-									class="icon-double-angle-right"></i> Clientes
-							</a></li>
-
-							<li><a href="man_empleados.jsp"> <i
-									class="icon-double-angle-right"></i> Empleados
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Clientes" />
 							</a></li>
 
 							<li><a href="man_perfiles.jsp"> <i
-									class="icon-double-angle-right"></i> Perfiles
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Perfiles" />
 							</a></li>
 
 							<li><a href="man_usuarios.jsp"> <i
-									class="icon-double-angle-right"></i> Usuario
+									class="icon-double-angle-right"></i> <fmt:message
+										key="label.Usuario" />
 							</a></li>
 						</ul></li>
-					<li><a href="buzon.jsp"> <i class="icon-envelope-alt"></i> 
-						<span class="menu-text"> Buzon 
-							<span class="badge badge-primary ">5</span>
+					<li><a href="buzon.jsp"> <i class="icon-envelope-alt"></i>
+							<span class="menu-text"> <fmt:message key="label.Buzon" />
+								<span class="badge badge-primary ">5</span>
 						</span>
 					</a></li>
 					<li><a href="calendario.jsp"> <i class="icon-calendar"></i>
-							<span class="menu-text"> Calendario <span
+							<span class="menu-text"><fmt:message
+									key="label.Calendario" /> <span
 								class="badge badge-transparent tooltip-error" title=""
 								data-original-title="2 Important Events"> <i
 									class="icon-warning-sign red bigger-130"></i>
-							</span>
-						</span>
+							</span> </span>
 					</a></li>
 
-					<li><a href="timeline.jsp"> <i class="icon-code-fork"></i> <span
-							class="menu-text"> Linea de Tiempo </span>
+					<li><a href="timeline.jsp"> <i class="icon-code-fork"></i>
+							<span class="menu-text"><fmt:message
+									key="label.LineaTiempo" /> </span>
 					</a></li>
-					
+
 					<li><a href="contenido.jsp"> <i class="icon-github"></i> <span
-							class="menu-text"> Contenido </span>
+							class="menu-text"><fmt:message key="label.Contenido" /> </span>
 					</a></li>
 				</ul>
 				<!-- /.nav-list -->
@@ -540,7 +575,7 @@
 					<ul class="breadcrumb">
 						<li><i class="icon-home home-icon"></i> <a href="home.jsp">Home</a>
 						</li>
-						<li class="active">Contenido</li>
+						<li class="active">Dashboard</li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -559,8 +594,8 @@
 				<div class="page-content">
 					<div class="page-header">
 						<h1>
-							Contenido <small> <i class="icon-double-angle-right"></i>
-								Contenido de la pagina X12. 
+							Dashboard <small> <i class="icon-double-angle-right"></i>
+								estadisticas &amp; resumen
 							</small>
 						</h1>
 					</div>
@@ -570,19 +605,1265 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							Aqui sera el contenido!! :P!!! </br>
+							<div class="alert alert-block alert-success">
+								<button type="button" class="close" data-dismiss="alert">
+									<i class="icon-remove"></i>
+								</button>
 
-							Mientras mira el 
-							<a href="chat.jsp"> Demo de Chat <i
-									class="icon-arrow-right"></i>
-							</a>
+								<i class="icon-ok green"></i> Bienvenido a <strong class="green">
+									break <small>(v6.1)</small>
+								</strong> , el sistema de gestion rico en caracteristicas y facil de
+								usar.
+							</div>
 
+							<div class="row">
+								<div class="space-6"></div>
 
+								<div class="col-sm-7 infobox-container">
+									<div class="infobox infobox-green  ">
+										<div class="infobox-icon">
+											<i class="icon-comments"></i>
+										</div>
 
+										<div class="infobox-data">
+											<span class="infobox-data-number">32</span>
+											<div class="infobox-content">comentarios + 2 reviews</div>
+										</div>
+										<div class="stat stat-success">8%</div>
+									</div>
 
+									<div class="infobox infobox-blue  ">
+										<div class="infobox-icon">
+											<i class="icon-twitter"></i>
+										</div>
 
+										<div class="infobox-data">
+											<span class="infobox-data-number">11</span>
+											<div class="infobox-content">nuevos seguidores</div>
+										</div>
 
+										<div class="badge badge-success">
+											+32% <i class="icon-arrow-up"></i>
+										</div>
+									</div>
 
+									<div class="infobox infobox-pink  ">
+										<div class="infobox-icon">
+											<i class="icon-shopping-cart"></i>
+										</div>
+
+										<div class="infobox-data">
+											<span class="infobox-data-number">8</span>
+											<div class="infobox-content">nuevas ordenes</div>
+										</div>
+										<div class="stat stat-important">4%</div>
+									</div>
+
+									<div class="infobox infobox-red  ">
+										<div class="infobox-icon">
+											<i class="icon-beaker"></i>
+										</div>
+
+										<div class="infobox-data">
+											<span class="infobox-data-number">7</span>
+											<div class="infobox-content">experimentos</div>
+										</div>
+									</div>
+
+									<div class="infobox infobox-orange2  ">
+										<div class="infobox-chart">
+											<span class="sparkline"
+												data-values="196,128,202,177,154,94,100,170,224"><canvas
+													width="44" height="33"
+													style="display: inline-block; width: 44px; height: 33px; vertical-align: top;"></canvas></span>
+										</div>
+
+										<div class="infobox-data">
+											<span class="infobox-data-number">6,251</span>
+											<div class="infobox-content">visitas</div>
+										</div>
+
+										<div class="badge badge-success">
+											7.2% <i class="icon-arrow-up"></i>
+										</div>
+									</div>
+
+									<div class="infobox infobox-blue2  ">
+										<div class="infobox-progress">
+											<div class="easy-pie-chart percentage easyPieChart"
+												data-percent="42" data-size="46"
+												style="width: 46px; height: 46px; line-height: 46px;">
+												<span class="percent">42</span>%
+												<canvas width="46" height="46"></canvas>
+											</div>
+										</div>
+
+										<div class="infobox-data">
+											<span class="infobox-text">trafico usado</span>
+
+											<div class="infobox-content">
+												<span class="bigger-110">~</span> 58GB disponible
+											</div>
+										</div>
+									</div>
+
+									<div class="space-6"></div>
+
+									<div class="infobox infobox-green infobox-small infobox-dark">
+										<div class="infobox-progress">
+											<div class="easy-pie-chart percentage easyPieChart"
+												data-percent="61" data-size="39"
+												style="width: 39px; height: 39px; line-height: 39px;">
+												<span class="percent">61</span>%
+												<canvas width="39" height="39"></canvas>
+											</div>
+										</div>
+
+										<div class="infobox-data">
+											<div class="infobox-content">Tarea</div>
+											<div class="infobox-content">Completada</div>
+										</div>
+									</div>
+
+									<div class="infobox infobox-blue infobox-small infobox-dark">
+										<div class="infobox-chart">
+											<span class="sparkline" data-values="3,4,2,3,4,4,2,2"><canvas
+													width="39" height="19"
+													style="display: inline-block; width: 39px; height: 19px; vertical-align: top;"></canvas></span>
+										</div>
+
+										<div class="infobox-data">
+											<div class="infobox-content">Ganancias</div>
+											<div class="infobox-content">$32,000</div>
+										</div>
+									</div>
+
+									<div class="infobox infobox-grey infobox-small infobox-dark">
+										<div class="infobox-icon">
+											<i class="icon-download-alt"></i>
+										</div>
+
+										<div class="infobox-data">
+											<div class="infobox-content">Descargas</div>
+											<div class="infobox-content">1,205</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="vspace-sm"></div>
+
+								<div class="col-sm-5">
+									<div class="widget-box">
+										<div
+											class="widget-header widget-header-flat widget-header-small">
+											<h5>
+												<i class="icon-signal"></i> Trafico de Recursos
+											</h5>
+
+											<div class="widget-toolbar no-border">
+												<button class="btn btn-minier btn-primary dropdown-toggle"
+													data-toggle="dropdown">
+													Esta Semana <i
+														class="icon-angle-down icon-on-right bigger-110"></i>
+												</button>
+
+												<ul
+													class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret">
+													<li class="active"><a href="#" class="blue"> <i
+															class="icon-caret-right bigger-110">&nbsp;</i> Esta
+															Semana
+													</a></li>
+
+													<li><a href="#"> <i
+															class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+															Ultima Semana
+													</a></li>
+
+													<li><a href="#"> <i
+															class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+															Este Mes
+													</a></li>
+
+													<li><a href="#"> <i
+															class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+															Ultimo Mes
+													</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main">
+												<div id="piechart-placeholder"
+													style="width: 90%; min-height: 150px; padding: 0px; position: relative;">
+													<canvas class="flot-base"
+														style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 367px; height: 150px;"
+														width="367" height="150"></canvas>
+													<canvas class="flot-overlay"
+														style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 367px; height: 150px;"
+														width="367" height="150"></canvas>
+													<div class="legend">
+														<div
+															style="position: absolute; width: 95px; height: 110px; top: 15px; right: -30px; background-color: rgb(255, 255, 255); opacity: 0.85;">
+														</div>
+														<table
+															style="position: absolute; top: 15px; right: -30px;; font-size: smaller; color: #545454">
+															<tbody>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #68BC31; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">redes sociales</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #2091CF; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">buscadores</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #AF4E96; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">campañas AD</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #DA5430; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">trafico directo</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #FEE074; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">otros</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+
+												<div class="hr hr8 hr-double"></div>
+
+												<div class="clearfix">
+													<div class="grid3">
+														<span class="grey"> <i
+															class="icon-facebook-sign icon-2x blue"></i> &nbsp; likes
+														</span>
+														<h4 class="bigger pull-right">1,255</h4>
+													</div>
+
+													<div class="grid3">
+														<span class="grey"> <i
+															class="icon-twitter-sign icon-2x purple"></i> &nbsp;
+															tweets
+														</span>
+														<h4 class="bigger pull-right">941</h4>
+													</div>
+
+													<div class="grid3">
+														<span class="grey"> <i
+															class="icon-pinterest-sign icon-2x red"></i> &nbsp; pins
+														</span>
+														<h4 class="bigger pull-right">1,050</h4>
+													</div>
+												</div>
+											</div>
+											<!-- /widget-main -->
+										</div>
+										<!-- /widget-body -->
+									</div>
+									<!-- /widget-box -->
+								</div>
+								<!-- /span -->
+							</div>
+							<!-- /row -->
+
+							<div class="hr hr32 hr-dotted"></div>
+
+							<div class="row">
+								<div class="col-sm-5">
+									<div class="widget-box transparent">
+										<div class="widget-header widget-header-flat">
+											<h4 class="lighter">
+												<i class="icon-star orange"></i> Dominios Populares
+											</h4>
+
+											<div class="widget-toolbar">
+												<a href="#" data-action="collapse"> <i
+													class="icon-chevron-up"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main no-padding">
+												<table class="table table-bordered table-striped">
+													<thead class="thin-border-bottom">
+														<tr>
+															<th><i class="icon-caret-right blue"></i> nombre</th>
+
+															<th><i class="icon-caret-right blue"></i> precio</th>
+
+															<th class="hidden-480"><i
+																class="icon-caret-right blue"></i> estado</th>
+														</tr>
+													</thead>
+
+													<tbody>
+														<tr>
+															<td>break.com</td>
+
+															<td><small> <s class="red">$29.99</s>
+															</small> <b class="green">$19.99</b></td>
+
+															<td class="hidden-480"><span
+																class="label label-info arrowed-right arrowed-in">on
+																	sale</span></td>
+														</tr>
+
+														<tr>
+															<td>sedapar.com</td>
+
+															<td><small> <s class="red"></s>
+															</small> <b class="green">$16.45</b></td>
+
+															<td class="hidden-480"><span
+																class="label label-success arrowed-in arrowed-in-right">approved</span>
+															</td>
+														</tr>
+
+														<tr>
+															<td>sedapar.com.pe</td>
+
+															<td><small> <s class="red"></s>
+															</small> <b class="green">$15.00</b></td>
+
+															<td class="hidden-480"><span
+																class="label label-danger arrowed">pending</span></td>
+														</tr>
+
+														<tr>
+															<td>sedaparbreak.com</td>
+
+															<td><small> <s class="red">$24.99</s>
+															</small> <b class="green">$19.95</b></td>
+
+															<td class="hidden-480"><span class="label arrowed">
+																	<s>out of stock</s>
+															</span></td>
+														</tr>
+
+														<tr>
+															<td>sedapar.pe</td>
+
+															<td><small> <s class="red"></s>
+															</small> <b class="green">$12.00</b></td>
+
+															<td class="hidden-480"><span
+																class="label label-warning arrowed arrowed-right">SOLD</span>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<!-- /widget-main -->
+										</div>
+										<!-- /widget-body -->
+									</div>
+									<!-- /widget-box -->
+								</div>
+
+								<div class="col-sm-7">
+									<div class="widget-box transparent">
+										<div class="widget-header widget-header-flat">
+											<h4 class="lighter">
+												<i class="icon-signal"></i> Stats de Ventas
+											</h4>
+
+											<div class="widget-toolbar">
+												<a href="#" data-action="collapse"> <i
+													class="icon-chevron-up"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main padding-4">
+												<div id="sales-charts"
+													style="width: 100%; height: 220px; padding: 0px; position: relative;">
+													<canvas class="flot-base"
+														style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 610px; height: 220px;"
+														width="610" height="220"></canvas>
+													<div class="flot-text"
+														style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+														<div class="flot-x-axis flot-x1-axis xAxis x1Axis"
+															style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; max-width: 64px; top: 203px; left: 30px; text-align: center;">0.0</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; max-width: 64px; top: 203px; left: 121px; text-align: center;">1.0</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; max-width: 64px; top: 203px; left: 212px; text-align: center;">2.0</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; max-width: 64px; top: 203px; left: 303px; text-align: center;">3.0</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; max-width: 64px; top: 203px; left: 394px; text-align: center;">4.0</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; max-width: 64px; top: 203px; left: 485px; text-align: center;">5.0</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; max-width: 64px; top: 203px; left: 576px; text-align: center;">6.0</div>
+														</div>
+														<div class="flot-y-axis flot-y1-axis yAxis y1Axis"
+															style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 190px; left: 1px; text-align: right;">-2.000</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 166px; left: 1px; text-align: right;">-1.500</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 143px; left: 1px; text-align: right;">-1.000</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 119px; left: 1px; text-align: right;">-0.500</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 95px; left: 5px; text-align: right;">0.000</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 71px; left: 5px; text-align: right;">0.500</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 48px; left: 5px; text-align: right;">1.000</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 24px; left: 5px; text-align: right;">1.500</div>
+															<div class="flot-tick-label tickLabel"
+																style="position: absolute; top: 0px; left: 5px; text-align: right;">2.000</div>
+														</div>
+													</div>
+													<canvas class="flot-overlay"
+														style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 610px; height: 220px;"
+														width="610" height="220"></canvas>
+													<div class="legend">
+														<div
+															style="position: absolute; width: 64px; height: 66px; top: 13px; right: 13px; background-color: rgb(255, 255, 255); opacity: 0.85;">
+														</div>
+														<table
+															style="position: absolute; top: 13px; right: 13px;; font-size: smaller; color: #545454">
+															<tbody>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid #ccc; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid rgb(237, 194, 64); overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">Domains</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid #ccc; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid rgb(175, 216, 248); overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">Hosting</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid #ccc; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid rgb(203, 75, 75); overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">Servicios</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+											<!-- /widget-main -->
+										</div>
+										<!-- /widget-body -->
+									</div>
+									<!-- /widget-box -->
+								</div>
+							</div>
+
+							<div class="hr hr32 hr-dotted"></div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="widget-box transparent" id="recent-box">
+										<div class="widget-header">
+											<h4 class="lighter smaller">
+												<i class="icon-rss orange"></i> RECIENTES
+											</h4>
+
+											<div class="widget-toolbar no-border">
+												<ul class="nav nav-tabs" id="recent-tab">
+													<li class="active"><a data-toggle="tab"
+														href="#task-tab">Tareas</a></li>
+
+													<li><a data-toggle="tab" href="#member-tab">Miembros</a>
+													</li>
+
+													<li><a data-toggle="tab" href="#comment-tab">Comentarios</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main padding-4">
+												<div class="tab-content padding-8 overflow-visible">
+													<div id="task-tab" class="tab-pane active">
+														<h4 class="smaller lighter green">
+															<i class="icon-list"></i> Listas Clasificadas
+														</h4>
+
+														<ul id="tasks" class="item-list ui-sortable">
+															<li class="item-orange clearfix"><label
+																class="inline"> <input type="checkbox"
+																	class="ace"> <span class="lbl">
+																		Responder a las preguntas de los clientes</span>
+															</label>
+
+																<div
+																	class="pull-right easy-pie-chart percentage easyPieChart"
+																	data-size="30" data-color="#ECCB71" data-percent="42"
+																	style="width: 30px; height: 30px; line-height: 30px;">
+																	<span class="percent">42</span>%
+																	<canvas width="30" height="30"></canvas>
+																</div></li>
+
+															<li class="item-red clearfix"><label class="inline">
+																	<input type="checkbox" class="ace"> <span
+																	class="lbl"> Correccion de bugs</span>
+															</label>
+
+																<div class="pull-right action-buttons">
+																	<a href="#" class="blue"> <i
+																		class="icon-pencil bigger-130"></i>
+																	</a> <span class="vbar"></span> <a href="#" class="red">
+																		<i class="icon-trash bigger-130"></i>
+																	</a> <span class="vbar"></span> <a href="#" class="green">
+																		<i class="icon-flag bigger-130"></i>
+																	</a>
+																</div></li>
+
+															<li class="item-default clearfix"><label
+																class="inline"> <input type="checkbox"
+																	class="ace"> <span class="lbl"> Adicion
+																		de nuevas caracteristicas</span>
+															</label>
+
+																<div
+																	class="inline pull-right position-relative dropdown-hover">
+																	<button class="btn btn-minier bigger btn-primary">
+																		<i class="icon-cog icon-only bigger-120"></i>
+																	</button>
+
+																	<ul
+																		class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-caret dropdown-close pull-right">
+																		<li><a href="#" class="tooltip-success"
+																			data-rel="tooltip" title=""
+																			data-original-title="Mark as done"> <span
+																				class="green"> <i class="icon-ok bigger-110"></i>
+																			</span>
+																		</a></li>
+
+																		<li><a href="#" class="tooltip-error"
+																			data-rel="tooltip" title=""
+																			data-original-title="Delete"> <span class="red">
+																					<i class="icon-trash bigger-110"></i>
+																			</span>
+																		</a></li>
+																	</ul>
+																</div></li>
+
+															<li class="item-blue clearfix"><label class="inline">
+																	<input type="checkbox" class="ace"> <span
+																	class="lbl"> Mejora de scripts usados</span>
+															</label></li>
+
+															<li class="item-grey clearfix"><label class="inline">
+																	<input type="checkbox" class="ace"> <span
+																	class="lbl"> Agregando nuevos skins</span>
+															</label></li>
+
+															<li class="item-green clearfix"><label
+																class="inline"> <input type="checkbox"
+																	class="ace"> <span class="lbl">
+																		Actualizacion de software</span>
+															</label></li>
+
+															<li class="item-pink clearfix"><label class="inline">
+																	<input type="checkbox" class="ace"> <span
+																	class="lbl"> Limpieza</span>
+															</label></li>
+														</ul>
+													</div>
+
+													<div id="member-tab" class="tab-pane">
+														<div class="clearfix">
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Bob Doe&#39;s avatar"
+																		src="img/users/u000001.jpg">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Felix Apaza</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">20
+																			min</span>
+																	</div>
+
+																	<div>
+																		<span class="label label-warning label-sm">pending</span>
+
+																		<div class="inline position-relative">
+																			<button
+																				class="btn btn-minier bigger btn-yellow btn-no-border dropdown-toggle"
+																				data-toggle="dropdown">
+																				<i class="icon-angle-down icon-only bigger-120"></i>
+																			</button>
+
+																			<ul
+																				class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+																				<li><a href="#" class="tooltip-success"
+																					data-rel="tooltip" title=""
+																					data-original-title="Approve"> <span
+																						class="green"> <i
+																							class="icon-ok bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-warning"
+																					data-rel="tooltip" title=""
+																					data-original-title="Reject"> <span
+																						class="orange"> <i
+																							class="icon-remove bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-error"
+																					data-rel="tooltip" title=""
+																					data-original-title="Delete"> <span class="red">
+																							<i class="icon-trash bigger-110"></i>
+																					</span>
+																				</a></li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Joe Doe&#39;s avatar"
+																		src="img/users/u000002.jpg">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Renzo Delgado</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">1
+																			hour</span>
+																	</div>
+
+																	<div>
+																		<span class="label label-warning label-sm">pending</span>
+
+																		<div class="inline position-relative">
+																			<button
+																				class="btn btn-minier bigger btn-yellow btn-no-border dropdown-toggle"
+																				data-toggle="dropdown">
+																				<i class="icon-angle-down icon-only bigger-120"></i>
+																			</button>
+
+																			<ul
+																				class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+																				<li><a href="#" class="tooltip-success"
+																					data-rel="tooltip" title=""
+																					data-original-title="Approve"> <span
+																						class="green"> <i
+																							class="icon-ok bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-warning"
+																					data-rel="tooltip" title=""
+																					data-original-title="Reject"> <span
+																						class="orange"> <i
+																							class="icon-remove bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-error"
+																					data-rel="tooltip" title=""
+																					data-original-title="Delete"> <span class="red">
+																							<i class="icon-trash bigger-110"></i>
+																					</span>
+																				</a></li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Jim Doe&#39;s avatar"
+																		src="img/users/avatar5.png">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Ricardo Quevedo</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">2
+																			hour</span>
+																	</div>
+
+																	<div>
+																		<span class="label label-warning label-sm">pending</span>
+
+																		<div class="inline position-relative">
+																			<button
+																				class="btn btn-minier bigger btn-yellow btn-no-border dropdown-toggle"
+																				data-toggle="dropdown">
+																				<i class="icon-angle-down icon-only bigger-120"></i>
+																			</button>
+
+																			<ul
+																				class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+																				<li><a href="#" class="tooltip-success"
+																					data-rel="tooltip" title=""
+																					data-original-title="Approve"> <span
+																						class="green"> <i
+																							class="icon-ok bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-warning"
+																					data-rel="tooltip" title=""
+																					data-original-title="Reject"> <span
+																						class="orange"> <i
+																							class="icon-remove bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-error"
+																					data-rel="tooltip" title=""
+																					data-original-title="Delete"> <span class="red">
+																							<i class="icon-trash bigger-110"></i>
+																					</span>
+																				</a></li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Alex Doe&#39;s avatar"
+																		src="img/users/avatar3.png">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Carlos Sonan</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">3
+																			hour</span>
+																	</div>
+
+																	<div>
+																		<span class="label label-danger label-sm">blocked</span>
+																	</div>
+																</div>
+															</div>
+
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Bob Doe&#39;s avatar"
+																		src="img/users/avatar2.png">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Andre</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">6
+																			hour</span>
+																	</div>
+
+																	<div>
+																		<span class="label label-success label-sm arrowed-in">approved</span>
+																	</div>
+																</div>
+															</div>
+
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Susan&#39;s avatar"
+																		src="img/users/avatar.png">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Kevin</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">yesterday</span>
+																	</div>
+
+																	<div>
+																		<span class="label label-success label-sm arrowed-in">approved</span>
+																	</div>
+																</div>
+															</div>
+
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Phil Doe&#39;s avatar"
+																		src="img/users/avatar2.png">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Tomoya</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">2
+																			days ago</span>
+																	</div>
+
+																	<div>
+																		<span
+																			class="label label-info label-sm arrowed-in arrowed-in-right">online</span>
+																	</div>
+																</div>
+															</div>
+
+															<div class="itemdiv memberdiv">
+																<div class="user">
+																	<img alt="Alexa Doe&#39;s avatar"
+																		src="img/users/avatar1.png">
+																</div>
+
+																<div class="body">
+																	<div class="name">
+																		<a href="#">Alexa Doe</a>
+																	</div>
+
+																	<div class="time">
+																		<i class="icon-time"></i> <span class="green">3
+																			days ago</span>
+																	</div>
+
+																	<div>
+																		<span class="label label-success label-sm arrowed-in">approved</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="center">
+															<i class="icon-group icon-2x green"></i> &nbsp; <a
+																href="#"> See all members &nbsp; <i
+																class="icon-arrow-right"></i>
+															</a>
+														</div>
+
+														<div class="hr hr-double hr8"></div>
+													</div>
+													<!-- member-tab -->
+
+													<div id="comment-tab" class="tab-pane">
+														<div class="slimScrollDiv"
+															style="position: relative; overflow: hidden; width: auto; height: 300px;">
+															<div class="comments"
+																style="overflow: hidden; width: auto; height: 300px;">
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Bob Doe&#39;s Avatar"
+																			src="img/users/avatar.png">
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Bob Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="icon-time"></i> <span class="green">6
+																				min</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="icon-quote-left"></i> Lorem ipsum dolor sit
+																			amet, consectetur adipiscing elit. Quisque commodo
+																			massa sed ipsum porttitor facilisis …
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="inline position-relative">
+																			<button
+																				class="btn btn-minier bigger btn-yellow dropdown-toggle"
+																				data-toggle="dropdown">
+																				<i class="icon-angle-down icon-only bigger-120"></i>
+																			</button>
+
+																			<ul
+																				class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+																				<li><a href="#" class="tooltip-success"
+																					data-rel="tooltip" title=""
+																					data-original-title="Approve"> <span
+																						class="green"> <i
+																							class="icon-ok bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-warning"
+																					data-rel="tooltip" title=""
+																					data-original-title="Reject"> <span
+																						class="orange"> <i
+																							class="icon-remove bigger-110"></i>
+																					</span>
+																				</a></li>
+
+																				<li><a href="#" class="tooltip-error"
+																					data-rel="tooltip" title=""
+																					data-original-title="Delete"> <span class="red">
+																							<i class="icon-trash bigger-110"></i>
+																					</span>
+																				</a></li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Jennifer&#39;s Avatar"
+																			src="img/users/avatar1.png">
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Jennifer</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="icon-time"></i> <span class="blue">15
+																				min</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="icon-quote-left"></i> Lorem ipsum dolor sit
+																			amet, consectetur adipiscing elit. Quisque commodo
+																			massa sed ipsum porttitor facilisis …
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="action-buttons bigger-125">
+																			<a href="#"> <i class="icon-pencil blue"></i>
+																			</a> <a href="#"> <i class="icon-trash red"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Joe&#39;s Avatar"
+																			src="img/users/avatar2.png">
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Joe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="icon-time"></i> <span class="orange">22
+																				min</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="icon-quote-left"></i> Lorem ipsum dolor sit
+																			amet, consectetur adipiscing elit. Quisque commodo
+																			massa sed ipsum porttitor facilisis …
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="action-buttons bigger-125">
+																			<a href="#"> <i class="icon-pencil blue"></i>
+																			</a> <a href="#"> <i class="icon-trash red"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Rita&#39;s Avatar"
+																			src="img/users/avatar3.png">
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Rita</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="icon-time"></i> <span class="red">50
+																				min</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="icon-quote-left"></i> Lorem ipsum dolor sit
+																			amet, consectetur adipiscing elit. Quisque commodo
+																			massa sed ipsum porttitor facilisis …
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="action-buttons bigger-125">
+																			<a href="#"> <i class="icon-pencil blue"></i>
+																			</a> <a href="#"> <i class="icon-trash red"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="slimScrollBar ui-draggable"
+																style="background-color: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div>
+															<div class="slimScrollRail"
+																style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div>
+														</div>
+
+														<div class="hr hr8"></div>
+
+														<div class="center">
+															<i class="icon-comments-alt icon-2x green"></i> &nbsp; <a
+																href="#"> See all comments &nbsp; <i
+																class="icon-arrow-right"></i>
+															</a>
+														</div>
+
+														<div class="hr hr-double hr8"></div>
+													</div>
+												</div>
+											</div>
+											<!-- /widget-main -->
+										</div>
+										<!-- /widget-body -->
+									</div>
+									<!-- /widget-box -->
+								</div>
+								<!-- /span -->
+
+								<div class="col-sm-6">
+									<div class="widget-box ">
+										<div class="widget-header">
+											<h4 class="lighter smaller">
+												<i class="icon-comment blue"></i> Conversation
+											</h4>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main no-padding">
+												<div class="slimScrollDiv"
+													style="position: relative; overflow: hidden; width: auto; height: 300px;">
+													<div class="dialogs"
+														style="overflow: hidden; width: auto; height: 300px;">
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Alexa&#39;s Avatar"
+																	src="img/users/avatar1.png">
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="icon-time"></i> <span class="green">4
+																		sec</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Alexa</a>
+																</div>
+																<div class="text">Lorem ipsum dolor sit amet,
+																	consectetur adipiscing elit. Quisque commodo massa sed
+																	ipsum porttitor facilisis.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info"> <i
+																		class="icon-only icon-share-alt"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="John&#39;s Avatar" src="img/users/u000002.jpg">
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="icon-time"></i> <span class="blue">38
+																		sec</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Renzo</a><span
+																		class="label label-info arrowed arrowed-in-right">admin</span>
+																</div>
+																<div class="text">Raw denim you probably haven't
+																	heard of them jean shorts Austin.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info"> <i
+																		class="icon-only icon-share-alt"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Bob&#39;s Avatar" src="img/users/u000001.jpg">
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="icon-time"></i> <span class="orange">2
+																		min</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Felix</a> <span
+																		class="label label-info arrowed arrowed-in-right">admin</span>
+																</div>
+																<div class="text">Lorem ipsum dolor sit amet,
+																	consectetur adipiscing elit. Quisque commodo massa sed
+																	ipsum porttitor facilisis.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info"> <i
+																		class="icon-only icon-share-alt"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Jim&#39;s Avatar" src="img/users/avatar4.png">
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="icon-time"></i> <span class="grey">3
+																		min</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Jim</a>
+																</div>
+																<div class="text">Raw denim you probably haven't
+																	heard of them jean shorts Austin.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info"> <i
+																		class="icon-only icon-share-alt"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Alexa&#39;s Avatar"
+																	src="img/users/avatar1.png">
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="icon-time"></i> <span class="green">4
+																		min</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Alexa</a>
+																</div>
+																<div class="text">Lorem ipsum dolor sit amet,
+																	consectetur adipiscing elit.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info"> <i
+																		class="icon-only icon-share-alt"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="slimScrollBar ui-draggable"
+														style="background-color: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 228.4263959390863px; background-position: initial initial; background-repeat: initial initial;"></div>
+													<div class="slimScrollRail"
+														style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div>
+												</div>
+
+												<form>
+													<div class="form-actions">
+														<div class="input-group">
+															<input placeholder="Type your message here ..."
+																type="text" class="form-control" name="message">
+															<span class="input-group-btn">
+																<button class="btn btn-sm btn-info no-radius"
+																	type="button">
+																	<i class="icon-share-alt"></i> Send
+																</button>
+															</span>
+														</div>
+													</div>
+												</form>
+											</div>
+											<!-- /widget-main -->
+										</div>
+										<!-- /widget-body -->
+									</div>
+									<!-- /widget-box -->
+								</div>
+								<!-- /span -->
+							</div>
+							<!-- /row -->
 
 							<!-- PAGE CONTENT ENDS -->
 						</div>
@@ -593,6 +1874,7 @@
 				<!-- /.page-content -->
 			</div>
 			<!-- /.main-content -->
+
 			<!-- /#ace-settings-container -->
 		</div>
 		<!-- /.main-container-inner -->

@@ -9,14 +9,15 @@
 <%
 	HttpSession sesion = request.getSession();
 	String nombre = (String) sesion.getAttribute("NombreCompleto");
-	String foto = (String) sesion.getAttribute("foto");
+	String foto = (Integer) sesion.getAttribute("foto") + "";
+	String nombrePerfil = "Administrador";
 	int tipo = 1;
 	String skin = "default";
 
 	if (nombre == null) {
 		response.sendRedirect("login.jsp");
 	} else {
-		if (foto == null) {
+		if (foto == "") {
 			foto = "nofoto";
 		}
 
@@ -109,10 +110,9 @@
 
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
-				<a href="home.jsp" class="navbar-brand"> <small> <i
-						class="icon-tint lightcyan"></i>
-					<fmt:message key="label.cargo" />
-				</small>
+				<a href="home.jsp" class="navbar-brand">
+				 <i class="icon-tint lightcyan"></i>
+						Sedapar  <small><%=nombrePerfil %> </small>
 				</a>
 				<!-- /.brand -->
 			</div>
@@ -295,7 +295,7 @@
 
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
-							src="img/users/<%=foto%>.jpg" alt="Jason&#39;s Photo"> <span
+							src="img/users/<%=foto%>.jpg" alt="Users Photo"> <span
 							class="user-info"> <small><fmt:message key="label.bienvenido" />,</small> <%=nombre%>
 						</span> <i class="icon-caret-down"></i>
 					</a>

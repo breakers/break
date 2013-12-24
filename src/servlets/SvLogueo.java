@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.EmpleadoDTO;
-
-import service.EmpleadoService;
+import bean.UsuarioDTO;
+import service.UsuarioService;
 
 /**
  * Servlet implementation class SvLogueo
@@ -20,7 +19,7 @@ import service.EmpleadoService;
 @WebServlet("/SvLogueo")
 public class SvLogueo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	EmpleadoService servicioEmpleado= new EmpleadoService();
+	UsuarioService servicioUsuario= new UsuarioService();
 
     /**
      * Default constructor. 
@@ -32,7 +31,7 @@ public class SvLogueo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ValidarSoloUsuario(request, response);
+		//ValidarSoloUsuario(request, response);
 	}
 
 	/**
@@ -51,10 +50,10 @@ public class SvLogueo extends HttpServlet {
 		String usu_emp = (String)request.getParameter("usuario");
 		String pass_emp = (String)request.getParameter("password");
 		
-		EmpleadoDTO empleado = servicioEmpleado.validarUsuario(usu_emp, pass_emp);
+		UsuarioDTO usuario = servicioUsuario.validarUsuario(usu_emp, pass_emp);
 		
-		if (empleado!=null) {
-			bienvenido(empleado,request,response);
+		if (usuario!=null) {
+			bienvenido(usuario,request,response);
 		}else{
 			paginaerror(request,response);
 		}
@@ -62,17 +61,17 @@ public class SvLogueo extends HttpServlet {
 	}
 
 
-	private void bienvenido(EmpleadoDTO empleado, HttpServletRequest request,
+	private void bienvenido(UsuarioDTO usuario, HttpServletRequest request,
 			HttpServletResponse response) {
 		
 		HttpSession sesion = request.getSession();
-		sesion.setAttribute("usuario", empleado.getUsu_emp());
-		sesion.setAttribute("NombreCompleto", empleado.getNom_emp()+" "+empleado.getApep_emp());
-		sesion.setAttribute("foto", empleado.getFoto_emp());
-		sesion.setAttribute("tipo", empleado.getCod_tip_emp());
+		sesion.setAttribute("usuario", usuario.getUserUsuario());
+		sesion.setAttribute("NombreCompleto", usuario.getNomUsuario()+" "+usuario.getApepaUsuario());
+		sesion.setAttribute("foto", usuario.getIdUsuario());
+		sesion.setAttribute("tipo", usuario.getIdPerfil());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
-						request.setAttribute("EmpleadoDTO", empleado);
+						request.setAttribute("usuarioDTO", usuario);
 						try {
 							rd.forward(request, response);
 						} catch (ServletException e) {
@@ -93,36 +92,6 @@ public class SvLogueo extends HttpServlet {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
-	}
-	
-	private void ValidarSoloUsuario(HttpServletRequest request, HttpServletResponse response) {
-		String usu_emp = request.getParameter("usuario");
-		
-		EmpleadoDTO empleado = servicioEmpleado.validarSoloUsuario(usu_emp);
-		
-		if (empleado!=null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/confirmarIdentidad.jsp");
-			
-			request.setAttribute("empleado", empleado);
-			try {
-				rd.forward(request, response);
-			} catch (ServletException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}else{
-			RequestDispatcher rd = request.getRequestDispatcher("/olvidoClave.jsp");
-			request.setAttribute("UsuarioInvalido", "Datos incorrectos, pruebe nuevamente");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 		
 	}

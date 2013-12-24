@@ -1,11 +1,13 @@
 package dao;
 
-import interfaces.EmpleadoDAO;
+
+import interfaces.UsuarioDAO;
 
 public class MySqlDAOFactory extends DAOFactory{
+
 	
-	public EmpleadoDAO getEmpleadoDAO(){
-		return new MySqlEmpleadoDAO();
+	public UsuarioDAO getUsuarioDAO(){
+		return new MySqlUsuarioDAO();
 	}
 	
 	

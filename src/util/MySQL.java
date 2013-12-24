@@ -13,7 +13,7 @@ public class MySQL {
 			//lys.no-ip.biz
 			 Connection cn = 
 		          DriverManager.getConnection(
-		            "jdbc:mysql://localhost:3306/sedapar_lp2",
+		            "jdbc:mysql://localhost:3306/DB_Sedapar",
 		            "root", 
 		            "mysql");
 			 

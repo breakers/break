@@ -1,6 +1,6 @@
 package dao;
 
-import interfaces.EmpleadoDAO;
+import interfaces.UsuarioDAO;
 
 public abstract class DAOFactory {
 
@@ -8,7 +8,8 @@ public abstract class DAOFactory {
 	public static final int ORACLE = 2;
 	public static final int XML = 3;
 	
-	public abstract EmpleadoDAO getEmpleadoDAO();
+
+	public abstract UsuarioDAO getUsuarioDAO();
 	
 	public static DAOFactory getDAOFactory(int w){
 		
