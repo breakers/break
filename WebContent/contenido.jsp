@@ -96,14 +96,13 @@
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
-
-	<c:choose>
+<c:choose>
 		<c:when test="${param.idioma != null}">
 		<fmt:setLocale value="${param.idioma}" scope="session" />
 		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
 		</c:when>
 		<c:otherwise>
-		<c:set var="bandera" value="es" scope="session"></c:set>
+		<c:set var="bandera" value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}" scope="session"></c:set>
 		</c:otherwise>
 	</c:choose>
 
