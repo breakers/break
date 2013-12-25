@@ -618,7 +618,7 @@
 
 								<h4 class="pink">
 									<i class="icon-hand-right green"></i>
-									<a href="#modal-form" role="button" class="blue" data-toggle="modal"> Form Inside a Modal Box </a>
+									<a href="#modal-form" role="button" class="blue" data-toggle="modal"> Buscar Cliente </a>
 								</h4>
 
 								<div class="hr hr-18 dotted hr-double"></div>
