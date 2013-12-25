@@ -288,8 +288,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
             
   <ul class="language-switcher-locale-url">
    	<li class="de first active"><a href="/" class="language-link active" hreflang="de"><img class="language-icon" typeof="foaf:Image" src="img/peru.jpg" width="20" height="12" alt="Castellano" title="Castellano" /> </a></li>
-	<li class="de-AT"><a href="/es" class="language-link" hreflang="de-AT"><img class="language-icon" typeof="foaf:Image" src="img/pe_flag.gif" width="20" height="12" alt="Castellano" title="Castellano" /> </a></li>
-	<li class="gsw-berne last"><a href="/us" class="language-link" hreflang="gsw-berne"><img class="language-icon" typeof="foaf:Image" src="img/usa_flag.gif" width="20" height="12" alt="Ingles" title="English" /> </a></li>
+	<li class="de-AT"><a href="/es" class="language-link" hreflang="de-AT"><img class="language-icon" typeof="foaf:Image" src="img/es_flag.gif" width="20" height="12" alt="Castellano" title="Castellano" /> </a></li>
+	<li class="gsw-berne last"><a href="/us" class="language-link" hreflang="gsw-berne"><img class="language-icon" typeof="foaf:Image" src="img/en_flag.gif" width="20" height="12" alt="Ingles" title="English" /> </a></li>
 </ul>      
             
       
