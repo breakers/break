@@ -140,14 +140,14 @@
 									key="label.seleccionaidioma" /></li>
 
 
-							<li><a href="contenido.jsp?idioma=es"> <img
+							<li><a href="?idioma=es"> <img
 									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
 									<span class="msg-body"> <span class="msg-title">
 											<span class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
-							<li><a href="contenido.jsp?idioma=en"> <img
+							<li><a href="?idioma=en"> <img
 									src="img/en_flag.gif" class="msg-photo" alt="Ingles"> <span
 									class="msg-body"> <span class="msg-title"> <span
 											class="blue"><fmt:message key="label.ingles" /></span>

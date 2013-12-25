@@ -49,7 +49,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <!-- ########### Modificar Label -->
-<title><fmt:message key="label.Categoria" /> - <%=nombre%></title>
+<title><fmt:message key="label.Reportes" /> - <%=nombre%></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -427,7 +427,7 @@
 						</ul></li>
 
 
-					<li class="active open"><a href="#" class="dropdown-toggle"> <i
+					<li><a href="#" class="dropdown-toggle"> <i
 							class="icon-share"></i> <span class="menu-text"><fmt:message
 									key="label.Categoria" /> </span> <b class="arrow icon-angle-down"></b>
 					</a>
@@ -458,7 +458,7 @@
 										key="label.Ii" />
 							</a></li>
 
-							<li class="active"><a href="cc_evaluar.jsp"> <i
+							<li><a href="cc_evaluar.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Ee" />
 							</a></li>
@@ -490,7 +490,7 @@
 
 						</ul></li>
 
-					<li><a href="#reportes" class="dropdown-toggle"> <i
+					<li class="active open"><a href="#reportes" class="dropdown-toggle"> <i
 							class="icon-list-alt"></i> <span class="menu-text"> <fmt:message
 									key="label.Reportes" />
 						</span> <b class="arrow icon-angle-down"></b>
@@ -501,7 +501,7 @@
 										key="label.Sc" />
 							</a></li>
 
-							<li><a href="rep_estadistica.jsp"> <i
+							<li class="active"><a href="rep_estadistica.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Edc" />
 							</a></li>
@@ -582,7 +582,7 @@
 						<li><i class="icon-home home-icon"></i> <a href="home.jsp">Home</a>
 						</li>
 						<!-- ########### Modificar Pagina -->
-						<li class="active"><fmt:message key="label.Categoria" /></li>
+						<li class="active"><fmt:message key="label.Reportes" /></li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -601,8 +601,8 @@
 				<div class="page-content">
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
-						<h1> <fmt:message key="label.Categoria" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Ee" /></small>
+						<h1> <fmt:message key="label.Reportes" />
+							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Edc" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
