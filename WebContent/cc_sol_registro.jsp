@@ -65,10 +65,16 @@
 
 <!-- page specific plugin styles -->
 
+		<link rel="stylesheet" href="css/assets/jquery-ui-1.10.3.custom.min.css" />
+		<link rel="stylesheet" href="css/assets/chosen.css" />
+		<link rel="stylesheet" href="css/assets/datepicker.css" />
+		<link rel="stylesheet" href="css/assets/bootstrap-timepicker.css" />
+		<link rel="stylesheet" href="css/assets/daterangepicker.css" />
+		<link rel="stylesheet" href="css/assets/colorpicker.css" />
+
 <!-- fonts -->
 
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
 
 <!-- ace styles -->
 
@@ -611,183 +617,51 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
+								
 
-							Aqui va el contenido de la pagina <br>
-							
-							<div class="hr hr-18 dotted hr-double"></div>
-
-								<h4 class="pink">
-									<i class="icon-hand-right green"></i>
-									<a href="#modal-form" role="button" class="blue" data-toggle="modal"> Buscar Cliente </a>
-								</h4>
-
-								<div class="hr hr-18 dotted hr-double"></div>
-								<h4 class="header green">Form Layouts</h4>
-
-								<div class="row">
-									<div class="col-sm-5">
-										<div class="widget-box">
-											<div class="widget-header">
-												<h4>Default</h4>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main no-padding">
-													<form>
-														<!-- <legend>Form</legend> -->
-
-														<fieldset>
-															<label>Label name</label>
-
-															<input type="text" placeholder="Type something&hellip;" />
-															<span class="help-block">Example block-level help text here.</span>
-
-															<label class="pull-right">
-																<input type="checkbox" class="ace" />
-																<span class="lbl"> check me out</span>
-															</label>
-														</fieldset>
-
-														<div class="form-actions center">
-															<button type="button" class="btn btn-sm btn-success">
-																Submit
-																<i class="icon-arrow-right icon-on-right bigger-110"></i>
-															</button>
-														</div>
-													</form>
-												</div>
-											</div>
+								<div class="form-group">
+										
+										<h2> Datos del Solicitante </h2>
+										<div class="col-sm-4">
+											<label class="col-xs-12 col-sm-4 control-label no-padding-right" for="form-input-readonly"> <b> Cliente : </b></label>
+											<input type="text" class="col-xs-12 col-sm-8" id="form-input-readonly" value="Complety name!" disabled="disabled">
 										</div>
-									</div>
-
-									<div class="col-sm-7">
-										<div class="widget-box">
-											<div class="widget-header">
-												<h4>Inline Forms</h4>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-													<form class="form-inline">
-														<input type="text" class="input-small" placeholder="Username" />
-														<input type="password" class="input-small" placeholder="Password" />
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> remember me</span>
-														</label>
-
-														<button type="button" class="btn btn-info btn-sm">
-															<i class="icon-key bigger-110"></i>
-															Login
-														</button>
-													</form>
-												</div>
-											</div>
+										<div class="col-sm-4">
+										
+											<i class="icon-hand-right green"></i>
+											
+											<a href="#modal-form" role="button" class="btn btn-info" data-toggle="modal">
+												<i class="icon-group bigger-100"></i>
+												Buscar Cliente
+											</a>
+										
 										</div>
+										<div class="col-sm-4"></div>
+										<br>
 
-										<div class="space-6"></div>
 
-										<div class="widget-box">
-											<div class="widget-header widget-header-small">
-												<h5 class="lighter">Search Form</h5>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-													<form class="form-search">
-														<div class="row">
-															<div class="col-xs-12 col-sm-8">
-																<div class="input-group">
-																	<input type="text" class="form-control search-query" placeholder="Type your query" />
-																	<span class="input-group-btn">
-																		<button type="button" class="btn btn-purple btn-sm">
-																			Search
-																			<i class="icon-search icon-on-right bigger-110"></i>
-																		</button>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</form>
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
+								
+								
+								
+								<br>
 
-								<div id="modal-form" class="modal" tabindex="-1">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h4 class="blue bigger">Please fill the following form fields</h4>
-											</div>
-
-											<div class="modal-body overflow-visible">
+								
 												<div class="row">
-													<div class="col-xs-12 col-sm-5">
-														<div class="space"></div>
-
-														<input type="file" />
-													</div>
+													
 
 													<div class="col-xs-12 col-sm-7">
 														<div class="form-group">
-															<label for="form-field-select-3">Location</label>
+															<label for="form-field-select-3">Suministro</label>
 
 															<div>
 																<select class="chosen-select" data-placeholder="Choose a Country...">
 																	<option value="">&nbsp;</option>
-																	<option value="AL">Alabama</option>
-																	<option value="AK">Alaska</option>
-																	<option value="AZ">Arizona</option>
-																	<option value="AR">Arkansas</option>
-																	<option value="CA">California</option>
-																	<option value="CO">Colorado</option>
-																	<option value="CT">Connecticut</option>
-																	<option value="DE">Delaware</option>
-																	<option value="FL">Florida</option>
-																	<option value="GA">Georgia</option>
-																	<option value="HI">Hawaii</option>
-																	<option value="ID">Idaho</option>
-																	<option value="IL">Illinois</option>
-																	<option value="IN">Indiana</option>
-																	<option value="IA">Iowa</option>
-																	<option value="KS">Kansas</option>
-																	<option value="KY">Kentucky</option>
-																	<option value="LA">Louisiana</option>
-																	<option value="ME">Maine</option>
-																	<option value="MD">Maryland</option>
-																	<option value="MA">Massachusetts</option>
-																	<option value="MI">Michigan</option>
-																	<option value="MN">Minnesota</option>
-																	<option value="MS">Mississippi</option>
-																	<option value="MO">Missouri</option>
-																	<option value="MT">Montana</option>
-																	<option value="NE">Nebraska</option>
-																	<option value="NV">Nevada</option>
-																	<option value="NH">New Hampshire</option>
-																	<option value="NJ">New Jersey</option>
-																	<option value="NM">New Mexico</option>
-																	<option value="NY">New York</option>
-																	<option value="NC">North Carolina</option>
-																	<option value="ND">North Dakota</option>
-																	<option value="OH">Ohio</option>
-																	<option value="OK">Oklahoma</option>
-																	<option value="OR">Oregon</option>
-																	<option value="PA">Pennsylvania</option>
-																	<option value="RI">Rhode Island</option>
-																	<option value="SC">South Carolina</option>
-																	<option value="SD">South Dakota</option>
-																	<option value="TN">Tennessee</option>
-																	<option value="TX">Texas</option>
-																	<option value="UT">Utah</option>
-																	<option value="VT">Vermont</option>
-																	<option value="VA">Virginia</option>
-																	<option value="WA">Washington</option>
-																	<option value="WV">West Virginia</option>
-																	<option value="WI">Wisconsin</option>
-																	<option value="WY">Wyoming</option>
+																	<option value="1026458487">1026458487</option>
+																	<option value="3026458475">3026458475</option>
+																	<option value="6026454632">6026454632</option>
+																	<option value="6526458654">6526458654</option>
+																	
 																</select>
 															</div>
 														</div>
@@ -795,7 +669,7 @@
 														<div class="space-4"></div>
 
 														<div class="form-group">
-															<label for="form-field-username">Username</label>
+															<label for="form-field-username">Direccion</label>
 
 															<div>
 																<input class="input-large" type="text" id="form-field-username" placeholder="Username" value="alexdoe" />
@@ -805,7 +679,7 @@
 														<div class="space-4"></div>
 
 														<div class="form-group">
-															<label for="form-field-first">Name</label>
+															<label for="form-field-first">Distrito</label>
 
 															<div>
 																<input class="input-medium" type="text" id="form-field-first" placeholder="First Name" value="Alex" />
@@ -813,7 +687,36 @@
 															</div>
 														</div>
 													</div>
+													<div class="col-xs-12 col-sm-5">
+														
+													</div>
 												</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								<div id="modal-form" class="modal" tabindex="-1">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="blue bigger">Buscar Cliente</h4>
+											</div>
+
+											<div class="modal-body overflow-visible">
+												
 											</div>
 
 											<div class="modal-footer">
@@ -916,18 +819,18 @@
 	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 	<script src="js/jquery.ui.touch-punch.min.js"></script>
 	<!-- Script suficiente para la base los dos de arriba -->
-		<script src="js/assets/chosen.jquery.min.js"></script>
-		<script src="js/assets/fuelux/fuelux.spinner.min.js"></script>
-		<script src="js/assets/date-time/bootstrap-datepicker.min.js"></script>
-		<script src="js/assets/date-time/bootstrap-timepicker.min.js"></script>
-		<script src="js/assets/date-time/moment.min.js"></script>
-		<script src="js/assets/date-time/daterangepicker.min.js"></script>
-		<script src="js/assets/bootstrap-colorpicker.min.js"></script>
-		<script src="js/assets/jquery.knob.min.js"></script>
-		<script src="js/assets/jquery.autosize.min.js"></script>
-		<script src="js/assets/jquery.inputlimiter.1.3.1.min.js"></script>
-		<script src="js/assets/jquery.maskedinput.min.js"></script>
-		<script src="js/assets/bootstrap-tag.min.js"></script>
+		<script src="js/assets/chosen.jquery.min.js"></script> <!-- Seleccionar de una lista desplegable -->
+		<script src="js/assets/fuelux/fuelux.spinner.min.js"></script>  			<!-- 		ace scripts -->
+		<script src="js/assets/date-time/bootstrap-datepicker.min.js"></script>  		<!-- 	ace scripts -->
+		<script src="js/assets/date-time/bootstrap-timepicker.min.js"></script>  	 	<!--	ace scripts -->
+		<script src="js/assets/date-time/moment.min.js"></script>  			<!-- 			ace scripts -->
+		<script src="js/assets/date-time/daterangepicker.min.js"></script>  <!--FFF	 		ace scripts -->
+		<script src="js/assets/bootstrap-colorpicker.min.js"></script>  	 <!--				ace scripts -->
+		<script src="js/assets/jquery.knob.min.js"></script>  				<!-- 				ace scripts -->
+		<script src="js/assets/jquery.autosize.min.js"></script>  			<!-- 				ace scripts -->
+		<script src="js/assets/jquery.inputlimiter.1.3.1.min.js"></script>  	<!-- 			ace scripts -->
+		<script src="js/assets/jquery.maskedinput.min.js"></script>  			<!-- 			ace scripts -->
+		<script src="js/assets/bootstrap-tag.min.js"></script>  				<!-- 			ace scripts -->
 
 	<!-- ace scripts -->
 
