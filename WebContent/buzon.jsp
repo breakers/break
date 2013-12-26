@@ -34,15 +34,7 @@
 				skin = "default";
 		}
 	}
-	String bandera = "";
-	/* Aqui va el algoritmo para capturar el idioma de la pagina
-	 */
-
-	if (bandera.equals("us")) {
-		bandera = "img/usa_flag.gif";
-	} else {
-		bandera = "img/pe_flag.gif";
-	}
+	
 %>
 
 
@@ -143,7 +135,7 @@
 							<li><a href="?idioma=es"> <img
 									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
 									<span class="msg-body"> <span class="msg-title">
-											<span class="blue"><fmt:message key="label.espaÃ±ol" /></span>
+											<span class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
@@ -620,7 +612,7 @@
 													<a data-toggle="tab" href="#write" data-target="write" class="btn-new-mail">
 														<span class="btn bt1n-small btn-purple no-border">
 															<i class=" icon-envelope bigger-130"></i>
-															<span class="bigger-110">Write Mail</span>
+															<span class="bigger-110"><fmt:message key="label.redactar"></fmt:message></span>
 														</span>
 													</a>
 												</li><!-- ./li-new-mail -->
@@ -628,11 +620,11 @@
 												<li class="active">
 													<a data-toggle="tab" href="#inbox" data-target="inbox">
 														<i class="blue icon-inbox bigger-130"></i>
-														<span class="bigger-110">Inbox</span>
+														<span class="bigger-110"><fmt:message key="label.Buzon"></fmt:message></span>
 													</a>
 												</li>
 
-												<li>
+												<!-- <li>
 													<a data-toggle="tab" href="#sent" data-target="sent">
 														<i class="orange icon-location-arrow bigger-130 "></i>
 														<span class="bigger-110">Sent</span>
@@ -685,7 +677,8 @@
 															</a>
 														</li>
 													</ul>
-												</li><!-- /.dropdown -->
+												</li>  /.dropdown  
+												-->
 											</ul>
 
 											<div class="tab-content no-border no-padding">
@@ -694,118 +687,11 @@
 														<div id="id-message-list-navbar" class="message-navbar align-center clearfix">
 															<div class="message-bar">
 																<div class="message-infobar" id="id-message-infobar">
-																	<span class="blue bigger-150">Inbox</span>
-																	<span class="grey bigger-110">(2 unread messages)</span>
+																	<span class="blue bigger-150"><fmt:message key="label.Buzon"></fmt:message></span>
+																	<span class="grey bigger-110">(2 <fmt:message key="label.mensajessinleer"></fmt:message>)</span>
 																</div>
 
-																<div class="message-toolbar hide">
-																	<div class="inline position-relative align-left">
-																		<a href="#" class="btn-message btn btn-xs dropdown-toggle" data-toggle="dropdown">
-																			<span class="bigger-110">Action</span>
-
-																			<i class="icon-caret-down icon-on-right"></i>
-																		</a>
-
-																		<ul class="dropdown-menu dropdown-lighter dropdown-caret dropdown-125">
-																			<li>
-																				<a href="#">
-																					<i class="icon-mail-reply blue"></i>
-																					&nbsp; Reply
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-mail-forward green"></i>
-																					&nbsp; Forward
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-folder-open orange"></i>
-																					&nbsp; Archive
-																				</a>
-																			</li>
-
-																			<li class="divider"></li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-eye-open blue"></i>
-																					&nbsp; Mark as read
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-eye-close green"></i>
-																					&nbsp; Mark unread
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-flag-alt red"></i>
-																					&nbsp; Flag
-																				</a>
-																			</li>
-
-																			<li class="divider"></li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-trash red bigger-110"></i>
-																					&nbsp; Delete
-																				</a>
-																			</li>
-																		</ul>
-																	</div>
-
-																	<div class="inline position-relative align-left">
-																		<a href="#" class="btn-message btn btn-xs dropdown-toggle" data-toggle="dropdown">
-																			<i class="icon-folder-close-alt bigger-110"></i>
-																			<span class="bigger-110">Move to</span>
-
-																			<i class="icon-caret-down icon-on-right"></i>
-																		</a>
-
-																		<ul class="dropdown-menu dropdown-lighter dropdown-caret dropdown-125">
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop pink2"></i>
-																					&nbsp; Tag#1
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop blue"></i>
-																					&nbsp; Family
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop green"></i>
-																					&nbsp; Friends
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop grey"></i>
-																					&nbsp; Work
-																				</a>
-																			</li>
-																		</ul>
-																	</div>
-
-																	<a href="#" class="btn btn-xs btn-message">
-																		<i class="icon-trash bigger-125"></i>
-																		<span class="bigger-110">Delete</span>
-																	</a>
-																</div>
+																
 															</div>
 
 															<div>
@@ -815,38 +701,12 @@
 																		<span class="lbl"></span>
 																	</label>
 
-																	&nbsp;
-																	<div class="inline position-relative">
-																		<a href="#" data-toggle="dropdown" class="dropdown-toggle">
-																			<i class="icon-caret-down bigger-125 middle"></i>
-																		</a>
-
-																		<ul class="dropdown-menu dropdown-lighter dropdown-100">
-																			<li>
-																				<a id="id-select-message-all" href="#">All</a>
-																			</li>
-
-																			<li>
-																				<a id="id-select-message-none" href="#">None</a>
-																			</li>
-
-																			<li class="divider"></li>
-
-																			<li>
-																				<a id="id-select-message-unread" href="#">Unread</a>
-																			</li>
-
-																			<li>
-																				<a id="id-select-message-read" href="#">Read</a>
-																			</li>
-																		</ul>
-																	</div>
 																</div>
 
 																<div class="messagebar-item-right">
 																	<div class="inline position-relative">
 																		<a href="#" data-toggle="dropdown" class="dropdown-toggle">
-																			Sort &nbsp;
+																			<fmt:message key="label.ordenar"></fmt:message> &nbsp;
 																			<i class="icon-caret-down bigger-125"></i>
 																		</a>
 
@@ -854,21 +714,21 @@
 																			<li>
 																				<a href="#">
 																					<i class="icon-ok green"></i>
-																					Date
+																					<fmt:message key="label.fecha"></fmt:message>
 																				</a>
 																			</li>
 
 																			<li>
 																				<a href="#">
 																					<i class="icon-ok invisible"></i>
-																					From
+																					<fmt:message key="label.de"></fmt:message>
 																				</a>
 																			</li>
 
 																			<li>
 																				<a href="#">
 																					<i class="icon-ok invisible"></i>
-																					Subject
+																					<fmt:message key="label.asunto"></fmt:message>
 																				</a>
 																			</li>
 																		</ul>
@@ -878,7 +738,7 @@
 																<div class="nav-search minimized">
 																	<form class="form-search">
 																		<span class="input-icon">
-																			<input type="text" autocomplete="off" class="input-small nav-search-input" placeholder="Search inbox ..." />
+																			<input type="text" autocomplete="off" class="input-small nav-search-input" placeholder=<fmt:message key="label.Buscar"></fmt:message> />
 																			<i class="icon-search nav-search-icon"></i>
 																		</span>
 																	</form>
@@ -952,49 +812,7 @@
 																		</ul>
 																	</div>
 
-																	<div class="inline position-relative align-left">
-																		<a href="#" class="btn-message btn btn-xs dropdown-toggle" data-toggle="dropdown">
-																			<i class="icon-folder-close-alt bigger-110"></i>
-																			<span class="bigger-110">Move to</span>
-
-																			<i class="icon-caret-down icon-on-right"></i>
-																		</a>
-
-																		<ul class="dropdown-menu dropdown-lighter dropdown-caret dropdown-125">
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop pink2"></i>
-																					&nbsp; Tag#1
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop blue"></i>
-																					&nbsp; Family
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop green"></i>
-																					&nbsp; Friends
-																				</a>
-																			</li>
-
-																			<li>
-																				<a href="#">
-																					<i class="icon-stop grey"></i>
-																					&nbsp; Work
-																				</a>
-																			</li>
-																		</ul>
-																	</div>
-
-																	<a href="#" class="btn btn-xs btn-message">
-																		<i class="icon-trash bigger-125"></i>
-																		<span class="bigger-110">Delete</span>
-																	</a>
+																	
 																</div>
 															</div>
 
@@ -1002,7 +820,7 @@
 																<div class="messagebar-item-left">
 																	<a href="#" class="btn-back-message-list">
 																		<i class="icon-arrow-left blue bigger-110 middle"></i>
-																		<b class="bigger-110 middle">Back</b>
+																		<b class="bigger-110 middle"><fmt:message key="label.regresar"></fmt:message></b>
 																	</a>
 																</div>
 
@@ -1016,14 +834,10 @@
 														<div id="id-message-new-navbar" class="hide message-navbar align-center clearfix">
 															<div class="message-bar">
 																<div class="message-toolbar">
-																	<a href="#" class="btn btn-xs btn-message">
-																		<i class="icon-save bigger-125"></i>
-																		<span class="bigger-110">Save Draft</span>
-																	</a>
-
+																	
 																	<a href="#" class="btn btn-xs btn-message">
 																		<i class="icon-remove bigger-125"></i>
-																		<span class="bigger-110">Discard</span>
+																		<span class="bigger-110"><fmt:message key="label.descartar"></fmt:message></span>
 																	</a>
 																</div>
 															</div>
@@ -1032,14 +846,14 @@
 																<div class="messagebar-item-left">
 																	<a href="#" class="btn-back-message-list no-hover-underline">
 																		<i class="icon-arrow-left blue bigger-110 middle"></i>
-																		<b class="middle bigger-110">Back</b>
+																		<b class="middle bigger-110"><fmt:message key="label.regresar"></fmt:message></b>
 																	</a>
 																</div>
 
 																<div class="messagebar-item-right">
 																	<span class="inline btn-send-message">
 																		<button type="button" class="btn btn-sm btn-primary no-border">
-																			<span class="bigger-110">Send</span>
+																			<span class="bigger-110"><fmt:message key="label.enviar"></fmt:message></span>
 
 																			<i class="icon-arrow-right icon-on-right"></i>
 																		</button>
@@ -1058,13 +872,17 @@
 
 																	<i class="message-star icon-star orange2"></i>
 																	<span class="sender" title="Alex John Red Smith">Alex John Red Smith </span>
-																	<span class="time">1:33 pm</span>
-
 																	<span class="summary">
 																		<span class="text">
 																			Click to open this message
 																		</span>
 																	</span>
+																	
+																	<span class="time">1:33 pm</span>
+																	<span class="attachment">
+																		<i class="icon-paper-clip"></i>
+																	</span>
+																	
 																</div>
 
 																<div class="message-item message-unread">
@@ -1301,24 +1119,7 @@
 														<div class="hide message-footer message-footer-style2 clearfix">
 															<div class="pull-left"> simpler footer </div>
 
-															<div class="pull-right">
-																<div class="inline middle"> message 1 of 151 </div>
-
-																&nbsp; &nbsp;
-																<ul class="pagination middle">
-																	<li class="disabled">
-																		<span>
-																			<i class="icon-angle-left bigger-150"></i>
-																		</span>
-																	</li>
-
-																	<li>
-																		<a href="#">
-																			<i class="icon-angle-right bigger-150"></i>
-																		</a>
-																	</li>
-																</ul>
-															</div>
+															
 														</div>
 													</div><!-- /.message-container -->
 												</div><!-- /.tab-pane -->
@@ -1330,12 +1131,15 @@
 								<form id="id-message-form" class="hide form-horizontal message-form  col-xs-12">
 									<div class="">
 										<div class="form-group">
-											<label class="col-sm-3 control-label no-padding-right" for="form-field-recipient">Recipient:</label>
-
+											<label class="col-sm-3 control-label no-padding-right" for="form-field-recipient"><fmt:message key="label.para"></fmt:message>:</label>
+												
 											<div class="col-sm-9">
 												<span class="input-icon">
-													<input type="email" name="recipient" id="form-field-recipient" data-value="alex@doe.com" value="alex@doe.com" placeholder="Recipient(s)" />
+													<input type="email" name="recipient" id="form-field-recipient"   />
 													<i class="icon-user"></i>
+												</span>&nbsp;&nbsp;
+												<span>
+												<a href="#" style="color: green"> <i class="icon-ok green"></i><strong><fmt:message key="label.comprobar" /></strong></a>
 												</span>
 											</div>
 										</div>
@@ -1343,11 +1147,11 @@
 										<div class="hr hr-18 dotted"></div>
 
 										<div class="form-group">
-											<label class="col-sm-3 control-label no-padding-right" for="form-field-subject">Subject:</label>
+											<label class="col-sm-3 control-label no-padding-right" for="form-field-subject"><fmt:message key="label.asunto"></fmt:message>:</label>
 
 											<div class="col-sm-6 col-xs-12">
 												<div class="input-icon block col-xs-12 no-padding">
-													<input maxlength="100" type="text" class="col-xs-12" name="subject" id="form-field-subject" placeholder="Subject" />
+													<input maxlength="100" type="text" class="col-xs-12" name="subject" id="form-field-subject"  />
 													<i class="icon-comment-alt"></i>
 												</div>
 											</div>
@@ -1358,18 +1162,18 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label no-padding-right">
 												<span class="inline space-24 hidden-480"></span>
-												Message:
+												<fmt:message key="label.mensaje"></fmt:message>:
 											</label>
 
 											<div class="col-sm-9">
-												<div class="wysiwyg-editor"></div>
+												<textarea rows="10" cols="70"></textarea>
 											</div>
 										</div>
 
 										<div class="hr hr-18 dotted"></div>
 
 										<div class="form-group no-margin-bottom">
-											<label class="col-sm-3 control-label no-padding-right">Attachments:</label>
+											<label class="col-sm-3 control-label no-padding-right"><fmt:message key="label.adjuntos"></fmt:message>:</label>
 
 											<div class="col-sm-9">
 												<div id="form-attachments">
@@ -1381,7 +1185,7 @@
 										<div class="align-right">
 											<button id="id-add-attachment" type="button" class="btn btn-sm btn-danger">
 												<i class="icon-paper-clip bigger-140"></i>
-												Add Attachment
+												<fmt:message key="label.agregaradjunto"></fmt:message>
 											</button>
 										</div>
 
@@ -1514,16 +1318,6 @@
 											</li>
 										</ul>
 
-										<div class="attachment-images pull-right">
-											<div class="vspace-sm-4"></div>
-
-											<div>
-												<img width="36" alt="image 4" src="assets/images/gallery/thumb-4.jpg" />
-												<img width="36" alt="image 3" src="assets/images/gallery/thumb-3.jpg" />
-												<img width="36" alt="image 2" src="assets/images/gallery/thumb-2.jpg" />
-												<img width="36" alt="image 1" src="assets/images/gallery/thumb-1.jpg" />
-											</div>
-										</div>
 									</div>
 								</div><!-- /.message-content -->
 
@@ -1609,5 +1403,353 @@
 		style="top: 447px; left: 980px; display: none;">
 		<div class="tooltip-inner">social networks : 38.7%</div>
 	</div>
+	
+	
+	
+	<script type="text/javascript">
+			jQuery(function($){
+			
+				//handling tabs and loading/displaying relevant messages and forms
+				//not needed if using the alternative view, as described in docs
+				var prevTab = 'inbox'
+				$('#inbox-tabs a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+					var currentTab = $(e.target).data('target');
+					if(currentTab == 'write') {
+						Inbox.show_form();
+					}
+					else {
+						if(prevTab == 'write')
+							Inbox.show_list();
+			
+						//load and display the relevant messages 
+					}
+					prevTab = currentTab;
+				})
+			
+			
+				
+				//basic initializations
+				$('.message-list .message-item input[type=checkbox]').removeAttr('checked');
+				$('.message-list').delegate('.message-item input[type=checkbox]' , 'click', function() {
+					$(this).closest('.message-item').toggleClass('selected');
+					if(this.checked) Inbox.display_bar(1);//display action toolbar when a message is selected
+					else {
+						Inbox.display_bar($('.message-list input[type=checkbox]:checked').length);
+						//determine number of selected messages and display/hide action toolbar accordingly
+					}		
+				});
+			
+			
+				//check/uncheck all messages
+				$('#id-toggle-all').removeAttr('checked').on('click', function(){
+					if(this.checked) {
+						Inbox.select_all();
+					} else Inbox.select_none();
+				});
+				
+				//select all
+				$('#id-select-message-all').on('click', function(e) {
+					e.preventDefault();
+					Inbox.select_all();
+				});
+				
+				//select none
+				$('#id-select-message-none').on('click', function(e) {
+					e.preventDefault();
+					Inbox.select_none();
+				});
+				
+				//select read
+				$('#id-select-message-read').on('click', function(e) {
+					e.preventDefault();
+					Inbox.select_read();
+				});
+			
+				//select unread
+				$('#id-select-message-unread').on('click', function(e) {
+					e.preventDefault();
+					Inbox.select_unread();
+				});
+			
+				/////////
+			
+				//display first message in a new area
+				$('.message-list .message-item:eq(0) .text').on('click', function() {
+					//show the loading icon
+					$('.message-container').append('<div class="message-loading-overlay"><i class="icon-spin icon-spinner orange2 bigger-160"></i></div>');
+					
+					$('.message-inline-open').removeClass('message-inline-open').find('.message-content').remove();
+			
+					var message_list = $(this).closest('.message-list');
+			
+					//some waiting
+					setTimeout(function() {
+			
+						//hide everything that is after .message-list (which is either .message-content or .message-form)
+						message_list.next().addClass('hide');
+						$('.message-container').find('.message-loading-overlay').remove();
+			
+						//close and remove the inline opened message if any!
+			
+						//hide all navbars
+						$('.message-navbar').addClass('hide');
+						//now show the navbar for single message item
+						$('#id-message-item-navbar').removeClass('hide');
+			
+						//hide all footers
+						$('.message-footer').addClass('hide');
+						//now show the alternative footer
+						$('.message-footer-style2').removeClass('hide');
+			
+						
+						//move .message-content next to .message-list and hide .message-list
+						message_list.addClass('hide').after($('.message-content')).next().removeClass('hide');
+			
+						//add scrollbars to .message-body
+						$('.message-content .message-body').slimScroll({
+							height: 200,
+							railVisible:true
+						});
+			
+					}, 500 + parseInt(Math.random() * 500));
+				});
+			
+			
+				//display second message right inside the message list
+				/* $('.message-list .message-item:eq(1) .text').on('click', function(){
+					var message = $(this).closest('.message-item');
+			
+					//if message is open, then close it
+					if(message.hasClass('message-inline-open')) {
+						message.removeClass('message-inline-open').find('.message-content').remove();
+						return;
+					}
+			
+					$('.message-container').append('<div class="message-loading-overlay"><i class="icon-spin icon-spinner orange2 bigger-160"></i></div>');
+					setTimeout(function() {
+						$('.message-container').find('.message-loading-overlay').remove();
+						message
+							.addClass('message-inline-open')
+							.append('<div class="message-content" />')
+						var content = message.find('.message-content:last').html( $('#id-message-content').html() );
+			
+						content.find('.message-body').slimScroll({
+							height: 200,
+							railVisible:true
+						});
+				
+					}, 500 + parseInt(Math.random() * 500));
+					
+				}); */
+			
+			
+			
+				//back to message list
+				$('.btn-back-message-list').on('click', function(e) {
+					e.preventDefault();
+					Inbox.show_list();
+					$('#inbox-tabs a[data-target="inbox"]').tab('show'); 
+				});
+			
+			
+			
+				//hide message list and display new message form
+				/**
+				$('.btn-new-mail').on('click', function(e){
+					e.preventDefault();
+					Inbox.show_form();
+				});
+				*/
+			
+			
+			
+			
+				var Inbox = {
+					//displays a toolbar according to the number of selected messages
+					display_bar : function (count) {
+						if(count == 0) {
+							$('#id-toggle-all').removeAttr('checked');
+							$('#id-message-list-navbar .message-toolbar').addClass('hide');
+							$('#id-message-list-navbar .message-infobar').removeClass('hide');
+						}
+						else {
+							$('#id-message-list-navbar .message-infobar').addClass('hide');
+							$('#id-message-list-navbar .message-toolbar').removeClass('hide');
+						}
+					}
+					,
+					select_all : function() {
+						var count = 0;
+						$('.message-item input[type=checkbox]').each(function(){
+							this.checked = true;
+							$(this).closest('.message-item').addClass('selected');
+							count++;
+						});
+						
+						$('#id-toggle-all').get(0).checked = true;
+						
+						Inbox.display_bar(count);
+					}
+					,
+					select_none : function() {
+						$('.message-item input[type=checkbox]').removeAttr('checked').closest('.message-item').removeClass('selected');
+						$('#id-toggle-all').get(0).checked = false;
+						
+						Inbox.display_bar(0);
+					}
+					,
+					select_read : function() {
+						$('.message-unread input[type=checkbox]').removeAttr('checked').closest('.message-item').removeClass('selected');
+						
+						var count = 0;
+						$('.message-item:not(.message-unread) input[type=checkbox]').each(function(){
+							this.checked = true;
+							$(this).closest('.message-item').addClass('selected');
+							count++;
+						});
+						Inbox.display_bar(count);
+					}
+					,
+					select_unread : function() {
+						$('.message-item:not(.message-unread) input[type=checkbox]').removeAttr('checked').closest('.message-item').removeClass('selected');
+						
+						var count = 0;
+						$('.message-unread input[type=checkbox]').each(function(){
+							this.checked = true;
+							$(this).closest('.message-item').addClass('selected');
+							count++;
+						});
+						
+						Inbox.display_bar(count);
+					}
+				}
+			
+				//show message list (back from writing mail or reading a message)
+				Inbox.show_list = function() {
+					$('.message-navbar').addClass('hide');
+					$('#id-message-list-navbar').removeClass('hide');
+			
+					$('.message-footer').addClass('hide');
+					$('.message-footer:not(.message-footer-style2)').removeClass('hide');
+			
+					$('.message-list').removeClass('hide').next().addClass('hide');
+					//hide the message item / new message window and go back to list
+				}
+			
+				//show write mail form
+				Inbox.show_form = function() {
+					if($('.message-form').is(':visible')) return;
+					if(!form_initialized) {
+						initialize_form();
+					}
+					
+					
+					var message = $('.message-list');
+					$('.message-container').append('<div class="message-loading-overlay"><i class="icon-spin icon-spinner orange2 bigger-160"></i></div>');
+					
+					setTimeout(function() {
+						message.next().addClass('hide');
+						
+						$('.message-container').find('.message-loading-overlay').remove();
+						
+						$('.message-list').addClass('hide');
+						$('.message-footer').addClass('hide');
+						$('.message-form').removeClass('hide').insertAfter('.message-list');
+						
+						$('.message-navbar').addClass('hide');
+						$('#id-message-new-navbar').removeClass('hide');
+						
+						
+						//reset form??
+						$('.message-form .wysiwyg-editor').empty();
+					
+						$('.message-form .ace-file-input').closest('.file-input-container:not(:first-child)').remove();
+						$('.message-form input[type=file]').ace_file_input('reset_input');
+						
+						$('.message-form').get(0).reset();
+						
+					}, 300 + parseInt(Math.random() * 300));
+				}
+			
+			
+			
+			
+				var form_initialized = false;
+				function initialize_form() {
+					if(form_initialized) return;
+					form_initialized = true;
+					
+					//intialize wysiwyg editor
+					$('.message-form .wysiwyg-editor').ace_wysiwyg({
+						toolbar:
+						[
+							'bold',
+							'italic',
+							'strikethrough',
+							'underline',
+							null,
+							'justifyleft',
+							'justifycenter',
+							'justifyright',
+							null,
+							'createLink',
+							'unlink',
+							null,
+							'undo',
+							'redo'
+						]
+					}).prev().addClass('wysiwyg-style1');
+			
+					//file input
+					$('.message-form input[type=file]').ace_file_input()
+					//and the wrap it inside .span7 for better display, perhaps
+					.closest('.ace-file-input').addClass('width-90 inline').wrap('<div class="row file-input-container"><div class="col-sm-7"></div></div>');
+			
+					//the button to add a new file input
+					$('#id-add-attachment').on('click', function(){
+						var file = $('<input type="file" name="attachment[]" />').appendTo('#form-attachments');
+						file.ace_file_input();
+						file.closest('.ace-file-input').addClass('width-90 inline').wrap('<div class="row file-input-container"><div class="col-sm-7"></div></div>')
+						.parent(/*.span7*/).append('<div class="action-buttons pull-right col-xs-1">\
+							<a href="#" data-action="delete" class="middle">\
+								<i class="icon-trash red bigger-130 middle"></i>\
+							</a>\
+						</div>').find('a[data-action=delete]').on('click', function(e){
+							//the button that removes the newly inserted file input
+							e.preventDefault();			
+							$(this).closest('.row').hide(300, function(){
+								$(this).remove();
+							});
+						});
+					});
+				}//initialize_form
+			
+			
+				//turn the recipient field into a tag input field!
+				/**	
+				var tag_input = $('#form-field-recipient');
+				if(! ( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase())) ) 
+					tag_input.tag({placeholder:tag_input.attr('placeholder')});
+			
+			
+				//and add form reset functionality
+				$('.message-form button[type=reset]').on('click', function(){
+					$('.message-form .message-body').empty();
+					
+					$('.message-form .ace-file-input:not(:first-child)').remove();
+					$('.message-form input[type=file]').ace_file_input('reset_input');
+					
+					
+					var val = tag_input.data('value');
+					tag_input.parent().find('.tag').remove();
+					$(val.split(',')).each(function(k,v){
+						tag_input.before('<span class="tag">'+v+'<button class="close" type="button">&times;</button></span>');
+					});
+				});
+				*/
+			
+			});
+		</script>
+	
 </body>
 </html>
