@@ -392,7 +392,7 @@
 								<ul class="submenu">
 
 									<li><a href="con_sol_revision.jsp"> <i class="icon-ok"></i>
-										<fmt:message key="label.Revisar" />
+										<fmt:message key="label.Evaluar" />
 									</a></li>
 
 									<li><a href="con_sol_consulta.jsp"> <i
