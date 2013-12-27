@@ -40,7 +40,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <!-- ########### Modificar Label -->
-<title><fmt:message key="label.Contenido" /> - <%=nombre%></title>
+<title><fmt:message key="label.Contratos" /> - <%=nombre%></title>
 
 <meta name="description" content="overview &amp; stats">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,7 +86,7 @@
 <![endif]-->
 </head>
 
-<body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
+<body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="" onload="mostrar()">
 <c:choose>
 		<c:when test="${param.idioma != null}">
 		<fmt:setLocale value="${param.idioma}" scope="session" />
@@ -96,7 +96,12 @@
 		<c:set var="bandera" value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}" scope="session"></c:set>
 		</c:otherwise>
 	</c:choose>
-
+	
+<c:if test="${requestScope.lista == null}">
+	<script type="text/javascript">
+	location.href="SvCon_Solicitud";
+	</script>
+	</c:if>
 	<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 		<script type="text/javascript">
 			try {
@@ -601,11 +606,192 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
+						<div class="widget-header header-color-blue">
+												<h5 class="bigger lighter">
+													<i class="icon-table"></i>
+													Solicitudes de Nueva Conexion
+												</h5>
+						</div>
+						<div class="table-responsive">
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover ">
+												<thead>
+													<tr>
+														<th class="center" width="40">
+															<label>
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+														</th>
+														<th width="100">Numero</th>
+														<th width="200">Nombre</th>
 
+														<th width="100">
+															<i class="icon-time bigger-110 hidden-480"></i>
+															Fecha
+														</th>
+														<th width="100">Estado</th>
+
+													</tr>
+												</thead>
+
+												<tbody>
+												<c:forEach var="lista" items="${requestScope.lista}">
+													<tr>
+													<td class="center">
+															<label>
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+														</td>
+														<td>${lista.numero}</td>
+														<td>${lista.nombre}</td>
+														<td>${lista.fecha}</td>
+														<td class="hidden-480">
+															<span class="label label-sm label-danger arrowed">${lista.estado}</span>
+														</td>
+													</tr>
+												</c:forEach>
+												
+												
+													
+
+													
+												</tbody>
+											</table>
+										</div><!-- /.table-responsive -->
 						
-						
 
 
+									<!-- Datos del Solicitante -->
+									<div class="col-sm-12">
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="smaller">Datos del Solicitante</h4>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+												
+													<strong>Datos Generales</strong><br>
+												
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-nombres">Nombre(s):</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="nombres" id="form-field-nombres"/>
+													</div>
+												</div><!-- form-group -->
+												
+												<br>
+													
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-apepat">Apellido Paterno:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="apepat" id="form-field-apepat"/>
+													</div>
+												</div><!-- form-group -->
+												
+												<br>
+													
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-apemat">Apellido Materno:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="apemat" id="form-field-apemat"/>
+													</div>
+												</div><!-- form-group -->
+												
+												<br><br>
+												
+												<strong>Otros Datos</strong><br>
+												
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-telefono">Telefono:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="telefono" id="form-field-telefono"/>
+													</div>
+												</div><!-- form-group -->
+												
+												<br>
+													
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-celular">Celular:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="celular" id="form-field-celular"/>
+													</div>
+												</div><!-- form-group -->
+												
+												<br>
+													
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-correo">Correo:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="correo" id="form-field-correo"/>
+													</div>
+												</div><!-- form-group -->
+												</div><br><br><br><br><br><br><br>
+											</div>
+										</div>
+									</div><!-- /span -->
+									
+									
+									<!-- Datos del Predio -->
+									<div class="col-sm-12">
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="smaller">Datos del Predio</h4>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+													<strong>Datos Generales</strong><br><br>
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-provincia">Provincia:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="provincia" id="form-field-provincia"/>
+													</div>
+												</div><!-- form group -->
+												
+												<br>
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-distrito">Distrito:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="distrito" id="form-field-distrito"/>
+													</div>
+												</div><!-- form group -->
+												
+												<br>
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-localidad">Localidad:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="localidad" id="form-field-localidad"/>
+													</div>
+												</div><!-- form group -->
+												
+												<br>
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-calle">Calle:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="calle" id="form-field-calle"/>
+													</div>
+												</div><!-- form group -->
+												
+												</div><br><br><br>
+											</div>
+										</div>
+									</div><!-- /span -->
 
 
 
@@ -688,5 +874,9 @@
 		style="top: 447px; left: 980px; display: none;">
 		<div class="tooltip-inner">social networks : 38.7%</div>
 	</div>
+	
+	
+	
+	
 </body>
 </html>
