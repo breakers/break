@@ -4,44 +4,36 @@
 
 <head>
   <meta charset="utf-8" />
-<link rel="shortcut icon" href="img/favicon.ico" />
-<meta name="generator" content="Drupal 7 (http://drupal.org)" />
-<meta name="description" content="Pagina principal de sedapar, empresa que brinda servicio de agua potable en la provincia de arequipa." />
-  <title>Sedapar - Arequipa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="stylesheet" href="css/euro/lysander.css" media="all" />
-<link rel="stylesheet" href="css/euro/renzo.css" media="all" />
-<link rel="stylesheet" href="css/euro/style1.css" media="all" />
-<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_4xRWIdIpLDitD4bXlSkh8ZuiVKdtA1vzTJFDCU_Ztq4.css" media="all" />
+	<link rel="shortcut icon" href="img/favicon.ico" />
+	<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+	<meta name="description" content="Pagina principal de sedapar, empresa que brinda servicio de agua potable en la provincia de arequipa." />
+  	<title>Sedapar - Arequipa</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <!-- CSS -->
+ 	<link rel="stylesheet" href="css/euro/lysander.css" media="all" />
+	<link rel="stylesheet" href="css/euro/renzo.css" media="all" />
+	<link rel="stylesheet" href="css/euro/style1.css" media="all" />
+	<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_4xRWIdIpLDitD4bXlSkh8ZuiVKdtA1vzTJFDCU_Ztq4.css" media="all" />
 
-<link rel="stylesheet" href="css/font-awesome.min.css" />
-<!--[if lt IE 9]>
-<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_iA6uHK4KQ4tiQx7QEIHVwWC-HGk5fmG6S9hEHiv3ZSs.css" media="all" />
-<![endif]-->
-
-<!--[if lt IE 8]>
-<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_t9kd7hbcnvFo3UB87cGfgf_pVitA8vyFT43grgVGnwo.css" media="all" />
-<![endif]-->
-
-<!--[if IE 9]>
-<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_xlRiDrnl4P1bjXYlKjyFRPPOPVNGG3LlfF4-7-a9rjE.css" media="all" />
-<![endif]-->
-  <script src="http://www.euroweb.de/sites/default/files/js/js_eMjZ6Z1kKo5sjySRbJdvIkCHugjVCdO-e3tY-M9KsqE.js"></script>
-<script src="http://www.euroweb.de/sites/default/files/js/js_KCd8rbJYUruV1tRJnh4um34UYvyhlrSVCPR1jNko2h8.js"></script>
-<script src="http://www.euroweb.de/sites/default/files/js/js_nF1kS3yBefzThMly1LnFJN-dQNkoVQJPKVCmjzG9dTI.js"></script>
-<script src="http://www.euroweb.de/sites/default/files/js/js_nZxIyDy3H9Y70g26Lk7htFwgW2Y9a9aWuk22ZhfTWOY.js"></script>
-<script src="http://www.euroweb.de/sites/default/files/js/js_pVuIEAn0r0NlR9B6X5cq_gCsrtnbikYtzpGO-VRhFLQ.js"></script>
-<script src="http://www.euroweb.de/sites/default/files/js/js_pT5SNWk4nHpeaUZlU_ATj_UhrWvg76QikAqNFJqqm4Y.js"></script>
-<script>
-jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"euroweb","theme_token":"5MhxhwoUrfb_gRLHasQ1vGEc8FwmMvO5xrEkmoMLQog","js":{"0":1,"sites\/default\/modules\/jquery_update\/replace\/jquery\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/form.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/default\/modules\/spamspan\/spamspan.js":1,"public:\/\/languages\/de_Rxx4mJkAoBtlDfLeuz9rpG5tDCBw9AdAbfMuLAf3C-g.js":1,"sites\/all\/modules\/actualization_form\/js\/plupload.full.js":1,"sites\/all\/modules\/actualization_form\/js\/actualization_form.js":1,"sites\/all\/libraries\/colorbox\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_load.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_inline.js":1,"sites\/all\/modules\/video\/js\/video.js":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/js\/views_slideshow.js":1,"profiles\/corporative_site\/libraries\/jquery.cycle\/jquery.cycle.all.js":1,"sites\/all\/libraries\/json2\/json2.js":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/views_slideshow_cycle.js":1,"profiles\/corporative_site\/modules\/contrib\/webform\/js\/webform.js":1,"sites\/default\/modules\/jcarousel\/js\/jquery.jcarousel.min.js":1,"sites\/default\/modules\/jcarousel\/js\/jcarousel.js":1,"sites\/default\/themes\/euroweb\/js\/jquery.tools.min.js":1,"sites\/default\/themes\/euroweb\/js\/jquery.easing.min.js":1,"sites\/default\/themes\/euroweb\/js\/jscroll.min.js":1,"sites\/default\/themes\/euroweb\/js\/jquery.inview.min.js":1,"sites\/default\/themes\/euroweb\/js\/apps.js":1,"sites\/default\/themes\/euroweb\/js\/respond.min.js":1,"http:\/\/maps.google.com\/maps\/api\/js?sensor=false":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"profiles\/corporative_site\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"modules\/comment\/comment.css":1,"profiles\/corporative_site\/modules\/contrib\/date\/date\/date_api\/date.css":1,"profiles\/corporative_site\/modules\/contrib\/date\/date\/date_popup\/themes\/datepicker.1.7.css":1,"profiles\/corporative_site\/modules\/contrib\/date\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"profiles\/corporative_site\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/actualization_form\/css\/actualization_form.css":1,"profiles\/corporative_site\/modules\/contrib\/ckeditor\/ckeditor.css":1,"profiles\/corporative_site\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/video\/css\/video.css":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/views_slideshow.css":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/views_slideshow_cycle.css":1,"modules\/locale\/locale.css":1,"profiles\/corporative_site\/modules\/contrib\/webform\/css\/webform.css":1,"sites\/default\/modules\/jcarousel\/skins\/default\/jcarousel-default.css":1,"sites\/default\/themes\/euroweb\/css\/styles.css":1,"sites\/default\/themes\/euroweb\/css\/styles-temp.css":1,"sites\/default\/themes\/euroweb\/css\/ie8.css":1,"sites\/default\/themes\/euroweb\/css\/ie7.css":1,"sites\/default\/themes\/euroweb\/css\/ie9.css":1}},"colorbox":{"transition":"elastic","speed":"500","opacity":"0.70","slideshow":false,"slideshowAuto":true,"slideshowSpeed":"2500","slideshowStart":"start slideshow","slideshowStop":"stop slideshow","current":"{current} of {total}","previous":"\u00ab Zur\u00fcck","next":"Vorw\u00e4rts \u00bb","close":"Schlie\u00dfen","overlayClose":true,"maxWidth":"100%","maxHeight":"100%","initialWidth":"300","initialHeight":"100","fixed":false,"scrolling":true,"__drupal_alter_by_ref":["none"]},"jcarousel":{"ajaxPath":"\/jcarousel\/ajax\/views","carousels":{"jcarousel-dom-1":{"view_options":{"view_args":"","view_path":"frontpage","view_base_path":null,"view_display_id":"awards","view_name":"award_slideshow","jcarousel_dom_id":1},"wrap":"circular","autoPause":1,"animation":1000,"start":1,"itemFallbackDimension":90,"skin":"default","selector":".jcarousel-dom-1"}}},"viewsSlideshow":{"startseiten_slideshow-block":{"methods":{"goToSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"nextSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"pause":["viewsSlideshowControls","viewsSlideshowCycle"],"play":["viewsSlideshowControls","viewsSlideshowCycle"],"previousSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"transitionBegin":["viewsSlideshowPager","viewsSlideshowSlideCounter"],"transitionEnd":[]},"paused":0},"portfolio-block_1":{"methods":{"goToSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"nextSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"pause":["viewsSlideshowControls","viewsSlideshowCycle"],"play":["viewsSlideshowControls","viewsSlideshowCycle"],"previousSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"transitionBegin":["viewsSlideshowPager","viewsSlideshowSlideCounter"],"transitionEnd":[]},"paused":0}},"viewsSlideshowCycle":{"#views_slideshow_cycle_main_startseiten_slideshow-block":{"num_divs":5,"id_prefix":"#views_slideshow_cycle_main_","div_prefix":"#views_slideshow_cycle_div_","vss_id":"startseiten_slideshow-block","effect":"fade","transition_advanced":1,"timeout":10000,"speed":1500,"delay":0,"sync":1,"random":0,"pause":0,"pause_on_click":0,"action_advanced":0,"start_paused":0,"remember_slide":0,"remember_slide_days":1,"pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","nowrap":0,"fixed_height":1,"items_per_slide":1,"wait_for_image_load":1,"cleartype":0,"cleartypenobg":0,"advanced_options":"{\u0022easing\u0022:\u0022easeInQuad\u0022,\u0022pager\u0022:\u0022#pager-header\u0022}","advanced_options_choices":0,"advanced_options_entry":""},"#views_slideshow_cycle_main_portfolio-block_1":{"num_divs":2,"id_prefix":"#views_slideshow_cycle_main_","div_prefix":"#views_slideshow_cycle_div_","vss_id":"portfolio-block_1","effect":"fade","transition_advanced":1,"timeout":5000,"speed":700,"delay":0,"sync":1,"random":0,"pause":0,"pause_on_click":0,"action_advanced":1,"start_paused":0,"remember_slide":0,"remember_slide_days":1,"pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","nowrap":0,"fixed_height":1,"items_per_slide":1,"wait_for_image_load":1,"cleartype":1,"cleartypenobg":1,"advanced_options":"{\u0022width\u0022:\u0022960px\u0022,\u0022fit\u0022:\u0022true\u0022,\u0022pager\u0022:\u0022#slide-nav\u0022}","advanced_options_choices":0,"advanced_options_entry":""}}});
-</script>
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_iA6uHK4KQ4tiQx7QEIHVwWC-HGk5fmG6S9hEHiv3ZSs.css" media="all" />
+	<![endif]-->
+	
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_t9kd7hbcnvFo3UB87cGfgf_pVitA8vyFT43grgVGnwo.css" media="all" />
+	<![endif]-->
+	
+	<!--[if IE 9]>
+	<link rel="stylesheet" href="http://www.euroweb.de/sites/default/files/css/css_xlRiDrnl4P1bjXYlKjyFRPPOPVNGG3LlfF4-7-a9rjE.css" media="all" />
+	<![endif]-->
+	
   <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400italic' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400italic' rel='stylesheet' type='text/css'>	
+
+
+
 </head>
 
 <body class="html front not-logged-in no-sidebars page-frontpage i18n-de " >
@@ -323,19 +315,25 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <a class="button right" href="#/portfolio">Mas tecnologia</a></article>
 <article class="column4" id="teaser-service">
     <h2><span class="icon-teaser-service">&nbsp;</span> Servicios</h2>
-    <p>Estamos conectados las 24 horas del dia , los 365 dias del aÃ±o.</p>
+    <p>Estamos conectados las 24 horas del dia , los 365 dias del año. Le brindamos la solución</p>
     <a class="button right" href="#/service" title="Service">Mas servicios</a></article>
 <article class="column4 last" id="teaser-support">
     <h2><span class="icon-teaser-support">&nbsp;</span> Ayuda</h2>
     <p>Contamos con los mejores especialistas para solucionar los problemas al instante.</p>
     <a class="button right" href="#/support" title="Support">Mas soporte</a></article>
+
+<!-- Solicitar Nueva Conexión -->
+
+    <h1><i class="icon-edit icon-2x"></i> SOLICITA TU NUEVA CONTRATACIÓN</h1><br/>
+    <a class="button right" href="SolicitudNuevaContratacion.jsp"><i class="icon-hand-right"></i> Solicítala Via Web AQUI</a>
+<!-- END Solicitar Nueva Conexión -->
+
 <!-- begin SOCIAL MEDIA BUTTONS -->
 <nav class="social-media">
     <ul>
         <li class="sm-fb"><a href="http://facebook.com" title="Sedapar en Facebook">Facebook</a></li>
         <li class="sm-tw"><a href="http://twitter.com/" title="Sedapar en  twittert">Twitter</a></li>
         <li class="sm-gp"><a href="http://www.google.com/" title="Sedapar en Google+">Google+</a></li>
-        <li class="sm-xi"><a href="http://www.xing.com" title="Sedapar en XING">Xing</a></li>
     </ul>
 </nav>
 <!-- end SOCIAL MEDIA BUTTONS -->      
@@ -380,8 +378,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	<div class="video-container"><iframe allowfullscreen="" frameborder="0" height="402" src="http://www.youtube.com/embed/_qTKJ2FcDNI?rel=0" width="714"></iframe></div>
 </div>
 <div class="video-copy last">
-	<p>La celebraciÃ³n del DÃ­a Mundial del Agua tiene por objeto fomentar la comprensiÃ³n de la importancia de los recursos hÃ­dricos en la productividad econÃ³mica y el bienestar social. El agua limpia es vida y nuestras vidas dependen de la manera en que protejamos la calidad de nuestras aguas.</p>
-	<p>La calidad de los recursos hÃ­dricos se ve cada vez mÃ¡s amenazada por la contaminaciÃ³n. Durante los Ãºltimos 50 aÃ±os la actividad humana ha provocado la contaminaciÃ³n de los recursos hÃ­dricos en una magnitud histÃ³ricamente sin precedentes.</p>
+	<p>La celebración del Día Mundial del Agua tiene por objeto fomentar la comprensión de la importancia de los recursos hídricos en la productividad económica y el bienestar social. El agua limpia es vida y nuestras vidas dependen de la manera en que protejamos la calidad de nuestras aguas.</p>
+	<p>La calidad de los recursos hídricos se ve cada vez más amenazada por la contaminación. Durante los últimos 50 años la actividad humana ha provocado la contaminación de los recursos hídricos en una magnitud históricamente sin precedentes.</p>
 </div>
 <p>&nbsp;</p>
 		
@@ -487,9 +485,9 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	<p class="address" itemprop="address" itemscope="" itemtype="http://data-vocabulary.org/Address"><span itemprop="street-address">Calle Blanca 299</span>, <span itemprop="postal-code">40549</span> <span itemprop="locality">Arequipa</span></p>
 	<dl>
 		<dt class="phone">Tel.</dt>
-		<dd itemprop="tel">+49(211) 30129-0</dd>
-		<dt class="fax">Fax</dt>
-		<dd>+49(211) 30129-111</dd>
+		<dd itemprop="tel">0800 00 0600</dd>
+		<dt class="phone">Fijo</dt>
+		<dd>60-6161</dd>
 		<dt class="email">E-Mail</dt>
 		<dd><span class="spamspan"><span class="u">info</span><img alt="at" width="10" src="/sites/default/modules/spamspan/image.gif" /><span class="d">sedapar [dot] pe</span></span></dd>
 	</dl>
@@ -500,7 +498,6 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 		<li class="sm-fb"><a href="http://www.euroweb.de/facebook" title="Finden Sie Euroweb auf Facebook">Facebook</a></li>
 		<li class="sm-tw"><a href="http://twitter.com/eurowebgroup" title="Tweets von Euroweb">Twitter</a></li>
 		<li class="sm-gp"><a href="http://www.euroweb.de/+" title="Besuchen Sie Euroweb auf Google+">Google+</a></li>
-		<li class="sm-xi"><a href="http://www.xing.com/companies/eurowebgroup" title="Euroweb auf XING">Xing</a></li>
 	</ul>
 </nav>
 <!-- end SOCIAL MEDIA BUTTONS -->      
@@ -528,15 +525,15 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   
       
       <ul class="jcarousel jcarousel-view--award-slideshow--awards jcarousel-dom-1">
-      <li class="jcarousel-item-1 odd">              <a href="http://www.geprueft.de/profil/euroweb"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/geprueft-de-badge-sehr-gut.png" width="117" height="90" alt="" /></a>   
+          <li class="jcarousel-item-1 even">              <a href="http://www.serviciosalciudadano.gob.pe/"><img typeof="foaf:Image" src="http://www.sedapar.com.pe/componentes/paginas/footer/imagenes/b_psc.jpg" width="120" height="50" alt="Interactive Media Awards" /></a>   
 </li>
-      <li class="jcarousel-item-2 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/entrepreneur-des-jahres-2012-footer.png" width="150" height="71" alt="Entrepreneur des Jahres Finalist 2012" /></a>   
+      <li class="jcarousel-item-2 even">              <a href="http://www.peru.gob.pe/"><img typeof="foaf:Image" src="http://www.sedapar.com.pe/componentes/paginas/footer/imagenes/b_pep.jpg" width="120" height="50" alt="Internet Agentur Ranking" /></a>   
 </li>
-      <li class="jcarousel-item-3 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/webaward-2012-footer.png" width="78" height="90" alt="Webaward 2012" /></a>   
+      <li class="jcarousel-item-3 even">              <a href="http://www.pcm.gob.pe/"><img typeof="foaf:Image" src="http://www.sedapar.com.pe/componentes/paginas/footer/imagenes/b_pcm.jpg" width="120" height="50" alt="Interactive Media Awards" /></a>   
 </li>
-      <li class="jcarousel-item-4 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/gpbullound-summitberlin.png" width="150" height="75" alt="GPBullhound Summit Berlin" /></a>   
+      <li class="jcarousel-item-4 even">              <a href="http://www.ongei.gob.pe/"><img typeof="foaf:Image" src="http://www.sedapar.com.pe/componentes/paginas/footer/imagenes/b_ongei.jpg" width="120" height="50" alt="Internet Agentur Ranking" /></a>   
 </li>
-      <li class="jcarousel-item-5 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/the-communicator-awards.png" width="150" height="74" alt="The Communicator Awards" /></a>   
+      <li class="jcarousel-item-5 even">              <a href="http://www.sunass.gob.pe/"><img foaf:Image" src="http://s2.subirimagenes.com/imagen/previo/thump_8754046sunass.png" width="120" height="50" alt="Internet Agentur Ranking" /></a>   
 </li>
       <li class="jcarousel-item-6 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/ima-outstanding-achievement-2012.png" width="67" height="90" alt="Interactive Media Awards Outstanding Achievement 2012" /></a>   
 </li>
@@ -568,10 +565,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </li>
       <li class="jcarousel-item-20 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/duesseldorfer-unternehmerpreis.png" width="131" height="90" alt="DÃ¼sseldorfer Unternehmerpreis" /></a>   
 </li>
-      <li class="jcarousel-item-21 odd">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/interactivemediaawards.png" width="96" height="90" alt="Interactive Media Awards" /></a>   
-</li>
-      <li class="jcarousel-item-22 even">              <a href="http://www.euroweb.de/unternehmen#node-1046"><img typeof="foaf:Image" src="http://www.euroweb.de/sites/default/files/awards/footer-internetagenturranking_0.png" width="136" height="90" alt="Internet Agentur Ranking" /></a>   
-</li>
+
+
   </ul>
     
   
@@ -610,30 +605,45 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 
 <!-- /.region -->
-						<span id="copyright">Â© breakers</span>
+						<span id="copyright">© Breakers</span>
 													<a class="link-geprueft-de" href="http://www.geprueft.de" target="_blank"><img src="img/geprueft-de-logo.png" alt="Unternehmen bei geprueft.de" width="110" height="20" /></a>
 										</section>
 		</footer>
 		<!-- end page FOOTER -->
 
 </div>
-  <script>
-adroll_adv_id = "UI5MLJGR2NA45EGVBWTUZ7"; 
-				adroll_pix_id = "W2BV75PPL5ABLOMK3VAOZL"; 
-				(function () { 
-				var oldonload = window.onload; 
-				window.onload = function(){ 
-				   __adroll_loaded=true; 
-				   var scr = document.createElement("script"); 
-				   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com"); 
-				   scr.setAttribute("async", "true"); 
-				   scr.type = "text/javascript"; 
-				   scr.src = host + "/j/roundtrip.js"; 
-				   ((document.getElementsByTagName("head") || [null])[0] || 
-				    document.getElementsByTagName("script")[0].parentNode).appendChild(scr); 
-				   if(oldonload){oldonload()}}; 
-				}());
-</script>
+    <!-- JavaScript -->
+		<script src="http://www.euroweb.de/sites/default/files/js/js_eMjZ6Z1kKo5sjySRbJdvIkCHugjVCdO-e3tY-M9KsqE.js"></script>
+		<script src="http://www.euroweb.de/sites/default/files/js/js_KCd8rbJYUruV1tRJnh4um34UYvyhlrSVCPR1jNko2h8.js"></script>
+		<script src="http://www.euroweb.de/sites/default/files/js/js_nF1kS3yBefzThMly1LnFJN-dQNkoVQJPKVCmjzG9dTI.js"></script>
+		<script src="http://www.euroweb.de/sites/default/files/js/js_nZxIyDy3H9Y70g26Lk7htFwgW2Y9a9aWuk22ZhfTWOY.js"></script>
+		<script src="http://www.euroweb.de/sites/default/files/js/js_pVuIEAn0r0NlR9B6X5cq_gCsrtnbikYtzpGO-VRhFLQ.js"></script>
+		<script src="http://www.euroweb.de/sites/default/files/js/js_pT5SNWk4nHpeaUZlU_ATj_UhrWvg76QikAqNFJqqm4Y.js"></script>
+		<script>
+		jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"euroweb","theme_token":"5MhxhwoUrfb_gRLHasQ1vGEc8FwmMvO5xrEkmoMLQog","js":{"0":1,"sites\/default\/modules\/jquery_update\/replace\/jquery\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/form.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/default\/modules\/spamspan\/spamspan.js":1,"public:\/\/languages\/de_Rxx4mJkAoBtlDfLeuz9rpG5tDCBw9AdAbfMuLAf3C-g.js":1,"sites\/all\/modules\/actualization_form\/js\/plupload.full.js":1,"sites\/all\/modules\/actualization_form\/js\/actualization_form.js":1,"sites\/all\/libraries\/colorbox\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_load.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_inline.js":1,"sites\/all\/modules\/video\/js\/video.js":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/js\/views_slideshow.js":1,"profiles\/corporative_site\/libraries\/jquery.cycle\/jquery.cycle.all.js":1,"sites\/all\/libraries\/json2\/json2.js":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/views_slideshow_cycle.js":1,"profiles\/corporative_site\/modules\/contrib\/webform\/js\/webform.js":1,"sites\/default\/modules\/jcarousel\/js\/jquery.jcarousel.min.js":1,"sites\/default\/modules\/jcarousel\/js\/jcarousel.js":1,"sites\/default\/themes\/euroweb\/js\/jquery.tools.min.js":1,"sites\/default\/themes\/euroweb\/js\/jquery.easing.min.js":1,"sites\/default\/themes\/euroweb\/js\/jscroll.min.js":1,"sites\/default\/themes\/euroweb\/js\/jquery.inview.min.js":1,"sites\/default\/themes\/euroweb\/js\/apps.js":1,"sites\/default\/themes\/euroweb\/js\/respond.min.js":1,"http:\/\/maps.google.com\/maps\/api\/js?sensor=false":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"profiles\/corporative_site\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"modules\/comment\/comment.css":1,"profiles\/corporative_site\/modules\/contrib\/date\/date\/date_api\/date.css":1,"profiles\/corporative_site\/modules\/contrib\/date\/date\/date_popup\/themes\/datepicker.1.7.css":1,"profiles\/corporative_site\/modules\/contrib\/date\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"profiles\/corporative_site\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/actualization_form\/css\/actualization_form.css":1,"profiles\/corporative_site\/modules\/contrib\/ckeditor\/ckeditor.css":1,"profiles\/corporative_site\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/video\/css\/video.css":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/views_slideshow.css":1,"profiles\/corporative_site\/modules\/contrib\/views_slideshow\/contrib\/views_slideshow_cycle\/views_slideshow_cycle.css":1,"modules\/locale\/locale.css":1,"profiles\/corporative_site\/modules\/contrib\/webform\/css\/webform.css":1,"sites\/default\/modules\/jcarousel\/skins\/default\/jcarousel-default.css":1,"sites\/default\/themes\/euroweb\/css\/styles.css":1,"sites\/default\/themes\/euroweb\/css\/styles-temp.css":1,"sites\/default\/themes\/euroweb\/css\/ie8.css":1,"sites\/default\/themes\/euroweb\/css\/ie7.css":1,"sites\/default\/themes\/euroweb\/css\/ie9.css":1}},"colorbox":{"transition":"elastic","speed":"500","opacity":"0.70","slideshow":false,"slideshowAuto":true,"slideshowSpeed":"2500","slideshowStart":"start slideshow","slideshowStop":"stop slideshow","current":"{current} of {total}","previous":"\u00ab Zur\u00fcck","next":"Vorw\u00e4rts \u00bb","close":"Schlie\u00dfen","overlayClose":true,"maxWidth":"100%","maxHeight":"100%","initialWidth":"300","initialHeight":"100","fixed":false,"scrolling":true,"__drupal_alter_by_ref":["none"]},"jcarousel":{"ajaxPath":"\/jcarousel\/ajax\/views","carousels":{"jcarousel-dom-1":{"view_options":{"view_args":"","view_path":"frontpage","view_base_path":null,"view_display_id":"awards","view_name":"award_slideshow","jcarousel_dom_id":1},"wrap":"circular","autoPause":1,"animation":1000,"start":1,"itemFallbackDimension":90,"skin":"default","selector":".jcarousel-dom-1"}}},"viewsSlideshow":{"startseiten_slideshow-block":{"methods":{"goToSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"nextSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"pause":["viewsSlideshowControls","viewsSlideshowCycle"],"play":["viewsSlideshowControls","viewsSlideshowCycle"],"previousSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"transitionBegin":["viewsSlideshowPager","viewsSlideshowSlideCounter"],"transitionEnd":[]},"paused":0},"portfolio-block_1":{"methods":{"goToSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"nextSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"pause":["viewsSlideshowControls","viewsSlideshowCycle"],"play":["viewsSlideshowControls","viewsSlideshowCycle"],"previousSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"transitionBegin":["viewsSlideshowPager","viewsSlideshowSlideCounter"],"transitionEnd":[]},"paused":0}},"viewsSlideshowCycle":{"#views_slideshow_cycle_main_startseiten_slideshow-block":{"num_divs":5,"id_prefix":"#views_slideshow_cycle_main_","div_prefix":"#views_slideshow_cycle_div_","vss_id":"startseiten_slideshow-block","effect":"fade","transition_advanced":1,"timeout":10000,"speed":1500,"delay":0,"sync":1,"random":0,"pause":0,"pause_on_click":0,"action_advanced":0,"start_paused":0,"remember_slide":0,"remember_slide_days":1,"pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","nowrap":0,"fixed_height":1,"items_per_slide":1,"wait_for_image_load":1,"cleartype":0,"cleartypenobg":0,"advanced_options":"{\u0022easing\u0022:\u0022easeInQuad\u0022,\u0022pager\u0022:\u0022#pager-header\u0022}","advanced_options_choices":0,"advanced_options_entry":""},"#views_slideshow_cycle_main_portfolio-block_1":{"num_divs":2,"id_prefix":"#views_slideshow_cycle_main_","div_prefix":"#views_slideshow_cycle_div_","vss_id":"portfolio-block_1","effect":"fade","transition_advanced":1,"timeout":5000,"speed":700,"delay":0,"sync":1,"random":0,"pause":0,"pause_on_click":0,"action_advanced":1,"start_paused":0,"remember_slide":0,"remember_slide_days":1,"pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","nowrap":0,"fixed_height":1,"items_per_slide":1,"wait_for_image_load":1,"cleartype":1,"cleartypenobg":1,"advanced_options":"{\u0022width\u0022:\u0022960px\u0022,\u0022fit\u0022:\u0022true\u0022,\u0022pager\u0022:\u0022#slide-nav\u0022}","advanced_options_choices":0,"advanced_options_entry":""}}});
+		</script>
+		  <!--[if lt IE 9]>
+		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		  <![endif]-->
+  
+  
+		 <script>
+		adroll_adv_id = "UI5MLJGR2NA45EGVBWTUZ7"; 
+						adroll_pix_id = "W2BV75PPL5ABLOMK3VAOZL"; 
+						(function () { 
+						var oldonload = window.onload; 
+						window.onload = function(){ 
+						   __adroll_loaded=true; 
+						   var scr = document.createElement("script"); 
+						   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com"); 
+						   scr.setAttribute("async", "true"); 
+						   scr.type = "text/javascript"; 
+						   scr.src = host + "/j/roundtrip.js"; 
+						   ((document.getElementsByTagName("head") || [null])[0] || 
+						    document.getElementsByTagName("script")[0].parentNode).appendChild(scr); 
+						   if(oldonload){oldonload()}}; 
+						}());
+		</script>
 </body>
 
 </html>
