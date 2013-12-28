@@ -93,6 +93,134 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 <![endif]-->
+<!-- Estilos y Script de Google Maps -->
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        bottom: 5px;
+        left: 20%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+    </style>
+    <style>
+      #directions-panel {
+        height: 100%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+
+      #map-canvas {
+	    width:60%;
+	    height:500px;
+		}
+
+      #control {
+        background: #fff;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Arial;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        display: none;
+      }
+
+      @media print {
+        #map-canvas {
+          height: 500px;
+          margin: 0;
+        }
+
+        #directions-panel {
+          float: none;
+          width: auto;
+        }
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript">
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+
+function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var centro = new google.maps.LatLng(-16.411667,-71.532967);
+  var mapOptions = {
+    zoom:18,
+    center: centro
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('directions-panel'));
+}
+
+
+function calcRuta() {
+	var lista = [];
+	lista.push(document.getElementById('punto1').value.split(","));
+	lista.push(document.getElementById('punto2').value.split(","));
+	lista.push(document.getElementById('punto3').value.split(","));
+	
+	var punto1 = [lista[0][0],lista[0][1]];
+	var punto2 = [];
+	var punto3 = [];
+	
+	
+	var a = Math.pow((lista[1][0]-lista[0][0]),2);
+	var b = Math.pow((lista[1][1]-lista[0][1]),2);
+	var distancia0a1= Math.pow(a+b,(1/2));	
+		
+	a = Math.pow((lista[2][0]-lista[0][0]),2);
+	b = Math.pow((lista[2][1]-lista[0][1]),2);
+	var distancia0a2 = Math.pow(a+b,(1/2));
+	
+	if(distancia0a1<distancia0a2){
+		punto2 = [lista[1][0],lista[1][1]];
+		punto3 = [lista[2][0],lista[2][1]];
+	}else{
+		punto2 = [lista[2][0],lista[2][1]];
+		punto3 = [lista[1][0],lista[1][1]];
+	}	
+	var puntosMedios = [];		  
+	puntosMedios.push({
+			  location: new google.maps.LatLng(parseFloat(punto2[0]),parseFloat(punto2[1])),
+			  stopover: true
+		  });
+		  
+		  var request = {
+		      origin: new google.maps.LatLng(parseFloat(punto1[0]),parseFloat(punto1[1])),
+		      destination: new google.maps.LatLng(parseFloat(punto3[0]),parseFloat(punto3[1])),
+		      travelMode: google.maps.TravelMode.DRIVING,
+		      waypoints: puntosMedios,
+		  	  optimizeWaypoints: true
+		      };
+		  
+		  directionsService.route(request, function(response, status) {
+		    if (status == google.maps.DirectionsStatus.OK) {
+		      directionsDisplay.setDirections(response);
+		    }
+		  });
+	
+		
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+
+<!-- Fin Estilos y Script de Google Maps -->
+
+
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
@@ -611,7 +739,17 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							Aqui va el contenido de la pagina <br>
+							<div id="panel">
+						    <b>Puntos:</b>&nbsp;
+						      <input type="checkbox" value="-16.411667,-71.532967" id="punto1">SEDAPAR (Local)</option>&nbsp;&nbsp;
+						      <input type="checkbox" value="-12.122165,-77.027813" id="punto2">Cibertec Miraflores</option>    &nbsp;&nbsp;
+						      <input type="checkbox" value="-16.412472,-71.532063" id="punto3">Parque Francisco Mostajo</option>&nbsp;
+						      
+						    
+						    <input type="button" value="Ver" onclick="calcRuta()">
+						    </div>
+						    <div id="directions-panel"></div>
+						    <div id="map-canvas"></div>
 							
 
 

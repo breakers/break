@@ -1,18 +1,13 @@
 package dao;
 
-import java.util.List;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import util.MySQL;
 import bean.Con_SolicitudDTO;
 import interfaces.Con_SolicitudDAO;
 
-import bean.Con_SolicitudDTO;
-import interfaces.Con_SolicitudDAO;
 
 public class MySqlCon_SolicitudDAO implements Con_SolicitudDAO{
 

@@ -10,7 +10,6 @@ public abstract class DAOFactory {
 	public static final int ORACLE = 2;
 	public static final int XML = 3;
 	
-
 	public abstract UsuarioDAO getUsuarioDAO();
 	public abstract PerfilDAO getPerfilDAO();
 	public abstract Con_SolicitudDAO getCon_SolicitudDAO();

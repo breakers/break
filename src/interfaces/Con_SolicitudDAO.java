@@ -8,5 +8,4 @@ public interface Con_SolicitudDAO {
 	
 	public ArrayList<Con_SolicitudDTO> listarSolicitudesPendientes();
 	
-	
 }

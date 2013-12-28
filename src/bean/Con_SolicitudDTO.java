@@ -16,7 +16,6 @@ public class Con_SolicitudDTO {
 		this.estado = estado;
 	}
 
-
 	public int getNumero() {
 		return numero;
 	}
