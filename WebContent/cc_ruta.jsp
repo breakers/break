@@ -120,7 +120,7 @@
       }
 
       #map-canvas {
-	    width:60%;
+	    width:90%;
 	    height:500px;
 		}
 
@@ -737,9 +737,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 					<div class="row">
 						<div class="col-xs-12">
-							<!-- PAGE CONTENT BEGINS -->
-
-							<div id="panel">
+							Direcciones <br>
+							<div id="panel" class="col-xs-6 col-sm-4">
 						    <b>Puntos:</b>&nbsp;
 						      <input type="checkbox" value="-16.411667,-71.532967" id="punto1">SEDAPAR (Local)</option>&nbsp;&nbsp;
 						      <input type="checkbox" value="-12.122165,-77.027813" id="punto2">Cibertec Miraflores</option>    &nbsp;&nbsp;
@@ -748,32 +747,24 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						    
 						    <input type="button" value="Ver" onclick="calcRuta()">
 						    </div>
-						    <div id="directions-panel"></div>
-						    <div id="map-canvas"></div>
-							
+						    <div class="col-xs-6 col-sm-6">
+						    	<div id="directions-panel" class="col-xs-6 col-sm-6"></div>
+							</div>
+							<div class="col-xs-6">
+							<div id="map-canvas"></div>						
+							</div>	
+						</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+							<!-- PAGE CONTENT BEGINS -->
+						
+						
 
 
 							<!-- /row -->
 
 							<!-- PAGE CONTENT ENDS -->
-						</div>
+						
 						<!-- /.col -->
 					</div>
 					<!-- /.row -->
