@@ -1270,6 +1270,13 @@ th {
 	background-color: #f9f9f9
 }
 
+/*****************RENZO*****************/
+
+.highlighted {
+    background-color: #E3DFC2;
+}
+
+/***************************************/
 .table-hover>tbody>tr:hover>td,.table-hover>tbody>tr:hover>th {
 	background-color: #f5f5f5
 }

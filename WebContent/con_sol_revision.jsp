@@ -613,15 +613,9 @@
 												</h5>
 						</div>
 						<div class="table-responsive">
-											<table id="sample-table-1" class="table table-striped table-bordered table-hover ">
+											<table id="sample-table-1" class="table table-bordered">
 												<thead>
 													<tr>
-														<th class="center" width="40">
-															<label>
-																<input type="checkbox" class="ace" />
-																<span class="lbl"></span>
-															</label>
-														</th>
 														<th width="100">Numero</th>
 														<th width="200">Nombre</th>
 
@@ -637,12 +631,6 @@
 												<tbody>
 												<c:forEach var="lista" items="${requestScope.lista}">
 													<tr>
-													<td class="center">
-															<label>
-																<input type="checkbox" class="ace" />
-																<span class="lbl"></span>
-															</label>
-														</td>
 														<td>${lista.numero}</td>
 														<td>${lista.nombre}</td>
 														<td>${lista.fecha}</td>
@@ -876,7 +864,16 @@
 	</div>
 	
 	
+	<script type="text/javascript">
+	<!-- RENZO-->
+	$(document).ready(function () {
+	    $("tr").click(function () {
+	        $(this).closest("tr").siblings().removeClass("highlighted");
+	        $(this).toggleClass("highlighted");
+	    });
+	});
 	
+	</script>
 	
 </body>
 </html>
