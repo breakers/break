@@ -1,3 +1,4 @@
+DROP DATABASE `DB_Sedapar`; 
 create database DB_Sedapar;
 use DB_Sedapar;
 
@@ -45,14 +46,14 @@ id_prov char(3) references tb_provincia
 );
 
 create table tb_localidad(
-id_loc int primary key,
+id_loc int primary key auto_increment,
 nombre varchar(30),
 id_prov char(3) references tb_provincia,
 id_dis int references tb_distrito
 );
 
 create table tb_calle(
-id_calle primary key,
+id_calle int primary key auto_increment,
 nombre varchar(30),
 id_prov char(3) references tb_provincia,
 id_dis int references tb_distrito,
@@ -198,6 +199,46 @@ INSERT INTO tb_distrito VALUES(105,'Tauría','lun');
 INSERT INTO tb_distrito VALUES(106,'Tomepampa','lun');
 INSERT INTO tb_distrito VALUES(107,'Toro','lun');
 
+/*Datos en Localidades (solo Arequipa/centro, Arequipa... al parecer faltan algunas, o hay partes SIN nombre)*/
+INSERT INTO tb_localidad VALUES(null,'Amautas','are',2);
+INSERT INTO tb_localidad VALUES(null,'Asvea','are',2);
+INSERT INTO tb_localidad VALUES(null,'Atlas','are',2);
+INSERT INTO tb_localidad VALUES(null,'Barrio Ingles','are',2);
+INSERT INTO tb_localidad VALUES(null,'Casa Lago San Jose','are',2);
+INSERT INTO tb_localidad VALUES(null,'Castelar','are',2);
+INSERT INTO tb_localidad VALUES(null,'Centro Historico','are',2);
+INSERT INTO tb_localidad VALUES(null,'Cesar Vallejo','are',2);
+INSERT INTO tb_localidad VALUES(null,'Febn','are',2);
+INSERT INTO tb_localidad VALUES(null,'Gloria 4','are',2);
+INSERT INTO tb_localidad VALUES(null,'Juventud Ferroviaria','are',2);
+INSERT INTO tb_localidad VALUES(null,'La Perla','are',2);
+INSERT INTO tb_localidad VALUES(null,'La Recoleta','are',2);
+INSERT INTO tb_localidad VALUES(null,'Lambramani','are',2);
+INSERT INTO tb_localidad VALUES(null,'Los Frutales','are',2);
+INSERT INTO tb_localidad VALUES(null,'Magisterial','are',2);
+INSERT INTO tb_localidad VALUES(null,'Municipal','are',2);
+INSERT INTO tb_localidad VALUES(null,'Pablo VI','are',2);
+INSERT INTO tb_localidad VALUES(null,'Parque Industrial','are',2);
+INSERT INTO tb_localidad VALUES(null,'San Francisco de Asis','are',2);
+INSERT INTO tb_localidad VALUES(null,'San Jerónimo','are',2);
+INSERT INTO tb_localidad VALUES(null,'Selva Alegre','are',2);
+INSERT INTO tb_localidad VALUES(null,'Sidsur','are',2);
+INSERT INTO tb_localidad VALUES(null,'Tingo','are',2);
+INSERT INTO tb_localidad VALUES(null,'Umacollo','are',2);
+INSERT INTO tb_localidad VALUES(null,'Vallecito','are',2);
+INSERT INTO tb_localidad VALUES(null,'Villa Hermosa','are',2);
+INSERT INTO tb_localidad VALUES(null,'Villa Los Girasoles','are',2);
+INSERT INTO tb_localidad VALUES(null,'Zemanat','are',2);
+INSERT INTO tb_localidad VALUES(null,'--','are',2);
+
+/*Datos en Calles (solo Centro historico, Arequipa/centro, Arequipa)*/
+INSERT INTO tb_calle VALUES(null,'Perú','are',2,7);
+INSERT INTO tb_calle VALUES(null,'Pizarro','are',2,7);
+INSERT INTO tb_calle VALUES(null,'Palacio Viejo','are',2,7);
+INSERT INTO tb_calle VALUES(null,'Consuelo','are',2,7);
+INSERT INTO tb_calle VALUES(null,'Virgen del Pilar','are',2,30); /*CALLE DE SEDAPAR*/
+INSERT INTO tb_calle VALUES(null,'La Merced','are',2,7); /*CALLE DE caja municipal*/
+INSERT INTO tb_calle VALUES(null,'Santa Catalina','are',2,7); /*CALLE DE Monasterio Santa Catalina*/
 
 /*Datos en TEST SOLICITUD*/
 INSERT INTO tb_test_solicitud VALUES(null,'Renzo Delgado','26-12-2013','Pendiente');
@@ -208,3 +249,5 @@ INSERT INTO tb_test_solicitud VALUES(null,'Andre Coquis','26-12-2013','Pendiente
 INSERT INTO tb_test_solicitud VALUES(null,'Juan Carlos Espinoza','26-12-2013','Aprobada');
 INSERT INTO tb_test_solicitud VALUES(null,'Tilsa Lozano','26-12-2013','Pendiente');
 INSERT INTO tb_test_solicitud VALUES(null,'Loco Vargas','26-12-2013','Pendiente');
+
+select*from tb_calle where id_loc = 2
