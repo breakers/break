@@ -101,16 +101,6 @@ html,body,#map-canvas {
 	padding: 0px
 }
 
-#panel {
-	position: absolute;
-	bottom: 5px;
-	left: 20%;
-	margin-left: -180px;
-	z-index: 5;
-	background-color: #fff;
-	padding: 5px;
-	border: 1px solid #999;
-}
 </style>
 <style>
 #directions-panel {
@@ -754,34 +744,48 @@ html,body,#map-canvas {
 										<div class="widget-main no-padding">
 											<form>
 												<fieldset>
-													<label>Punto 1</label> <input type="text"
-														placeholder="Sedapar" /> <label class="pull-right">
-														<input type="checkbox" class="ace"
-														value="-16.411667,-71.532967" id="punto1" /> <span
-														class="lbl"> agregar</span>
+													<label>Punto 1</label> 
+													<input type="text" placeholder="Sedapar" /> 
+													<label class="pull-right">
+														<button class="btn btn-xs btn-danger" value="-16.411667,-71.532967" id="punto1"
+															onclick="location.href='#EliminarPunto';"> Eliminar
+															<i class="icon-trash"></i>
+														</button>
 													</label>
 												</fieldset>
 
 												<fieldset>
-													<label>Punto 2</label> <input type="text"
-														placeholder="Cibertec Miraflores" /> <label
-														class="pull-right"> <input type="checkbox"
-														class="ace" value="-12.122165,-77.027813" id="punto2" />
-														<span class="lbl"> agregar</span>
+													<label>Punto 2</label> 
+													<input type="text" placeholder="Cibertec Miraflores" /> 
+													<label class="pull-right">
+														<button class="btn btn-xs btn-danger" value="-12.122165,-77.027813" id="punto2"
+															onclick="location.href='#EliminarPunto';"> Eliminar
+															<i class="icon-trash"></i>
+														</button>
 													</label>
 												</fieldset>
 
 												<fieldset>
-													<label>Punto 3</label> <input type="text"
-														placeholder="Parque Francisco Mostajo" /> <label
-														class="pull-right"> <input type="checkbox"
-														class="ace" value="-16.412472,-71.532063" id="punto3" />
-														<span class="lbl"> agregar</span>
+													<label>Punto 3</label> 
+													<input type="text" placeholder="Parque Francisco Mostajo" /> 
+													<label class="pull-right">
+														<button class="btn btn-xs btn-danger" value="-16.412472,-71.532063" id="punto3"
+															onclick="location.href='#EliminarPunto';"> Eliminar
+															<i class="icon-trash"></i>
+														</button>
 													</label>
 												</fieldset>
+												<div class="form-actions center">
+													<button class="btn btn-xs btn-success"
+															onclick="location.href='#AgregarDireccion';"> Agregar Direccion
+															<i class="icon-plus-sign"></i>
+													</button>
+												</div>
 
 												<div class="form-actions center">
-													<input type="button" value="Ver" onclick="calcRuta()">
+													<button type="button" class="btn btn-primary" onclick="calcRuta()"> Generar Ruta
+															<i class="icon-share"></i>
+													</button>
 												</div>
 
 
