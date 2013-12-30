@@ -148,7 +148,8 @@ html,body,#map-canvas {
 		var centro = new google.maps.LatLng(-16.411667, -71.532967);
 		var mapOptions = {
 			zoom : 18,
-			center : centro
+			center : centro,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		map = new google.maps.Map(document.getElementById('map-canvas'),
 				mapOptions);
@@ -206,10 +207,41 @@ html,body,#map-canvas {
 
 	}
 
+	function mostrardirecciones(){
+
+	var lista = [];
+	lista.push(document.getElementById('punto1').value.split(","));
+	lista.push(document.getElementById('punto2').value.split(","));
+	lista.push(document.getElementById('punto3').value.split(","));
+
+	var punto1 = [ lista[0][0], lista[0][1] ];
+	var punto2 = [ lista[2][0], lista[2][1] ];
+
+	var latitud1 = parseFloat(punto1[0]);
+	var longitud1 = parseFloat(punto1[1]);
+
+
+	var coordenadas1 = new google.maps.LatLng(latitud1, longitud1); /* Debo crear un punto geografico utilizando google.maps.LatLng */
+    var marcador1 = new google.maps.Marker({position: coordenadas1,map: map, animation: google.maps.Animation.DROP, title:"Sedapar"});
+
+    //alert(coordenadas1);
+
+    var latitud2 = parseFloat(punto2[0]);
+	var longitud2 = parseFloat(punto2[1]);
+
+	
+	
+	var coordenadas2 = new google.maps.LatLng(latitud2, longitud2); /* Debo crear un punto geografico utilizando google.maps.LatLng */
+    var marcador2 = new google.maps.Marker({position: coordenadas2,map: map, animation: google.maps.Animation.DROP, title:"Parque"});
+
+    //alert(coordenadas2);
+}
+
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 <!-- Fin Estilos y Script de Google Maps -->
+
 
 
 </head>
@@ -811,6 +843,13 @@ html,body,#map-canvas {
 									<div class="widget-box">
 										<div class="widget-header">
 											<h4>Mapa Arequipa</h4>
+											<span class="widget-toolbar">
+														
+														<a href="javascript:void(0);" onclick="mostrardirecciones();" data-action="reload">Mostrar Solicitudes Pendientes
+															<i class="icon-refresh"></i>
+
+														</a>
+											</span>
 										</div>
 
 										<div id="map-canvas"></div>
