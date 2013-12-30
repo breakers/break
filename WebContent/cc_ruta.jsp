@@ -11,7 +11,7 @@
 	String nombre = (String) sesion.getAttribute("nombreCompleto");
 	String foto = (Integer) sesion.getAttribute("foto") + "";
 	String nombrePerfil = (String) sesion.getAttribute("desPerfil");
-	
+
 	int tipo = 1;
 	String skin = "default";
 
@@ -94,129 +94,130 @@
 		<script src="js/respond.min.js"></script>
 <![endif]-->
 <!-- Estilos y Script de Google Maps -->
-    <style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-      #panel {
-        position: absolute;
-        bottom: 5px;
-        left: 20%;
-        margin-left: -180px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }
-    </style>
-    <style>
-      #directions-panel {
-        height: 100%;
-        float: right;
-        width: 390px;
-        overflow: auto;
-      }
+<style>
+html,body,#map-canvas {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
 
-      #map-canvas {
-	    width:90%;
-	    height:500px;
+#panel {
+	position: absolute;
+	bottom: 5px;
+	left: 20%;
+	margin-left: -180px;
+	z-index: 5;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #999;
+}
+</style>
+<style>
+#directions-panel {
+	height: 100%;
+	float: right;
+	width: 390px;
+	overflow: auto;
+}
+
+#map-canvas {
+	width: 100%;
+	height: 500px;
+}
+
+#control {
+	background: #fff;
+	padding: 5px;
+	font-size: 14px;
+	font-family: Arial;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+	display: none;
+}
+
+@media print {
+	#map-canvas {
+		height: 500px;
+		margin: 0;
+	}
+	#directions-panel {
+		float: none;
+		width: auto;
+	}
+}
+</style>
+<script
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script type="text/javascript">
+	var directionsDisplay;
+	var directionsService = new google.maps.DirectionsService();
+	var map;
+
+	function initialize() {
+		directionsDisplay = new google.maps.DirectionsRenderer();
+		var centro = new google.maps.LatLng(-16.411667, -71.532967);
+		var mapOptions = {
+			zoom : 18,
+			center : centro
+		};
+		map = new google.maps.Map(document.getElementById('map-canvas'),
+				mapOptions);
+		directionsDisplay.setMap(map);
+		directionsDisplay.setPanel(document.getElementById('directions-panel'));
+	}
+
+	function calcRuta() {
+		var lista = [];
+		lista.push(document.getElementById('punto1').value.split(","));
+		lista.push(document.getElementById('punto2').value.split(","));
+		lista.push(document.getElementById('punto3').value.split(","));
+
+		var punto1 = [ lista[0][0], lista[0][1] ];
+		var punto2 = [];
+		var punto3 = [];
+
+		var a = Math.pow((lista[1][0] - lista[0][0]), 2);
+		var b = Math.pow((lista[1][1] - lista[0][1]), 2);
+		var distancia0a1 = Math.pow(a + b, (1 / 2));
+
+		a = Math.pow((lista[2][0] - lista[0][0]), 2);
+		b = Math.pow((lista[2][1] - lista[0][1]), 2);
+		var distancia0a2 = Math.pow(a + b, (1 / 2));
+
+		if (distancia0a1 < distancia0a2) {
+			punto2 = [ lista[1][0], lista[1][1] ];
+			punto3 = [ lista[2][0], lista[2][1] ];
+		} else {
+			punto2 = [ lista[2][0], lista[2][1] ];
+			punto3 = [ lista[1][0], lista[1][1] ];
 		}
+		var puntosMedios = [];
+		puntosMedios.push({
+			location : new google.maps.LatLng(parseFloat(punto2[0]),
+					parseFloat(punto2[1])),
+			stopover : true
+		});
 
-      #control {
-        background: #fff;
-        padding: 5px;
-        font-size: 14px;
-        font-family: Arial;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-        display: none;
-      }
+		var request = {
+			origin : new google.maps.LatLng(parseFloat(punto1[0]),
+					parseFloat(punto1[1])),
+			destination : new google.maps.LatLng(parseFloat(punto3[0]),
+					parseFloat(punto3[1])),
+			travelMode : google.maps.TravelMode.DRIVING,
+			waypoints : puntosMedios,
+			optimizeWaypoints : true
+		};
 
-      @media print {
-        #map-canvas {
-          height: 500px;
-          margin: 0;
-        }
+		directionsService.route(request, function(response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setDirections(response);
+			}
+		});
 
-        #directions-panel {
-          float: none;
-          width: auto;
-        }
-      }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script type="text/javascript">
-var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
-var map;
+	}
 
-function initialize() {
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  var centro = new google.maps.LatLng(-16.411667,-71.532967);
-  var mapOptions = {
-    zoom:18,
-    center: centro
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  directionsDisplay.setMap(map);
-  directionsDisplay.setPanel(document.getElementById('directions-panel'));
-}
-
-
-function calcRuta() {
-	var lista = [];
-	lista.push(document.getElementById('punto1').value.split(","));
-	lista.push(document.getElementById('punto2').value.split(","));
-	lista.push(document.getElementById('punto3').value.split(","));
-	
-	var punto1 = [lista[0][0],lista[0][1]];
-	var punto2 = [];
-	var punto3 = [];
-	
-	
-	var a = Math.pow((lista[1][0]-lista[0][0]),2);
-	var b = Math.pow((lista[1][1]-lista[0][1]),2);
-	var distancia0a1= Math.pow(a+b,(1/2));	
-		
-	a = Math.pow((lista[2][0]-lista[0][0]),2);
-	b = Math.pow((lista[2][1]-lista[0][1]),2);
-	var distancia0a2 = Math.pow(a+b,(1/2));
-	
-	if(distancia0a1<distancia0a2){
-		punto2 = [lista[1][0],lista[1][1]];
-		punto3 = [lista[2][0],lista[2][1]];
-	}else{
-		punto2 = [lista[2][0],lista[2][1]];
-		punto3 = [lista[1][0],lista[1][1]];
-	}	
-	var puntosMedios = [];		  
-	puntosMedios.push({
-			  location: new google.maps.LatLng(parseFloat(punto2[0]),parseFloat(punto2[1])),
-			  stopover: true
-		  });
-		  
-		  var request = {
-		      origin: new google.maps.LatLng(parseFloat(punto1[0]),parseFloat(punto1[1])),
-		      destination: new google.maps.LatLng(parseFloat(punto3[0]),parseFloat(punto3[1])),
-		      travelMode: google.maps.TravelMode.DRIVING,
-		      waypoints: puntosMedios,
-		  	  optimizeWaypoints: true
-		      };
-		  
-		  directionsService.route(request, function(response, status) {
-		    if (status == google.maps.DirectionsStatus.OK) {
-		      directionsDisplay.setDirections(response);
-		    }
-		  });
-	
-		
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
 <!-- Fin Estilos y Script de Google Maps -->
 
@@ -224,13 +225,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
-<c:choose>
+	<c:choose>
 		<c:when test="${param.idioma != null}">
-		<fmt:setLocale value="${param.idioma}" scope="session" />
-		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
+			<fmt:setLocale value="${param.idioma}" scope="session" />
+			<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
 		</c:when>
 		<c:otherwise>
-		<c:set var="bandera" value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}" scope="session"></c:set>
+			<c:set var="bandera"
+				value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"
+				scope="session"></c:set>
 		</c:otherwise>
 	</c:choose>
 
@@ -256,9 +259,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<ul class="nav ace-nav">
 					<!-- BARRA IDIOMA -->
 					<li class="orange2"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img src="img/${bandera}_flag.gif"
-							class="msg-photo" alt="Idioma"> <span
-							class="badge badge-grey"><fmt:message
+						class="dropdown-toggle" href="#"> <img
+							src="img/${bandera}_flag.gif" class="msg-photo" alt="Idioma">
+							<span class="badge badge-grey"><fmt:message
 									key="label.actualidioma" /></span>
 					</a>
 
@@ -268,17 +271,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
 									key="label.seleccionaidioma" /></li>
 
 
-							<li><a href="?idioma=es"> <img
-									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
-									<span class="msg-body"> <span class="msg-title">
-											<span class="blue"><fmt:message key="label.español" /></span>
+							<li><a href="?idioma=es"> <img src="img/es_flag.gif"
+									class="msg-photo" alt="Castellano"> <span
+									class="msg-body"> <span class="msg-title"> <span
+											class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
-							<li><a href="?idioma=en"> <img
-									src="img/en_flag.gif" class="msg-photo" alt="Ingles"> <span
-									class="msg-body"> <span class="msg-title"> <span
-											class="blue"><fmt:message key="label.ingles" /></span>
+							<li><a href="?idioma=en"> <img src="img/en_flag.gif"
+									class="msg-photo" alt="Ingles"> <span class="msg-body">
+										<span class="msg-title"> <span class="blue"><fmt:message
+													key="label.ingles" /></span>
 									</span>
 								</span>
 							</a></li>
@@ -512,9 +515,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<!-- #sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
-					<li><a href="home.jsp"> <i
-							class="icon-dashboard"></i> <span class="menu-text"> <fmt:message
-									key="label.resumen" />
+					<li><a href="home.jsp"> <i class="icon-dashboard"></i> <span
+							class="menu-text"> <fmt:message key="label.resumen" />
 						</span>
 					</a></li>
 
@@ -555,8 +557,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						</ul></li>
 
 
-					<li class="active open"><a href="#" class="dropdown-toggle"> <i
-							class="icon-share"></i> <span class="menu-text"><fmt:message
+					<li class="active open"><a href="#" class="dropdown-toggle">
+							<i class="icon-share"></i> <span class="menu-text"><fmt:message
 									key="label.Categoria" /> </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
@@ -729,42 +731,105 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<div class="page-content">
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
-						<h1> <fmt:message key="label.Categoria" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Ruta" /></small>
+						<h1>
+							<fmt:message key="label.Categoria" />
+							<small> <i class="icon-double-angle-right"></i> <fmt:message
+									key="label.Ruta" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
 
 					<div class="row">
+
+
+						<!-- PAGE CONTENT BEGINS -->
 						<div class="col-xs-12">
-							Direcciones <br>
-							<div id="panel" class="col-xs-6 col-sm-4">
-						    <b>Puntos:</b>&nbsp;
-						      <input type="checkbox" value="-16.411667,-71.532967" id="punto1">SEDAPAR (Local)</option>&nbsp;&nbsp;
-						      <input type="checkbox" value="-12.122165,-77.027813" id="punto2">Cibertec Miraflores</option>    &nbsp;&nbsp;
-						      <input type="checkbox" value="-16.412472,-71.532063" id="punto3">Parque Francisco Mostajo</option>&nbsp;
-						      
-						    
-						    <input type="button" value="Ver" onclick="calcRuta()">
-						    </div>
-						    <div class="col-xs-6 col-sm-6">
-						    	<div id="directions-panel" class="col-xs-6 col-sm-6"></div>
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Direcciones</h4>
+										</div>
+
+										<div class="widget-main no-padding">
+											<form>
+												<fieldset>
+													<label>Punto 1</label> <input type="text"
+														placeholder="Sedapar" /> <label class="pull-right">
+														<input type="checkbox" class="ace"
+														value="-16.411667,-71.532967" id="punto1" /> <span
+														class="lbl"> agregar</span>
+													</label>
+												</fieldset>
+
+												<fieldset>
+													<label>Punto 2</label> <input type="text"
+														placeholder="Cibertec Miraflores" /> <label
+														class="pull-right"> <input type="checkbox"
+														class="ace" value="-12.122165,-77.027813" id="punto2" />
+														<span class="lbl"> agregar</span>
+													</label>
+												</fieldset>
+
+												<fieldset>
+													<label>Punto 3</label> <input type="text"
+														placeholder="Parque Francisco Mostajo" /> <label
+														class="pull-right"> <input type="checkbox"
+														class="ace" value="-16.412472,-71.532063" id="punto3" />
+														<span class="lbl"> agregar</span>
+													</label>
+												</fieldset>
+
+												<div class="form-actions center">
+													<input type="button" value="Ver" onclick="calcRuta()">
+												</div>
+
+
+
+											</form>
+										</div>
+									</div>
+
+									<div class="space-6"></div>
+
+									<div class="widget-box">
+										<div class="widget-header widget-header-small">
+											<h5 class="lighter">Ruta sugerida</h5>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main" id="directions-panel"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-8">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Mapa Arequipa</h4>
+										</div>
+
+										<div id="map-canvas"></div>
+									</div>
+
+
+								</div>
 							</div>
-							<div class="col-xs-6">
-							<div id="map-canvas"></div>						
-							</div>	
+
+
+
 						</div>
 
 
-							<!-- PAGE CONTENT BEGINS -->
-						
-						
 
 
-							<!-- /row -->
 
-							<!-- PAGE CONTENT ENDS -->
-						
+
+
+						<!-- /row -->
+
+						<!-- PAGE CONTENT ENDS -->
+
 						<!-- /.col -->
 					</div>
 					<!-- /.row -->
