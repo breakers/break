@@ -620,507 +620,162 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
-							<form class="form-horizontal" role="form">
-								<div class="row">
-										<div class="col-xs-12 col-sm-4">
-											<div class="widget-box">
-												<div class="widget-header">
-													<h4>Text Area</h4>
-
-													<div class="widget-toolbar">
-														<a href="#" data-action="collapse">
-															<i class="icon-chevron-up"></i>
-														</a>
-
-														<a href="#" data-action="close">
-															<i class="icon-remove"></i>
-														</a>
-													</div>
-												</div>
-
-												<div class="widget-body">
-													<div class="widget-main">
-														<div>
-															<label for="form-field-8">Default</label>
-
-															<textarea class="form-control" id="form-field-8" placeholder="Default Text"></textarea>
-														</div>
-
-														<hr />
-														<div>
-															<label for="form-field-9">With Character Limit</label>
-
-															<textarea class="form-control limited" id="form-field-9" maxlength="50"></textarea>
-														</div>
-
-														<hr />
-														<div>
-															<label for="form-field-11">Autosize</label>
-
-															<textarea id="form-field-11" class="autosize-transition form-control"></textarea>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div><!-- /span -->
-
-										<div class="col-xs-12 col-sm-4">
-											<div class="widget-box">
-												<div class="widget-header">
-													<h4>Masked Input</h4>
-
-													<span class="widget-toolbar">
-														<a href="#" data-action="settings">
-															<i class="icon-cog"></i>
-														</a>
-
-														<a href="#" data-action="reload">
-															<i class="icon-refresh"></i>
-														</a>
-
-														<a href="#" data-action="collapse">
-															<i class="icon-chevron-up"></i>
-														</a>
-
-														<a href="#" data-action="close">
-															<i class="icon-remove"></i>
-														</a>
-													</span>
-												</div>
-
-												<div class="widget-body">
-													<div class="widget-main">
-														<div>
-															<label for="form-field-mask-1">
-																Date
-																<small class="text-success">99/99/9999</small>
-															</label>
-
-															<div class="input-group">
-																<input class="form-control input-mask-date" type="text" id="form-field-mask-1" />
-																<span class="input-group-btn">
-																	<button class="btn btn-sm btn-default" type="button">
-																		<i class="icon-calendar bigger-110"></i>
-																		Go!
-																	</button>
-																</span>
-															</div>
-														</div>
-
-														<hr />
-														<div>
-															<label for="form-field-mask-2">
-																Phone
-																<small class="text-warning">(999) 999-9999</small>
-															</label>
-
-															<div class="input-group">
-																<span class="input-group-addon">
-																	<i class="icon-phone"></i>
-																</span>
-
-																<input class="form-control input-mask-phone" type="text" id="form-field-mask-2" />
-															</div>
-														</div>
-
-														<hr />
-														<div>
-															<label for="form-field-mask-3">
-																Product Key
-																<small class="text-error">a*-999-a999</small>
-															</label>
-
-															<div class="input-group">
-																<input class="form-control input-mask-product" type="text" id="form-field-mask-3" />
-																<span class="input-group-addon">
-																	<i class="icon-key"></i>
-																</span>
-															</div>
-														</div>
-
-														<hr />
-														<div>
-															<label for="form-field-mask-4">
-																Eye Script
-																<small class="text-info">~9.99 ~9.99 999</small>
-															</label>
-
-															<div>
-																<input class="input-medium input-mask-eyescript" type="text" id="form-field-mask-4" />
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div><!-- /span -->
-
-										<div class="col-xs-12 col-sm-4">
-											<div class="widget-box">
-												<div class="widget-header">
-													<h4>Select Box</h4>
-
-													<span class="widget-toolbar">
-														<a href="#" data-action="settings">
-															<i class="icon-cog"></i>
-														</a>
-
-														<a href="#" data-action="reload">
-															<i class="icon-refresh"></i>
-														</a>
-
-														<a href="#" data-action="collapse">
-															<i class="icon-chevron-up"></i>
-														</a>
-
-														<a href="#" data-action="close">
-															<i class="icon-remove"></i>
-														</a>
-													</span>
-												</div>
-
-												<div class="widget-body">
-													<div class="widget-main">
-														<div>
-															<label for="form-field-select-1">Default</label>
-
-															<select class="form-control" id="form-field-select-1">
-																<option value="">&nbsp;</option>
-																<option value="AL">Alabama</option>
-																<option value="AK">Alaska</option>
-																<option value="AZ">Arizona</option>
-																<option value="AR">Arkansas</option>
-																<option value="CA">California</option>
-																<option value="CO">Colorado</option>
-																<option value="CT">Connecticut</option>
-																<option value="DE">Delaware</option>
-																<option value="FL">Florida</option>
-																<option value="GA">Georgia</option>
-																<option value="HI">Hawaii</option>
-																<option value="ID">Idaho</option>
-																<option value="IL">Illinois</option>
-																<option value="IN">Indiana</option>
-																<option value="IA">Iowa</option>
-																<option value="KS">Kansas</option>
-																<option value="KY">Kentucky</option>
-																<option value="LA">Louisiana</option>
-																<option value="ME">Maine</option>
-																<option value="MD">Maryland</option>
-																<option value="MA">Massachusetts</option>
-																<option value="MI">Michigan</option>
-																<option value="MN">Minnesota</option>
-																<option value="MS">Mississippi</option>
-																<option value="MO">Missouri</option>
-																<option value="MT">Montana</option>
-																<option value="NE">Nebraska</option>
-																<option value="NV">Nevada</option>
-																<option value="NH">New Hampshire</option>
-																<option value="NJ">New Jersey</option>
-																<option value="NM">New Mexico</option>
-																<option value="NY">New York</option>
-																<option value="NC">North Carolina</option>
-																<option value="ND">North Dakota</option>
-																<option value="OH">Ohio</option>
-																<option value="OK">Oklahoma</option>
-																<option value="OR">Oregon</option>
-																<option value="PA">Pennsylvania</option>
-																<option value="RI">Rhode Island</option>
-																<option value="SC">South Carolina</option>
-																<option value="SD">South Dakota</option>
-																<option value="TN">Tennessee</option>
-																<option value="TX">Texas</option>
-																<option value="UT">Utah</option>
-																<option value="VT">Vermont</option>
-																<option value="VA">Virginia</option>
-																<option value="WA">Washington</option>
-																<option value="WV">West Virginia</option>
-																<option value="WI">Wisconsin</option>
-																<option value="WY">Wyoming</option>
-															</select>
-														</div>
-
-														<hr />
-														<div>
-															<label for="form-field-select-2">Multiple</label>
-
-															<select class="form-control" id="form-field-select-2" multiple="multiple">
-																<option value="AL">Alabama</option>
-																<option value="AK">Alaska</option>
-																<option value="AZ">Arizona</option>
-																<option value="AR">Arkansas</option>
-																<option value="CA">California</option>
-																<option value="CO">Colorado</option>
-																<option value="CT">Connecticut</option>
-																<option value="DE">Delaware</option>
-																<option value="FL">Florida</option>
-																<option value="GA">Georgia</option>
-																<option value="HI">Hawaii</option>
-																<option value="ID">Idaho</option>
-																<option value="IL">Illinois</option>
-																<option value="IN">Indiana</option>
-																<option value="IA">Iowa</option>
-																<option value="KS">Kansas</option>
-																<option value="KY">Kentucky</option>
-																<option value="LA">Louisiana</option>
-																<option value="ME">Maine</option>
-																<option value="MD">Maryland</option>
-																<option value="MA">Massachusetts</option>
-																<option value="MI">Michigan</option>
-																<option value="MN">Minnesota</option>
-																<option value="MS">Mississippi</option>
-																<option value="MO">Missouri</option>
-																<option value="MT">Montana</option>
-																<option value="NE">Nebraska</option>
-																<option value="NV">Nevada</option>
-																<option value="NH">New Hampshire</option>
-																<option value="NJ">New Jersey</option>
-																<option value="NM">New Mexico</option>
-																<option value="NY">New York</option>
-																<option value="NC">North Carolina</option>
-																<option value="ND">North Dakota</option>
-																<option value="OH">Ohio</option>
-																<option value="OK">Oklahoma</option>
-																<option value="OR">Oregon</option>
-																<option value="PA">Pennsylvania</option>
-																<option value="RI">Rhode Island</option>
-																<option value="SC">South Carolina</option>
-																<option value="SD">South Dakota</option>
-																<option value="TN">Tennessee</option>
-																<option value="TX">Texas</option>
-																<option value="UT">Utah</option>
-																<option value="VT">Vermont</option>
-																<option value="VA">Virginia</option>
-																<option value="WA">Washington</option>
-																<option value="WV">West Virginia</option>
-																<option value="WI">Wisconsin</option>
-																<option value="WY">Wyoming</option>
-															</select>
-														</div>
-
-														<hr />
-														<div>
-															<label for="form-field-select-3">Chosen</label>
-
-															<br />
-															<select class="width-80 chosen-select" id="form-field-select-3" data-placeholder="Choose a Country...">
-																<option value="">&nbsp;</option>
-																<option value="AL">Alabama</option>
-																<option value="AK">Alaska</option>
-																<option value="AZ">Arizona</option>
-																<option value="AR">Arkansas</option>
-																<option value="CA">California</option>
-																<option value="CO">Colorado</option>
-																<option value="CT">Connecticut</option>
-																<option value="DE">Delaware</option>
-																<option value="FL">Florida</option>
-																<option value="GA">Georgia</option>
-																<option value="HI">Hawaii</option>
-																<option value="ID">Idaho</option>
-																<option value="IL">Illinois</option>
-																<option value="IN">Indiana</option>
-																<option value="IA">Iowa</option>
-																<option value="KS">Kansas</option>
-																<option value="KY">Kentucky</option>
-																<option value="LA">Louisiana</option>
-																<option value="ME">Maine</option>
-																<option value="MD">Maryland</option>
-																<option value="MA">Massachusetts</option>
-																<option value="MI">Michigan</option>
-																<option value="MN">Minnesota</option>
-																<option value="MS">Mississippi</option>
-																<option value="MO">Missouri</option>
-																<option value="MT">Montana</option>
-																<option value="NE">Nebraska</option>
-																<option value="NV">Nevada</option>
-																<option value="NH">New Hampshire</option>
-																<option value="NJ">New Jersey</option>
-																<option value="NM">New Mexico</option>
-																<option value="NY">New York</option>
-																<option value="NC">North Carolina</option>
-																<option value="ND">North Dakota</option>
-																<option value="OH">Ohio</option>
-																<option value="OK">Oklahoma</option>
-																<option value="OR">Oregon</option>
-																<option value="PA">Pennsylvania</option>
-																<option value="RI">Rhode Island</option>
-																<option value="SC">South Carolina</option>
-																<option value="SD">South Dakota</option>
-																<option value="TN">Tennessee</option>
-																<option value="TX">Texas</option>
-																<option value="UT">Utah</option>
-																<option value="VT">Vermont</option>
-																<option value="VA">Virginia</option>
-																<option value="WA">Washington</option>
-																<option value="WV">West Virginia</option>
-																<option value="WI">Wisconsin</option>
-																<option value="WY">Wyoming</option>
-															</select>
-														</div>
-
-														<hr />
-														<div>
-															<div class="row">
-																<div class="col-sm-6">
-																	<span class="bigger-110">Multiple</span>
-																</div><!-- /span -->
-
-																<div class="col-sm-6">
-																	<span class="pull-right inline">
-																		<span class="grey">style:</span>
-
-																		<span class="btn-toolbar inline middle no-margin">
-																			<span id="chosen-multiple-style" data-toggle="buttons" class="btn-group no-margin">
-																				<label class="btn btn-xs btn-yellow active">
-																					1
-																					<input type="radio" value="1" />
-																				</label>
-
-																				<label class="btn btn-xs btn-yellow">
-																					2
-																					<input type="radio" value="2" />
-																				</label>
-																			</span>
-																		</span>
-																	</span>
-																</div><!-- /span -->
-															</div>
-
-															<div class="space-2"></div>
-
-															<select multiple="" class="width-80 chosen-select" id="form-field-select-4" data-placeholder="Choose a Country...">
-																<option value="">&nbsp;</option>
-																<option value="AL">Alabama</option>
-																<option value="AK">Alaska</option>
-																<option value="AZ">Arizona</option>
-																<option value="AR">Arkansas</option>
-																<option value="CA">California</option>
-																<option value="CO">Colorado</option>
-																<option value="CT">Connecticut</option>
-																<option value="DE">Delaware</option>
-																<option value="FL">Florida</option>
-																<option value="GA">Georgia</option>
-																<option value="HI">Hawaii</option>
-																<option value="ID">Idaho</option>
-																<option value="IL">Illinois</option>
-																<option value="IN">Indiana</option>
-																<option value="IA">Iowa</option>
-																<option value="KS">Kansas</option>
-																<option value="KY">Kentucky</option>
-																<option value="LA">Louisiana</option>
-																<option value="ME">Maine</option>
-																<option value="MD">Maryland</option>
-																<option value="MA">Massachusetts</option>
-																<option value="MI">Michigan</option>
-																<option value="MN">Minnesota</option>
-																<option value="MS">Mississippi</option>
-																<option value="MO">Missouri</option>
-																<option value="MT">Montana</option>
-																<option value="NE">Nebraska</option>
-																<option value="NV">Nevada</option>
-																<option value="NH">New Hampshire</option>
-																<option value="NJ">New Jersey</option>
-																<option value="NM">New Mexico</option>
-																<option value="NY">New York</option>
-																<option value="NC">North Carolina</option>
-																<option value="ND">North Dakota</option>
-																<option value="OH">Ohio</option>
-																<option value="OK">Oklahoma</option>
-																<option value="OR">Oregon</option>
-																<option value="PA">Pennsylvania</option>
-																<option value="RI">Rhode Island</option>
-																<option value="SC">South Carolina</option>
-																<option value="SD">South Dakota</option>
-																<option value="TN">Tennessee</option>
-																<option value="TX">Texas</option>
-																<option value="UT">Utah</option>
-																<option value="VT">Vermont</option>
-																<option value="VA">Virginia</option>
-																<option value="WA">Washington</option>
-																<option value="WV">West Virginia</option>
-																<option value="WI">Wisconsin</option>
-																<option value="WY">Wyoming</option>
-															</select>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div><!-- /span -->
-									</div><!-- /row -->
-
-							</form>
 
 
-							<!--
-							<div class="form-group">
-
-								<h2>Datos del Solicitante</h2>
-								<div class="col-sm-4">
-									<label
-										class="col-xs-12 col-sm-4 control-label no-padding-right"
-										for="form-input-readonly"> <b> Cliente : </b></label> <input
-										type="text" class="col-xs-12 col-sm-8"
-										id="form-input-readonly" value="Complety name!"
-										disabled="disabled">
-								</div>
-								<div class="col-sm-4">
-
-									<i class="icon-hand-right green"></i> <a href="#modal-form"
-										role="button" class="btn btn-info" data-toggle="modal"> <i
-										class="icon-group bigger-100"></i> Buscar Cliente
-									</a>
-
-								</div>
-								<div class="col-sm-4"></div>
-								<br>
-							</div>
 
 
 							<div class="row">
-								<div class="col-xs-12 col-sm-7">
-									<div class="form-group">
-										<label for="form-field-select-3">Suministro</label>
-
-										<div>
-											<select class="chosen-select"
-												data-placeholder="Choose a Country...">
-												<option value="">&nbsp;</option>
-												<option value="1026458487">1026458487</option>
-												<option value="3026458475">3026458475</option>
-												<option value="6026454632">6026454632</option>
-												<option value="6526458654">6526458654</option>
-
-											</select>
+								<div class="col-sm-12">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Datos del Solicitante</h4>
 										</div>
-									</div>
+										<div class="widget-main">
+											<form class="form-horizontal" role="form">
+												<div class="form-group">
+													<label class="col-sm-3 control-label no-padding-right"
+														for="form-field-1"> Nombre Cliente </label>
 
-									<div class="space-4"></div>
+													<div class="col-sm-6">
+														<input type="text" id="form-field-1" placeholder="Cliente"
+															class="col-xs-10 col-sm-5" /> <label
+															class="col-xs-10 col-sm-5"> <a href="#modal-form"
+															role="button" class="btn btn-info" data-toggle="modal">
+																<i class="icon-group"></i> Buscar Cliente
+														</a>
+														</label>
+													</div>
+													<div class="col-sm-3"></div>
+												</div>
 
-									<div class="form-group">
-										<label for="form-field-username">Direccion</label>
 
-										<div>
-											<input class="input-large" type="text"
-												id="form-field-username" placeholder="Username"
-												value="alexdoe" />
-										</div>
-									</div>
 
-									<div class="space-4"></div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label no-padding-right"
+														for="form-field-2"> Codigo Cliente </label>
 
-									<div class="form-group">
-										<label for="form-field-first">Distrito</label>
+													<div class="col-sm-6">
+														<input type="text" id="form-field-2"
+															placeholder="Codigo Cliente" class="col-xs-10 col-sm-5" />
 
-										<div>
-											<input class="input-medium" type="text" id="form-field-first"
-												placeholder="First Name" value="Alex" /> <input
-												class="input-medium" type="text" id="form-field-last"
-												placeholder="Last Name" value="Doe" />
+													</div>
+												</div>
+
+
+												<div class="form-group">
+													<label class="col-sm-3 control-label no-padding-right"
+														for="form-field-3"> Suministro</label>
+
+													<div class="col-sm-6">
+														<label class="col-xs-10 col-sm-5"> <select
+															class="chosen-select col-xs-10 col-sm-11"
+															data-placeholder="Choose a Suministro...">
+																<option value="">&nbsp;</option>
+																<option value="1026458487">1026458487</option>
+																<option value="3026458475">3026458475</option>
+																<option value="6026454632">6026454632</option>
+																<option value="6526458654">6526458654</option>
+
+														</select>
+														</label>
+
+													</div>
+												</div>
+												
+											</form>
 										</div>
 									</div>
 								</div>
-								<div class="col-xs-12 col-sm-5"></div>
-							</div> -->
+
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Datos del Suministro</h4>
+										</div>
+
+										<div class="widget-main no-padding">
+											<form>
 
 
+
+												<fieldset>
+													<label class="col-sm-3 control-label no-padding-right">Direccion</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Direccion" /> 
+													
+												</fieldset>
+												<fieldset>
+													<label class="col-sm-3 control-label no-padding-right">Distrito</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Distrito" /> 
+													
+												</fieldset>
+
+												<fieldset>
+													<label class="col-sm-3 control-label no-padding-right">Cantidad de Pisos</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Cantidad de Pisos" /> 
+													
+												</fieldset>
+
+												<fieldset>
+													<label class="col-sm-3 control-label no-padding-right">Tipo de Vivienda</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Tipo de Vivienda" /> 
+													
+												</fieldset>
+												<fieldset>
+													<label class="col-sm-3 control-label no-padding-right">Diametro de Tuberia</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Diametro de Tuberia" /> 
+													
+												</fieldset>
+												<fieldset>
+													<label class="col-sm-3 control-label no-padding-right">Categoria actual</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Categoria actual" /> 
+													
+												</fieldset>
+											</form>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Informacion del cambio</h4>
+											
+										</div>
+
+										<div class="widget-body">
+													<div class="widget-main">
+														<input type="file" id="id-input-file-2" />
+														<input type="file" id="id-input-file-2" />
+														
+														
+													</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Acciones del formulario</h4>
+										</div>
+
+										<div class="form-actions center">
+													<button type="button" class="btn btn-primary" onclick="Aceptar()"> Enviar
+															<i class="icon-share"></i>
+													</button>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
 
 							<div id="modal-form" class="modal" tabindex="-1">
 								<div class="modal-dialog">
