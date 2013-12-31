@@ -34,15 +34,6 @@
 				skin = "default";
 		}
 	}
-	String bandera = "";
-	/* Aqui va el algoritmo para capturar el idioma de la pagina
-	 */
-
-	if (bandera.equals("us")) {
-		bandera = "img/usa_flag.gif";
-	} else {
-		bandera = "img/pe_flag.gif";
-	}
 %>
 
 

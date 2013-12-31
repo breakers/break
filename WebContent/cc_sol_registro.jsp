@@ -625,49 +625,35 @@
 
 
 							<div class="row">
-								<div class="col-sm-12">
+								<div class="col-sm-6">
 									<div class="widget-box">
 										<div class="widget-header">
 											<h4>Datos del Solicitante</h4>
 										</div>
-										<div class="widget-main">
-											<form class="form-horizontal" role="form">
-												<div class="form-group">
-													<label class="col-sm-3 control-label no-padding-right"
-														for="form-field-1"> Nombre Cliente </label>
+										<div class="widget-main no-padding">
+											<form>
+												
 
-													<div class="col-sm-6">
-														<input type="text" id="form-field-1" placeholder="Cliente"
-															class="col-xs-10 col-sm-5" /> <label
-															class="col-xs-10 col-sm-5"> <a href="#modal-form"
+
+												<fieldset>
+													<label class="col-sm-2 control-label no-padding-right">Cliente</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Completo"  readonly="true"/> 
+													<label
+															class="col-xs-10 col-sm-3"> <a href="#modal-form"
 															role="button" class="btn btn-info" data-toggle="modal">
 																<i class="icon-group"></i> Buscar Cliente
 														</a>
-														</label>
-													</div>
-													<div class="col-sm-3"></div>
-												</div>
+													</label>
+												</fieldset>
+												<fieldset>
+													<label class="col-sm-2 control-label no-padding-right">Codigo</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Codigo de Cliente"  readonly="true" /> 
+													
+												</fieldset>
 
-
-
-												<div class="form-group">
-													<label class="col-sm-3 control-label no-padding-right"
-														for="form-field-2"> Codigo Cliente </label>
-
-													<div class="col-sm-6">
-														<input type="text" id="form-field-2"
-															placeholder="Codigo Cliente" class="col-xs-10 col-sm-5" />
-
-													</div>
-												</div>
-
-
-												<div class="form-group">
-													<label class="col-sm-3 control-label no-padding-right"
-														for="form-field-3"> Suministro</label>
-
-													<div class="col-sm-6">
-														<label class="col-xs-10 col-sm-5"> <select
+												<fieldset>
+													<label class="col-sm-2 control-label no-padding-right">Suministro</label> 
+													<label class="col-xs-10 col-sm-5"> <select
 															class="chosen-select col-xs-10 col-sm-11"
 															data-placeholder="Choose a Suministro...">
 																<option value="">&nbsp;</option>
@@ -678,18 +664,40 @@
 
 														</select>
 														</label>
+													
+												</fieldset>
 
-													</div>
-												</div>
+
+												
 												
 											</form>
 										</div>
 									</div>
+
+									<div class="space-6"></div>
+
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Informacion del cambio</h4>
+											
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main">
+												<span class="input-icon"> Copia DNI
+												</span>
+												<input type="file" id="id-input-file-1"/> 
+												<div class="space-6"></div>
+												<span class="input-icon"> Archivo para evaluacion de cambio
+												</span>
+												<input type="file" id="id-input-file-1"/> 
+												
+												
+												
+											</div>
+										</div>
+									</div>
 								</div>
-
-							</div>
-
-							<div class="row">
 								<div class="col-sm-6">
 									<div class="widget-box">
 										<div class="widget-header">
@@ -703,60 +711,48 @@
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Direccion</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Direccion" /> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Direccion" readonly="true" /> 
+													
+												</fieldset>
+												<fieldset>
+													<label class="col-sm-3 control-label no-padding-right">Localidad</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Localidad" readonly="true" /> 
 													
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Distrito</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Distrito" /> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Distrito" readonly="true" /> 
 													
 												</fieldset>
 
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Cantidad de Pisos</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Cantidad de Pisos" /> 
+													<label class="col-sm-3 control-label no-padding-right">Pisos</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Cantidad de Pisos"readonly="true"/> 
 													
 												</fieldset>
 
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Tipo de Vivienda</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Tipo de Vivienda" /> 
+													<label class="col-sm-3 control-label no-padding-right">Tipo</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Tipo de Vivienda" readonly="true" /> 
 													
 												</fieldset>
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Diametro de Tuberia</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Diametro de Tuberia" /> 
+													<label class="col-sm-3 control-label no-padding-right">Diametro</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Diametro de Tuberia"  readonly="true"/> 
 													
 												</fieldset>
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Categoria actual</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Categoria actual" /> 
+													<label class="col-sm-3 control-label no-padding-right">Categoria</label> 
+													<input class="col-xs-10 col-sm-5" type="text" placeholder="Categoria actual"  readonly="true"/> 
 													
 												</fieldset>
 											</form>
 										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6">
-									<div class="widget-box">
-										<div class="widget-header">
-											<h4>Informacion del cambio</h4>
-											
-										</div>
-
-										<div class="widget-body">
-													<div class="widget-main">
-														<input type="file" id="id-input-file-2" />
-														<input type="file" id="id-input-file-2" />
-														
-														
-													</div>
-										</div>
-									</div>
+									</div>	
 
 
 								</div>
+
 							</div>
 
 							<div class="row">
@@ -767,7 +763,15 @@
 										</div>
 
 										<div class="form-actions center">
-													<button type="button" class="btn btn-primary" onclick="Aceptar()"> Enviar
+													<button type="button" class="btn btn-primary" onclick="Enviar()"> Enviar
+															<i class="icon-share"></i>
+													</button>
+													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+													<button type="button" class="btn btn-warning" onclick="Limpiar()"> Limpiar
+															<i class="icon-share"></i>
+													</button>
+													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+													<button type="button" class="btn btn-danger" onclick="Cancelar()"> Cancelar
 															<i class="icon-share"></i>
 													</button>
 										</div>
@@ -808,8 +812,24 @@
 				<!-- /.page-content -->
 			</div>
 			<!-- /.main-content -->
+			<div class="ace-settings-container fixed" id="ace-settings-container">
+				<div class="btn btn-app btn-xs btn-info ace-settings-btn" id="ace-settings-btn">
+					<i class="icon-comments bigger-150"></i>
+				</div>
 
-			<!-- /#ace-settings-container -->
+				<div class="ace-settings-box" id="ace-settings-box">
+				<div>Este sera el chat </div>	
+				<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+
+				</div>
+			</div><!-- /#ace-settings-container -->
 		</div>
 		<!-- /.main-container-inner -->
 
