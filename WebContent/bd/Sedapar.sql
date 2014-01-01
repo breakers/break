@@ -27,6 +27,8 @@ apemaUsuario varchar(30),
 dniUsuario varchar(10)
 );
 
+
+
 create table tb_test_solicitud(
 num_solicitud int primary key auto_increment,
 nombre varchar(30),
@@ -68,6 +70,58 @@ estado varchar(40) check(estado in ('Pendiente','Aprobada','Rechazada','Contrata
 );
 
 
+/* Tablas de cambio de categoria*/
+create table tb_TipoPredio(
+idTipoPredio int primary key auto_increment,
+desTipoPredio varchar(100)
+);
+
+
+create table tb_Predio(
+idPredio int primary key auto_increment,
+idTipoPredio int references tb_TipoPredio(idTipoPredio),
+id_prov char(3) references tb_provincia,
+id_dis int references tb_distrito,
+id_loc int references tb_localidad,
+idcalle int references tb_calle,
+numPredio varchar(200),
+CoordenadasPredio varchar(100)
+);
+
+create table tb_Categoria(
+idCategoria int primary key auto_increment,
+desCategoria varchar(100)
+);
+
+
+create table tb_Suministro(
+idSuministro int primary key auto_increment,
+idPredio int references tb_Predio(idPredio),
+idCategoria int references tb_Categoria(idCategoria)
+);
+
+
+create table tb_EstadoSolicitudCambio(
+idEstado int primary key auto_increment,
+desEstado varchar(100)
+);
+
+create table tb_SolCambioCategoria(
+idSolCategoria int primary key auto_increment,
+idSuministro int references tb_Suministro,
+idEstado int references tb_EstadoSolicitudCambio,
+dniSolicitud varchar(250),
+archivo1 varchar(250),
+fechaSolicitud datetime
+);
+
+create table tb_DetalleSolicitudCambioCat(
+idSolCategoria int references tb_SolCambioCategoria,
+idEstado int references tb_EstadoSolicitudCambio,
+idUsuario int references tb_usuario,
+fechaDetalle datetime
+);
+
 /*Datos en Perfiles*/
 INSERT INTO tb_perfil VALUES(null,'Administrador',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Tecnico',1,1,1,1,1,1,1,1,1);
@@ -82,13 +136,13 @@ INSERT INTO tb_usuario VALUES(null,3,'acoquis','testing','Andre','Coquis','Raffo
 
 /*Datos en Provincia (completa)*/
 INSERT INTO tb_provincia VALUES('ARE','Arequipa');
-INSERT INTO tb_provincia VALUES('CAM','Caman·');
-INSERT INTO tb_provincia VALUES('car','CaravelÌ');
+INSERT INTO tb_provincia VALUES('CAM','Caman√°');
+INSERT INTO tb_provincia VALUES('car','Caravel√≠');
 INSERT INTO tb_provincia VALUES('CAS','Castilla');
 INSERT INTO tb_provincia VALUES('CAY','Caylloma');
 INSERT INTO tb_provincia VALUES('CON','Condesuyos');
 INSERT INTO tb_provincia VALUES('ISL','Islay');
-INSERT INTO tb_provincia VALUES('LUN','La UniÛn');
+INSERT INTO tb_provincia VALUES('LUN','La Uni√≥n');
 
 /*Datos en Distrito (completa)*/
 INSERT INTO tb_distrito VALUES(1,'Alto Selva Alegre','are');
@@ -98,7 +152,7 @@ INSERT INTO tb_distrito VALUES(4,'Cerro Colorado','are');
 INSERT INTO tb_distrito VALUES(5,'Characato','are');
 INSERT INTO tb_distrito VALUES(6,'Chiguata','are');
 INSERT INTO tb_distrito VALUES(7,'Jacobo Hunter','are');
-INSERT INTO tb_distrito VALUES(8,'JosÈ Luis Bustamante y Rivero','are');
+INSERT INTO tb_distrito VALUES(8,'Jos√© Luis Bustamante y Rivero','are');
 INSERT INTO tb_distrito VALUES(9,'La Joya','are');
 INSERT INTO tb_distrito VALUES(10,'Mariano Melgar','are');
 INSERT INTO tb_distrito VALUES(11,'Miraflores','are');
@@ -106,8 +160,8 @@ INSERT INTO tb_distrito VALUES(12,'Mollebaya','are');
 INSERT INTO tb_distrito VALUES(13,'Paucarpata','are');
 INSERT INTO tb_distrito VALUES(14,'Pocsi','are');
 INSERT INTO tb_distrito VALUES(15,'Polobaya','are');
-INSERT INTO tb_distrito VALUES(16,'QuequeÒa','are');
-INSERT INTO tb_distrito VALUES(17,'SabandÌa','are');
+INSERT INTO tb_distrito VALUES(16,'Queque√±a','are');
+INSERT INTO tb_distrito VALUES(17,'Saband√≠a','are');
 INSERT INTO tb_distrito VALUES(18,'Sachaca','are');
 INSERT INTO tb_distrito VALUES(19,'San Juan de Siguas','are');
 INSERT INTO tb_distrito VALUES(20,'San Juan de Tarucani','are');
@@ -120,19 +174,19 @@ INSERT INTO tb_distrito VALUES(26,'Vitor','are');
 INSERT INTO tb_distrito VALUES(27,'Yanahuara','are');
 INSERT INTO tb_distrito VALUES(28,'Yarabamba','are');
 INSERT INTO tb_distrito VALUES(29,'Yura','are');
-INSERT INTO tb_distrito VALUES(30,'Caman·','cam');
-INSERT INTO tb_distrito VALUES(31,'JosÈ MarÌa Quimper','cam');
-INSERT INTO tb_distrito VALUES(32,'Mariano Nicol·s Valcarcel','cam');
-INSERT INTO tb_distrito VALUES(33,'Mariscal C·ceres','cam');
-INSERT INTO tb_distrito VALUES(34,'Nicol·s de PiÈrola','cam');
-INSERT INTO tb_distrito VALUES(35,'OcoÒa','cam');
+INSERT INTO tb_distrito VALUES(30,'Caman√°','cam');
+INSERT INTO tb_distrito VALUES(31,'Jos√© Mar√≠a Quimper','cam');
+INSERT INTO tb_distrito VALUES(32,'Mariano Nicol√°s Valcarcel','cam');
+INSERT INTO tb_distrito VALUES(33,'Mariscal C√°ceres','cam');
+INSERT INTO tb_distrito VALUES(34,'Nicol√°s de Pi√©rola','cam');
+INSERT INTO tb_distrito VALUES(35,'Oco√±a','cam');
 INSERT INTO tb_distrito VALUES(36,'Quilca','cam');
 INSERT INTO tb_distrito VALUES(37,'Samuel Pastor','cam');
-INSERT INTO tb_distrito VALUES(38,'CaravelÌ','car');
-INSERT INTO tb_distrito VALUES(39,'AcarÌ','car');
+INSERT INTO tb_distrito VALUES(38,'Caravel√≠','car');
+INSERT INTO tb_distrito VALUES(39,'Acar√≠','car');
 INSERT INTO tb_distrito VALUES(40,'Atico','car');
 INSERT INTO tb_distrito VALUES(41,'Atiquipa','car');
-INSERT INTO tb_distrito VALUES(42,'Bella UniÛn','car');
+INSERT INTO tb_distrito VALUES(42,'Bella Uni√≥n','car');
 INSERT INTO tb_distrito VALUES(43,'Cahuacho','car');
 INSERT INTO tb_distrito VALUES(44,'Chala','car');
 INSERT INTO tb_distrito VALUES(45,'Chaparra','car');
@@ -151,8 +205,8 @@ INSERT INTO tb_distrito VALUES(57,'Huancarqui','cas');
 INSERT INTO tb_distrito VALUES(58,'Machaguay','cas');
 INSERT INTO tb_distrito VALUES(59,'Orcopampa','cas');
 INSERT INTO tb_distrito VALUES(60,'Pampacolca','cas');
-INSERT INTO tb_distrito VALUES(61,'Tip·n','cas');
-INSERT INTO tb_distrito VALUES(62,'UÒÛn','cas');
+INSERT INTO tb_distrito VALUES(61,'Tip√°n','cas');
+INSERT INTO tb_distrito VALUES(62,'U√±√≥n','cas');
 INSERT INTO tb_distrito VALUES(63,'Uraca - Corire','cas');
 INSERT INTO tb_distrito VALUES(64,'Viraco','cas');
 INSERT INTO tb_distrito VALUES(65,'Achoma','cay');
@@ -179,15 +233,15 @@ INSERT INTO tb_distrito VALUES(85,'Andaray','con');
 INSERT INTO tb_distrito VALUES(86,'Cayarani','con');
 INSERT INTO tb_distrito VALUES(87,'Chichas','con');
 INSERT INTO tb_distrito VALUES(88,'Iray','con');
-INSERT INTO tb_distrito VALUES(89,'RÌo Grande','con');
+INSERT INTO tb_distrito VALUES(89,'R√≠o Grande','con');
 INSERT INTO tb_distrito VALUES(90,'Salamanca','con');
 INSERT INTO tb_distrito VALUES(91,'Yanaquihua - Ispacas','con');
 INSERT INTO tb_distrito VALUES(92,'Mollendo','isl');
 INSERT INTO tb_distrito VALUES(93,'Cocachacra','isl');
-INSERT INTO tb_distrito VALUES(94,'De·n Valdivia','isl');
+INSERT INTO tb_distrito VALUES(94,'De√°n Valdivia','isl');
 INSERT INTO tb_distrito VALUES(95,'Islay','isl');
-INSERT INTO tb_distrito VALUES(96,'MejÌa','isl');
-INSERT INTO tb_distrito VALUES(97,'Punta de BombÛn','isl');
+INSERT INTO tb_distrito VALUES(96,'Mej√≠a','isl');
+INSERT INTO tb_distrito VALUES(97,'Punta de Bomb√≥n','isl');
 INSERT INTO tb_distrito VALUES(98,'Alca','lun');
 INSERT INTO tb_distrito VALUES(99,'Charcana','lun');
 INSERT INTO tb_distrito VALUES(100,'Huaynacotas','lun');
@@ -195,7 +249,7 @@ INSERT INTO tb_distrito VALUES(101,'Pampamarca','lun');
 INSERT INTO tb_distrito VALUES(102,'Puyca','lun');
 INSERT INTO tb_distrito VALUES(103,'Quechualla','lun');
 INSERT INTO tb_distrito VALUES(104,'Sayla','lun');
-INSERT INTO tb_distrito VALUES(105,'TaurÌa','lun');
+INSERT INTO tb_distrito VALUES(105,'Taur√≠a','lun');
 INSERT INTO tb_distrito VALUES(106,'Tomepampa','lun');
 INSERT INTO tb_distrito VALUES(107,'Toro','lun');
 
@@ -220,7 +274,7 @@ INSERT INTO tb_localidad VALUES(null,'Municipal','are',2);
 INSERT INTO tb_localidad VALUES(null,'Pablo VI','are',2);
 INSERT INTO tb_localidad VALUES(null,'Parque Industrial','are',2);
 INSERT INTO tb_localidad VALUES(null,'San Francisco de Asis','are',2);
-INSERT INTO tb_localidad VALUES(null,'San JerÛnimo','are',2);
+INSERT INTO tb_localidad VALUES(null,'San Jer√≥nimo','are',2);
 INSERT INTO tb_localidad VALUES(null,'Selva Alegre','are',2);
 INSERT INTO tb_localidad VALUES(null,'Sidsur','are',2);
 INSERT INTO tb_localidad VALUES(null,'Tingo','are',2);
@@ -232,7 +286,7 @@ INSERT INTO tb_localidad VALUES(null,'Zemanat','are',2);
 INSERT INTO tb_localidad VALUES(null,'--','are',2);
 
 /*Datos en Calles (solo Centro historico, Arequipa/centro, Arequipa)*/
-INSERT INTO tb_calle VALUES(null,'Per˙','are',2,7);
+INSERT INTO tb_calle VALUES(null,'Per√∫','are',2,7);
 INSERT INTO tb_calle VALUES(null,'Pizarro','are',2,7);
 INSERT INTO tb_calle VALUES(null,'Palacio Viejo','are',2,7);
 INSERT INTO tb_calle VALUES(null,'Consuelo','are',2,7);
@@ -250,4 +304,39 @@ INSERT INTO tb_test_solicitud VALUES(null,'Juan Carlos Espinoza','26-12-2013','A
 INSERT INTO tb_test_solicitud VALUES(null,'Tilsa Lozano','26-12-2013','Pendiente');
 INSERT INTO tb_test_solicitud VALUES(null,'Loco Vargas','26-12-2013','Pendiente');
 
-select*from tb_calle where id_loc = 2
+/*Datos en Cambio de categoria*/
+INSERT INTO tb_TipoPredio VALUES(null,'Rural');
+INSERT INTO tb_TipoPredio VALUES(null,'Domestica');
+INSERT INTO tb_TipoPredio VALUES(null,'Social');
+INSERT INTO tb_TipoPredio VALUES(null,'Comercial');
+INSERT INTO tb_TipoPredio VALUES(null,'Industrial');
+INSERT INTO tb_TipoPredio VALUES(null,'Estatal');
+
+INSERT INTO tb_Predio VALUES(null,6,'are',2,30,5,'1701','-16.411667,-71.532967'); /* SEDAPAR */
+INSERT INTO tb_Predio VALUES(null,6,'are',2,7,6,'106','-16.399335,-71.537484'); /* Caja Municipal */
+INSERT INTO tb_Predio VALUES(null,3,'are',2,7,7,'301','-16.395305,-71.536795'); /* Monasterio Santa Catalina */
+
+INSERT INTO tb_Categoria VALUES(null,'Categoria Social'); 
+INSERT INTO tb_Categoria VALUES(null,'Categoria Domestica');
+INSERT INTO tb_Categoria VALUES(null,'Comercial y Otros');
+INSERT INTO tb_Categoria VALUES(null,'Industrial');
+INSERT INTO tb_Categoria VALUES(null,'Estatal');
+
+INSERT INTO tb_Suministro VALUES(null,1,5);
+INSERT INTO tb_Suministro VALUES(null,2,3);
+INSERT INTO tb_Suministro VALUES(null,3,3);
+
+INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Registrada');
+INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Validado');
+INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Asignada a Inspeccion');
+INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Inspeccionada');
+INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Evaluada');
+INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Finalizada');
+
+INSERT INTO tb_SolCambioCategoria VALUES(null,1,1,null,null,'2013-12-31');
+INSERT INTO tb_SolCambioCategoria VALUES(null,2,1,null,null,'2013-12-31');
+INSERT INTO tb_SolCambioCategoria VALUES(null,3,1,null,null,'2013-12-31');
+
+INSERT INTO tb_DetalleSolicitudCambioCat VALUES(1,1,1,'2013-12-31');
+INSERT INTO tb_DetalleSolicitudCambioCat VALUES(2,1,2,'2013-12-31');
+INSERT INTO tb_DetalleSolicitudCambioCat VALUES(3,1,3,'2013-12-31');
