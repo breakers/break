@@ -606,7 +606,9 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
-						<div class="widget-header header-color-blue">
+						<div class="row">
+							<div class="col-sm-6">
+														<div class="widget-header header-color-blue">
 												<h5 class="bigger lighter">
 													<i class="icon-table"></i>
 													Solicitudes de Nueva Conexion
@@ -647,11 +649,14 @@
 												</tbody>
 											</table>
 										</div><!-- /.table-responsive -->
-						
 
 
-									<!-- Datos del Solicitante -->
-									<div class="col-sm-12">
+
+
+							</div>
+
+																<!-- Datos del Solicitante -->
+									<div class="col-sm-6">
 										<div class="widget-box">
 											<div class="widget-header">
 												<h4 class="smaller">Datos del Solicitante</h4>
@@ -724,11 +729,9 @@
 												</div><br><br><br><br><br><br><br>
 											</div>
 										</div>
-									</div><!-- /span -->
+
+										<div class="space-6"></div>
 									
-									
-									<!-- Datos del Predio -->
-									<div class="col-sm-12">
 										<div class="widget-box">
 											<div class="widget-header">
 												<h4 class="smaller">Datos del Predio</h4>
@@ -780,6 +783,17 @@
 											</div>
 										</div>
 									</div><!-- /span -->
+
+
+
+
+						</div>
+							
+
+						
+
+
+
 
 
 

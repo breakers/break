@@ -62,12 +62,19 @@ id_dis int references tb_distrito,
 id_loc int references tb_localidad
 );
 
+create table tb_EstadoSolicitudConexion(
+idEstado int primary key auto_increment,
+desEstado varchar(100)
+);
+
 create table tb_solicitudNuevaConexion(
 num_solicitud int primary key auto_increment,
 nombre varchar(30),
-fecha_solicitud varchar(20),
-estado varchar(40) check(estado in ('Pendiente','Aprobada','Rechazada','Contratada'))
+fecha_solicitud datetime,
+idestado int foreign key(idestado) references tb_EstadoSolicitudConexion(idEstado),
+
 );
+
 
 
 /* Tablas de cambio de categoria*/
@@ -293,6 +300,13 @@ INSERT INTO tb_calle VALUES(null,'Consuelo','are',2,7);
 INSERT INTO tb_calle VALUES(null,'Virgen del Pilar','are',2,30); /*CALLE DE SEDAPAR*/
 INSERT INTO tb_calle VALUES(null,'La Merced','are',2,7); /*CALLE DE caja municipal*/
 INSERT INTO tb_calle VALUES(null,'Santa Catalina','are',2,7); /*CALLE DE Monasterio Santa Catalina*/
+
+
+/*Datos Estado Solicitud Nueva Conexión*/
+INSERT INTO tb_EstadoSolicitudConexion VALUES(null,'Pendiente');
+INSERT INTO tb_EstadoSolicitudConexion VALUES(null,'Aprobada');
+INSERT INTO tb_EstadoSolicitudConexion VALUES(null,'Rechazada');
+INSERT INTO tb_EstadoSolicitudConexion VALUES(null,'Contratada');
 
 /*Datos en TEST SOLICITUD*/
 INSERT INTO tb_test_solicitud VALUES(null,'Renzo Delgado','26-12-2013','Pendiente');
