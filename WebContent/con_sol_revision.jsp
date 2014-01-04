@@ -606,15 +606,17 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
-						<div class="row">
-							<div class="col-sm-6">
-														<div class="widget-header header-color-blue">
+
+							<div class="row">
+								
+									<div class="col-sm-6">
+									<div class="widget-header header-color-blue">
 												<h5 class="bigger lighter">
 													<i class="icon-table"></i>
 													Solicitudes de Nueva Conexion
 												</h5>
-						</div>
-						<div class="table-responsive">
+									</div>
+									<div class="table-responsive">
 											<table id="sample-table-1" class="table table-bordered">
 												<thead>
 													<tr>
@@ -648,14 +650,12 @@
 													
 												</tbody>
 											</table>
-										</div><!-- /.table-responsive -->
+									</div><!-- /.table-responsive -->
+									</div>
+								
+							
 
-
-
-
-							</div>
-
-																<!-- Datos del Solicitante -->
+									<!-- Datos del Solicitante -->
 									<div class="col-sm-6">
 										<div class="widget-box">
 											<div class="widget-header">
@@ -664,137 +664,107 @@
 
 											<div class="widget-body">
 												<div class="widget-main">
+												<form>
+													<fieldset>
+														<label><strong>Datos Generales</strong></label>
+													</fieldset>												
+													<fieldset>
+														<label class="col-sm-4">Nombre(s):</label> 													
+														<input type="text" name="txtNombre" id="txtNombre" readonly="readonly"/>	
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-4">Apellido Paterno:</label> 
+														<input type="text" name="txtApepat" id="txtApepat" readonly="readonly"/>
+													</fieldset>
+													<fieldset><br>
+														<label class="col-sm-4">Apellido Materno:</label> 
+														<input type="text" name="txtApemat" id="txtApemat" readonly="readonly"/>
+													</fieldset>
+
+													<br>
+
+													<fieldset>
+														<label><strong>Documento de Identidad</strong></label>
+													</fieldset>
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right">Tipo:</label> 													
+														<input class="col-sm-3" type="text" name="txtTipo" id="txtTipo" readonly="readonly"/>
+														<div class="col-sm-2"></div>
+														<label class="col-sm-2"> <a href="#modal-documento" role="button" class="btn btn-info" data-toggle="modal">
+																<i class="icon-search"></i> Ver Documento
+														</a>
+													</label>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-2">Numero:</label> 
+														<input type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-2">R.U.C.:</label> 
+														<input type="text" name="txtRUC" id="txtRUC" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-3">Raz. Social:</label> 
+														<input type="text" name="txtRaSocial" id="txtRaSocial" readonly="readonly"/>
+													</fieldset>
+
+													<br>
+
+													<fieldset>
+														<label><strong>Otros Datos</strong></label>
+													</fieldset>
+													<fieldset>
+														<label class="col-sm-3">Telefono:</label> 													
+														<input type="text" name="txtTelefono" id="txtTelefono" readonly="readonly"/>	
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-3">Celular:</label> 
+														<input type="text" name="txtCelular" id="txtCelular" readonly="readonly"/>
+													</fieldset>
+													<fieldset><br>
+														<label class="col-sm-3">Correo:</label> 
+														<input type="text" name="txtCorreo" id="txtCorreo" readonly="readonly"/>
+													</fieldset>
+												</form>	
 												
-													<strong>Datos Generales</strong><br>
-												
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-nombres">Nombre(s):</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="nombres" id="form-field-nombres"/>
-													</div>
-												</div><!-- form-group -->
-												
-												<br>
-													
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-apepat">Apellido Paterno:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="apepat" id="form-field-apepat"/>
-													</div>
-												</div><!-- form-group -->
-												
-												<br>
-													
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-apemat">Apellido Materno:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="apemat" id="form-field-apemat"/>
-													</div>
-												</div><!-- form-group -->
-												
-												<br><br>
-												
-												<strong>Otros Datos</strong><br>
-												
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-telefono">Telefono:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="telefono" id="form-field-telefono"/>
-													</div>
-												</div><!-- form-group -->
-												
-												<br>
-													
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-celular">Celular:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="celular" id="form-field-celular"/>
-													</div>
-												</div><!-- form-group -->
-												
-												<br>
-													
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-correo">Correo:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="correo" id="form-field-correo"/>
-													</div>
-												</div><!-- form-group -->
-												</div><br><br><br><br><br><br><br>
+												</div>
 											</div>
 										</div>
-
-										<div class="space-6"></div>
+									<!-- /span -->
 									
-										<div class="widget-box">
-											<div class="widget-header">
-												<h4 class="smaller">Datos del Predio</h4>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-													<strong>Datos Generales</strong><br><br>
-												
-												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right" for="form-field-provincia">Provincia:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="provincia" id="form-field-provincia"/>
-													</div>
-												</div><!-- form group -->
-												
-												<br>
-												
-												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right" for="form-field-distrito">Distrito:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="distrito" id="form-field-distrito"/>
-													</div>
-												</div><!-- form group -->
-												
-												<br>
-												
-												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right" for="form-field-localidad">Localidad:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="localidad" id="form-field-localidad"/>
-													</div>
-												</div><!-- form group -->
-												
-												<br>
-												
-												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right" for="form-field-calle">Calle:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="calle" id="form-field-calle"/>
-													</div>
-												</div><!-- form group -->
-												
-												</div><br><br><br>
-											</div>
-										</div>
+									<div class="space-6"></div>
+									
+									
 									</div><!-- /span -->
+								
+							</div>
 
 
+							<div id="modal-documento" class="modal" tabindex="-1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="blue bigger">Documento de Identidad</h4>
+										</div>
 
+										<div class="modal-body">
+											<img src="img/renzo-test/dni1.jpg" align="middle">
 
-						</div>
-							
+										</div>
 
-						
+										<div class="modal-footer">
+											<button class="btn btn-sm" data-dismiss="modal">
+												<i class="icon-remove"></i> Cerrar
+											</button>
 
-
-
-
+											<button class="btn btn-sm btn-primary">
+												<i class="icon-download"></i> Descargar
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
 
 
 							<!-- PAGE CONTENT ENDS -->
