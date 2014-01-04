@@ -665,6 +665,27 @@
 											<div class="widget-body">
 												<div class="widget-main">
 												<form>
+												<fieldset>
+														<label style="color: red"><strong>Demostracion</strong></label>
+													</fieldset>												
+													<fieldset>
+														<label class="col-sm-4">Numero:</label> 													
+														<input type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>	
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-4">Nombre:</label> 
+														<input type="text" name="txtNombrePrueba" id="txtNombrePrueba" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-4">Fecha:</label> 
+														<input type="text" name="txtFecha" id="txtFecha" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-4">Estado:</label> 
+														<input type="text" name="txtEstado" id="txtEstado" readonly="readonly"/>
+													</fieldset>
+													
+													<br>
 													<fieldset>
 														<label><strong>Datos Generales</strong></label>
 													</fieldset>												
@@ -854,6 +875,15 @@
 	    $("tr").click(function () {
 	        $(this).closest("tr").siblings().removeClass("highlighted");
 	        $(this).toggleClass("highlighted");
+	        
+	        var num = $(this).find('td').eq(0).html();
+	        var nom = $(this).find('td').eq(1).html();
+	        var fec = $(this).find('td').eq(2).html();
+	        var est = $(this).find('td').eq(3).find('span').html();
+	        $("#txtNumero").val(num);
+		    $("#txtNombrePrueba").val(nom);
+		    $("#txtFecha").val(fec);
+		    $("#txtEstado").val(est);
 	    });
 	});
 	
