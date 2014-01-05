@@ -1,4 +1,4 @@
-DROP DATABASE `DB_Sedapar`; 
+DROP DATABASE IF EXISTS `DB_Sedapar` ; 
 create database DB_Sedapar;
 use DB_Sedapar;
 
@@ -32,7 +32,7 @@ dniUsuario varchar(10)
 create table tb_test_solicitud(
 num_solicitud int primary key auto_increment,
 nombre varchar(30),
-fecha_solicitud varchar(20),
+fecha_solicitud date,
 estado varchar(40) check(estado in ('Pendiente','Aprobada'))
 );
 
@@ -71,7 +71,8 @@ create table tb_solicitudNuevaConexion(
 num_solicitud int primary key auto_increment,
 nombre varchar(30),
 fecha_solicitud datetime,
-idestado int foreign key(idestado) references tb_EstadoSolicitudConexion(idEstado),
+idestado int,
+foreign key(idestado) references tb_EstadoSolicitudConexion(idEstado)
 
 );
 
@@ -309,14 +310,24 @@ INSERT INTO tb_EstadoSolicitudConexion VALUES(null,'Rechazada');
 INSERT INTO tb_EstadoSolicitudConexion VALUES(null,'Contratada');
 
 /*Datos en TEST SOLICITUD*/
-INSERT INTO tb_test_solicitud VALUES(null,'Renzo Delgado','26-12-2013','Pendiente');
-INSERT INTO tb_test_solicitud VALUES(null,'Felix Apaza','26-12-2013','Pendiente');
-INSERT INTO tb_test_solicitud VALUES(null,'Ricardo Quevedo','26-12-2013','Pendiente');
-INSERT INTO tb_test_solicitud VALUES(null,'Carlos Sonan','26-12-2013','Pendiente');
-INSERT INTO tb_test_solicitud VALUES(null,'Andre Coquis','26-12-2013','Pendiente');
-INSERT INTO tb_test_solicitud VALUES(null,'Juan Carlos Espinoza','26-12-2013','Aprobada');
-INSERT INTO tb_test_solicitud VALUES(null,'Tilsa Lozano','26-12-2013','Pendiente');
-INSERT INTO tb_test_solicitud VALUES(null,'Loco Vargas','26-12-2013','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Renzo Delgado','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Felix Apaza','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Ricardo Quevedo','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Carlos Sonan','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Andre Coquis','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Juan Carlos Espinoza','2013-12-26','Aprobada');
+INSERT INTO tb_test_solicitud VALUES(null,'Tilsa Lozano','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Loco Vargas','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Juan Perez','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Maria Arias','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Augusto Atuncito','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Lidia Cuchi','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Javier Tomoya','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Pepe Lucho','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Jose Jose','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Tamara Lindo Loo','2013-12-26','Pendiente');
+INSERT INTO tb_test_solicitud VALUES(null,'Jean Luis Uribe','2013-12-26','Pendiente');	
+
 
 /*Datos en Cambio de categoria*/
 INSERT INTO tb_TipoPredio VALUES(null,'Rural');

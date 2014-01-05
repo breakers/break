@@ -616,8 +616,8 @@
 													Solicitudes de Nueva Conexion
 												</h5>
 									</div>
-									<div class="table-responsive">
-											<table id="sample-table-1" class="table table-bordered">
+									<div class="table-responsive" style="overflow:scroll;max-height: 570px;">
+											<table id="sample-table-1" class="table table-bordered " style="margin-bottom: 0px;">
 												<thead>
 													<tr>
 														<th width="100">Numero</th>
@@ -651,6 +651,9 @@
 												</tbody>
 											</table>
 									</div><!-- /.table-responsive -->
+									
+									<label class="col-sm-6 control-label no-padding-right" style="left: 200px; top: 5px; padding-left: 31px;">Cantidad de Solicitudes Pendientes:</label>
+									<label id="lblCantidadSol" class="col-sm-3 control-label no-padding-right" style="left: 210px; top: 5px; padding-left: 0px;"><strong>9999</strong></label>	
 									</div>
 								
 							
@@ -665,27 +668,7 @@
 											<div class="widget-body">
 												<div class="widget-main">
 												<form>
-												<fieldset>
-														<label style="color: red"><strong>Demostracion</strong></label>
-													</fieldset>												
-													<fieldset>
-														<label class="col-sm-4">Numero:</label> 													
-														<input type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>	
-													</fieldset><br>
-													<fieldset>
-														<label class="col-sm-4">Nombre:</label> 
-														<input type="text" name="txtNombrePrueba" id="txtNombrePrueba" readonly="readonly"/>
-													</fieldset><br>
-													<fieldset>
-														<label class="col-sm-4">Fecha:</label> 
-														<input type="text" name="txtFecha" id="txtFecha" readonly="readonly"/>
-													</fieldset><br>
-													<fieldset>
-														<label class="col-sm-4">Estado:</label> 
-														<input type="text" name="txtEstado" id="txtEstado" readonly="readonly"/>
-													</fieldset>
-													
-													<br>
+												
 													<fieldset>
 														<label><strong>Datos Generales</strong></label>
 													</fieldset>												
@@ -708,25 +691,29 @@
 														<label><strong>Documento de Identidad</strong></label>
 													</fieldset>
 													<fieldset>
-														<label class="col-sm-2 control-label no-padding-right">Tipo:</label> 													
-														<input class="col-sm-3" type="text" name="txtTipo" id="txtTipo" readonly="readonly"/>
-														<div class="col-sm-2"></div>
-														<label class="col-sm-2"> <a href="#modal-documento" role="button" class="btn btn-info" data-toggle="modal">
+														<label class="col-sm-3 control-label no-padding-right">Tipo:</label> 													
+														<input class="col-sm-4" type="text" name="txtTipo" id="txtTipo" readonly="readonly"/>
+														
+														<label class="col-sm-2" > <a href="#modal-documento" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px;">
 																<i class="icon-search"></i> Ver Documento
 														</a>
 													</label>
 													</fieldset><br>
 													<fieldset>
-														<label class="col-sm-2">Numero:</label> 
-														<input type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>
+														<label class="col-sm-3">Numero:</label> 
+														<input class="col-sm-4" type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>
 													</fieldset><br>
 													<fieldset>
-														<label class="col-sm-2">R.U.C.:</label> 
-														<input type="text" name="txtRUC" id="txtRUC" readonly="readonly"/>
+														<label class="col-sm-3">R.U.C.:</label> 
+														<input class="col-sm-4" type="text" name="txtRUC" id="txtRUC" readonly="readonly"/>
+													<label class="col-sm-2" > <a href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 195px;padding-left: 3px;padding-right: 4px;">
+																<i class="icon-search"></i> Ver Vigencia de Poder
+														</a>
+														</label>
 													</fieldset><br>
 													<fieldset>
 														<label class="col-sm-3">Raz. Social:</label> 
-														<input type="text" name="txtRaSocial" id="txtRaSocial" readonly="readonly"/>
+														<input class="col-sm-6" type="text" name="txtRaSocial" id="txtRaSocial" readonly="readonly"/>
 													</fieldset>
 
 													<br>
@@ -756,11 +743,145 @@
 									<div class="space-6"></div>
 									
 									
-									</div><!-- /span -->
+									</div><!-- ends col-sm-6 -->
 								
-							</div>
+							</div>	<!-- ends row -->
+							
+						<div class="row">	<!-- begins row datos del predio,documentos -->
+						<div class="col-sm-6">
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="smaller">Datos del Predio</h4>
+											</div>
 
+											<div class="widget-body">
+												<div class="widget-main" style="padding-bottom: 15px;">
+												
+												
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right">Provincia:</label> 													
+														<input class="col-sm-3" type="text" name="txtProvincia" id="txtProvincia" readonly="readonly"/>
+														
+														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 60px;">Numero:</label>
+														<input class="col-sm-3" type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-2">Distrito:</label> 
+														<input class="col-sm-3" type="text" name="txtDistrito" id="txtDistrito" readonly="readonly"/>
+														
+														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 54px;">Manzana:</label>
+														<input class="col-sm-3" type="text" name="txtManzana" id="txtManzana" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right">Localidad:</label> 													
+														<input class="col-sm-3" type="text" name="txtLocalidad" id="txtLocalidad" readonly="readonly"/>
+														
+														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 88px;">Lote:</label>
+														<input class="col-sm-3" type="text" name="txtLote" id="txtLote" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right">Calle:</label> 													
+														<input class="col-sm-3" type="text" name="txtCalle" id="txtCalle" readonly="readonly"/>
+														
+														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 42px;">Dep/Int/Pis:</label>
+														<input class="col-sm-3" type="text" name="txtDepIntPis" id="txtDepIntPis" readonly="readonly"/>
+													</fieldset><br>
+													<fieldset>
+														<label class="col-sm-3 control-label no-padding-right">Referencias:</label>
+														<textarea class="col-sm-8" id="txtReferencias" style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181);" readonly="readonly"></textarea>
 
+													</fieldset>
+												
+												
+												</div>
+											</div>
+										</div>
+						</div>
+						
+						
+						<div class="col-sm-6">
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="smaller">Documentos</h4>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main" style="padding-bottom: 5px;">
+												
+													<fieldset>
+														<label class="col-sm-7 control-label no-padding-right">Partida Registral de Inscripción<br>y Copia Simple de Escritura Pública<br> de Compra-Venta</label> 													
+														<label class="col-sm-2" > <a id="lnkPartida" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 10px;">
+																<i class="icon-search"></i> Ver Documento
+														</a>
+														</label>
+													</fieldset>
+													
+												<div class="hr hr-24" style="margin-top: 5px; margin-bottom: 10px;"></div>
+												
+													<fieldset>
+														<label class="col-sm-7 control-label no-padding-right">Memoria descriptiva firmada<br>por un Ing. Sanitario</label> 													
+														<label class="col-sm-2" > <a id="lnkMemoria" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 2px;">
+																<i class="icon-search"></i> Ver Documento
+														</a>
+														</label>
+													</fieldset>
+												
+												<div class="hr hr-24" style="margin-top: 5px; margin-bottom: 10px;"></div>
+												
+													<fieldset>
+														<label class="col-sm-7 control-label no-padding-right">Plano de instalaciones sanitarias<br>firmado por un Ing. Sanitario</label> 													
+														<label class="col-sm-2" > <a id="lnkPlanoInstalaciones" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 5px;">
+																<i class="icon-search"></i> Ver Documento
+														</a>
+														</label>
+													</fieldset>
+												
+												<div class="hr hr-24" style="margin-top: 5px; margin-bottom: 10px;"></div>
+												
+													<fieldset>
+														<label class="col-sm-7 control-label no-padding-right">Recibo Suministro vecino</label> 													
+														<label class="col-sm-2" > <a id="lnkReciboVecino" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 0px;">
+																<i class="icon-search"></i> Ver Documento
+														</a>
+														</label>
+													</fieldset>
+												
+												<div class="hr hr-24" style="margin-top: 5px; margin-bottom: 10px;"></div>
+												
+													<fieldset>
+														<label class="col-sm-7 control-label no-padding-right">Plano de ubicacion o<br>croquis del predio</label> 													
+														<label class="col-sm-2" > <a id="lnkPlanoUbicacion" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 5px;">
+																<i class="icon-search"></i> Ver Documento
+														</a>
+														</label>
+													</fieldset>
+																								
+												</div>
+											</div>
+										</div>
+						</div>
+						</div>	<!-- ends row datos del predio,documentos -->
+						
+						<div class="row">	<!-- begins row botones -->
+						<div class="hr hr-24"></div>
+						<div class="col-sm-12" style="padding-left: 420px;">
+						
+						
+						
+							<button class="btn btn-success" type="button">
+								<i class="icon-thumbs-up bigger-110"></i>
+								Aprobar
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							
+							<button class="btn btn-danger" type="button">
+								<i class="icon-thumbs-down bigger-110"></i>
+								Rechazar
+							</button>
+						</div>
+						</div>
+						
 							<div id="modal-documento" class="modal" tabindex="-1">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -872,10 +993,13 @@
 	<script type="text/javascript">
 	<!-- RENZO-->
 	$(document).ready(function () {
+		var cant = $('#sample-table-1 >tbody >tr').length;
+		$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
+		
 	    $("tr").click(function () {
 	        $(this).closest("tr").siblings().removeClass("highlighted");
 	        $(this).toggleClass("highlighted");
-	        
+	       /* 
 	        var num = $(this).find('td').eq(0).html();
 	        var nom = $(this).find('td').eq(1).html();
 	        var fec = $(this).find('td').eq(2).html();
@@ -883,7 +1007,7 @@
 	        $("#txtNumero").val(num);
 		    $("#txtNombrePrueba").val(nom);
 		    $("#txtFecha").val(fec);
-		    $("#txtEstado").val(est);
+		    $("#txtEstado").val(est);	*/
 	    });
 	});
 	
