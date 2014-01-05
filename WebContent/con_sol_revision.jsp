@@ -755,40 +755,36 @@
 											</div>
 
 											<div class="widget-body">
-												<div class="widget-main" style="padding-bottom: 15px;">
+												<div class="widget-main" style="padding-bottom: 45px;">
 												
 												
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right">Provincia:</label> 													
 														<input class="col-sm-3" type="text" name="txtProvincia" id="txtProvincia" readonly="readonly"/>
 														
-														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 60px;">Numero:</label>
-														<input class="col-sm-3" type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>
+														<label class="col-sm-3 control-label no-padding-right"  style="padding-left: 80px;">Calle:</label> 													
+														<input class="col-sm-3" type="text" name="txtCalle" id="txtCalle" readonly="readonly"/>
+														
 													</fieldset><br>
 													<fieldset>
-														<label class="col-sm-2">Distrito:</label> 
+														<label class="col-sm-2" style="padding-left: 25px;">Distrito:</label> 
 														<input class="col-sm-3" type="text" name="txtDistrito" id="txtDistrito" readonly="readonly"/>
 														
-														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 54px;">Manzana:</label>
-														<input class="col-sm-3" type="text" name="txtManzana" id="txtManzana" readonly="readonly"/>
+														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 60px;">Numero:</label>
+														<input class="col-sm-3" type="text" name="txtNumero" id="txtNumero" readonly="readonly"/>
 													</fieldset><br>
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right">Localidad:</label> 													
 														<input class="col-sm-3" type="text" name="txtLocalidad" id="txtLocalidad" readonly="readonly"/>
 														
-														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 88px;">Lote:</label>
-														<input class="col-sm-3" type="text" name="txtLote" id="txtLote" readonly="readonly"/>
-													</fieldset><br>
-													<fieldset>
-														<label class="col-sm-2 control-label no-padding-right">Calle:</label> 													
-														<input class="col-sm-3" type="text" name="txtCalle" id="txtCalle" readonly="readonly"/>
-														
-														<label class="col-sm-3 control-label no-padding-right" style="padding-left: 42px;">Dep/Int/Pis:</label>
-														<input class="col-sm-3" type="text" name="txtDepIntPis" id="txtDepIntPis" readonly="readonly"/>
 													</fieldset><br>
 													<fieldset>
 														<label class="col-sm-3 control-label no-padding-right">Referencias:</label>
-														<textarea class="col-sm-8" id="txtReferencias" style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181);" readonly="readonly"></textarea>
+														<textarea class="col-sm-8" id="txtReferencias" style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181); resize: none;" readonly="readonly"></textarea>
+														
+													</fieldset><br>
+													<fieldset>
+														
 
 													</fieldset>
 												
