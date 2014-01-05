@@ -100,10 +100,11 @@
 
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
-				<a href="home.jsp" class="navbar-brand"> <i
-					class="icon-tint lightcyan"></i> Sedapar <small class="light-blue"><%=nombrePerfil%>
-				</small>
-				</a>
+				<a href="home.jsp" class="navbar-brand"><img
+					src="img/logo_sedapar.png" height="75" width="120"
+					title="Sedapar - Profesionales a su servicio"> <small
+					class="light-blue"> Solicitud de Nueva Conexion de Agua </small><i
+					class="icon-tint lightcyan"></i> </a>
 				<!-- /.brand -->
 			</div>
 			<!-- /.navbar-header -->
@@ -154,25 +155,8 @@
 							src="img/users/<%=foto%>.jpg" alt="Users Photo"> <span
 							class="user-info"> <small><fmt:message
 										key="label.bienvenido" />,</small> <%=nombre%>
-						</span> <i class="icon-caret-down"></i>
-					</a>
-
-						<ul
-							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="configuracion.jsp"> <i class="icon-cog"></i>
-									<fmt:message key="label.configuracion" />
-							</a></li>
-
-							<li><a href="perfil.jsp"> <i class="icon-user"></i> <fmt:message
-										key="label.perfil" />
-							</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="cerrarsesion"> <i class="icon-off"></i> <fmt:message
-										key="label.cerrar" />
-							</a></li>
-						</ul></li>
+						</span>
+					</a></li>
 				</ul>
 				<!-- /.ace-nav -->
 			</div>
@@ -228,15 +212,7 @@
 					</ul>
 					<!-- .breadcrumb -->
 
-					<div class="nav-search" id="nav-search">
-						<form class="form-search">
-							<span class="input-icon"> <input type="text"
-								placeholder="Search ..." class="nav-search-input"
-								id="nav-search-input" autocomplete="off"> <i
-								class="icon-search nav-search-icon"></i>
-							</span>
-						</form>
-					</div>
+
 					<!-- #nav-search -->
 				</div>
 
@@ -256,27 +232,23 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							<h4 class="lighter">
-								<i class="icon-hand-right icon-animated-hand-pointer blue"></i>
-								<a href="#modal-wizard" data-toggle="modal" class="pink">
-									Wizard Inside a Modal Box </a>
-							</h4>
-
-							<div class="hr hr-18 hr-double dotted"></div>
-
 							<div class="row-fluid">
 								<div class="span12">
 									<div class="widget-box">
 										<div
 											class="widget-header widget-header-blue widget-header-flat">
-											<h4 class="lighter">New Item Wizard</h4>
+											<h4 class="lighter">Solicitud de Nueva Conexion de Agua</h4>
+												<div class="widget-toolbar">
+													<label>
+														<small class="green">
+															<b>Tipo de Persona</b>
+														</small>
 
-											<div class="widget-toolbar">
-												<label> <small class="green"> <b>Validation</b>
-												</small> <input id="skip-validation" type="checkbox"
-													class="ace ace-switch ace-switch-4" /> <span class="lbl"></span>
-												</label>
-											</div>
+														<input id="skip-validation" type="checkbox" class="ace ace-switch ace-switch-5" />
+														<span class="lbl"></span>
+													</label>
+												</div>
+
 										</div>
 
 										<div class="widget-body">
@@ -285,17 +257,16 @@
 													data-target="#step-container">
 													<ul class="wizard-steps">
 														<li data-target="#step1" class="active"><span
-															class="step">1</span> <span class="title">Validation
-																states</span></li>
+															class="step">1</span> <span class="title">Bienvenido</span></li>
 
 														<li data-target="#step2"><span class="step">2</span>
-															<span class="title">Alerts</span></li>
+															<span class="title">Informacion de Predio</span></li>
 
 														<li data-target="#step3"><span class="step">3</span>
-															<span class="title">Payment Info</span></li>
+															<span class="title">Información Cliente</span></li>
 
 														<li data-target="#step4"><span class="step">4</span>
-															<span class="title">Other Info</span></li>
+															<span class="title">Cierre</span></li>
 													</ul>
 												</div>
 
@@ -306,85 +277,10 @@
 														<h3 class="lighter block green">Enter the following
 															information</h3>
 
-														<form class="form-horizontal" id="sample-form">
-															<div class="form-group has-warning">
-																<label for="inputWarning"
-																	class="col-xs-12 col-sm-3 control-label no-padding-right">Input
-																	with warning</label>
+														
 
-																<div class="col-xs-12 col-sm-5">
-																	<span class="block input-icon input-icon-right">
-																		<input type="text" id="inputWarning" class="width-100" />
-																		<i class="icon-leaf"></i>
-																	</span>
-																</div>
-																<div class="help-block col-xs-12 col-sm-reset inline">
-																	Warning tip help!</div>
-															</div>
-
-															<div class="form-group has-error">
-																<label for="inputError"
-																	class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right">Input
-																	with error</label>
-
-																<div class="col-xs-12 col-sm-5">
-																	<span class="block input-icon input-icon-right">
-																		<input type="text" id="inputError" class="width-100" />
-																		<i class="icon-remove-sign"></i>
-																	</span>
-																</div>
-																<div class="help-block col-xs-12 col-sm-reset inline">
-																	Error tip help!</div>
-															</div>
-
-															<div class="form-group has-success">
-																<label for="inputSuccess"
-																	class="col-xs-12 col-sm-3 control-label no-padding-right">Input
-																	with success</label>
-
-																<div class="col-xs-12 col-sm-5">
-																	<span class="block input-icon input-icon-right">
-																		<input type="text" id="inputSuccess" class="width-100" />
-																		<i class="icon-ok-sign"></i>
-																	</span>
-																</div>
-																<div class="help-block col-xs-12 col-sm-reset inline">
-																	Success tip help!</div>
-															</div>
-
-															<div class="form-group has-info">
-																<label for="inputInfo"
-																	class="col-xs-12 col-sm-3 control-label no-padding-right">Input
-																	with info</label>
-
-																<div class="col-xs-12 col-sm-5">
-																	<span class="block input-icon input-icon-right">
-																		<input type="text" id="inputInfo" class="width-100" />
-																		<i class="icon-info-sign"></i>
-																	</span>
-																</div>
-																<div class="help-block col-xs-12 col-sm-reset inline">
-																	Info tip help!</div>
-															</div>
-
-															<div class="form-group">
-																<label for="inputError2"
-																	class="col-xs-12 col-sm-3 control-label no-padding-right">Input
-																	with error</label>
-
-																<div class="col-xs-12 col-sm-5">
-																	<span class="input-icon block"> <input
-																		type="text" id="inputError2" class="width-100" /> <i
-																		class="icon-remove-sign red"></i>
-																	</span>
-																</div>
-																<div class="help-block col-xs-12 col-sm-reset inline">
-																	Error tip help!</div>
-															</div>
-														</form>
-
-														<form class="form-horizontal hide" id="validation-form"
-															method="get">
+														<form class="form-horizontal" id="validation-form"
+															method="get" novalidate="novalidate">
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
@@ -781,57 +677,6 @@
 			</div>
 			<!-- /.main-content -->
 
-			<div class="ace-settings-container" id="ace-settings-container">
-				<div class="btn btn-app btn-xs btn-warning ace-settings-btn"
-					id="ace-settings-btn">
-					<i class="icon-cog bigger-150"></i>
-				</div>
-
-				<div class="ace-settings-box" id="ace-settings-box">
-					<div>
-						<div class="pull-left">
-							<select id="skin-colorpicker" class="hide">
-								<option data-skin="default" value="#438EB9">#438EB9</option>
-								<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-								<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-								<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-							</select>
-						</div>
-						<span>&nbsp; Choose Skin</span>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-navbar" /> <label class="lbl"
-							for="ace-settings-navbar"> Fixed Navbar</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-sidebar" /> <label class="lbl"
-							for="ace-settings-sidebar"> Fixed Sidebar</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-breadcrumbs" /> <label class="lbl"
-							for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-rtl" /> <label class="lbl"
-							for="ace-settings-rtl"> Right To Left (rtl)</label>
-					</div>
-
-					<div>
-						<input type="checkbox" class="ace ace-checkbox-2"
-							id="ace-settings-add-container" /> <label class="lbl"
-							for="ace-settings-add-container"> Inside <b>.container</b>
-						</label>
-					</div>
-				</div>
-			</div>
 			<!-- /#ace-settings-container -->
 
 		</div>
@@ -848,7 +693,8 @@
 
 	<!--[if !IE]> -->
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 	<!-- <![endif]-->
 
@@ -882,12 +728,12 @@
 
 	<!-- page specific plugin scripts -->
 
-		<script src="js/assets/fuelux/fuelux.wizard.min.js"></script>
-		<script src="js/assets/jquery.validate.min.js"></script>
-		<script src="js/assets/additional-methods.min.js"></script>
-		<script src="js/assets/bootbox.min.js"></script>
-		<script src="js/assets/jquery.maskedinput.min.js"></script>
-		<script src="js/assets/select2.min.js"></script>
+	<script src="js/assets/fuelux/fuelux.wizard.min.js"></script>
+	<script src="js/assets/jquery.validate.min.js"></script>
+	<script src="js/assets/additional-methods.min.js"></script>
+	<script src="js/assets/bootbox.min.js"></script>
+	<script src="js/assets/jquery.maskedinput.min.js"></script>
+	<script src="js/assets/select2.min.js"></script>
 
 
 	<!-- ace scripts -->
@@ -908,7 +754,7 @@
 				$(this).closest('form').validate().element($(this));
 			});
 
-			var $validation = false;
+			var $validation = true;
 			$('#fuelux-wizard')
 					.ace_wizard()
 					.on('change', function(e, info) {
@@ -1068,6 +914,6 @@
 
 
 
-	
+
 </body>
 </html>
