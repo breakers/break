@@ -75,6 +75,69 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 <![endif]-->
+
+<!-- Estilos y Script de Google Maps -->
+<style>
+html,body,#map-canvas {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
+</style>
+<style>
+#directions-panel {
+	height: 100%;
+	float: right;
+	width: 390px;
+	overflow: auto;
+}
+
+#map-canvas {
+	width: 100%;
+	height: 500px;
+}
+
+#control {
+	background: #fff;
+	padding: 5px;
+	font-size: 14px;
+	font-family: Arial;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+	display: none;
+}
+
+@media print {
+	#map-canvas {
+		height: 500px;
+		margin: 0;
+	}
+	#directions-panel {
+		float: none;
+		width: auto;
+	}
+}
+</style>
+<script
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script type="text/javascript">
+	var map;
+
+	function initialize() {
+
+		var centro = new google.maps.LatLng(-16.411667, -71.532967);
+		var mapOptions = {
+			zoom : 20,
+			center : centro,
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map(document.getElementById('map-canvas'),
+				mapOptions);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
@@ -93,14 +156,14 @@
 	<div class="navbar navbar-default navbar-fixed-top" id="navbar">
 		<script type="text/javascript">
 			try {
-				ace.settings.check('navbar', 'fixed')
+				ace.settings.check('navbar', 'fixed');
 			} catch (e) {
 			}
 		</script>
 
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
-				<a href="home.jsp" class="navbar-brand"><img
+				<a href="index.jsp" class="navbar-brand"><img
 					src="img/logo_sedapar.png" height="75" width="120"
 					title="Sedapar - Profesionales a su servicio"> <small
 					class="light-blue"> Solicitud de Nueva Conexion de Agua </small><i
@@ -168,7 +231,7 @@
 	<div class="main-container" id="main-container">
 		<script type="text/javascript">
 			try {
-				ace.settings.check('main-container', 'fixed')
+				ace.settings.check('main-container', 'fixed');
 			} catch (e) {
 			}
 		</script>
@@ -181,7 +244,7 @@
 			<div class="sidebar menu-min" id="sidebar">
 				<script type="text/javascript">
 					try {
-						ace.settings.check('sidebar', 'fixed')
+						ace.settings.check('sidebar', 'fixed');
 					} catch (e) {
 					}
 				</script>
@@ -199,7 +262,7 @@
 				<div class="breadcrumbs breadcrumbs-fixed" id="breadcrumbs">
 					<script type="text/javascript">
 						try {
-							ace.settings.check('breadcrumbs', 'fixed')
+							ace.settings.check('breadcrumbs', 'fixed');
 						} catch (e) {
 						}
 					</script>
@@ -238,16 +301,16 @@
 										<div
 											class="widget-header widget-header-blue widget-header-flat">
 											<h4 class="lighter">Solicitud de Nueva Conexion de Agua</h4>
-												<div class="widget-toolbar">
+											<!-- 	<div class="widget-toolbar">
 													<label>
 														<small class="green">
-															<b>Tipo de Persona</b>
+															<b>Validation</b>
 														</small>
 
-														<input id="skip-validation" type="checkbox" class="ace ace-switch ace-switch-5" />
+														<input id="skip-validation" type="checkbox" class="ace ace-switch ace-switch-4" />
 														<span class="lbl"></span>
 													</label>
-												</div>
+											</div>  -->
 
 										</div>
 
@@ -257,34 +320,163 @@
 													data-target="#step-container">
 													<ul class="wizard-steps">
 														<li data-target="#step1" class="active"><span
-															class="step">1</span> <span class="title">Bienvenido</span></li>
+															class="step">1</span> <span class="title">Información
+																Cliente</span></li>
 
 														<li data-target="#step2"><span class="step">2</span>
 															<span class="title">Informacion de Predio</span></li>
 
 														<li data-target="#step3"><span class="step">3</span>
-															<span class="title">Información Cliente</span></li>
+															<span class="title">Presupuesto</span></li>
 
 														<li data-target="#step4"><span class="step">4</span>
 															<span class="title">Cierre</span></li>
 													</ul>
 												</div>
 
+
+
 												<hr />
 												<div class="step-content row-fluid position-relative"
 													id="step-container">
 													<div class="step-pane active" id="step1">
-														<h3 class="lighter block green">Enter the following
-															information</h3>
+														<h3 class="lighter block green">Ingresa la siguiente
+															informacion</h3>
 
-														
+														<div class="form-horizontal">
 
-														<form class="form-horizontal" id="validation-form"
-															method="get" novalidate="novalidate">
+															<div class="form-group">
+																<label
+																	class="green control-label col-xs-12 col-sm-3 no-padding-right">Tipo
+																	de Persona:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<label> <input id="skip-validation"
+																			type="checkbox"
+																			class="ace ace-switch ace-switch-lysander" /> <span
+																			class="lbl"></span> <!-- .l. Editar Valores en ace.min.css:5787 -->
+																		</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<!--  Datos si es Natural -->
+														<form class="form-horizontal" id="sample-form">
+
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="email">Email Address:</label>
+																	for="name">Nombres:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="name" name="name"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Apellido Paterno:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="apepa" name="apepa"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Apellido Materno:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="apema" name="apema"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right">Genero</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div>
+																		<label class="blue"> <input name="gender"
+																			value="1" type="radio" class="ace" /> <span
+																			class="lbl"> Masculino</span>
+																		</label>
+																	</div>
+
+																	<div>
+																		<label class="blue"> <input name="gender"
+																			value="2" type="radio" class="ace" /> <span
+																			class="lbl"> Femenino</span>
+																		</label>
+																	</div>
+																</div>
+															</div>
+
+															<div class="hr hr-dotted"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="platform">Tipo de Documento</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<select class="input-medium" id="tipodoc"
+																			name="tipodoc">
+																			<option value="">------------------</option>
+																			<option value="DNI">DNI</option>
+																			<option value="Carnet Extranjeria">Carnet
+																				Extranjeria</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Numero Documento:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="numdoc" name="numdoc"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="plano">Adjutar DNI: (*)</label>
+																<div class="controls">
+																	<input id="plano" name="plano"
+																		class="input-file col-xs-12 col-sm-5" type="file"
+																		title="Selecciona Imagen .jpg">
+																</div>
+															</div>
+
+
+															<div class="hr hr-dotted"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="email">Correo Electronico:</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
@@ -299,52 +491,7 @@
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="password">Password:</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div class="clearfix">
-																		<input type="password" name="password" id="password"
-																			class="col-xs-12 col-sm-4" />
-																	</div>
-																</div>
-															</div>
-
-															<div class="space-2"></div>
-
-															<div class="form-group">
-																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="password2">Confirm Password:</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div class="clearfix">
-																		<input type="password" name="password2" id="password2"
-																			class="col-xs-12 col-sm-4" />
-																	</div>
-																</div>
-															</div>
-
-															<div class="hr hr-dotted"></div>
-
-															<div class="form-group">
-																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Company Name:</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div class="clearfix">
-																		<input type="text" id="name" name="name"
-																			class="col-xs-12 col-sm-5" />
-																	</div>
-																</div>
-															</div>
-
-															<div class="space-2"></div>
-
-															<div class="form-group">
-																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="phone">Phone Number:</label>
+																	for="phone">Telefono:</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="input-group">
@@ -360,7 +507,67 @@
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="url">Company URL:</label>
+																	for="phone">Celular:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="input-group">
+																		<span class="input-group-addon"> <i
+																			class="icon-phone"></i>
+																		</span> <input type="tel" id="phone" name="phone" />
+																	</div>
+																</div>
+															</div>
+
+
+
+															<div class="space-8"></div>
+
+															<div class="form-group">
+																<div class="col-xs-12 col-sm-4 col-sm-offset-3">
+																	<label> <input name="agree" id="agree"
+																		type="checkbox" class="ace" /> <span class="lbl">
+																			Acepto los terminos y condiciones</span>
+																	</label>
+																</div>
+															</div>
+														</form>
+
+														<!-- Datos si es Juridica -->
+														<form class="form-horizontal hide" id="validation-form"
+															method="get" novalidate="novalidate">
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Razon Social:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="name" name="name"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+
+															<div class="space-2"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="ruc">RUC de la Empresa:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="ruc" name="ruc"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="url">URL de la Empresa:</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
@@ -372,46 +579,65 @@
 
 															<div class="hr hr-dotted"></div>
 
+
+
 															<div class="form-group">
 																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right">Subscribe
-																	to</label>
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Nombres:</label>
 
 																<div class="col-xs-12 col-sm-9">
-																	<div>
-																		<label> <input name="subscription" value="1"
-																			type="checkbox" class="ace" /> <span class="lbl">
-																				Latest news and announcements</span>
-																		</label>
-																	</div>
-
-																	<div>
-																		<label> <input name="subscription" value="2"
-																			type="checkbox" class="ace" /> <span class="lbl">
-																				Product offers and discounts</span>
-																		</label>
+																	<div class="clearfix">
+																		<input type="text" id="name" name="name"
+																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
 															</div>
-
 															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Apellido Paterno:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="apepa" name="apepa"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Apellido Materno:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="apema" name="apema"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+
 
 															<div class="form-group">
 																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right">Gender</label>
+																	class="control-label col-xs-12 col-sm-3 no-padding-right">Genero</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div>
 																		<label class="blue"> <input name="gender"
 																			value="1" type="radio" class="ace" /> <span
-																			class="lbl"> Male</span>
+																			class="lbl"> Masculino</span>
 																		</label>
 																	</div>
 
 																	<div>
 																		<label class="blue"> <input name="gender"
 																			value="2" type="radio" class="ace" /> <span
-																			class="lbl"> Female</span>
+																			class="lbl"> Femenino</span>
 																		</label>
 																	</div>
 																</div>
@@ -422,102 +648,108 @@
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="state">State</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<select id="state" name="state" class="select2"
-																		data-placeholder="Click to Choose...">
-																		<option value="">&nbsp;</option>
-																		<option value="AL">Alabama</option>
-																		<option value="AK">Alaska</option>
-																		<option value="AZ">Arizona</option>
-																		<option value="AR">Arkansas</option>
-																		<option value="CA">California</option>
-																		<option value="CO">Colorado</option>
-																		<option value="CT">Connecticut</option>
-																		<option value="DE">Delaware</option>
-																		<option value="FL">Florida</option>
-																		<option value="GA">Georgia</option>
-																		<option value="HI">Hawaii</option>
-																		<option value="ID">Idaho</option>
-																		<option value="IL">Illinois</option>
-																		<option value="IN">Indiana</option>
-																		<option value="IA">Iowa</option>
-																		<option value="KS">Kansas</option>
-																		<option value="KY">Kentucky</option>
-																		<option value="LA">Louisiana</option>
-																		<option value="ME">Maine</option>
-																		<option value="MD">Maryland</option>
-																		<option value="MA">Massachusetts</option>
-																		<option value="MI">Michigan</option>
-																		<option value="MN">Minnesota</option>
-																		<option value="MS">Mississippi</option>
-																		<option value="MO">Missouri</option>
-																		<option value="MT">Montana</option>
-																		<option value="NE">Nebraska</option>
-																		<option value="NV">Nevada</option>
-																		<option value="NH">New Hampshire</option>
-																		<option value="NJ">New Jersey</option>
-																		<option value="NM">New Mexico</option>
-																		<option value="NY">New York</option>
-																		<option value="NC">North Carolina</option>
-																		<option value="ND">North Dakota</option>
-																		<option value="OH">Ohio</option>
-																		<option value="OK">Oklahoma</option>
-																		<option value="OR">Oregon</option>
-																		<option value="PA">Pennsylvania</option>
-																		<option value="RI">Rhode Island</option>
-																		<option value="SC">South Carolina</option>
-																		<option value="SD">South Dakota</option>
-																		<option value="TN">Tennessee</option>
-																		<option value="TX">Texas</option>
-																		<option value="UT">Utah</option>
-																		<option value="VT">Vermont</option>
-																		<option value="VA">Virginia</option>
-																		<option value="WA">Washington</option>
-																		<option value="WV">West Virginia</option>
-																		<option value="WI">Wisconsin</option>
-																		<option value="WY">Wyoming</option>
-																	</select>
-																</div>
-															</div>
-
-															<div class="space-2"></div>
-
-															<div class="form-group">
-																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="platform">Platform</label>
+																	for="platform">Tipo de Documento</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<select class="input-medium" id="platform"
-																			name="platform">
+																		<select class="input-medium" id="tipodoc"
+																			name="tipodoc">
 																			<option value="">------------------</option>
-																			<option value="linux">Linux</option>
-																			<option value="windows">Windows</option>
-																			<option value="mac">Mac OS</option>
-																			<option value="ios">iOS</option>
-																			<option value="android">Android</option>
+																			<option value="DNI">DNI</option>
+																			<option value="Carnet Extranjeria">Carnet
+																				Extranjeria</option>
 																		</select>
 																	</div>
 																</div>
 															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Numero Documento:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="numdoc" name="numdoc"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="plano">Adjutar DNI: (*)</label>
+																<div class="controls">
+																	<input id="plano" name="plano"
+																		class="input-file col-xs-12 col-sm-5" type="file"
+																		title="Selecciona Imagen .jpg">
+																</div>
+															</div>
+															<div class="space-2"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="plano">Adjutar Vigencia de poder o Carta
+																	Poder legalizada: (*)</label>
+																<div class="controls">
+																	<input id="plano" name="plano"
+																		class="input-file col-xs-12 col-sm-5" type="file"
+																		title="Selecciona Imagen .jpg">
+																</div>
+															</div>
+
+
+															<div class="hr hr-dotted"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="email">Correo Electronico:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="email" name="email" id="email"
+																			class="col-xs-12 col-sm-6" />
+																	</div>
+																</div>
+															</div>
 
 															<div class="space-2"></div>
 
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="comment">Comment</label>
+																	for="phone">Telefono:</label>
 
 																<div class="col-xs-12 col-sm-9">
-																	<div class="clearfix">
-																		<textarea class="input-xlarge" name="comment"
-																			id="comment"></textarea>
+																	<div class="input-group">
+																		<span class="input-group-addon"> <i
+																			class="icon-phone"></i>
+																		</span> <input type="tel" id="phone" name="phone" />
 																	</div>
 																</div>
 															</div>
+
+															<div class="space-2"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="phone">Celular:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="input-group">
+																		<span class="input-group-addon"> <i
+																			class="icon-phone"></i>
+																		</span> <input type="tel" id="phone" name="phone" />
+																	</div>
+																</div>
+															</div>
+
+
 
 															<div class="space-8"></div>
 
@@ -525,61 +757,291 @@
 																<div class="col-xs-12 col-sm-4 col-sm-offset-3">
 																	<label> <input name="agree" id="agree"
 																		type="checkbox" class="ace" /> <span class="lbl">
-																			I accept the policy</span>
+																			Acepto los terminos y condiciones</span>
 																	</label>
 																</div>
 															</div>
+
 														</form>
 													</div>
 
 													<div class="step-pane" id="step2">
+														<h3 class="lighter block green">Ingresa la
+															informacion del predio</h3>
+
 														<div class="row-fluid">
-															<div class="alert alert-success">
-																<button type="button" class="close" data-dismiss="alert">
-																	<i class="icon-remove"></i>
-																</button>
-
-																<strong> <i class="icon-ok"></i> Well done!
-																</strong> You successfully read this important alert message. <br />
-															</div>
-
-															<div class="alert alert-danger">
-																<button type="button" class="close" data-dismiss="alert">
-																	<i class="icon-remove"></i>
-																</button>
-
-																<strong> <i class="icon-remove"></i> Oh snap!
-																</strong> Change a few things up and try submitting again. <br />
-															</div>
-
-															<div class="alert alert-warning">
-																<button type="button" class="close" data-dismiss="alert">
-																	<i class="icon-remove"></i>
-																</button>
-																<strong>Warning!</strong> Best check yo self, you're not
-																looking too good. <br />
-															</div>
-
 															<div class="alert alert-info">
 																<button type="button" class="close" data-dismiss="alert">
 																	<i class="icon-remove"></i>
 																</button>
-																<strong>Heads up!</strong> This alert needs your
-																attention, but it's not super important. <br />
+																<strong>Atencion!</strong> No olvides indicar el punto
+																de tu predio en el mapa. <br />
 															</div>
 														</div>
+
+														<div class="row">
+															<div class="col-sm-4">
+																<div class="widget-box">
+																	<div class="widget-header">
+																		<h4>Datos del predio</h4>
+																	</div>
+																	<div class="widget-main no-padding">
+
+																		<form>
+
+																			<!--  
+																			<div class="form-group">
+																				<label
+																					class="control-label col-xs-4 col-sm-4"
+																					for="name">Nombres:</label>
+
+																				<div class="col-xs-8 col-sm-8">
+																					<div class="clearfix">
+																						<input type="text" id="name" name="name"
+																							class="col-xs-4 col-sm-12" />
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="space-6"></div>
+																			
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4"
+																					for="name">Nombres:</label>
+
+																				<div class="col-xs-8 col-sm-8">
+																					<div class="clearfix">
+																						<input type="text" id="name" name="name"
+																							class="col-xs-4 col-sm-12" />
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="space-6"></div>
+																			-->
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Provincia</label>
+																				<div class="controls">
+																					<select id="Provincia" name="provincia"
+																						class="input-medium">
+																						<option>Arequipa</option>
+																						<option>Canamá</option>
+																						<option>Caravelí</option>
+																						<option>Catilla</option>
+																						<option>Caylloma</option>
+																						<option>Condesuyos</option>
+																						<option>Islay</option>
+																						<option>La Unión</option>
+																					</select>
+																				</div>
+
+																			</fieldset>
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Distrito</label>
+																				<div class="controls">
+																					<select id="Distrito" name="distrito"
+																						class="input-medium">
+																						<option>--------</option>
+
+																					</select>
+																				</div>
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Localidad</label>
+																				<div class="controls">
+																					<select id="Localidad" name="localidad"
+																						class="input-medium">
+																						<option>--------</option>
+
+																					</select>
+																				</div>
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Calle</label>
+																				<div class="controls">
+																					<select id="Calle" name="calle"
+																						class="input-medium">
+																						<option>-------</option>
+
+																					</select>
+																				</div>
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Numero</label>
+																				<input type="text" placeholder="Numero" />
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Referencias</label>
+																				<textarea class="input-large" name="comment"
+																					id="comment"></textarea>
+
+																			</fieldset>
+
+
+
+
+
+																		</form>
+
+
+																	</div>
+																</div>
+
+																<div class="space-6"></div>
+
+																<div class="widget-box">
+																	<div class="widget-header">
+																		<h4>Datos adicionales del predio</h4>
+																	</div>
+																	<div class="widget-main no-padding">
+
+																		<form>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Estado</label>
+																				<div class="controls">
+																					<select id="Estado" name="Estado"
+																						class="input-medium">
+																						<option>--Estado de predio--</option>
+
+																					</select>
+																				</div>
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Tipo</label>
+																				<div class="controls">
+																					<select id="Tipo" name="Tipo" class="input-medium">
+																						<option>--Tipo de Predio--</option>
+
+																					</select>
+																				</div>
+
+																			</fieldset>
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Area
+																					de Predio</label> <input type="text" placeholder="en m2" />
+
+																			</fieldset>
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Diametro
+																					de Conexion</label>
+																				<div class="controls">
+																					<select id="Estado" name="Estado"
+																						class="input-medium">
+																						<option>--Diametro-</option>
+																						<option>15</option>
+																						<option>20</option>
+																						<option>30</option>
+
+																					</select>
+																				</div>
+
+																			</fieldset>
+
+
+
+																		</form>
+																	</div>
+																</div>
+
+
+															</div>
+															<div class="col-sm-8">
+																<div class="widget-box">
+																	<div class="widget-header">
+																		<h4>Mapa Arequipa</h4>
+
+																	</div>
+																	
+																		<div id="map-canvas" class="map-canvas"></div>
+																	
+
+																</div>
+
+																<div class="widget-box">
+																	<div class="widget-header">
+																		<h4>Adjuntar los documentos que sustenten la
+																			informacion</h4>
+																	</div>
+																	<div class="widget-body no-padding">
+																		<form>
+
+																			<fieldset>
+																				<label class="control-label col-xs-8 col-sm-4">Partido
+																					Registral de inscripción o Certificado de Busqueda
+																					Catastral y Copia Simple de Escritura pública de
+																					compra-venta o constancia de Posesión Emitida por
+																					la Municipalidad:(*)</label> <input id="plano" name="plano"
+																					class="input-file col-xs-12 col-sm-6" type="file"
+																					title="Selecciona Imagen .jpg" />
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-8 col-sm-4">Memoria
+																					Descriptiva Firmada por un Ing. Sanitario:(*)</label> <input
+																					id="plano" name="plano"
+																					class="input-file col-xs-12 col-sm-6" type="file"
+																					title="Selecciona Imagen .jpg" />
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Recibo
+																					Suministro Vecino:(*)</label> <input id="plano"
+																					name="plano" class="input-file col-xs-12 col-sm-6"
+																					type="file" title="Selecciona Imagen .jpg" />
+
+																			</fieldset>
+
+																			<fieldset>
+																				<label class="control-label col-xs-4 col-sm-4">Plano
+																					de Instalaciones Sanitarias, Firmadas por un Ing.
+																					Sanitario</label> <input id="plano" name="plano"
+																					class="input-file col-xs-12 col-sm-6" type="file"
+																					title="Selecciona Imagen .jpg" />
+
+																			</fieldset>
+
+
+
+																		</form>
+
+
+																	</div>
+																</div>
+															</div>
+														</div>
+
+
+
+
+
+
 													</div>
 
 													<div class="step-pane" id="step3">
 														<div class="center">
-															<h3 class="blue lighter">This is step 3</h3>
+															<h3 class="blue lighter">Verifique su solicitud y el Precio Estimado</h3>
 														</div>
 													</div>
 
 													<div class="step-pane" id="step4">
 														<div class="center">
-															<h3 class="green">Congrats!</h3>
-															Your product is ready to ship! Click finish to continue!
+															<h3 class="green">Felicidades!</h3>
+															Tu Solicitud ha sido enviada! Click finalizar para
+															terminar!
 														</div>
 													</div>
 												</div>
@@ -603,70 +1065,9 @@
 								</div>
 							</div>
 
-							<div id="modal-wizard" class="modal">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header" data-target="#modal-step-contents">
-											<ul class="wizard-steps">
-												<li data-target="#modal-step1" class="active"><span
-													class="step">1</span> <span class="title">Validation
-														states</span></li>
 
-												<li data-target="#modal-step2"><span class="step">2</span>
-													<span class="title">Alerts</span></li>
 
-												<li data-target="#modal-step3"><span class="step">3</span>
-													<span class="title">Payment Info</span></li>
 
-												<li data-target="#modal-step4"><span class="step">4</span>
-													<span class="title">Other Info</span></li>
-											</ul>
-										</div>
-
-										<div class="modal-body step-content" id="modal-step-contents">
-											<div class="step-pane active" id="modal-step1">
-												<div class="center">
-													<h4 class="blue">Step 1</h4>
-												</div>
-											</div>
-
-											<div class="step-pane" id="modal-step2">
-												<div class="center">
-													<h4 class="blue">Step 2</h4>
-												</div>
-											</div>
-
-											<div class="step-pane" id="modal-step3">
-												<div class="center">
-													<h4 class="blue">Step 3</h4>
-												</div>
-											</div>
-
-											<div class="step-pane" id="modal-step4">
-												<div class="center">
-													<h4 class="blue">Step 4</h4>
-												</div>
-											</div>
-										</div>
-
-										<div class="modal-footer wizard-actions">
-											<button class="btn btn-sm btn-prev">
-												<i class="icon-arrow-left"></i> Prev
-											</button>
-
-											<button class="btn btn-success btn-sm btn-next"
-												data-last="Finish ">
-												Next <i class="icon-arrow-right icon-on-right"></i>
-											</button>
-
-											<button class="btn btn-danger btn-sm pull-left"
-												data-dismiss="modal">
-												<i class="icon-remove"></i> Cancel
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
 							<!-- PAGE CONTENT ENDS -->
 						</div>
 						<!-- /.col -->
@@ -693,8 +1094,8 @@
 
 	<!--[if !IE]> -->
 
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!--  <script src="js/jquery.min.js"></script> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
 
 	<!-- <![endif]-->
 
@@ -754,7 +1155,7 @@
 				$(this).closest('form').validate().element($(this));
 			});
 
-			var $validation = true;
+			var $validation = false;
 			$('#fuelux-wizard')
 					.ace_wizard()
 					.on('change', function(e, info) {
@@ -768,7 +1169,7 @@
 							function(e) {
 								bootbox
 										.dialog({
-											message : "Thank you! Your information was successfully saved!",
+											message : "Gracias! Tu solicitud se ha enviado correctamente!",
 											buttons : {
 												"success" : {
 													"label" : "OK",
@@ -908,7 +1309,7 @@
 			$('#modal-wizard .modal-header').ace_wizard();
 			$('#modal-wizard .wizard-actions .btn[data-dismiss=modal]')
 					.removeAttr('disabled');
-		})
+		});
 	</script>
 
 
