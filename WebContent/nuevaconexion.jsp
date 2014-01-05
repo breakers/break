@@ -789,37 +789,6 @@ html,body,#map-canvas {
 
 																		<form>
 
-																			<!--  
-																			<div class="form-group">
-																				<label
-																					class="control-label col-xs-4 col-sm-4"
-																					for="name">Nombres:</label>
-
-																				<div class="col-xs-8 col-sm-8">
-																					<div class="clearfix">
-																						<input type="text" id="name" name="name"
-																							class="col-xs-4 col-sm-12" />
-																					</div>
-																				</div>
-																			</div>
-
-																			<div class="space-6"></div>
-																			
-																			<div class="form-group">
-																				<label class="control-label col-xs-4 col-sm-4"
-																					for="name">Nombres:</label>
-
-																				<div class="col-xs-8 col-sm-8">
-																					<div class="clearfix">
-																						<input type="text" id="name" name="name"
-																							class="col-xs-4 col-sm-12" />
-																					</div>
-																				</div>
-																			</div>
-
-																			<div class="space-6"></div>
-																			-->
-
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Provincia</label>
 																				<div class="controls">
@@ -837,6 +806,7 @@ html,body,#map-canvas {
 																				</div>
 
 																			</fieldset>
+																			
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Distrito</label>
 																				<div class="controls">
@@ -875,7 +845,7 @@ html,body,#map-canvas {
 
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Numero</label>
-																				<input type="text" placeholder="Numero" />
+																				<input type="text" placeholder="Numero"></input>
 
 																			</fieldset>
 
@@ -906,33 +876,34 @@ html,body,#map-canvas {
 
 																		<form>
 
+
+
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Estado</label>
 																				<div class="controls">
-																					<select id="Estado" name="Estado"
-																						class="input-medium">
+																					<select id="Estado" name="Estado" class="input-medium">
 																						<option>--Estado de predio--</option>
-
 																					</select>
 																				</div>
-
 																			</fieldset>
+
 
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Tipo</label>
 																				<div class="controls">
 																					<select id="Tipo" name="Tipo" class="input-medium">
 																						<option>--Tipo de Predio--</option>
-
 																					</select>
 																				</div>
-
 																			</fieldset>
+																			
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Area
-																					de Predio</label> <input type="text" placeholder="en m2" />
+																					de Predio</label> 
+																				<input type="text" placeholder="en m2" />
 
 																			</fieldset>
+																			
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Diametro
 																					de Conexion</label>
@@ -964,17 +935,23 @@ html,body,#map-canvas {
 
 																	</div>
 																	
-																		<div id="map-canvas" class="map-canvas"></div>
+																	<div class="widget-main no-padding">
+																		<div id="map-canvas"></div>
+																	</div>
+
 																	
 
+
 																</div>
+																
+																<div class="space-6"></div>
 
 																<div class="widget-box">
 																	<div class="widget-header">
 																		<h4>Adjuntar los documentos que sustenten la
 																			informacion</h4>
 																	</div>
-																	<div class="widget-body no-padding">
+																	<div class="widget-main no-padding">
 																		<form>
 
 																			<fieldset>
@@ -1033,14 +1010,221 @@ html,body,#map-canvas {
 
 													<div class="step-pane" id="step3">
 														<div class="center">
-															<h3 class="blue lighter">Verifique su solicitud y el Precio Estimado</h3>
+															<h3 class="blue lighter">Verifique su solicitud y el
+																Precio Estimado</h3>
 														</div>
+														
+														<form class="form-horizontal" id="sample-form">
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Nombres:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="name" name="name"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Servicio:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="apepa" name="apepa"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Costo:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="apema" name="apema"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right">Forma de Pago</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div>
+																		<label class="blue"> <input name="gender"
+																			value="1" type="radio" class="ace" /> <span
+																			class="lbl"> Contado</span>
+																		</label>
+																	</div>
+
+																	<div>
+																		<label class="blue"> <input name="gender"
+																			value="2" type="radio" class="ace" /> <span
+																			class="lbl"> Cuotas</span>
+																		</label>
+																	</div>
+																</div>
+															</div>
+
+															<div class="hr hr-dotted"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="platform">Numero de Cuotas</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<select class="input-medium" id="cuotas"
+																			name="cuotas">
+																			<option value="">------------------</option>
+																			<option value="6">6</option>
+																			<option value="12">12</option>
+																			<option value="24">24</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="name">Monto por cuota:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="text" id="montocuota" name="montocuota"
+																			class="col-xs-12 col-sm-5" />
+																	</div>
+																</div>
+															</div>
+															
+															<div class="form-group">
+																<label for="" class="control-label col-xs-12 col-sm-3 no-padding-right"></label>
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<div class="table-responsive">
+																			<table id="sample-table-1" class="table table-bordered">
+																				<thead>
+																					<tr>
+																						<th width="100">Numero</th>
+																						<th width="200">Monto</th>
+								
+																						<th width="100">
+																							<i class="icon-time bigger-110 hidden-480"></i>
+																							Fecha Emision
+																						</th>
+																						<th width="100">Fecha Vencimiento</th>
+																						<th width="100">Motivo</th>
+																					</tr>
+																				</thead>
+								
+																				<tbody>
+																					<tr>
+																						<td>1</td>
+																						<td>85.25</td>
+																						<td>15-12-2013</td>
+																						<td>15-01-2014</td>
+																						<td>Nueva Conexion</td>
+																					</tr>
+																					<tr>
+																						<td>2</td>
+																						<td>85.25</td>
+																						<td>15-12-2013</td>
+																						<td>15-02-2014</td>
+																						<td>Nueva Conexion</td>
+																					</tr>
+																					<tr>
+																						<td>3</td>
+																						<td>85.25</td>
+																						<td>15-12-2013</td>
+																						<td>15-03-2014</td>
+																						<td>Nueva Conexion</td>
+																					</tr>
+																					<tr>
+																						<td>4</td>
+																						<td>85.25</td>
+																						<td>15-12-2013</td>
+																						<td>15-04-2014</td>
+																						<td>Nueva Conexion</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div><!-- /.table-responsive -->
+																	
+																	</div>
+																</div>
+															</div>
+
+															
+
+
+															<div class="hr hr-dotted"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="email">Correo Electronico:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="email" name="email" id="email"
+																			class="col-xs-12 col-sm-6" />
+																	</div>
+																</div>
+															</div>
+
+															<div class="space-2"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="phone">Telefono:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="input-group">
+																		<span class="input-group-addon"> <i
+																			class="icon-phone"></i>
+																		</span> <input type="tel" id="phone" name="phone" />
+																	</div>
+																</div>
+															</div>
+
+															<div class="space-2"></div>
+
+															<div class="form-group">
+																<label
+																	class="control-label col-xs-12 col-sm-3 no-padding-right"
+																	for="phone">Celular:</label>
+
+																<div class="col-xs-12 col-sm-9">
+																	<div class="input-group">
+																		<span class="input-group-addon"> <i
+																			class="icon-phone"></i>
+																		</span> <input type="tel" id="phone" name="phone" />
+																	</div>
+																</div>
+															</div>
+
+
+														</form>
 													</div>
 
 													<div class="step-pane" id="step4">
 														<div class="center">
 															<h3 class="green">Felicidades!</h3>
-															Tu Solicitud ha sido enviada! Click finalizar para
+															Tu Solicitud esta completa! Click finalizar para
 															terminar!
 														</div>
 													</div>
@@ -1083,10 +1267,15 @@ html,body,#map-canvas {
 		</div>
 		<!-- /.main-container-inner -->
 
+		<!--  Elimino esta linea porque se queda flotando en medio
+	
 		<a href="#" id="btn-scroll-up"
 			class="btn-scroll-up btn btn-sm btn-inverse"> <i
 			class="icon-double-angle-up icon-only bigger-110"></i>
 		</a>
+		
+		 -->
+		
 	</div>
 	<!-- /.main-container -->
 
@@ -1095,7 +1284,8 @@ html,body,#map-canvas {
 	<!--[if !IE]> -->
 
 	<!--  <script src="js/jquery.min.js"></script> -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 	<!-- <![endif]-->
 

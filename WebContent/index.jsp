@@ -451,7 +451,7 @@
 						<i class="icon-edit icon-2x"></i> SOLICITA TU NUEVA CONTRATACIÓN
 					</h1>
 					<br /> <a class="button right"
-						href="SolicitudNuevaContratacion.jsp"><i
+						href="nuevaconexion.jsp"><i
 						class="icon-hand-right"></i> Solicítala Via Web AQUI</a>
 					<!-- END Solicitar Nueva Conexión -->
 
