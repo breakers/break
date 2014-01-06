@@ -15,6 +15,6 @@ public interface PerfilDAO {
 	
 	public PerfilDTO buscarPorId(int idPerfil);
 	
-	
+	public int ultimoPerfil();
 	
 }

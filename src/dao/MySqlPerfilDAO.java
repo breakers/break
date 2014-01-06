@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
 import util.MySQL;
 import bean.PerfilDTO;
 import interfaces.PerfilDAO;
@@ -15,7 +17,7 @@ public class MySqlPerfilDAO implements PerfilDAO{
 	public void registrarPerfil(PerfilDTO perfil) {
 		Connection cn = MySQL.getConnection();
 		
-		String sql= "INSERT INTO tb_perfil VALUES(null,?,?,?,?,?,?,?,?,?,?)";
+		String sql= "usp_registrarPerfil(?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);
@@ -92,9 +94,45 @@ public class MySqlPerfilDAO implements PerfilDAO{
 
 	@Override
 	public List<PerfilDTO> listarPerfiles() {
-		// TODO Auto-generated method stub
-		return null;
+		List<PerfilDTO> lista = new ArrayList<PerfilDTO>();
+		Connection cn = MySQL.getConnection();
+		
+		String sql = "CALL usp_listarPerfiles";
+		
+		try {
+			PreparedStatement ps = cn.prepareStatement(sql);
+			
+			ResultSet rs=ps.executeQuery();
+			while (rs.next()) {
+				PerfilDTO profile = new PerfilDTO(rs.getInt("idPerfil"), 
+						rs.getString("desPerfil"), 
+						rs.getInt("moduloContratos"), 
+						rs.getInt("moduloCategorias"), 
+						rs.getInt("moduloLiquidacion"), 
+						rs.getInt("moduloReportes"), 
+						rs.getInt("moduloManClientes"), 
+						rs.getInt("moduloManPerfiles"), 
+						rs.getInt("moduloManUsuarios"), 
+						rs.getInt("moduloBuzon"), 
+						rs.getInt("moduloCalendario"));
+				lista.add(profile);
+			}
+			
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
 	}
+	
 
 	@Override
 	public void eliminarPerfil(int idPerfil) {
@@ -161,6 +199,36 @@ public class MySqlPerfilDAO implements PerfilDAO{
 			}
 		}
 		return profile;
+	}
+
+	@Override
+	public int ultimoPerfil() {
+		int ultimoid = 0;
+		Connection cn = MySQL.getConnection();
+		
+		String sql = "CALL usp_UltimoPerfil";
+		
+		try {
+			PreparedStatement ps = cn.prepareStatement(sql);
+			
+			ResultSet rs=ps.executeQuery();
+			if (rs.next()) {
+				ultimoid = rs.getInt("idPerfil");
+			}
+			
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ultimoid;
 	}
 
 }

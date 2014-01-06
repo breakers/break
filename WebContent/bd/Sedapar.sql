@@ -134,6 +134,7 @@ fechaDetalle datetime
 INSERT INTO tb_perfil VALUES(null,'Administrador',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Tecnico',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Cajero',1,1,1,1,1,1,1,1,1);
+INSERT INTO tb_perfil VALUES(null,'Perfil_Prueba',1,0,1,0,1,1,0,0,1);
 
 /*Datos en Usuarios*/
 INSERT INTO tb_usuario VALUES(null,1,'lysander','root','Felix','Apaza','Arroyo','43836055');
@@ -365,3 +366,29 @@ INSERT INTO tb_SolCambioCategoria VALUES(null,3,1,null,null,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(1,1,1,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(2,1,2,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(3,1,3,'2013-12-31');
+
+/* BEGINS STORE PROCEDURES*/
+
+DELIMITER $
+CREATE PROCEDURE usp_listarPerfiles()
+BEGIN
+	SELECT * FROM TB_PERFIL;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_UltimoPerfil()
+BEGIN
+	SELECT MAX(idPerfil)+1 as idPerfil FROM TB_PERFIL;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_registrarPerfil(
+desPerfil varchar(50),moduloContratos tinyint,moduloCategorias tinyint,
+moduloLiquidacion tinyint,moduloReportes tinyint,moduloManClientes tinyint,
+moduloManPerfiles tinyint,moduloManUsuarios tinyint,moduloBuzon tinyint,moduloCalendario tinyint)
+BEGIN
+	INSERT INTO TB_PERFIL(idPerfil,desPerfil,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,
+	moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario)
+	VALUES(null,desPerfil,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,
+	moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
+END$

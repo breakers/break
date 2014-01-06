@@ -518,7 +518,7 @@
 										key="label.Clientes" />
 							</a></li>
 
-							<li><a href="man_perfiles.jsp"> <i
+							<li><a href="SvPerfiles"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Perfiles" />
 							</a></li>

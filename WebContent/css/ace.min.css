@@ -5727,7 +5727,7 @@ input[type=checkbox].ace.ace-switch.ace-switch-3:checked+.lbl::after {
 
 input[type=checkbox].ace.ace-switch.ace-switch-4+.lbl::before,input[type=checkbox].ace.ace-switch.ace-switch-5+.lbl::before
 	{
-	content: "ON\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0OFF";
+	content: "0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a01";
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bolder;
 	font-size: 12px;
@@ -5847,7 +5847,7 @@ input[type=checkbox].ace-switch-lysander:checked+.lbl::after
 
 /* Fin Lysander code*/
 input[type=checkbox].ace.ace-switch.ace-switch-5+.lbl::before {
-	content: "YES\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0NO"
+	content: "SI\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0NO"
 }
 
 input[type=checkbox].ace.ace-switch.ace-switch-5:checked+.lbl::before {

@@ -32,5 +32,9 @@ public class PerfilService {
 	public PerfilDTO buscarPorId(int idPerfil) {
 		return perfildao.buscarPorId(idPerfil);
 	}
+	
+	public int ultimoPerfil(){
+		return perfildao.ultimoPerfil();
+	}
 
 }
