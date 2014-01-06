@@ -284,8 +284,7 @@ html,body,#map-canvas {
 						<!-- ########### Modificar Pagina -->
 						<h1>
 							<fmt:message key="label.Contenido" />
-							<small> <i class="icon-double-angle-right"></i> etiqueta
-								descripcion
+							<small> <i class="icon-double-angle-right"></i> Solicitelo YA
 							</small>
 						</h1>
 					</div>
@@ -405,27 +404,6 @@ html,body,#map-canvas {
 															</div>
 															<div class="space-2"></div>
 
-
-															<div class="form-group">
-																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right">Genero</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div>
-																		<label class="blue"> <input name="gender"
-																			value="1" type="radio" class="ace" /> <span
-																			class="lbl"> Masculino</span>
-																		</label>
-																	</div>
-
-																	<div>
-																		<label class="blue"> <input name="gender"
-																			value="2" type="radio" class="ace" /> <span
-																			class="lbl"> Femenino</span>
-																		</label>
-																	</div>
-																</div>
-															</div>
 
 															<div class="hr hr-dotted"></div>
 
@@ -621,27 +599,6 @@ html,body,#map-canvas {
 															</div>
 															<div class="space-2"></div>
 
-
-															<div class="form-group">
-																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right">Genero</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div>
-																		<label class="blue"> <input name="gender"
-																			value="1" type="radio" class="ace" /> <span
-																			class="lbl"> Masculino</span>
-																		</label>
-																	</div>
-
-																	<div>
-																		<label class="blue"> <input name="gender"
-																			value="2" type="radio" class="ace" /> <span
-																			class="lbl"> Femenino</span>
-																		</label>
-																	</div>
-																</div>
-															</div>
 
 															<div class="hr hr-dotted"></div>
 
@@ -956,9 +913,7 @@ html,body,#map-canvas {
 
 																			<fieldset>
 																				<label class="control-label col-xs-8 col-sm-4">Partido
-																					Registral de inscripción o Certificado de Busqueda
-																					Catastral y Copia Simple de Escritura pública de
-																					compra-venta o constancia de Posesión Emitida por
+																					Registral de inscripción o Constancia de Posesión Emitida por
 																					la Municipalidad:(*)</label> <input id="plano" name="plano"
 																					class="input-file col-xs-12 col-sm-6" type="file"
 																					title="Selecciona Imagen .jpg" />
@@ -1233,12 +1188,12 @@ html,body,#map-canvas {
 												<hr />
 												<div class="row-fluid wizard-actions">
 													<button class="btn btn-prev">
-														<i class="icon-arrow-left"></i> Prev
+														<i class="icon-arrow-left"></i> Regresar
 													</button>
 
 													<button class="btn btn-success btn-next"
 														data-last="Finish ">
-														Next <i class="icon-arrow-right icon-on-right"></i>
+														Continuar <i class="icon-arrow-right icon-on-right"></i>
 													</button>
 												</div>
 											</div>
