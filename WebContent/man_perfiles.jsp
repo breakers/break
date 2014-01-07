@@ -58,6 +58,7 @@
 <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/jquery.gritter.css">
 
 <!--[if IE 7]>
 		  <link rel="stylesheet" href="css/font-awesome-ie7.min.css" />
@@ -93,6 +94,7 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 <![endif]-->
+
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
@@ -1055,9 +1057,12 @@
 	</div>
 	
 	<script src="js/bootbox.js"></script>
+	<script src="js/jquery.gritter.min.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 	<script type="text/javascript">
 	<!-- RENZO-->
 	$(document).ready(function () {
+		
 		
 	    $("tr").click(function () {
 	        $(this).closest("tr").siblings().removeClass("highlighted");
@@ -1099,6 +1104,18 @@
 		    $("#chkModBuzon_eli").prop('checked', parseInt(moduloBuzon));
 		    $("#chkModCalendario_eli").prop('checked', parseInt(moduloCalendario));
 	    });
+	    
+	    
+
+ 		if("${sessionScope.evento}"==1){
+ 			<% sesion.setAttribute("evento", 0); %>
+ 			$.gritter.add({
+				title: 'Proyecto Breakers',
+				text: 'Perfil agregado correctamente',
+				image: 'img/mensajes/thumb_up.png',
+				class_name: 'gritter-light'
+			});	
+ 		}
 	});
 	
 	

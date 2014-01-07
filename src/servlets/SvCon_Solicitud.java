@@ -1,10 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -21,9 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Con_SolicitudDTO;
 import service.Con_SolicitudService;
-import service.PerfilService;
-import service.UsuarioService;
-import util.MySQL;
 
 /**
  * Servlet implementation class SvPruebaSol

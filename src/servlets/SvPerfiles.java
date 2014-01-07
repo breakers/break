@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -110,6 +109,8 @@ public class SvPerfiles extends HttpServlet {
 				PerfilDTO perfil = new PerfilDTO(0,descripcion,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
 				
 				service.registrarPerfil(perfil);
+				
+				request.getSession().setAttribute("evento", 1);
 				listarPerfiles(request, response);
 			
 		}
@@ -152,6 +153,7 @@ public class SvPerfiles extends HttpServlet {
 			PerfilDTO perfil = new PerfilDTO(id,descripcion,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
 			
 			service.actualizarPerfil(perfil);
+			request.getSession().setAttribute("evento", 2);
 			listarPerfiles(request, response);
 		}
 
@@ -163,6 +165,7 @@ public class SvPerfiles extends HttpServlet {
 			System.out.println("Parametros: "+id);
 			
 			service.eliminarPerfil(id);
+			request.getSession().setAttribute("evento", 3);
 			listarPerfiles(request, response);
 		}
 		
