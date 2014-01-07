@@ -17,8 +17,8 @@ public class PerfilService {
 		perfildao.registrarPerfil(perfil);
 	}
 
-	public void modificarPerfil(PerfilDTO perfil) {
-		perfildao.modificarPerfil(perfil);
+	public void actualizarPerfil(PerfilDTO perfil) {
+		perfildao.actualizarPerfil(perfil);
 	}
 
 	public List<PerfilDTO> listarPerfiles() {

@@ -668,11 +668,16 @@
 												</li>
 
 												<li>
-													<a data-toggle="tab" href="#tabActualizarEliminar">
+													<a data-toggle="tab" href="#tabActualizar">
 														<i class="green icon-edit bigger-150"></i>
-														Actualizar | 
-														<i class="red icon-remove bigger-150"></i>
-														Eliminar
+														Actualizar														
+													</a>
+												</li>
+												
+												<li>
+													<a data-toggle="tab" href="#tabEliminar">
+														<i class="red icon-trash bigger-150"></i>
+														Eliminar														
 													</a>
 												</li>
 
@@ -763,7 +768,9 @@
 													</form>
 												</div>
 
-												<div id="tabActualizarEliminar" class="tab-pane">
+												
+												<div id="tabActualizar" class="tab-pane">
+													<form action="SvPerfiles" method="post">
 													<fieldset>
 														<label class="col-sm-1 control-label no-padding-right" style="padding-top: 3px;">ID:</label> 													
 														<input class="col-sm-2" type="text" name="txtID_act" id="txtID_act" readonly="readonly"/>
@@ -771,19 +778,19 @@
 													
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">Descripcion:</label> 													
-														<input class="col-sm-4" type="text" name="txtDescripcion_act" id="txtDescripcion_act" style="left: 20px;"/>
+														<input class="col-sm-4" type="text" name="txtDescripcion_act" id="txtDescripcion_act" style="left: 20px;" />
 													</fieldset><br>
 													
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloContratos:</label>
 														<span class="col-sm-1" style="margin-left: 55px;">
-															<input id="chkModContratos_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModContratos_act" name="chkModContratos_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
 															<span class="lbl"></span>
 														</span>
 														
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloManClientes:</label>
 														<span style="margin-left: 130px;">
-															<input id="chkModManClientes_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModManClientes_act" name="chkModManClientes_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
 															<span class="lbl"></span>
 														</span>
 													</fieldset><br>
@@ -791,13 +798,13 @@
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloCategorias:</label>
 														<span class="col-sm-1" style="margin-left: 55px;">
-															<input id="chkModCategorias_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModCategorias_act" name="chkModCategorias_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
 															<span class="lbl"></span>
 														</span>
 														
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloManPerfiles:</label>
 														<span style="margin-left: 130px;">
-															<input id="chkModManPerfiles_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModManPerfiles_act" name="chkModManPerfiles_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5"/>
 															<span class="lbl"></span>
 														</span>
 													</fieldset><br>
@@ -805,13 +812,13 @@
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloLiquidacion:</label>
 														<span class="col-sm-1" style="margin-left: 55px;">
-															<input id="chkModLiquidacion_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModLiquidacion_act" name="chkModLiquidacion_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
 															<span class="lbl"></span>
 														</span>
 														
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloManUsuarios:</label>
 														<span style="margin-left: 130px;">
-															<input id="chkModManUsuarios_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModManUsuarios_act" name="chkModManUsuarios_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
 															<span class="lbl"></span>
 														</span>
 													</fieldset><br>
@@ -819,13 +826,13 @@
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloReportes:</label>
 														<span class="col-sm-1" style="margin-left: 55px;">
-															<input id="chkModReportes_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModReportes_act" name="chkModReportes_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5"/>
 															<span class="lbl"></span>
 														</span>
 														
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloBuzon:</label>
 														<span style="margin-left: 130px;">
-															<input id="chkModBuzon_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModBuzon_act" name="chkModBuzon_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
 															<span class="lbl"></span>
 														</span>
 													</fieldset><br>
@@ -836,41 +843,117 @@
 														
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloCalendario:</label>
 														<span style="margin-left: 133px;">
-															<input id="chkModCalendario_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModCalendario_act" name="chkModCalendario_act" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
 															<span class="lbl"></span>
 														</span>
 													</fieldset><br>
 													
 													<fieldset>
 														<div class="col-sm-5"></div>
-														<button class="btn btn-yellow" id="boton" name="boton">
-															<i class="icon-edit"></i>
+														<button class="btn btn-danger" id="boton" name="boton" value="Actualizar">
+															<i class="icon-yellow"></i>
 															Actualizar
 														</button>
-														<button class="btn btn-danger" style="margin-left: 30px;" id="boton" name="boton">
+													</fieldset>
+												</form>
+												</div>
+												
+												
+												<div id="tabEliminar" class="tab-pane">
+													<form action="SvPerfiles" method="post">
+													<fieldset>
+														<label class="col-sm-1 control-label no-padding-right" style="padding-top: 3px;">ID:</label> 													
+														<input class="col-sm-2" type="text" name="txtID_eli" id="txtID_eli" readonly="readonly"/>
+													</fieldset><br>
+													
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">Descripcion:</label> 													
+														<input class="col-sm-4" type="text" name="txtDescripcion_eli" id="txtDescripcion_eli" style="left: 20px;" readonly="readonly"/>
+													</fieldset><br>
+													
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloContratos:</label>
+														<span class="col-sm-1" style="margin-left: 55px;">
+															<input id="chkModContratos_eli" name="chkModContratos_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+														
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloManClientes:</label>
+														<span style="margin-left: 130px;">
+															<input id="chkModManClientes_eli" name="chkModManClientes_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+													</fieldset><br>
+													
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloCategorias:</label>
+														<span class="col-sm-1" style="margin-left: 55px;">
+															<input id="chkModCategorias_eli" name="chkModCategorias_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+														
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloManPerfiles:</label>
+														<span style="margin-left: 130px;">
+															<input id="chkModManPerfiles_eli" name="chkModManPerfiles_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+													</fieldset><br>
+													
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloLiquidacion:</label>
+														<span class="col-sm-1" style="margin-left: 55px;">
+															<input id="chkModLiquidacion_eli" name="chkModLiquidacion_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+														
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloManUsuarios:</label>
+														<span style="margin-left: 130px;">
+															<input id="chkModManUsuarios_eli" name="chkModManUsuarios_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+													</fieldset><br>
+													
+													<fieldset>
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloReportes:</label>
+														<span class="col-sm-1" style="margin-left: 55px;">
+															<input id="chkModReportes_eli" name="chkModReportes_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+														
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloBuzon:</label>
+														<span style="margin-left: 130px;">
+															<input id="chkModBuzon_eli" name="chkModBuzon_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled" />
+															<span class="lbl"></span>
+														</span>
+													</fieldset><br>
+													
+													<fieldset style="padding-left: 17px;">
+														<div class="col-sm-2"></div>
+														<div class="col-sm-2"></div>
+														
+														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px; left: 50px;">moduloCalendario:</label>
+														<span style="margin-left: 133px;">
+															<input id="chkModCalendario_eli" name="chkModCalendario_eli" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" disabled="disabled"/>
+															<span class="lbl"></span>
+														</span>
+													</fieldset><br>
+													
+													<fieldset>
+														<div class="col-sm-5"></div>
+														<button class="btn btn-danger" id="boton" name="boton" value="Eliminar">
 															<i class="icon-trash"></i>
 															Eliminar
 														</button>
 													</fieldset>
+												</form>
 												</div>
 
 											</div>
 										</div>
 									</div><!-- /span -->
-								
-									
-
-
-							
-							
-							
-							
-							
 							
 							</div>
 							
-
-
 
 
 
@@ -992,7 +1075,6 @@
 	        
 	        $("#txtID_act").val(id);
 		    $("#txtDescripcion_act").val(des);
-		    
 		    $("#chkModContratos_act").prop('checked', parseInt(moduloContratos));
 		    $("#chkModCategorias_act").prop('checked', parseInt(moduloCategorias));
 		    $("#chkModLiquidacion_act").prop('checked', parseInt(moduloLiquidacion));
@@ -1002,6 +1084,18 @@
 		    $("#chkModManUsuarios_act").prop('checked', parseInt(moduloManUsuarios));
 		    $("#chkModBuzon_act").prop('checked', parseInt(moduloBuzon));
 		    $("#chkModCalendario_act").prop('checked', parseInt(moduloCalendario));
+		    
+		    $("#txtID_eli").val(id);
+		    $("#txtDescripcion_eli").val(des);
+		    $("#chkModContratos_eli").prop('checked', parseInt(moduloContratos));
+		    $("#chkModCategorias_eli").prop('checked', parseInt(moduloCategorias));
+		    $("#chkModLiquidacion_eli").prop('checked', parseInt(moduloLiquidacion));
+		    $("#chkModReportes_eli").prop('checked', parseInt(moduloReportes));
+		    $("#chkModManClientes_eli").prop('checked', parseInt(moduloManClientes));
+		    $("#chkModManPerfiles_eli").prop('checked', parseInt(moduloManPerfiles));
+		    $("#chkModManUsuarios_eli").prop('checked', parseInt(moduloManUsuarios));
+		    $("#chkModBuzon_eli").prop('checked', parseInt(moduloBuzon));
+		    $("#chkModCalendario_eli").prop('checked', parseInt(moduloCalendario));
 	    });
 	});
 	

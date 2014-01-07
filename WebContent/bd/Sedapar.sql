@@ -367,7 +367,7 @@ INSERT INTO tb_DetalleSolicitudCambioCat VALUES(1,1,1,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(2,1,2,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(3,1,3,'2013-12-31');
 
-/* BEGINS STORE PROCEDURES*/
+/* BEGINS PROCEDURES*/
 
 DELIMITER $
 CREATE PROCEDURE usp_listarPerfiles()
@@ -391,4 +391,25 @@ BEGIN
 	moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario)
 	VALUES(null,desPerfil,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,
 	moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
+END$
+
+
+DELIMITER $
+CREATE PROCEDURE usp_actualizarPerfil(
+vidPerfil int,vdesPerfil varchar(50),vmoduloContratos tinyint,vmoduloCategorias tinyint,
+vmoduloLiquidacion tinyint,vmoduloReportes tinyint,vmoduloManClientes tinyint,
+vmoduloManPerfiles tinyint,vmoduloManUsuarios tinyint,vmoduloBuzon tinyint,vmoduloCalendario tinyint)
+BEGIN
+	UPDATE TB_PERFIL SET desPerfil=vdesPerfil, moduloContratos=vmoduloContratos,
+				moduloCategorias=vmoduloCategorias, moduloLiquidacion=vmoduloLiquidacion,
+				moduloReportes=vmoduloReportes, moduloManClientes=vmoduloManClientes,
+				moduloManPerfiles=vmoduloManPerfiles, moduloManUsuarios=vmoduloManUsuarios,
+				moduloManUsuarios=vmoduloManUsuarios, moduloBuzon=vmoduloBuzon,
+				moduloCalendario=vmoduloCalendario WHERE idPerfil=vidPerfil;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_eliminarPerfil(vidPerfil int)
+BEGIN
+	DELETE FROM TB_PERFIL WHERE idPerfil=vidPerfil;
 END$

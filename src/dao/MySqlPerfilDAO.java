@@ -47,35 +47,25 @@ public class MySqlPerfilDAO implements PerfilDAO{
 	}
 
 	@Override
-	public void modificarPerfil(PerfilDTO perfil) {
+	public void actualizarPerfil(PerfilDTO perfil) {
 		Connection cn = MySQL.getConnection();
 		
-		String sql= "UPDATE tb_perfil SET "
-				+ "desPerfil = ?, "
-				+ "moduloContratos = ?,"
-				+ "moduloCategorias = ?,"
-				+ "moduloLiquidacion = ?,"
-				+ "moduloReportes = ?,"
-				+ "moduloManClientes = ?,"
-				+ "moduloManPerfiles = ?,"
-				+ "moduloManUsuarios = ?,"
-				+ "moduloBuzon = ?,"
-				+ "moduloCalendario = ? "
-				+ "WHERE idPerfil = ?";
+		String sql= "CALL usp_actualizarPerfil(?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);
-			ps.setString(1, perfil.getDesPerfil());
-			ps.setInt(2, perfil.getModuloContratos());
-			ps.setInt(3, perfil.getModuloCategorias());
-			ps.setInt(4, perfil.getModuloLiquidacion());
-			ps.setInt(5, perfil.getModuloReportes());
-			ps.setInt(6, perfil.getModuloManClientes());
-			ps.setInt(7, perfil.getModuloManPerfiles());
-			ps.setInt(8, perfil.getModuloManUsuarios());
-			ps.setInt(9, perfil.getModuloBuzon());
-			ps.setInt(10, perfil.getModuloCalendario());
-			ps.setInt(11, perfil.getIdPerfil());
+			ps.setInt(1, perfil.getIdPerfil());
+			ps.setString(2, perfil.getDesPerfil());
+			ps.setInt(3, perfil.getModuloContratos());
+			ps.setInt(4, perfil.getModuloCategorias());
+			ps.setInt(5, perfil.getModuloLiquidacion());
+			ps.setInt(6, perfil.getModuloReportes());
+			ps.setInt(7, perfil.getModuloManClientes());
+			ps.setInt(8, perfil.getModuloManPerfiles());
+			ps.setInt(9, perfil.getModuloManUsuarios());
+			ps.setInt(10, perfil.getModuloBuzon());
+			ps.setInt(11, perfil.getModuloCalendario());
+			
 			ps.executeUpdate();
 			ps.close();
 			
@@ -139,7 +129,7 @@ public class MySqlPerfilDAO implements PerfilDAO{
 	public void eliminarPerfil(int idPerfil) {
 		Connection cn = MySQL.getConnection();
 		
-		String sql = "DELETE FROM tb_perfil WHERE idPerfil = ?";
+		String sql = "CALL usp_eliminarPerfil(?)";
 		
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);

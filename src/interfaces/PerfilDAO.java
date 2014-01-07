@@ -7,7 +7,7 @@ public interface PerfilDAO {
 	
 	public void registrarPerfil(PerfilDTO perfil);
 	
-	public void modificarPerfil(PerfilDTO perfil);
+	public void actualizarPerfil(PerfilDTO perfil);
 	
 	public List<PerfilDTO> listarPerfiles();
 	

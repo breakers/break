@@ -46,54 +46,13 @@ public class SvPerfiles extends HttpServlet {
 		System.out.println("Llego al Servlet SvPerfiles metodo Post");
 		
 		if(((String)request.getParameter("boton")).equals("Agregar")){
-			System.out.println("btnAgregar si existe entonces procede a recibir todos los datos");
-			String descripcion = (String) request.getParameter("txtDescripcion");
-			/*
-			String moduloContratos = (String) request.getParameter("chkModContratos");
-			String moduloCategorias = (String) request.getParameter("chkModCategorias");
-			String moduloLiquidacion = (String) request.getParameter("chkModLiquidacion");
-			String moduloReportes = (String) request.getParameter("chkModReportes");
-			String moduloManClientes = (String) request.getParameter("chkModManClientes");
-			String moduloManPerfiles = (String) request.getParameter("chkModManPerfiles");
-			String moduloManUsuarios = (String) request.getParameter("chkModManUsuarios");
-			String moduloBuzon = (String) request.getParameter("chkModBuzon");
-			String moduloCalendario = (String) request.getParameter("chkModCalendario");*/
-			
-			int moduloContratos;
-			int moduloCategorias;
-			int moduloLiquidacion;
-			int moduloReportes;
-			int moduloManClientes;
-			int moduloManPerfiles;
-			int moduloManUsuarios;
-			int moduloBuzon;
-			int moduloCalendario;
-			
-			if(((String) request.getParameter("chkModContratos"))!=null)	moduloContratos=1;
-			else	moduloContratos=0;
-			if(((String) request.getParameter("chkModCategorias"))!=null)	moduloCategorias=1;
-			else	moduloCategorias=0;
-			if(((String) request.getParameter("chkModLiquidacion"))!=null) moduloLiquidacion=1;
-			else	moduloLiquidacion=0;
-			if(((String) request.getParameter("chkModReportes"))!=null) moduloReportes=1;
-			else	moduloReportes=0;
-			if(((String) request.getParameter("chkModManClientes"))!=null) moduloManClientes=1;
-			else	moduloManClientes=0;
-			if(((String) request.getParameter("chkModManPerfiles"))!=null) moduloManPerfiles=1;
-			else	moduloManPerfiles=0;
-			if(((String) request.getParameter("chkModLiquidacion"))!=null) moduloManUsuarios=1;
-			else	moduloManUsuarios=0;
-			if(((String) request.getParameter("chkModBuzon"))!=null) moduloBuzon=1;
-			else	moduloBuzon=0;
-			if(((String) request.getParameter("chkModCalendario"))!=null) moduloCalendario=1;
-			else	moduloCalendario=0;
-			System.out.println("Los parametros son: "+descripcion+","+moduloContratos+","+moduloCategorias+","+moduloLiquidacion+","+moduloReportes+","+moduloManClientes+","+moduloManPerfiles+","+moduloManUsuarios+","+moduloBuzon+","+moduloCalendario);	
-			
-			PerfilDTO perfil = new PerfilDTO(0,descripcion,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
-			
-			service.registrarPerfil(perfil);
-			listarPerfiles(request, response);
+			registrarPerfiles(request, response);
+		}else if(((String)request.getParameter("boton")).equals("Actualizar")){
+			actualizarPerfiles(request, response);
+		}else if(((String)request.getParameter("boton")).equals("Eliminar")){
+			eliminarPerfiles(request, response);
 		}
+		
 		
 	}
 	
@@ -110,5 +69,98 @@ public class SvPerfiles extends HttpServlet {
 			
 					}
 		}
+		
+		public void registrarPerfiles(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+			
+				System.out.println("btnAgregar si existe entonces procede a recibir todos los datos");
+				String descripcion = (String) request.getParameter("txtDescripcion");
+				
+				int moduloContratos;
+				int moduloCategorias;
+				int moduloLiquidacion;
+				int moduloReportes;
+				int moduloManClientes;
+				int moduloManPerfiles;
+				int moduloManUsuarios;
+				int moduloBuzon;
+				int moduloCalendario;
+				
+				if(((String) request.getParameter("chkModContratos"))!=null)	moduloContratos=1;
+				else	moduloContratos=0;
+				if(((String) request.getParameter("chkModCategorias"))!=null)	moduloCategorias=1;
+				else	moduloCategorias=0;
+				if(((String) request.getParameter("chkModLiquidacion"))!=null) moduloLiquidacion=1;
+				else	moduloLiquidacion=0;
+				if(((String) request.getParameter("chkModReportes"))!=null) moduloReportes=1;
+				else	moduloReportes=0;
+				if(((String) request.getParameter("chkModManClientes"))!=null) moduloManClientes=1;
+				else	moduloManClientes=0;
+				if(((String) request.getParameter("chkModManPerfiles"))!=null) moduloManPerfiles=1;
+				else	moduloManPerfiles=0;
+				if(((String) request.getParameter("chkModLiquidacion"))!=null) moduloManUsuarios=1;
+				else	moduloManUsuarios=0;
+				if(((String) request.getParameter("chkModBuzon"))!=null) moduloBuzon=1;
+				else	moduloBuzon=0;
+				if(((String) request.getParameter("chkModCalendario"))!=null) moduloCalendario=1;
+				else	moduloCalendario=0;
+				
+				PerfilDTO perfil = new PerfilDTO(0,descripcion,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
+				
+				service.registrarPerfil(perfil);
+				listarPerfiles(request, response);
+			
+		}
+		
+		public void actualizarPerfiles(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+			int id = Integer.parseInt(request.getParameter("txtID_act"));
+			String descripcion = (String) request.getParameter("txtDescripcion_act");
+			
+			int moduloContratos;
+			int moduloCategorias;
+			int moduloLiquidacion;
+			int moduloReportes;
+			int moduloManClientes;
+			int moduloManPerfiles;
+			int moduloManUsuarios;
+			int moduloBuzon;
+			int moduloCalendario;
+			
+			if(((String) request.getParameter("chkModContratos_act"))!=null)	moduloContratos=1;
+			else	moduloContratos=0;
+			if(((String) request.getParameter("chkModCategorias_act"))!=null)	moduloCategorias=1;
+			else	moduloCategorias=0;
+			if(((String) request.getParameter("chkModLiquidacion_act"))!=null) moduloLiquidacion=1;
+			else	moduloLiquidacion=0;
+			if(((String) request.getParameter("chkModReportes_act"))!=null) moduloReportes=1;
+			else	moduloReportes=0;
+			if(((String) request.getParameter("chkModManClientes_act"))!=null) moduloManClientes=1;
+			else	moduloManClientes=0;
+			if(((String) request.getParameter("chkModManPerfiles_act"))!=null) moduloManPerfiles=1;
+			else	moduloManPerfiles=0;
+			if(((String) request.getParameter("chkModLiquidacion_act"))!=null) moduloManUsuarios=1;
+			else	moduloManUsuarios=0;
+			if(((String) request.getParameter("chkModBuzon_act"))!=null) moduloBuzon=1;
+			else	moduloBuzon=0;
+			if(((String) request.getParameter("chkModCalendario_act"))!=null) moduloCalendario=1;
+			else	moduloCalendario=0;
+			
+			
+			System.out.println("Parametros: "+id+","+descripcion+","+moduloContratos+","+moduloCategorias+","+moduloLiquidacion+","+moduloReportes+","+moduloManClientes+","+moduloManPerfiles+","+moduloManUsuarios+","+moduloBuzon+","+moduloCalendario);
+			PerfilDTO perfil = new PerfilDTO(id,descripcion,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
+			
+			service.actualizarPerfil(perfil);
+			listarPerfiles(request, response);
+		}
 
+		
+		
+		public void eliminarPerfiles(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+			int id = Integer.parseInt(request.getParameter("txtID_eli"));
+			
+			System.out.println("Parametros: "+id);
+			
+			service.eliminarPerfil(id);
+			listarPerfiles(request, response);
+		}
+		
 }
