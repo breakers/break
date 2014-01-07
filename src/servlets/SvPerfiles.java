@@ -46,10 +46,13 @@ public class SvPerfiles extends HttpServlet {
 		System.out.println("Llego al Servlet SvPerfiles metodo Post");
 		
 		if(((String)request.getParameter("boton")).equals("Agregar")){
+			System.out.println("Entro al método registrar perfil");
 			registrarPerfiles(request, response);
 		}else if(((String)request.getParameter("boton")).equals("Actualizar")){
+			System.out.println("Entro al método actualizar perfil");
 			actualizarPerfiles(request, response);
 		}else if(((String)request.getParameter("boton")).equals("Eliminar")){
+			System.out.println("Entro al método eliminar perfil");
 			eliminarPerfiles(request, response);
 		}
 		

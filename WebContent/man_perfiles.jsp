@@ -662,14 +662,14 @@
 											<ul class="nav nav-tabs" id="myTab">
 												<li class="active">
 													<a data-toggle="tab" href="#tabAgregar">
-														<i class="blue icon-file bigger-150"></i>
+														<i class="blue icon-edit bigger-150"></i>
 														Agregar
 													</a>
 												</li>
 
 												<li>
 													<a data-toggle="tab" href="#tabActualizar">
-														<i class="green icon-edit bigger-150"></i>
+														<i class="green icon-refresh bigger-150"></i>
 														Actualizar														
 													</a>
 												</li>
@@ -761,7 +761,7 @@
 													
 													<fieldset style="padding-left: 400px;">
 														<button class="btn btn-success" name="boton" id="boton" type="submit" value="Agregar">
-															<i class="icon-ok"></i>
+															<i class="icon-edit"></i>
 															Agregar
 														</button>
 													</fieldset>
@@ -850,8 +850,8 @@
 													
 													<fieldset>
 														<div class="col-sm-5"></div>
-														<button class="btn btn-danger" id="boton" name="boton" value="Actualizar">
-															<i class="icon-yellow"></i>
+														<button class="btn btn-yellow" id="boton" name="boton" value="Actualizar">
+															<i class="icon-refresh"></i>
 															Actualizar
 														</button>
 													</fieldset>
@@ -860,7 +860,7 @@
 												
 												
 												<div id="tabEliminar" class="tab-pane">
-													<form action="SvPerfiles" method="post">
+													<form action="SvPerfiles" method="post" id="formEliminar">
 													<fieldset>
 														<label class="col-sm-1 control-label no-padding-right" style="padding-top: 3px;">ID:</label> 													
 														<input class="col-sm-2" type="text" name="txtID_eli" id="txtID_eli" readonly="readonly"/>
@@ -940,11 +940,12 @@
 													
 													<fieldset>
 														<div class="col-sm-5"></div>
-														<button class="btn btn-danger" id="boton" name="boton" value="Eliminar">
+														<button class="btn btn-danger" id="boton" name="boton" value="Eliminar" onclick="confirmarEliminar()" type="submit">
 															<i class="icon-trash"></i>
 															Eliminar
 														</button>
 													</fieldset>
+													
 												</form>
 												</div>
 
@@ -1053,6 +1054,7 @@
 		<div class="tooltip-inner">social networks : 38.7%</div>
 	</div>
 	
+	<script src="js/bootbox.js"></script>
 	<script type="text/javascript">
 	<!-- RENZO-->
 	$(document).ready(function () {
@@ -1098,6 +1100,7 @@
 		    $("#chkModCalendario_eli").prop('checked', parseInt(moduloCalendario));
 	    });
 	});
+	
 	
 	</script>
 	
