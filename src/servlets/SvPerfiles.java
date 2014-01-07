@@ -18,7 +18,7 @@ import bean.PerfilDTO;
  * Servlet implementation class SvPerfiles
  */
 @WebServlet("/SvPerfiles")
-public class SvPerfiles extends HttpServlet {
+public class SvPerfiles extends ServletParent {
 	private static final long serialVersionUID = 1L;
        PerfilService service = new PerfilService();
     /**
@@ -108,9 +108,13 @@ public class SvPerfiles extends HttpServlet {
 				
 				PerfilDTO perfil = new PerfilDTO(0,descripcion,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
 				
+				
+				
 				service.registrarPerfil(perfil);
 				
+				
 				request.getSession().setAttribute("evento", 1);
+				request.getSession().setAttribute("mensaje", obtenerMensaje(request,1,"Perfil"));
 				listarPerfiles(request, response);
 			
 		}

@@ -1110,9 +1110,9 @@
  		if("${sessionScope.evento}"==1){
  			<% sesion.setAttribute("evento", 0); %>
  			$.gritter.add({
-				title: 'Proyecto Breakers',
-				text: 'Perfil agregado correctamente',
-				image: 'img/mensajes/thumb_up.png',
+				title: "${sessionScope.mensaje.tituloMensajeAlerta}",
+				text: '${sessionScope.mensaje.cuerpoMensajeAlerta}',
+				image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
 				class_name: 'gritter-light'
 			});	
  		}

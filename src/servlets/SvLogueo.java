@@ -14,6 +14,7 @@ import bean.PerfilDTO;
 import bean.UsuarioDTO;
 import service.PerfilService;
 import service.UsuarioService;
+import util.utilMensaje;
 
 /**
  * Servlet implementation class SvLogueo
@@ -77,6 +78,7 @@ public class SvLogueo extends HttpServlet {
 		sesion.setAttribute("foto", usuario.getIdUsuario());
 		sesion.setAttribute("tipo", usuario.getIdPerfil());
 		sesion.setAttribute("evento", 0);
+		sesion.setAttribute("mensajesAlerta", utilMensaje.listarMensajesAlerta());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 						request.setAttribute("usuarioDTO", usuario);

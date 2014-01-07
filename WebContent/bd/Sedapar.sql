@@ -130,6 +130,13 @@ idUsuario int references tb_usuario,
 fechaDetalle datetime
 );
 
+create table tb_MensajesAlerta(
+idMensajeAlerta int auto_increment primary key,
+tituloMensajeAlerta varchar(50),
+cuerpoMensajeAlerta varchar(50),
+imagenMensajeAlerta varchar(50)
+);
+
 /*Datos en Perfiles*/
 INSERT INTO tb_perfil VALUES(null,'Administrador',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Tecnico',1,1,1,1,1,1,1,1,1);
@@ -367,6 +374,8 @@ INSERT INTO tb_DetalleSolicitudCambioCat VALUES(1,1,1,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(2,1,2,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(3,1,3,'2013-12-31');
 
+INSERT INTO tb_MensajesAlerta VALUES(null,'Proyecto Breakers','# registrado correctamente','thumb_up.png');
+
 /* BEGINS PROCEDURES*/
 
 DELIMITER $
@@ -409,7 +418,18 @@ BEGIN
 END$
 
 DELIMITER $
+
 CREATE PROCEDURE usp_eliminarPerfil(vidPerfil int)
 BEGIN
 	DELETE FROM TB_PERFIL WHERE idPerfil=vidPerfil;
 END$
+
+DELIMITER $
+
+CREATE PROCEDURE usp_listarMensajesAlerta()
+BEGIN
+	SELECT * FROM tb_MensajesAlerta;
+END$
+
+
+
