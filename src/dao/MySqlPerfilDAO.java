@@ -17,7 +17,7 @@ public class MySqlPerfilDAO implements PerfilDAO{
 	public void registrarPerfil(PerfilDTO perfil) {
 		Connection cn = MySQL.getConnection();
 		
-		String sql= "usp_registrarPerfil(?,?,?,?,?,?,?,?,?,?)";
+		String sql= "CALL usp_registrarPerfil(?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);
@@ -130,6 +130,7 @@ public class MySqlPerfilDAO implements PerfilDAO{
 				e.printStackTrace();
 			}
 		}
+		
 		return lista;
 	}
 	

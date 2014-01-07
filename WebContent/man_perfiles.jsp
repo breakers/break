@@ -641,15 +641,15 @@
 														<tr>
 															<td>${lista.idPerfil}</td>
 															<td>${lista.desPerfil}</td>
-															<td>${lista.moduloContratos}</td>
-															<td>${lista.moduloCategorias}</td>
-															<td>${lista.moduloLiquidacion}</td>
-															<td>${lista.moduloReportes}</td>
-															<td>${lista.moduloManClientes}</td>
-															<td>${lista.moduloManPerfiles}</td>
-															<td>${lista.moduloManUsuarios}</td>
-															<td>${lista.moduloBuzon}</td>
-															<td>${lista.moduloCalendario}</td>
+															<td id="${lista.moduloContratos}">${lista.cad_moduloContratos}</td>
+															<td id="${lista.moduloCategorias}">${lista.cad_moduloCategorias}</td>
+															<td id="${lista.moduloLiquidacion}">${lista.cad_moduloLiquidacion}</td>
+															<td id="${lista.moduloReportes}">${lista.cad_moduloReportes}</td>
+															<td id="${lista.moduloManClientes}">${lista.cad_moduloManClientes}</td>
+															<td id="${lista.moduloManPerfiles}">${lista.cad_moduloManPerfiles}</td>
+															<td id="${lista.moduloManUsuarios}">${lista.cad_moduloManUsuarios}</td>
+															<td id="${lista.moduloBuzon}">${lista.cad_moduloBuzon}</td>
+															<td id="${lista.moduloCalendario}">${lista.cad_moduloCalendario}</td>
 														</tr>
 													</c:forEach>
 												</tbody>
@@ -681,11 +681,7 @@
 											<div class="tab-content">
 												<div id="tabAgregar" class="tab-pane in active">
 													<form method="post" action="SvPerfiles" >
-													<fieldset>
-														<label class="col-sm-1 control-label no-padding-right" style="padding-top: 3px;">ID:</label> 													
-														<input class="col-sm-2" type="text" name="txtID" id="txtID" readonly="readonly" value="${requestScope.ultimoid}"/>
-													</fieldset><br>
-													
+													<br>
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">Descripcion:</label> 													
 														<input class="col-sm-4" type="text" name="txtDescripcion" id="txtDescripcion" style="left: 20px;"/>
@@ -694,7 +690,7 @@
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">moduloContratos:</label>
 														<span class="col-sm-1" style="margin-left: 55px;">
-															<input id="chkModContratos" name="chkModContratos" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5" />
+															<input id="chkModContratos" name="chkModContratos" checked="checked" type="checkbox" class="ace ace-switch ace-switch-5"/>
 															<span class="lbl"></span>
 														</span>
 														
@@ -770,12 +766,12 @@
 												<div id="tabActualizarEliminar" class="tab-pane">
 													<fieldset>
 														<label class="col-sm-1 control-label no-padding-right" style="padding-top: 3px;">ID:</label> 													
-														<input class="col-sm-2" type="text" name="txtID" id="txtID_act" readonly="readonly"/>
+														<input class="col-sm-2" type="text" name="txtID_act" id="txtID_act" readonly="readonly"/>
 													</fieldset><br>
 													
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">Descripcion:</label> 													
-														<input class="col-sm-4" type="text" name="txtID" id="txtDescripcion_act" style="left: 20px;"/>
+														<input class="col-sm-4" type="text" name="txtDescripcion_act" id="txtDescripcion_act" style="left: 20px;"/>
 													</fieldset><br>
 													
 													<fieldset>
@@ -984,15 +980,15 @@
 	       
 	        var id = $(this).find('td').eq(0).text();
 	        var des = $(this).find('td').eq(1).text();
-	        var moduloContratos = $(this).find('td').eq(2).text();
-	        var moduloCategorias = $(this).find('td').eq(3).text();
-	        var moduloLiquidacion = $(this).find('td').eq(4).text();
-	        var moduloReportes = $(this).find('td').eq(5).text();
-	        var moduloManClientes = $(this).find('td').eq(6).text();
-	        var moduloManPerfiles = $(this).find('td').eq(7).text();
-	        var moduloManUsuarios = $(this).find('td').eq(8).text();
-	        var moduloBuzon = $(this).find('td').eq(9).text();
-	        var moduloCalendario = $(this).find('td').eq(10).text();
+	        var moduloContratos = $(this).find('td').eq(2).prop('id');
+	        var moduloCategorias = $(this).find('td').eq(3).prop('id');
+	        var moduloLiquidacion = $(this).find('td').eq(4).prop('id');
+	        var moduloReportes = $(this).find('td').eq(5).prop('id');
+	        var moduloManClientes = $(this).find('td').eq(6).prop('id');
+	        var moduloManPerfiles = $(this).find('td').eq(7).prop('id');
+	        var moduloManUsuarios = $(this).find('td').eq(8).prop('id');
+	        var moduloBuzon = $(this).find('td').eq(9).prop('id');
+	        var moduloCalendario = $(this).find('td').eq(10).prop('id');
 	        
 	        $("#txtID_act").val(id);
 		    $("#txtDescripcion_act").val(des);
@@ -1010,6 +1006,7 @@
 	});
 	
 	</script>
+	
 	
 	
 </body>

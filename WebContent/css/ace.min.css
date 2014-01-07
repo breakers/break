@@ -5649,7 +5649,7 @@ input[type=checkbox].ace.ace-switch+.lbl {
 
 input[type=checkbox].ace.ace-switch+.lbl::before {
 	font-family: Arial, Helvetica, sans-serif;
-	content: "ON\a0\a0\a0\a0\a0\a0\a0\a0\a0OFF";
+	content: "SI\a0\a0\a0\a0\a0\a0\a0\a0\a0NO";
 	color: #999;
 	font-weight: bold;
 	font-size: 11px;
