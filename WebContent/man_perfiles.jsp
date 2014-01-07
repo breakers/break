@@ -1111,8 +1111,9 @@
  			<% sesion.setAttribute("evento", 0); %>
  			$.gritter.add({
 				title: "${sessionScope.mensaje.tituloMensajeAlerta}",
-				text: '${sessionScope.mensaje.cuerpoMensajeAlerta}',
+				text: "${sessionScope.mensaje.cuerpoMensajeAlerta}",
 				image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
+				time: 2000,
 				class_name: 'gritter-light'
 			});	
  		}

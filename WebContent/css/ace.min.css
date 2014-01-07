@@ -5787,13 +5787,13 @@ input[type=checkbox].ace.ace-switch.ace-switch-4:checked+.lbl::after,input[type=
 /*Lydander Code */
 input[type=checkbox].ace-switch-lysander+.lbl::before
 	{
-	content: "Juridica  \a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0Natural" !important;
+	content: "Juridica\a0\a0\a0\a0\a0\a0\a0\a0\a0Natural" !important;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bolder;
 	font-size: 12px;
 	line-height: 23px;
 	height: 24px;
-	width: 130px !important;
+	width: 100px !important;
 	overflow: hidden;
 	line-height: 25px\9;
 	border-radius: 12px;
@@ -5841,7 +5841,7 @@ input[type=checkbox].ace-switch-lysander:checked+.lbl::before
 
 input[type=checkbox].ace-switch-lysander:checked+.lbl::after
 	{
-	left: 110px  !important;
+	left: 80px  !important;
 	background-color: #FFF
 }
 
