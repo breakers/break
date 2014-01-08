@@ -1,13 +1,17 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.PerfilDTO;
+import bean.UsuarioDTO;
 import service.UsuarioService;
 
 /**
@@ -60,8 +64,25 @@ public class SvUsuarios extends ServletParent {
 
 	private void listarUsuarios(HttpServletRequest request,
 			HttpServletResponse response) {
-		// TODO Auto-generated method stub
-
+		List<UsuarioDTO> lista = service.listarUsuarios();
+		int ultimoid= service.ultimoUsuario();
+		
+		if(lista!=null){
+		RequestDispatcher rd = request.getRequestDispatcher("/man_usuarios.jsp");
+		request.setAttribute("listaUsuarios", lista);
+		request.setAttribute("ultimoid", ultimoid);
+		try {
+			rd.forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+				}
 	}
 
 	private void registrarUsuarios(HttpServletRequest request,

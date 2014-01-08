@@ -522,7 +522,7 @@
 										key="label.Perfiles" />
 							</a></li>
 
-							<li class="active"><a href="man_usuarios.jsp"> <i
+							<li class="active"><a href="SvUsuarios"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Usuario" />
 							</a></li>
@@ -715,19 +715,20 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">DNI Usuario:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtDNI"
-																	id="txtDNI" placeholder="Ingrese DNI"
+																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
+																	name="txtDNI" id="txtDNI" placeholder="Ingrese DNI"
 																	required="required" />
 
 															</fieldset>
 															<br>
 															<fieldset>
+
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Correo:</label>
 																<div class="input-group">
 																	<span class="input-group-addon"> <i
 																		class="icon-envelope"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																	</span> <input class="col-xs-10 col-sm-9" type="email"
 																		name="txtCorreo" id="txtCorreo" required="required" />
 																</div>
 
@@ -739,7 +740,7 @@
 																<div class="input-group">
 																	<span class="input-group-addon"> <i
 																		class="icon-phone"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																	</span> <input class="col-xs-10 col-sm-9 " type="text"
 																		name="txtTelefono" id="txtTelefono"
 																		required="required" />
 																</div>
@@ -780,19 +781,20 @@
 																</select>
 															</fieldset>
 															<br>
-															<div class="space space-10"></div>
-															<a href="#" class="btn btn-lg btn-block btn-success">
-																<i class="icon-edit bigger-110"></i> <span
-																class="bigger-110">Agregar Usuario</span>
-															</a>
-															<button class="btn btn-sm" type="reset">
+															<fieldset>
 
-																<i class="icon-undo bigger-110"></i>
+																<button class="btn btn-lg btn-block btn-success"
+																	id="boton" name="boton" value="Agregar" type="submit">
+																	<i class="icon-edit"></i> <span class="bigger-110">Agregar
+																		Usuario </span>
+																</button>
+																<button class="btn btn-sm" type="reset">
+
+																	<i class="icon-undo bigger-110"></i>
 
 
-															</button>
-															<br>
-
+																</button>
+															</fieldset>
 
 														</div>
 													</div>
@@ -802,33 +804,32 @@
 
 
 											<div id="tabActualizar" class="tab-pane">
-											<form method="post" action="SvUsuarios">
+												<form method="post" action="SvUsuarios">
 													<div class="row">
 														<div class="col-sm-7">
 															<br>
 
 															<fieldset>
 																<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">ID:</label> <input
-																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtId" id="txtId"
-																	required="required" disabled="disabled"/>
-															</fieldset>
-															<br>
-																<label class="col-sm-3 control-label no-padding-right"
+																	<label class="col-sm-3 control-label no-padding-right"
+																		style="padding-top: 3px;">ID:</label> <input
+																		class="col-xs-10 col-sm-9" type="text"
+																		name="txtId_act" id="txtId_act" required="required"
+																		disabled="disabled" />
+																</fieldset>
+																<br> <label
+																	class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtUsuario" id="txtUsuario"
-																	placeholder="Ingrese Usuario" required="required" />
+																	name="txtUsuario_act" id="txtUsuario_act"
+																	required="required" />
 															</fieldset>
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Contraseña:</label> <input
 																	class="col-xs-10 col-sm-9" type="password"
-																	name="txtCon" id="txtCon"
-																	placeholder="Ingrese Password" required="required" />
+																	name="txtCon_act" id="txtCon_act" required="required" />
 
 															</fieldset>
 															<br>
@@ -836,8 +837,8 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Nombre:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtNombre"
-																	id="txtNombre" placeholder="Ingrese Nombre"
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtNombre_act" id="txtNombre_act"
 																	required="required" />
 
 															</fieldset>
@@ -845,8 +846,8 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Paterno:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtApepa"
-																	id="txtApepa" placeholder="Ingrese Apellido Paterno"
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtApepa_act" id="txtApepa_act"
 																	required="required" />
 
 															</fieldset>
@@ -854,8 +855,8 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Materno:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtApema"
-																	id="txtApema" placeholder="Ingrese Apellido Materno"
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtApema_act" id="txtApema_act"
 																	required="required" />
 
 															</fieldset>
@@ -864,9 +865,8 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">DNI Usuario:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtDNI"
-																	id="txtDNI" placeholder="Ingrese DNI"
-																	required="required" />
+																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
+																	name="txtDNI_act" id="txtDNI_act" required="required" />
 
 															</fieldset>
 															<br>
@@ -876,8 +876,9 @@
 																<div class="input-group">
 																	<span class="input-group-addon"> <i
 																		class="icon-envelope"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="text"
-																		name="txtCorreo" id="txtCorreo" required="required" />
+																	</span> <input class="col-xs-10 col-sm-9" type="email"
+																		name="txtCorreo_act" id="txtCorreo_act"
+																		required="required" />
 																</div>
 
 															</fieldset>
@@ -888,8 +889,8 @@
 																<div class="input-group">
 																	<span class="input-group-addon"> <i
 																		class="icon-phone"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="text"
-																		name="txtTelefono" id="txtTelefono"
+																	</span> <input class="col-xs-10 col-sm-9" type="tel"
+																		name="txtTelefono_act" id="txtTelefono_act"
 																		required="required" />
 																</div>
 
@@ -905,10 +906,10 @@
 
 															<div class="space space-4"></div>
 
-															<a href="#" class="btn btn-xs btn-block btn-warning"> <i
-																class="icon-refresh bigger-120"></i> <span
+															<a href="#" class="btn btn-xs btn-block btn-yellow">
+																<i class="icon-refresh bigger-120"></i> <span
 																class="bigger-110">Cambiar Foto</span>
-															</a> 
+															</a>
 
 															<div class="space space-10"></div>
 
@@ -918,7 +919,7 @@
 																<label class="col-sm-12 control-label no-padding-right"
 																	style="padding-top: 3px;">Seleccione Tipo de
 																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
-																	id="cboPerfil" name="cboPerfil">
+																	id="cboPerfil_act" name="cboPerfil_act">
 																	<option value="">-- Seleccione el Tipo de
 																		Perfil</option>
 																	<option value="nada">&nbsp;</option>
@@ -926,54 +927,61 @@
 																</select>
 															</fieldset>
 															<br>
+
 															<div class="space space-10"></div>
-															<a href="#" class="btn btn-lg btn-block btn-success">
-																<i class="icon-refresh bigger-110"></i> <span
-																class="bigger-110">Actualizar Usuario</span>
-															</a>
-															<button class="btn btn-sm" type="reset">
+															<fieldset>
 
-																<i class="icon-undo bigger-110"></i>
+																<button class="btn btn-lg btn-block btn-yellow"
+																	id="boton" name="boton" value="Actualizar"
+																	type="submit">
+																	<i class="icon-refresh"></i> <span class="bigger-110">Actualizar
+																		Usuario</span>
+																</button>
+																<button class="btn btn-sm" type="reset">
+
+																	<i class="icon-undo bigger-110"></i>
 
 
-															</button>
+																</button>
+															</fieldset>
+
+
 															<br>
 
 
 														</div>
 													</div>
 												</form>
-											
+
 											</div>
 
 
 											<div id="tabEliminar" class="tab-pane">
-											<form method="post" action="SvUsuarios">
+												<form method="post" action="SvUsuarios">
 													<div class="row">
 														<div class="col-sm-7">
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">ID:</label> <input
-																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtId" id="txtId"
-																	required="required" disabled="disabled"/>
+																	class="col-xs-10 col-sm-9" type="text" name="txtId_eli"
+																	id="txtId_eli" required="required" disabled="disabled" />
 															</fieldset>
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtUsuario" id="txtUsuario"
-																	placeholder="Ingrese Usuario" required="required" disabled="disabled"/>
+																	name="txtUsuario_eli" id="txtUsuario_eli"
+																	required="required" disabled="disabled" />
 															</fieldset>
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Contraseña:</label> <input
 																	class="col-xs-10 col-sm-9" type="password"
-																	name="txtCon" id="txtCon"
-																	placeholder="Ingrese Password" required="required" disabled="disabled"/>
+																	name="txtCon_eli" id="txtCon_eli" required="required"
+																	disabled="disabled" />
 
 															</fieldset>
 															<br>
@@ -981,17 +989,17 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Nombre:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtNombre"
-																	id="txtNombre" placeholder="Ingrese Nombre"
-																	required="required" disabled="disabled"/>
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtNombre_eli" id="txtNombre_eli"
+																	required="required" disabled="disabled" />
 
 															</fieldset>
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Paterno:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtApepa"
-																	id="txtApepa" placeholder="Ingrese Apellido Paterno"
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtApepa_eli" id="txtApepa_eli"
 																	required="required" disabled="disabled" />
 
 															</fieldset>
@@ -999,19 +1007,20 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Materno:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtApema"
-																	id="txtApema" placeholder="Ingrese Apellido Materno"
-																	required="required" disabled="disabled"/>
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtApema_eli" id="txtApema_eli"
+																	required="required" disabled="disabled" />
 
 															</fieldset>
 															<br>
 
+			
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">DNI Usuario:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" name="txtDNI"
-																	id="txtDNI" placeholder="Ingrese DNI"
-																	required="required" disabled="disabled"/>
+																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
+																	name="txtDNI_eli" id="txtDNI_eli" required="required"
+																	disabled="disabled" />
 
 															</fieldset>
 															<br>
@@ -1021,8 +1030,9 @@
 																<div class="input-group">
 																	<span class="input-group-addon"> <i
 																		class="icon-envelope"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="text"
-																		name="txtCorreo" id="txtCorreo" required="required" disabled="disabled" />
+																	</span> <input class="col-xs-10 col-sm-9" type="email"
+																		name="txtCorreo_eli" id="txtCorreo_eli"
+																		required="required" disabled="disabled" />
 																</div>
 
 															</fieldset>
@@ -1033,9 +1043,9 @@
 																<div class="input-group">
 																	<span class="input-group-addon"> <i
 																		class="icon-phone"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="text"
-																		name="txtTelefono" id="txtTelefono"
-																		required="required" disabled="disabled"/>
+																	</span> <input class="col-xs-10 col-sm-9" type="tel"
+																		name="txtTelefono_eli" id="txtTelefono_eli"
+																		required="required" disabled="disabled" />
 																</div>
 
 															</fieldset>
@@ -1053,24 +1063,23 @@
 
 															<fieldset>
 																<label class="col-sm-12 control-label no-padding-right"
-																	style="padding-top: 3px;">Tipo de
-																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
-																	id="cboPerfil" name="cboPerfil" disabled="disabled">
-																	<option value="">-- Seleccione el Tipo de
-																		Perfil --</option>
+																	style="padding-top: 3px;">Tipo de Perfil:</label> <select
+																	class="form-control col-xs-10 col-sm-5" id="cboPerfil"
+																	name="cboPerfil" disabled="disabled">
 																	<option value="nada">&nbsp;</option>
 
 																</select>
 															</fieldset>
 															<br>
-															<div class="space space-10"></div>
-															<a href="#" class="btn btn-lg btn-block btn-danger">
-																<i class="icon-remove-sign bigger-110"></i> <span
-																class="bigger-110">Eliminar Usuario</span>
-															</a>
 
-															<br>
-
+															<fieldset>
+																<button class="btn btn-lg btn-block btn-danger"
+																	id="boton" name="boton" value="Eliminar"
+																	onclick="confirmarEliminar()" type="submit">
+																	<i class="icon-trash"></i> <span class="bigger-110">Eliminar
+																		Usuario</span>
+																</button>
+															</fieldset>
 
 														</div>
 													</div>
@@ -1083,23 +1092,6 @@
 								<!-- /span -->
 
 							</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 							<!-- /row -->
@@ -1167,15 +1159,17 @@
 		  <script src="js/excanvas.min.js"></script>
 		<![endif]-->
 
-
-
 	<!-- ace scripts -->
 
 	<script src="js/ace-elements.min.js"></script>
 	<script src="js/ace.min.js"></script>
+	<script src="js/assets/jquery.maskedinput.min.js"></script>
+
 
 	<!-- inline scripts related to this page -->
-
+	<script type="text/javascript">
+		
+	</script>
 
 
 

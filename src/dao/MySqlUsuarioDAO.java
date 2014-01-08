@@ -190,5 +190,37 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public int ultimoUsuario() {
+		int ultimoid = 0;
+		Connection cn = MySQL.getConnection();
+		
+		String sql = "CALL usp_UltimoPerfil";
+		
+		try {
+			PreparedStatement ps = cn.prepareStatement(sql);
+			
+			ResultSet rs=ps.executeQuery();
+			if (rs.next()) {
+				ultimoid = rs.getInt("idPerfil");
+			}
+			
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ultimoid;
+	}
+
+
 
 }

@@ -197,14 +197,14 @@ public class MySqlPerfilDAO implements PerfilDAO{
 		int ultimoid = 0;
 		Connection cn = MySQL.getConnection();
 		
-		String sql = "CALL usp_UltimoPerfil";
+		String sql = "CALL usp_UltimoUsuario";
 		
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);
 			
 			ResultSet rs=ps.executeQuery();
 			if (rs.next()) {
-				ultimoid = rs.getInt("idPerfil");
+				ultimoid = rs.getInt("idUsuario");
 			}
 			
 			rs.close();

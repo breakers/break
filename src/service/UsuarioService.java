@@ -38,5 +38,9 @@ public class UsuarioService {
 	public UsuarioDTO validarSoloUsuario(String idUsuario) {
 		return usuariodao.validarSoloUsuario(idUsuario);
 	}
+	
+	public int ultimoUsuario(){
+		return usuariodao.ultimoUsuario();
+	}
 
 }

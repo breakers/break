@@ -11,7 +11,7 @@
 	String nombre = (String) sesion.getAttribute("nombreCompleto");
 	String foto = (Integer) sesion.getAttribute("foto") + "";
 	String nombrePerfil = (String) sesion.getAttribute("desPerfil");
-	
+
 	int tipo = 1;
 	String skin = "default";
 
@@ -94,13 +94,15 @@
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
-<c:choose>
+	<c:choose>
 		<c:when test="${param.idioma != null}">
-		<fmt:setLocale value="${param.idioma}" scope="session" />
-		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
+			<fmt:setLocale value="${param.idioma}" scope="session" />
+			<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
 		</c:when>
 		<c:otherwise>
-		<c:set var="bandera" value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}" scope="session"></c:set>
+			<c:set var="bandera"
+				value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"
+				scope="session"></c:set>
 		</c:otherwise>
 	</c:choose>
 
@@ -126,9 +128,9 @@
 				<ul class="nav ace-nav">
 					<!-- BARRA IDIOMA -->
 					<li class="orange2"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img src="img/${bandera}_flag.gif"
-							class="msg-photo" alt="Idioma"> <span
-							class="badge badge-grey"><fmt:message
+						class="dropdown-toggle" href="#"> <img
+							src="img/${bandera}_flag.gif" class="msg-photo" alt="Idioma">
+							<span class="badge badge-grey"><fmt:message
 									key="label.actualidioma" /></span>
 					</a>
 
@@ -138,17 +140,17 @@
 									key="label.seleccionaidioma" /></li>
 
 
-							<li><a href="?idioma=es"> <img
-									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
-									<span class="msg-body"> <span class="msg-title">
-											<span class="blue"><fmt:message key="label.español" /></span>
+							<li><a href="?idioma=es"> <img src="img/es_flag.gif"
+									class="msg-photo" alt="Castellano"> <span
+									class="msg-body"> <span class="msg-title"> <span
+											class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
-							<li><a href="?idioma=en"> <img
-									src="img/en_flag.gif" class="msg-photo" alt="Ingles"> <span
-									class="msg-body"> <span class="msg-title"> <span
-											class="blue"><fmt:message key="label.ingles" /></span>
+							<li><a href="?idioma=en"> <img src="img/en_flag.gif"
+									class="msg-photo" alt="Ingles"> <span class="msg-body">
+										<span class="msg-title"> <span class="blue"><fmt:message
+													key="label.ingles" /></span>
 									</span>
 								</span>
 							</a></li>
@@ -382,9 +384,8 @@
 				<!-- #sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
-					<li><a href="home.jsp"> <i
-							class="icon-dashboard"></i> <span class="menu-text"> <fmt:message
-									key="label.resumen" />
+					<li><a href="home.jsp"> <i class="icon-dashboard"></i> <span
+							class="menu-text"> <fmt:message key="label.resumen" />
 						</span>
 					</a></li>
 
@@ -416,7 +417,7 @@
 										key="label.Generar" />
 							</a></li>
 
-							<li ><a href="con_consulta.jsp"> <i
+							<li><a href="con_consulta.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Cc" />
 							</a></li>
@@ -507,7 +508,7 @@
 						</ul></li>
 
 
-										<li><a href="#mantenimiento" class="dropdown-toggle"> <i
+					<li><a href="#mantenimiento" class="dropdown-toggle"> <i
 							class="icon-cogs"></i> <span class="menu-text"> <fmt:message
 									key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
@@ -518,7 +519,7 @@
 										key="label.Perfiles" />
 							</a></li>
 
-							<li><a href="man_usuarios.jsp"> <i
+							<li><a href="SvUsuarios"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Usuario" />
 							</a></li>
@@ -594,8 +595,10 @@
 				<div class="page-content">
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
-						<h1> Buscar
-							<small> <i class="icon-double-angle-right"></i> Cuotas</small>
+						<h1>
+							Buscar <small> <i class="icon-double-angle-right"></i>
+								Cuotas
+							</small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
@@ -604,98 +607,106 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							
 
-									<div class="col-sm-30">
-										<div class="widget-box">
-											<div class="widget-header">
-												<h4 class="smaller">Buscar Cuota de Pago</h4>
-											</div>
 
-											<div class="widget-body">
-												<div class="widget-main">
-												
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-Nc">N# Contrato:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="Nc" id="form-field-Nc"/>
-													</div> 
-													
-												</div><!-- form-group -->
-												
-												<br>
-													
-												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-Ns">N# Suministro:</label>
-												
-													<div class="col-sm-9">
-															<input type="text" name="Ns" id="form-field-Ns"/>
-													</div>
-												</div><!-- form-group -->
-												
-												<br>
-													
-												
+							<div class="col-sm-30">
+								<div class="widget-box">
+									<div class="widget-header">
+										<h4 class="smaller">Buscar Cuota de Pago</h4>
+									</div>
+
+									<div class="widget-body">
+										<div class="widget-main">
+
+											<div class="form-group">
+												<label class="col-sm-2 control-label no-padding-right"
+													for="form-field-Nc">N# Contrato:</label>
+
 												<div class="col-sm-9">
-															<input type="button" name="Buscar" value="Buscar"/>
-													</div>
-												<br><br>
-												
-												
-												</div><br><br>
+													<input type="text" name="Nc" id="form-field-Nc" />
+												</div>
+
 											</div>
+											<!-- form-group -->
+
+											<br>
+
+											<div class="form-group">
+												<label class="col-sm-2 control-label no-padding-right"
+													for="form-field-Ns">N# Suministro:</label>
+
+												<div class="col-sm-9">
+													<input type="text" name="Ns" id="form-field-Ns" />
+												</div>
+											</div>
+											<!-- form-group -->
+
+											<br>
+
+
+											<div class="col-sm-9">
+												<input type="button" name="Buscar" value="Buscar" />
+											</div>
+											<br>
+											<br>
+
+
 										</div>
-									</div><!-- /span -->
-											<div class="table-responsive">
-											<table id="sample-table-1" class="table table-bordered">
-												<thead>
-													<tr>
-														<th width="100">Numero</th>
-														<th width="200">Monto</th>
+										<br>
+										<br>
+									</div>
+								</div>
+							</div>
+							<!-- /span -->
+							<div class="table-responsive">
+								<table id="sample-table-1" class="table table-bordered">
+									<thead>
+										<tr>
+											<th width="100">Numero</th>
+											<th width="200">Monto</th>
 
-														<th width="100">
-															<i class="icon-time bigger-110 hidden-480"></i>
-															Fecha Vencimiento
-														</th>
-														<th width="100">Estado</th>
-														
-													</tr>
-												</thead>
+											<th width="100"><i
+												class="icon-time bigger-110 hidden-480"></i> Fecha
+												Vencimiento</th>
+											<th width="100">Estado</th>
 
-												<tbody>
-													<tr>
-														<td>1</td>
-														<td>150.00</td>
-														<td>15-12-2013</td>
-														<td>Cancelado</td>
-														
-													</tr>
-													<tr>
-														<td>2</td>
-														<td>150.00</td>
-														<td>15-12-2013</td>
-														<td>Pendiente</td>
-														
-													</tr>
-													<tr>
-														<td>3</td>
-														<td>150.00</td>
-														<td>15-12-2013</td>
-														<td>Pendiente</td>
-													
-													</tr>
-													<tr>
-														<td>4</td>
-														<td>150.00</td>
-														<td>15-12-2013</td>
-														<td>Pendiente</td>
-														
-													</tr>
-												</tbody>
-											</table>
-										</div><!-- /.table-responsive -->
-										<input type="button" name="aceptar" value="Aceptar"/>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>150.00</td>
+											<td>15-12-2013</td>
+											<td>Cancelado</td>
+
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>150.00</td>
+											<td>15-12-2013</td>
+											<td>Pendiente</td>
+
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>150.00</td>
+											<td>15-12-2013</td>
+											<td>Pendiente</td>
+
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>150.00</td>
+											<td>15-12-2013</td>
+											<td>Pendiente</td>
+
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- /.table-responsive -->
+							<input type="button" name="aceptar" value="Aceptar" />
 
 
 
@@ -789,16 +800,15 @@
 		style="top: 447px; left: 980px; display: none;">
 		<div class="tooltip-inner">social networks : 38.7%</div>
 	</div>
-	
+
 	<script type="text/javascript">
 	<!--RENZO-->
-	$(document).ready(function () {
-	    $("tr").click(function () {
-	        $(this).closest("tr").siblings().removeClass("highlighted");
-	        $(this).toggleClass("highlighted");
-	    });
-	});
-	
+		$(document).ready(function() {
+			$("tr").click(function() {
+				$(this).closest("tr").siblings().removeClass("highlighted");
+				$(this).toggleClass("highlighted");
+			});
+		});
 	</script>
 </body>
 </html>

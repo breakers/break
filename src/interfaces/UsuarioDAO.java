@@ -19,5 +19,6 @@ public interface UsuarioDAO {
 	
 	public UsuarioDTO validarSoloUsuario(String idUsuario);
 	
+	public int ultimoUsuario();
 
 }
