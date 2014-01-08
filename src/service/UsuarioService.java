@@ -23,7 +23,7 @@ public class UsuarioService {
 		usuariodao.actualizarUsuario(usuario);
 	}
 
-	public void eliminarUsuario(String idUsuario) {
+	public void eliminarUsuario(int idUsuario) {
 		usuariodao.eliminarUsuario(idUsuario);
 	}
 

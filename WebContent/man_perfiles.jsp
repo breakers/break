@@ -512,15 +512,11 @@
 
 
 					<li class="active open"><a href="#mantenimiento" class="dropdown-toggle"> <i
-							class="icon-group"></i> <span class="menu-text"> <fmt:message
+							class="icon-cog"></i> <span class="menu-text"> <fmt:message
 									key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="man_clientes.jsp"> <i
-									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Clientes" />
-							</a></li>
 
 							<li class="active"><a href="SvPerfiles"> <i
 									class="icon-double-angle-right"></i> <fmt:message

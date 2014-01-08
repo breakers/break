@@ -11,7 +11,7 @@ public interface UsuarioDAO {
 	
 	public void actualizarUsuario(UsuarioDTO usuario);
 	
-	public void eliminarUsuario(String idUsuario);
+	public void eliminarUsuario(int idUsuario);
 	
 	public List<UsuarioDTO> listarUsuarios();
 	

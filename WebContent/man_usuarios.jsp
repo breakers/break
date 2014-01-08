@@ -511,7 +511,7 @@
 
 
 					<li class="active open"><a href="#mantenimiento"
-						class="dropdown-toggle"> <i class="icon-cogs"></i> <span
+						class="dropdown-toggle"> <i class="icon-cog"></i> <span
 							class="menu-text"> <fmt:message key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
@@ -612,7 +612,7 @@
 
 							<div class="row">
 								<div class="col-sm-4">
-									<div class="widget-header header-color-green">
+									<div class="widget-header header-color-blue">
 										<h5 class="bigger lighter">
 											<i class="icon-user"></i> Usuarios
 										</h5>
@@ -661,16 +661,420 @@
 
 										<div class="tab-content">
 											<div id="tabAgregar" class="tab-pane in active">
+												<form method="post" action="SvUsuarios">
+													<div class="row">
+														<div class="col-sm-7">
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtUsuario" id="txtUsuario"
+																	placeholder="Ingrese Usuario" required="required" />
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Contraseña:</label> <input
+																	class="col-xs-10 col-sm-9" type="password"
+																	name="txtCon" id="txtCon"
+																	placeholder="Ingrese Password" required="required" />
+
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Nombre:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtNombre"
+																	id="txtNombre" placeholder="Ingrese Nombre"
+																	required="required" />
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Paterno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtApepa"
+																	id="txtApepa" placeholder="Ingrese Apellido Paterno"
+																	required="required" />
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Materno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtApema"
+																	id="txtApema" placeholder="Ingrese Apellido Materno"
+																	required="required" />
+
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">DNI Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtDNI"
+																	id="txtDNI" placeholder="Ingrese DNI"
+																	required="required" />
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Correo:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-envelope"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtCorreo" id="txtCorreo" required="required" />
+																</div>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Teléfono:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-phone"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtTelefono" id="txtTelefono"
+																		required="required" />
+																</div>
+
+															</fieldset>
+															<br>
+														</div>
+														<div class="col-sm-5 center">
+
+															<span class="profile-picture"> <img
+																class="editable img-responsive" alt="Prueba" id="avatar"
+																src="img/users/profile-pic.jpg">
+															</span>
+
+															<div class="space space-4"></div>
+
+															<a href="#" class="btn btn-xs btn-block btn-info"> <i
+																class="icon-plus-sign bigger-120"></i> <span
+																class="bigger-110">Subir Foto</span>
+															</a> <a href="#" class="btn btn-xs btn-block btn-danger">
+																<i class="icon-remove-sign bigger-110"></i> <span
+																class="bigger-110">Eliminar Foto</span>
+															</a>
+
+															<div class="space space-10"></div>
+
+
+
+															<fieldset>
+																<label class="col-sm-12 control-label no-padding-right"
+																	style="padding-top: 3px;">Seleccione Tipo de
+																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
+																	id="cboPerfil" name="cboPerfil">
+																	<option value="">-- Seleccione el Tipo de
+																		Perfil</option>
+																	<option value="nada">&nbsp;</option>
+
+																</select>
+															</fieldset>
+															<br>
+															<div class="space space-10"></div>
+															<a href="#" class="btn btn-lg btn-block btn-success">
+																<i class="icon-edit bigger-110"></i> <span
+																class="bigger-110">Agregar Usuario</span>
+															</a>
+															<button class="btn btn-sm" type="reset">
+
+																<i class="icon-undo bigger-110"></i>
+
+
+															</button>
+															<br>
+
+
+														</div>
+													</div>
+												</form>
+
 											</div>
 
 
 											<div id="tabActualizar" class="tab-pane">
+											<form method="post" action="SvUsuarios">
+													<div class="row">
+														<div class="col-sm-7">
+															<br>
+
+															<fieldset>
+																<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">ID:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtId" id="txtId"
+																	required="required" disabled="disabled"/>
+															</fieldset>
+															<br>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtUsuario" id="txtUsuario"
+																	placeholder="Ingrese Usuario" required="required" />
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Contraseña:</label> <input
+																	class="col-xs-10 col-sm-9" type="password"
+																	name="txtCon" id="txtCon"
+																	placeholder="Ingrese Password" required="required" />
+
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Nombre:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtNombre"
+																	id="txtNombre" placeholder="Ingrese Nombre"
+																	required="required" />
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Paterno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtApepa"
+																	id="txtApepa" placeholder="Ingrese Apellido Paterno"
+																	required="required" />
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Materno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtApema"
+																	id="txtApema" placeholder="Ingrese Apellido Materno"
+																	required="required" />
+
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">DNI Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtDNI"
+																	id="txtDNI" placeholder="Ingrese DNI"
+																	required="required" />
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Correo:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-envelope"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtCorreo" id="txtCorreo" required="required" />
+																</div>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Teléfono:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-phone"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtTelefono" id="txtTelefono"
+																		required="required" />
+																</div>
+
+															</fieldset>
+															<br>
+														</div>
+														<div class="col-sm-5 center">
+
+															<span class="profile-picture"> <img
+																class="editable img-responsive" alt="Prueba" id="avatar"
+																src="img/users/profile-pic.jpg">
+															</span>
+
+															<div class="space space-4"></div>
+
+															<a href="#" class="btn btn-xs btn-block btn-warning"> <i
+																class="icon-refresh bigger-120"></i> <span
+																class="bigger-110">Cambiar Foto</span>
+															</a> 
+
+															<div class="space space-10"></div>
+
+
+
+															<fieldset>
+																<label class="col-sm-12 control-label no-padding-right"
+																	style="padding-top: 3px;">Seleccione Tipo de
+																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
+																	id="cboPerfil" name="cboPerfil">
+																	<option value="">-- Seleccione el Tipo de
+																		Perfil</option>
+																	<option value="nada">&nbsp;</option>
+
+																</select>
+															</fieldset>
+															<br>
+															<div class="space space-10"></div>
+															<a href="#" class="btn btn-lg btn-block btn-success">
+																<i class="icon-refresh bigger-110"></i> <span
+																class="bigger-110">Actualizar Usuario</span>
+															</a>
+															<button class="btn btn-sm" type="reset">
+
+																<i class="icon-undo bigger-110"></i>
+
+
+															</button>
+															<br>
+
+
+														</div>
+													</div>
+												</form>
 											
 											</div>
 
 
 											<div id="tabEliminar" class="tab-pane">
+											<form method="post" action="SvUsuarios">
+													<div class="row">
+														<div class="col-sm-7">
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">ID:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtId" id="txtId"
+																	required="required" disabled="disabled"/>
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtUsuario" id="txtUsuario"
+																	placeholder="Ingrese Usuario" required="required" disabled="disabled"/>
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Contraseña:</label> <input
+																	class="col-xs-10 col-sm-9" type="password"
+																	name="txtCon" id="txtCon"
+																	placeholder="Ingrese Password" required="required" disabled="disabled"/>
 
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Nombre:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtNombre"
+																	id="txtNombre" placeholder="Ingrese Nombre"
+																	required="required" disabled="disabled"/>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Paterno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtApepa"
+																	id="txtApepa" placeholder="Ingrese Apellido Paterno"
+																	required="required" disabled="disabled" />
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Materno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtApema"
+																	id="txtApema" placeholder="Ingrese Apellido Materno"
+																	required="required" disabled="disabled"/>
+
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">DNI Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" name="txtDNI"
+																	id="txtDNI" placeholder="Ingrese DNI"
+																	required="required" disabled="disabled"/>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Correo:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-envelope"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtCorreo" id="txtCorreo" required="required" disabled="disabled" />
+																</div>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Teléfono:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-phone"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtTelefono" id="txtTelefono"
+																		required="required" disabled="disabled"/>
+																</div>
+
+															</fieldset>
+															<br>
+														</div>
+														<div class="col-sm-5 center">
+
+															<span class="profile-picture"> <img
+																class="editable img-responsive" alt="Prueba" id="avatar"
+																src="img/users/profile-pic.jpg">
+															</span>
+
+															<div class="space space-4"></div>
+
+
+															<fieldset>
+																<label class="col-sm-12 control-label no-padding-right"
+																	style="padding-top: 3px;">Tipo de
+																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
+																	id="cboPerfil" name="cboPerfil" disabled="disabled">
+																	<option value="">-- Seleccione el Tipo de
+																		Perfil --</option>
+																	<option value="nada">&nbsp;</option>
+
+																</select>
+															</fieldset>
+															<br>
+															<div class="space space-10"></div>
+															<a href="#" class="btn btn-lg btn-block btn-danger">
+																<i class="icon-remove-sign bigger-110"></i> <span
+																class="bigger-110">Eliminar Usuario</span>
+															</a>
+
+															<br>
+
+
+														</div>
+													</div>
+												</form>
 											</div>
 
 										</div>

@@ -443,7 +443,7 @@ END$
 
 DELIMITER $
 CREATE PROCEDURE usp_registrarUsuario(
-idPerfil varchar(10),userUsuario varchar(10),passUsuario varchar(10),
+idPerfil int,userUsuario varchar(10),passUsuario varchar(10),
 nomUsuario varchar(30),apepaUsuario varchar(30),apemaUsuario varchar(30),
 dniusuario varchar(10),correousuario varchar(30), telefonousuario char(9))
 BEGIN
@@ -456,7 +456,7 @@ END$
 
 DELIMITER $
 CREATE PROCEDURE usp_actualizarUsuario(
-idusuario int,idPerfil varchar(10),userUsuario varchar(10),passUsuario varchar(10),
+idusuario int,idPerfil int,userUsuario varchar(10),passUsuario varchar(10),
 nomUsuario varchar(30),apepaUsuario varchar(30),apemaUsuario varchar(30),
 dniusuario varchar(10),correousuario varchar(30), telefonousuario char(9))
 BEGIN
