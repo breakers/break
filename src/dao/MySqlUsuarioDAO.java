@@ -34,7 +34,9 @@ public class MySqlUsuarioDAO implements UsuarioDAO{
 											rs.getString("nomUsuario"), 
 											rs.getString("apepaUsuario"), 
 											rs.getString("apemaUsuario"), 
-											rs.getString("dniUsuario"));
+											rs.getString("dniUsuario"),
+											rs.getString("correoUsuario"),
+											rs.getString("telefonoUsuario"));
 			}
 			rs.close();
 			ps.close();
@@ -54,6 +56,12 @@ public class MySqlUsuarioDAO implements UsuarioDAO{
 
 	@Override
 	public void registrarUsuario(UsuarioDTO usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void actualizarUsuario(UsuarioDTO usuario) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -7,8 +7,7 @@ import interfaces.UsuarioDAO;
 import dao.DAOFactory;
 
 public class UsuarioService {
-		
-	
+
 	DAOFactory factory = DAOFactory.getDAOFactory(1);
 	UsuarioDAO usuariodao = factory.getUsuarioDAO();
 
@@ -19,18 +18,25 @@ public class UsuarioService {
 	public void registrarUsuario(UsuarioDTO usuario) {
 		usuariodao.registrarUsuario(usuario);
 	}
+
+	public void actualizarUsuario(UsuarioDTO usuario) {
+		usuariodao.actualizarUsuario(usuario);
+	}
+
 	public void eliminarUsuario(String idUsuario) {
 		usuariodao.eliminarUsuario(idUsuario);
 	}
+
 	public List<UsuarioDTO> listarUsuarios() {
 		return usuariodao.listarUsuarios();
 	}
+
 	public UsuarioDTO buscarPorId(String idUsuario) {
 		return usuariodao.buscarPorId(idUsuario);
 	}
+
 	public UsuarioDTO validarSoloUsuario(String idUsuario) {
 		return usuariodao.validarSoloUsuario(idUsuario);
 	}
-	
-	
+
 }

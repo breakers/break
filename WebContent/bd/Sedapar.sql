@@ -24,9 +24,10 @@ passUsuario varchar(10),
 nomUsuario varchar(30),
 apepaUsuario varchar(30),
 apemaUsuario varchar(30),
-dniUsuario varchar(10)
+dniUsuario varchar(10),
+correoUsuario varchar(30),
+telefonoUsuario char(9)
 );
-
 
 
 create table tb_test_solicitud(
@@ -144,11 +145,12 @@ INSERT INTO tb_perfil VALUES(null,'Cajero',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Perfil_Prueba',1,0,1,0,1,1,0,0,1);
 
 /*Datos en Usuarios*/
-INSERT INTO tb_usuario VALUES(null,1,'lysander','root','Felix','Apaza','Arroyo','43836055');
-INSERT INTO tb_usuario VALUES(null,1,'rdelgado','root','Renzo','Delgado','Guerra','76527637');
-INSERT INTO tb_usuario VALUES(null,2,'oldkefka','qv2','Ricardo','Quevedo','Grimaldo','72454564');
-INSERT INTO tb_usuario VALUES(null,3,'csonan','testing','Carlos','Sonan','Yonashiro','89999993');
-INSERT INTO tb_usuario VALUES(null,3,'acoquis','testing','Andre','Coquis','Raffo','89999994');
+INSERT INTO tb_usuario VALUES(null,1,'lysander','root','Felix','Apaza','Arroyo','43836055','gato@gato.com','999999999' );
+INSERT INTO tb_usuario VALUES(null,1,'rdelgado','root','Renzo','Delgado','Guerra','76527637','sdfdsfsd@fds.com','999999999');
+INSERT INTO tb_usuario VALUES(null,2,'oldkefka','qv2','Ricardo','Quevedo','Grimaldo','72454564','dfdf@dsfdsf.com','999999999');
+INSERT INTO tb_usuario VALUES(null,3,'csonan','testing','Carlos','Sonan','Yonashiro','89999993','3423@gf.com','999999999');
+INSERT INTO tb_usuario VALUES(null,3,'acoquis','testing','Andre','Coquis','Raffo','89999994','co@dsd.com','999999999');
+
 
 /*Datos en Provincia (completa)*/
 INSERT INTO tb_provincia VALUES('ARE','Arequipa');
@@ -426,11 +428,59 @@ BEGIN
 	DELETE FROM TB_PERFIL WHERE idPerfil=vidPerfil;
 END$
 
+/*USUARIO*/
+DELIMITER $
+CREATE PROCEDURE usp_listarUsuario()
+BEGIN
+	SELECT * FROM tb_usuario;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_UltimoUsuario()
+BEGIN
+	SELECT MAX(idUsuario)+1 as idUsuario FROM tb_usuario;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_registrarUsuario(
+idPerfil varchar(10),userUsuario varchar(10),passUsuario varchar(10),
+nomUsuario varchar(30),apepaUsuario varchar(30),apemaUsuario varchar(30),
+dniusuario varchar(10),correousuario varchar(30), telefonousuario char(9))
+BEGIN
+	INSERT INTO TB_usuario(idusuario,idPerfil,userusuario,passusuario,nomusuario,apepausuario,
+	apemausuario,dniusuario,correousuario,telefonousuario)
+	VALUES(null,idPerfil,userusuario,passusuario,nomusuario,apepausuario,
+	apemausuario,dniusuario,correousuario,telefonousuario);
+END$
+
+
+DELIMITER $
+CREATE PROCEDURE usp_actualizarUsuario(
+idusuario int,idPerfil varchar(10),userUsuario varchar(10),passUsuario varchar(10),
+nomUsuario varchar(30),apepaUsuario varchar(30),apemaUsuario varchar(30),
+dniusuario varchar(10),correousuario varchar(30), telefonousuario char(9))
+BEGIN
+	UPDATE tb_usuario SET idperfil=idperfil,userusuario=userusuario,passusuario=passusuario,
+	nomusuario=nomusuario,apepausuario=apepausuario,apemausuario=apemausuario,
+	dniusuario=dniusuario,correousuario=correousuario,telefonousurio=telefonousuario WHERE idusuario=idusuario;
+END$
+
+
+
+DELIMITER $
+
+CREATE PROCEDURE usp_eliminarUsuario(idUsu int)
+BEGIN
+	DELETE FROM TB_USUARIO WHERE idUsuario=idUsu;
+END$
+
+
 DELIMITER $
 CREATE PROCEDURE usp_listarMensajesAlerta()
 BEGIN
 	SELECT * FROM tb_MensajesAlerta;
 END$
+
 
 
 

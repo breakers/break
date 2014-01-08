@@ -9,6 +9,8 @@ public interface UsuarioDAO {
 	
 	public void registrarUsuario(UsuarioDTO usuario);
 	
+	public void actualizarUsuario(UsuarioDTO usuario);
+	
 	public void eliminarUsuario(String idUsuario);
 	
 	public List<UsuarioDTO> listarUsuarios();

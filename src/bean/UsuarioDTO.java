@@ -10,13 +10,16 @@ public class UsuarioDTO {
 	private String apepaUsuario;
 	private String apemaUsuario;
 	private String dniUsuario;
+	private String correoUsuario;
+	private String telefonoUsuario;
 	
 	public UsuarioDTO() {
 	}
 
 	public UsuarioDTO(int idUsuario, int idPerfil, String userUsuario,
 			String passUsuario, String nomUsuario, String apepaUsuario,
-			String apemaUsuario, String dniUsuario) {
+			String apemaUsuario, String dniUsuario, String correoUsuario, 
+			String telefonoUsuario) {
 		super();
 		this.idUsuario = idUsuario;
 		this.idPerfil = idPerfil;
@@ -26,6 +29,8 @@ public class UsuarioDTO {
 		this.apepaUsuario = apepaUsuario;
 		this.apemaUsuario = apemaUsuario;
 		this.dniUsuario = dniUsuario;
+		this.correoUsuario=correoUsuario;
+		this.telefonoUsuario=telefonoUsuario;
 	}
 
 	public int getIdUsuario() {
@@ -91,6 +96,21 @@ public class UsuarioDTO {
 	public void setDniUsuario(String dniUsuario) {
 		this.dniUsuario = dniUsuario;
 	}
-	
+	public String getCorreoUsuario() {
+		return correoUsuario;
+	}
+
+	public void setCorreoUsuario(String correoUsuario) {
+		this.correoUsuario = correoUsuario;
+	}
+
+	public String getTelefonoUsuario() {
+		return telefonoUsuario;
+	}
+
+	public void setTelefonoUsuario(String telefonoUsuario) {
+		this.telefonoUsuario = telefonoUsuario;
+	}
+
 	
 }

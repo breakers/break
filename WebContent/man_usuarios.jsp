@@ -11,7 +11,7 @@
 	String nombre = (String) sesion.getAttribute("nombreCompleto");
 	String foto = (Integer) sesion.getAttribute("foto") + "";
 	String nombrePerfil = (String) sesion.getAttribute("desPerfil");
-	
+
 	int tipo = 1;
 	String skin = "default";
 
@@ -96,13 +96,15 @@
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
-<c:choose>
+	<c:choose>
 		<c:when test="${param.idioma != null}">
-		<fmt:setLocale value="${param.idioma}" scope="session" />
-		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
+			<fmt:setLocale value="${param.idioma}" scope="session" />
+			<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
 		</c:when>
 		<c:otherwise>
-		<c:set var="bandera" value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}" scope="session"></c:set>
+			<c:set var="bandera"
+				value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"
+				scope="session"></c:set>
 		</c:otherwise>
 	</c:choose>
 
@@ -128,9 +130,9 @@
 				<ul class="nav ace-nav">
 					<!-- BARRA IDIOMA -->
 					<li class="orange2"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img src="img/${bandera}_flag.gif"
-							class="msg-photo" alt="Idioma"> <span
-							class="badge badge-grey"><fmt:message
+						class="dropdown-toggle" href="#"> <img
+							src="img/${bandera}_flag.gif" class="msg-photo" alt="Idioma">
+							<span class="badge badge-grey"><fmt:message
 									key="label.actualidioma" /></span>
 					</a>
 
@@ -140,17 +142,17 @@
 									key="label.seleccionaidioma" /></li>
 
 
-							<li><a href="?idioma=es"> <img
-									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
-									<span class="msg-body"> <span class="msg-title">
-											<span class="blue"><fmt:message key="label.español" /></span>
+							<li><a href="?idioma=es"> <img src="img/es_flag.gif"
+									class="msg-photo" alt="Castellano"> <span
+									class="msg-body"> <span class="msg-title"> <span
+											class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
-							<li><a href="?idioma=en"> <img
-									src="img/en_flag.gif" class="msg-photo" alt="Ingles"> <span
-									class="msg-body"> <span class="msg-title"> <span
-											class="blue"><fmt:message key="label.ingles" /></span>
+							<li><a href="?idioma=en"> <img src="img/en_flag.gif"
+									class="msg-photo" alt="Ingles"> <span class="msg-body">
+										<span class="msg-title"> <span class="blue"><fmt:message
+													key="label.ingles" /></span>
 									</span>
 								</span>
 							</a></li>
@@ -384,9 +386,8 @@
 				<!-- #sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
-					<li><a href="home.jsp"> <i
-							class="icon-dashboard"></i> <span class="menu-text"> <fmt:message
-									key="label.resumen" />
+					<li><a href="home.jsp"> <i class="icon-dashboard"></i> <span
+							class="menu-text"> <fmt:message key="label.resumen" />
 						</span>
 					</a></li>
 
@@ -509,16 +510,12 @@
 						</ul></li>
 
 
-					<li class="active open"><a href="#mantenimiento" class="dropdown-toggle"> <i
-							class="icon-group"></i> <span class="menu-text"> <fmt:message
-									key="label.Mantenimiento" />
+					<li class="active open"><a href="#mantenimiento"
+						class="dropdown-toggle"> <i class="icon-cogs"></i> <span
+							class="menu-text"> <fmt:message key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="man_clientes.jsp"> <i
-									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Clientes" />
-							</a></li>
 
 							<li><a href="SvPerfiles"> <i
 									class="icon-double-angle-right"></i> <fmt:message
@@ -601,8 +598,10 @@
 				<div class="page-content">
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
-						<h1> <fmt:message key="label.Mantenimiento" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Usuario" /></small>
+						<h1>
+							<fmt:message key="label.Mantenimiento" />
+							<small> <i class="icon-double-angle-right"></i> <fmt:message
+									key="label.Usuario" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
@@ -611,14 +610,75 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							
-							  <button type="button" class="btn btn-danger">Left</button>
-							  <button type="button" class="btn btn-warning">Middle</button>
-							  <button type="button" class="btn btn-info">Right</button>
-							  <button type="button" class="btn btn-success">Right</button>
-							  <button type="button" class="btn btn-primary">Right</button>
-							
-														
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="widget-header header-color-green">
+										<h5 class="bigger lighter">
+											<i class="icon-user"></i> Usuarios
+										</h5>
+									</div>
+									<div class="table-responsive"
+										style="overflow: scroll; max-height: 570px;">
+										<table id="sample-table-1" class="table table-bordered "
+											style="margin-bottom: 0px;">
+											<thead>
+												<tr>
+													<th width="100" style="font-size: 11px;">ID</th>
+													<th width="100" style="font-size: 11px;">Nombre</th>
+													<th width="100" style="font-size: 11px;">DNI</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="lista" items="${requestScope.listaUsuarios}">
+													<tr>
+														<td>${lista.idUsuario}</td>
+														<td>${lista.nomUsuario}</td>
+														<td>${lista.dniUsuario}</td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="col-sm-8">
+									<div class="tabbable">
+										<ul class="nav nav-tabs" id="myTab">
+											<li class="active"><a data-toggle="tab"
+												href="#tabAgregar"> <i class="blue icon-edit bigger-150"></i>
+													Agregar
+											</a></li>
+
+											<li><a data-toggle="tab" href="#tabActualizar"> <i
+													class="green icon-refresh bigger-150"></i> Actualizar
+											</a></li>
+
+											<li><a data-toggle="tab" href="#tabEliminar"> <i
+													class="red icon-trash bigger-150"></i> Eliminar
+											</a></li>
+
+										</ul>
+
+										<div class="tab-content">
+											<div id="tabAgregar" class="tab-pane in active">
+											</div>
+
+
+											<div id="tabActualizar" class="tab-pane">
+											
+											</div>
+
+
+											<div id="tabEliminar" class="tab-pane">
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- /span -->
+
+							</div>
 
 
 

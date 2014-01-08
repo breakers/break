@@ -11,7 +11,7 @@
 	String nombre = (String) sesion.getAttribute("nombreCompleto");
 	String foto = (Integer) sesion.getAttribute("foto") + "";
 	String nombrePerfil = (String) sesion.getAttribute("desPerfil");
-	
+
 	int tipo = 1;
 	String skin = "default";
 
@@ -96,13 +96,15 @@
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
-<c:choose>
+	<c:choose>
 		<c:when test="${param.idioma != null}">
-		<fmt:setLocale value="${param.idioma}" scope="session" />
-		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
+			<fmt:setLocale value="${param.idioma}" scope="session" />
+			<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
 		</c:when>
 		<c:otherwise>
-		<c:set var="bandera" value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}" scope="session"></c:set>
+			<c:set var="bandera"
+				value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"
+				scope="session"></c:set>
 		</c:otherwise>
 	</c:choose>
 
@@ -128,9 +130,9 @@
 				<ul class="nav ace-nav">
 					<!-- BARRA IDIOMA -->
 					<li class="orange2"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img src="img/${bandera}_flag.gif"
-							class="msg-photo" alt="Idioma"> <span
-							class="badge badge-grey"><fmt:message
+						class="dropdown-toggle" href="#"> <img
+							src="img/${bandera}_flag.gif" class="msg-photo" alt="Idioma">
+							<span class="badge badge-grey"><fmt:message
 									key="label.actualidioma" /></span>
 					</a>
 
@@ -140,17 +142,17 @@
 									key="label.seleccionaidioma" /></li>
 
 
-							<li><a href="?idioma=es"> <img
-									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
-									<span class="msg-body"> <span class="msg-title">
-											<span class="blue"><fmt:message key="label.español" /></span>
+							<li><a href="?idioma=es"> <img src="img/es_flag.gif"
+									class="msg-photo" alt="Castellano"> <span
+									class="msg-body"> <span class="msg-title"> <span
+											class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
-							<li><a href="?idioma=en"> <img
-									src="img/en_flag.gif" class="msg-photo" alt="Ingles"> <span
-									class="msg-body"> <span class="msg-title"> <span
-											class="blue"><fmt:message key="label.ingles" /></span>
+							<li><a href="?idioma=en"> <img src="img/en_flag.gif"
+									class="msg-photo" alt="Ingles"> <span class="msg-body">
+										<span class="msg-title"> <span class="blue"><fmt:message
+													key="label.ingles" /></span>
 									</span>
 								</span>
 							</a></li>
@@ -384,9 +386,8 @@
 				<!-- #sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
-					<li><a href="home.jsp"> <i
-							class="icon-dashboard"></i> <span class="menu-text"> <fmt:message
-									key="label.resumen" />
+					<li><a href="home.jsp"> <i class="icon-dashboard"></i> <span
+							class="menu-text"> <fmt:message key="label.resumen" />
 						</span>
 					</a></li>
 
@@ -490,9 +491,9 @@
 
 						</ul></li>
 
-					<li class="active open"><a href="#reportes" class="dropdown-toggle"> <i
-							class="icon-list-alt"></i> <span class="menu-text"> <fmt:message
-									key="label.Reportes" />
+					<li class="active open"><a href="#reportes"
+						class="dropdown-toggle"> <i class="icon-list-alt"></i> <span
+							class="menu-text"> <fmt:message key="label.Reportes" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
@@ -510,16 +511,11 @@
 
 
 					<li><a href="#mantenimiento" class="dropdown-toggle"> <i
-							class="icon-group"></i> <span class="menu-text"> <fmt:message
+							class="icon-cogs"></i> <span class="menu-text"> <fmt:message
 									key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="man_clientes.jsp"> <i
-									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Clientes" />
-							</a></li>
-
 							<li><a href="SvPerfiles"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Perfiles" />
@@ -601,8 +597,10 @@
 				<div class="page-content">
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
-						<h1> <fmt:message key="label.Reportes" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Edc" /></small>
+						<h1>
+							<fmt:message key="label.Reportes" />
+							<small> <i class="icon-double-angle-right"></i> <fmt:message
+									key="label.Edc" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
@@ -612,7 +610,7 @@
 							<!-- PAGE CONTENT BEGINS -->
 
 							Aqui va el contenido de la pagina <br>
-							
+
 
 
 
