@@ -20,7 +20,7 @@ import util.utilMensaje;
  * Servlet implementation class SvLogueo
  */
 @WebServlet("/SvLogueo")
-public class SvLogueo extends HttpServlet {
+public class SvLogueo extends ServletParent {
 	private static final long serialVersionUID = 1L;
 	UsuarioService servicioUsuario= new UsuarioService();
 	PerfilService servicioPerfil= new PerfilService();
@@ -77,8 +77,9 @@ public class SvLogueo extends HttpServlet {
 		sesion.setAttribute("nombreCompleto", usuario.getNomUsuario()+" "+usuario.getApepaUsuario());
 		sesion.setAttribute("foto", usuario.getIdUsuario());
 		sesion.setAttribute("tipo", usuario.getIdPerfil());
-		sesion.setAttribute("evento", 0);
+		sesion.setAttribute("evento", 1);
 		sesion.setAttribute("mensajesAlerta", utilMensaje.listarMensajesAlerta());
+		sesion.setAttribute("mensaje", obtenerMensaje(request,2,usuario.getNomUsuario()));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 						request.setAttribute("usuarioDTO", usuario);

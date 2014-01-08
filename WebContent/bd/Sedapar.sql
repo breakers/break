@@ -375,7 +375,10 @@ INSERT INTO tb_DetalleSolicitudCambioCat VALUES(2,1,2,'2013-12-31');
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(3,1,3,'2013-12-31');
 
 INSERT INTO tb_MensajesAlerta VALUES(null,'Proyecto Breakers','# registrado correctamente','thumb_up.png');
-
+INSERT INTO tb_MensajesAlerta VALUES(null,'Proyecto Breakers','Hola #, bienvenido a la intranet de SEDAPAR','welcome.png');
+INSERT INTO tb_MensajesAlerta VALUES(null,'Proyecto Breakers','# actualizado correctamente','refresh.png');
+INSERT INTO tb_MensajesAlerta VALUES(null,'Proyecto Breakers','# eliminado correctamente','trash.png');
+INSERT INTO tb_MensajesAlerta VALUES(null,'Proyecto Breakers','Debe seleccionar un # ','warning.png');
 /* BEGINS PROCEDURES*/
 
 DELIMITER $
@@ -418,14 +421,12 @@ BEGIN
 END$
 
 DELIMITER $
-
 CREATE PROCEDURE usp_eliminarPerfil(vidPerfil int)
 BEGIN
 	DELETE FROM TB_PERFIL WHERE idPerfil=vidPerfil;
 END$
 
 DELIMITER $
-
 CREATE PROCEDURE usp_listarMensajesAlerta()
 BEGIN
 	SELECT * FROM tb_MensajesAlerta;

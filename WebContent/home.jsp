@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="css/ace.min.css">
 <link rel="stylesheet" href="css/ace-rtl.min.css">
 <link rel="stylesheet" href="css/ace-skins.min.css">
-
+<link rel="stylesheet" href="css/jquery.gritter.css">
 <!--[if lte IE 8]>
 		  <link rel="stylesheet" href="css/ace-ie.min.css" />
 <![endif]-->
@@ -1938,7 +1938,7 @@
 	<script src="js/ace.min.js"></script>
 
 	<!-- inline scripts related to this page -->
-
+	<script src="js/jquery.gritter.min.js"></script>
 	<script type="text/javascript">
 		jQuery(function($) {
 			$('.easy-pie-chart.percentage')
@@ -2180,6 +2180,17 @@
 							$(this).closest('li').removeClass('selected');
 					});
 		})
+		
+		if("${sessionScope.evento}"==1){
+ 			<% sesion.setAttribute("evento", 0); %>
+ 			$.gritter.add({
+				title: "${sessionScope.mensaje.tituloMensajeAlerta}",
+				text: "${sessionScope.mensaje.cuerpoMensajeAlerta}",
+				image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
+				time: 4000,
+				class_name: 'gritter-light gritter-info'
+			});	
+ 		}
 	</script>
 
 

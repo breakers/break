@@ -120,6 +120,11 @@ public class SvPerfiles extends ServletParent {
 		}
 		
 		public void actualizarPerfiles(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+			
+			if(((String) request.getParameter("txtID_act")).equals("")){
+				request.getSession().setAttribute("mensaje", obtenerMensaje(request, 5, "Perfil"));
+			}else{
+			
 			int id = Integer.parseInt(request.getParameter("txtID_act"));
 			String descripcion = (String) request.getParameter("txtDescripcion_act");
 			
@@ -152,25 +157,36 @@ public class SvPerfiles extends ServletParent {
 			if(((String) request.getParameter("chkModCalendario_act"))!=null) moduloCalendario=1;
 			else	moduloCalendario=0;
 			
-			
 			System.out.println("Parametros: "+id+","+descripcion+","+moduloContratos+","+moduloCategorias+","+moduloLiquidacion+","+moduloReportes+","+moduloManClientes+","+moduloManPerfiles+","+moduloManUsuarios+","+moduloBuzon+","+moduloCalendario);
 			PerfilDTO perfil = new PerfilDTO(id,descripcion,moduloContratos,moduloCategorias,moduloLiquidacion,moduloReportes,moduloManClientes,moduloManPerfiles,moduloManUsuarios,moduloBuzon,moduloCalendario);
 			
 			service.actualizarPerfil(perfil);
-			request.getSession().setAttribute("evento", 2);
+			request.getSession().setAttribute("mensaje", obtenerMensaje(request,3,"Perfil"));
+			}
+			
+			request.getSession().setAttribute("evento", 1);
+			
 			listarPerfiles(request, response);
 		}
 
 		
 		
 		public void eliminarPerfiles(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+			if(((String) request.getParameter("txtID_eli")).equals("")){
+				request.getSession().setAttribute("mensaje", obtenerMensaje(request, 5, "Perfil"));
+			}else{			
 			int id = Integer.parseInt(request.getParameter("txtID_eli"));
 			
 			System.out.println("Parametros: "+id);
 			
 			service.eliminarPerfil(id);
-			request.getSession().setAttribute("evento", 3);
+			request.getSession().setAttribute("mensaje", obtenerMensaje(request,4,"Perfil"));
+			}
+			
+			request.getSession().setAttribute("evento", 1);
+			
 			listarPerfiles(request, response);
+			
 		}
 		
 }

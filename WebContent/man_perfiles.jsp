@@ -691,7 +691,7 @@
 													<br>
 													<fieldset>
 														<label class="col-sm-2 control-label no-padding-right" style="padding-top: 3px;">Descripcion:</label> 													
-														<input class="col-sm-4" type="text" name="txtDescripcion" id="txtDescripcion" style="left: 20px;"/>
+														<input class="col-sm-4" type="text" name="txtDescripcion" id="txtDescripcion" style="left: 20px;" required="required"/>
 													</fieldset><br>
 													
 													<fieldset>
@@ -1058,7 +1058,6 @@
 	
 	<script src="js/bootbox.js"></script>
 	<script src="js/jquery.gritter.min.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 	<script type="text/javascript">
 	<!-- RENZO-->
 	$(document).ready(function () {
@@ -1114,7 +1113,7 @@
 				text: "${sessionScope.mensaje.cuerpoMensajeAlerta}",
 				image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
 				time: 2000,
-				class_name: 'gritter-light'
+				class_name: 'gritter-light gritter-info'
 			});	
  		}
 	});
