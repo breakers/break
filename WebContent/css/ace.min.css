@@ -5841,7 +5841,7 @@ input[type=checkbox].ace-switch-lysander:checked+.lbl::before
 
 input[type=checkbox].ace-switch-lysander:checked+.lbl::after
 	{
-	left: 80px  !important;
+	left: 77px  !important;
 	background-color: #FFF
 }
 

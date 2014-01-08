@@ -362,7 +362,7 @@ html,body,#map-canvas {
 														</div>
 
 														<!--  Datos si es Natural -->
-														<form class="form-horizontal" id="formInformacionCliente">
+														<form class="form-horizontal" id="formInformacionClienteNatural" method="get">
 
 															<div class="form-group">
 																<label
@@ -474,7 +474,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="phone" name="phone" />
+																		</span> <input type="tel" id="tel" name="tel" />
 																	</div>
 																</div>
 															</div>
@@ -490,7 +490,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="phone" name="phone" />
+																		</span> <input type="tel" id="cel" name="cel" />
 																	</div>
 																</div>
 															</div>
@@ -1306,6 +1306,8 @@ html,body,#map-canvas {
 						if (info.step == 1 && $validation) {
 							if (!$('#validation-form').valid())
 								return false;
+							if(!$('#formInformacionClienteNatural').valid())
+								return false;
 						}
 					})
 					.on(
@@ -1328,18 +1330,19 @@ html,body,#map-canvas {
 			$('#skip-validation').removeAttr('checked').on('click', function() {
 				$validation = this.checked;
 				if (this.checked) {
-					$('#sample-form').hide();
+					$('#formInformacionClienteNatural').hide();
 					$('#validation-form').removeClass('hide');
 				} else {
 					$('#validation-form').addClass('hide');
-					$('#sample-form').show();
+					$('#formInformacionClienteNatural').show();
 				}
 			});
 
 			//documentation : http://docs.jquery.com/Plugins/Validation/validate
 
 			$.mask.definitions['~'] = '[+-]';
-			$('#phone').mask('(999) 999-9999');
+			$('#cel').mask('(99) 999999999');
+			$('#tel').mask('(99) 999-9999');
 
 			jQuery.validator.addMethod("phone", function(value, element) {
 				return this.optional(element)
@@ -1395,8 +1398,8 @@ html,body,#map-canvas {
 
 								messages : {
 									email : {
-										required : "Please provide a valid email.",
-										email : "Please provide a valid email."
+										required : "Correo: campo obligatorio.",
+										email : "Por favor ingrese un correo válido"
 									},
 									password : {
 										required : "Please specify a password.",
