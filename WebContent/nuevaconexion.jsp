@@ -335,7 +335,7 @@ html,body,#map-canvas {
 
 
 
-												<hr />
+												<hr/>
 												<div class="step-content row-fluid position-relative"
 													id="step-container">
 													<div class="step-pane active" id="step1">
@@ -353,7 +353,7 @@ html,body,#map-canvas {
 																	<div class="clearfix">
 																		<label> <input id="skip-validation"
 																			type="checkbox"
-																			class="ace ace-switch ace-switch-lysander" /> <span
+																			class="ace ace-switch ace-switch-lysander"/> <span
 																			class="lbl"></span> <!-- .l. Editar Valores en ace.min.css:5787 -->
 																		</label>
 																	</div>
@@ -362,7 +362,7 @@ html,body,#map-canvas {
 														</div>
 
 														<!--  Datos si es Natural -->
-														<form class="form-horizontal" id="sample-form">
+														<form class="form-horizontal" id="formInformacionCliente">
 
 															<div class="form-group">
 																<label
@@ -441,10 +441,9 @@ html,body,#map-canvas {
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
 																	for="plano">Adjutar DNI: (*)</label>
-																<div class="controls">
-																	<input id="plano" name="plano"
-																		class="input-file col-xs-12 col-sm-5" type="file"
-																		title="Selecciona Imagen .jpg">
+																<div class="col-sm-3">
+																	<input type="file" id="id-input-file-2" />
+
 																</div>
 															</div>
 
@@ -1454,9 +1453,17 @@ html,body,#map-canvas {
 			$('#modal-wizard .modal-header').ace_wizard();
 			$('#modal-wizard .wizard-actions .btn[data-dismiss=modal]')
 					.removeAttr('disabled');
+			
+			$('#id-input-file-2').ace_file_input({
+				no_file : 'Adjunte DNI...',
+				btn_choose : 'Examinar',
+				btn_change : 'Cambiar',
+				droppable : false,
+				onchange : null,
+				thumbnail : false,
+			});
 		});
 	</script>
-
 
 
 
