@@ -351,7 +351,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<label> <input id="skip-validation"
+																		<label> <input id="chkTipoPersona"
 																			type="checkbox"
 																			class="ace ace-switch ace-switch-lysander"/> <span
 																			class="lbl"></span> <!-- .l. Editar Valores en ace.min.css:5787 -->
@@ -362,16 +362,16 @@ html,body,#map-canvas {
 														</div>
 
 														<!--  Datos si es Natural -->
-														<form class="form-horizontal" id="formInformacionClienteNatural" method="get">
+														<form class="form-horizontal" id="formInformacionClienteNatural" method="get" novalidate="novalidate">
 
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Nombres:</label>
+																	for="name">Nombre(s):</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="name" name="name"
+																		<input type="text" id="txtNombres_nat" name="txtNombres_nat"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -384,7 +384,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="apepa" name="apepa"
+																		<input type="text" id="txtApePat_nat" name="txtApePat_nat"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -397,7 +397,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="apema" name="apema"
+																		<input type="text" id="txtApeMat_nat" name="txtApeMat_nat"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -414,8 +414,8 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<select class="input-medium" id="tipodoc"
-																			name="tipodoc">
+																		<select class="input-medium" id="cbTipoDoc_nat"
+																			name="cbTipoDoc_nat">
 																			<option value="">------------------</option>
 																			<option value="DNI">DNI</option>
 																			<option value="Carnet Extranjeria">Carnet
@@ -431,7 +431,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="numdoc" name="numdoc"
+																		<input type="text" id="txtNumDoc_nat" name="txtNumDoc_nat"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -440,9 +440,9 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="plano">Adjutar DNI: (*)</label>
+																	for="plano">Adjutar Documento: (*)</label>
 																<div class="col-sm-3">
-																	<input type="file" id="id-input-file-2" />
+																	<input type="file" id="fileDoc_nat" name="fileDoc_nat"/>
 
 																</div>
 															</div>
@@ -457,7 +457,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="email" name="email" id="email"
+																		<input type="email" name="txtCorreo_nat" id="txtCorreo_nat"
 																			class="col-xs-12 col-sm-6" />
 																	</div>
 																</div>
@@ -474,7 +474,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="tel" name="tel" />
+																		</span> <input type="tel" id="txtTelefono_nat" name="txtTelefono_nat" />
 																	</div>
 																</div>
 															</div>
@@ -490,7 +490,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="cel" name="cel" />
+																		</span> <input type="tel" id="txtCelular_nat" name="txtCelular_nat" />
 																	</div>
 																</div>
 															</div>
@@ -501,7 +501,7 @@ html,body,#map-canvas {
 
 															<div class="form-group">
 																<div class="col-xs-12 col-sm-4 col-sm-offset-3">
-																	<label> <input name="agree" id="agree"
+																	<label> <input name="chkTerminos_nat" id="chkTerminos_nat"
 																		type="checkbox" class="ace" /> <span class="lbl">
 																			Acepto los terminos y condiciones</span>
 																	</label>
@@ -510,7 +510,7 @@ html,body,#map-canvas {
 														</form>
 
 														<!-- Datos si es Juridica -->
-														<form class="form-horizontal hide" id="validation-form"
+														<form class="form-horizontal hide" id="formInformacionClienteJuridica"
 															method="get" novalidate="novalidate">
 
 															<div class="form-group">
@@ -520,7 +520,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="name" name="name"
+																		<input type="text" id="txtRazSocial_jur" name="txtRazSocial_jur"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -535,7 +535,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="ruc" name="ruc"
+																		<input type="text" id="txtRUC_jur" name="txtRUC_jur"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -548,7 +548,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="url" id="url" name="url"
+																		<input type="text" id="txtURL_jur" name="txtURL_jur"
 																			class="col-xs-12 col-sm-8" />
 																	</div>
 																</div>
@@ -556,16 +556,14 @@ html,body,#map-canvas {
 
 															<div class="hr hr-dotted"></div>
 
-
-
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Nombres:</label>
+																	for="name">Nombre(s):</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="name" name="name"
+																		<input type="text" id="txtNombres_jur" name="txtNombres_jur"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -578,7 +576,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="apepa" name="apepa"
+																		<input type="text" id="txtApePat_jur" name="txtApePat_jur"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -591,7 +589,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="apema" name="apema"
+																		<input type="text" id="txtApeMat_jur" name="txtApeMat_jur"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -608,8 +606,8 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<select class="input-medium" id="tipodoc"
-																			name="tipodoc">
+																		<select class="input-medium" id="cbTipoDoc_jur"
+																			name="cbTipoDoc_jur">
 																			<option value="">------------------</option>
 																			<option value="DNI">DNI</option>
 																			<option value="Carnet Extranjeria">Carnet
@@ -626,7 +624,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="numdoc" name="numdoc"
+																		<input type="text" id="txtNumDoc_jur" name="txtNumDoc_jur"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -636,25 +634,20 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="plano">Adjutar DNI: (*)</label>
-																<div class="controls">
-																	<input id="plano" name="plano"
-																		class="input-file col-xs-12 col-sm-5" type="file"
-																		title="Selecciona Imagen .jpg">
-																</div>
+																	for="plano">Adjutar Documento: (*)</label>
+																	<div class="col-sm-3">
+																	<input type="file" id="fileDoc_jur" name="fileDoc_jur"/>
+																	</div>
 															</div>
 															<div class="space-2"></div>
 
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="plano">Adjutar Vigencia de poder o Carta
-																	Poder legalizada: (*)</label>
-																<div class="controls">
-																	<input id="plano" name="plano"
-																		class="input-file col-xs-12 col-sm-5" type="file"
-																		title="Selecciona Imagen .jpg">
-																</div>
+																	for="plano" style="padding-top: 0px;">Adjuntar Vigencia de poder o<br>Carta de Poder legalizada: (*)</label>
+																<div class="col-sm-3" >
+																	<input type="file" id="filePoder_jur" name="filePoder_jur"/>
+																	</div>
 															</div>
 
 
@@ -667,7 +660,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="email" name="email" id="email"
+																		<input type="email" name="txtCorreo_jur" id="txtCorreo_jur"
 																			class="col-xs-12 col-sm-6" />
 																	</div>
 																</div>
@@ -684,7 +677,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="phone" name="phone" />
+																		</span> <input type="tel" id="txtTelefono_jur" name="txtTelefono_jur" />
 																	</div>
 																</div>
 															</div>
@@ -700,7 +693,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="phone" name="phone" />
+																		</span> <input type="tel" id="txtCelular_jur" name="txtCelular_jur" />
 																	</div>
 																</div>
 															</div>
@@ -711,7 +704,7 @@ html,body,#map-canvas {
 
 															<div class="form-group">
 																<div class="col-xs-12 col-sm-4 col-sm-offset-3">
-																	<label> <input name="agree" id="agree"
+																	<label> <input name="chkTerminos_jur" id="chkTerminos_jur"
 																		type="checkbox" class="ace" /> <span class="lbl">
 																			Acepto los terminos y condiciones</span>
 																	</label>
@@ -743,13 +736,13 @@ html,body,#map-canvas {
 																	</div>
 																	<div class="widget-main no-padding">
 
-																		<form>
-
+																		<form id="formInformacionPredio" method="get" novalidate="novalidate">
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Provincia</label>
 																				<div class="controls">
-																					<select id="Provincia" name="provincia"
+																					<select id="cbProvincia" name="cbProvincia"
 																						class="input-medium">
+																						<option value="">--------</option>
 																						<option>Arequipa</option>
 																						<option>Canamá</option>
 																						<option>Caravelí</option>
@@ -766,7 +759,7 @@ html,body,#map-canvas {
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Distrito</label>
 																				<div class="controls">
-																					<select id="Distrito" name="distrito"
+																					<select id="cbDistrito" name="cbDistrito"
 																						class="input-medium">
 																						<option>--------</option>
 
@@ -778,7 +771,7 @@ html,body,#map-canvas {
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Localidad</label>
 																				<div class="controls">
-																					<select id="Localidad" name="localidad"
+																					<select id="cbLocalidad" name="cbLocalidad"
 																						class="input-medium">
 																						<option>--------</option>
 
@@ -790,7 +783,7 @@ html,body,#map-canvas {
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Calle</label>
 																				<div class="controls">
-																					<select id="Calle" name="calle"
+																					<select id="cbCalle" name="cbCalle"
 																						class="input-medium">
 																						<option>-------</option>
 
@@ -801,20 +794,15 @@ html,body,#map-canvas {
 
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Numero</label>
-																				<input type="text" placeholder="Numero"></input>
+																				<input type="text" placeholder="Numero" id="txtNumero" name="txtNumero"></input>
 
 																			</fieldset>
 
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Referencias</label>
-																				<textarea class="input-large" name="comment"
-																					id="comment"></textarea>
+																				<textarea class="input-large" name="txtReferencias" id="txtReferencias" style="max-width: 230px;width: 230px; min-width: 230px; max-height: 145px; min-height: 70px;"></textarea>
 
 																			</fieldset>
-
-
-
-
 
 																		</form>
 
@@ -830,14 +818,12 @@ html,body,#map-canvas {
 																	</div>
 																	<div class="widget-main no-padding">
 
-																		<form>
-
-
+																		<form id="formInformacionPredioAdicional" method="get" novalidate="novalidate">
 
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Estado</label>
 																				<div class="controls">
-																					<select id="Estado" name="Estado" class="input-medium">
+																					<select id="cbEstadoPredio" name="cbEstadoPredio" class="input-medium">
 																						<option>--Estado de predio--</option>
 																					</select>
 																				</div>
@@ -847,7 +833,7 @@ html,body,#map-canvas {
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Tipo</label>
 																				<div class="controls">
-																					<select id="Tipo" name="Tipo" class="input-medium">
+																					<select id="cbTipoPredio" name="cbTipoPredio" class="input-medium">
 																						<option>--Tipo de Predio--</option>
 																					</select>
 																				</div>
@@ -856,7 +842,7 @@ html,body,#map-canvas {
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Area
 																					de Predio</label> 
-																				<input type="text" placeholder="en m2" />
+																				<input type="text" placeholder="en m2" id="txtAreaPredio" name="txtAreaPredio"/>
 
 																			</fieldset>
 																			
@@ -864,7 +850,7 @@ html,body,#map-canvas {
 																				<label class="control-label col-xs-4 col-sm-4">Diametro
 																					de Conexion</label>
 																				<div class="controls">
-																					<select id="Estado" name="Estado"
+																					<select id="cbDiametroConexion" name="cbDiametroConexion"
 																						class="input-medium">
 																						<option>--Diametro-</option>
 																						<option>15</option>
@@ -875,8 +861,6 @@ html,body,#map-canvas {
 																				</div>
 
 																			</fieldset>
-
-
 
 																		</form>
 																	</div>
@@ -908,40 +892,40 @@ html,body,#map-canvas {
 																			informacion</h4>
 																	</div>
 																	<div class="widget-main no-padding">
-																		<form>
+																		<form id="formDocumentos" method="get" novalidate="novalidate">
 
 																			<fieldset>
-																				<label class="control-label col-xs-8 col-sm-4">Partido
+																				<label class="control-label col-xs-8 col-sm-4">Partida
 																					Registral de inscripción o Constancia de Posesión Emitida por
-																					la Municipalidad:(*)</label> <input id="plano" name="plano"
-																					class="input-file col-xs-12 col-sm-6" type="file"
-																					title="Selecciona Imagen .jpg" />
-
+																					la Municipalidad:(*)</label>
+																					<div class="col-sm-5">
+																						<input type="file" id="filePartidaConstancia" name="filePartidaConstancia"/>
+																					</div>
 																			</fieldset>
 
 																			<fieldset>
 																				<label class="control-label col-xs-8 col-sm-4">Memoria
-																					Descriptiva Firmada por un Ing. Sanitario:(*)</label> <input
-																					id="plano" name="plano"
-																					class="input-file col-xs-12 col-sm-6" type="file"
-																					title="Selecciona Imagen .jpg" />
-
+																					Descriptiva Firmada por un Ing. Sanitario:(*)</label> 
+																				<div class="col-sm-5">
+																						<input type="file" id="fileMemoria" name="fileMemoria"/>
+																				</div>
 																			</fieldset>
 
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Recibo
-																					Suministro Vecino:(*)</label> <input id="plano"
-																					name="plano" class="input-file col-xs-12 col-sm-6"
-																					type="file" title="Selecciona Imagen .jpg" />
-
+																					Suministro Vecino:(*)</label>
+																				<div class="col-sm-5">
+																					<input type="file" id="fileReciboVecino" name="fileReciboVecino"/>
+																				</div>
 																			</fieldset>
 
 																			<fieldset>
 																				<label class="control-label col-xs-4 col-sm-4">Plano
 																					de Instalaciones Sanitarias, Firmadas por un Ing.
-																					Sanitario</label> <input id="plano" name="plano"
-																					class="input-file col-xs-12 col-sm-6" type="file"
-																					title="Selecciona Imagen .jpg" />
+																					Sanitario</label>
+																				<div class="col-sm-5">
+																					<input type="file" id="filePlanoInstalaciones" name="filePlanoInstalaciones" />
+																				</div>
 
 																			</fieldset>
 
@@ -1303,10 +1287,17 @@ html,body,#map-canvas {
 			$('#fuelux-wizard')
 					.ace_wizard()
 					.on('change', function(e, info) {
-						if (info.step == 1 && $validation) {
-							if (!$('#validation-form').valid())
+						if (info.step == 1) {
+							if (!$('#formInformacionClienteNatural').valid())
 								return false;
-							if(!$('#formInformacionClienteNatural').valid())
+							if(!$('#formInformacionClienteJuridica').valid())
+								return false;
+						}else if(info.step == 2){
+							if (!$('#formInformacionPredio').valid())
+								return false;
+							if(!$('#formDocumentos').valid())
+								return false;
+							if(!$('#formInformacionPredioAdicional').valid())
 								return false;
 						}
 					})
@@ -1323,148 +1314,448 @@ html,body,#map-canvas {
 												}
 											}
 										});
-							}).on('stepclick', function(e) {
-						//return false;//prevent clicking on steps
+							})
+					.on('stepclick', function(e) {
+ 								//return false;	//prevent clicking on steps
 					});
+			
+//	-----------------------------	<BEGINS> PASO 1 : Información del Cliente	-----------------------------------------------
 
-			$('#skip-validation').removeAttr('checked').on('click', function() {
+			$('#chkTipoPersona').removeAttr('checked').on('click', function() {
 				$validation = this.checked;
 				if (this.checked) {
 					$('#formInformacionClienteNatural').hide();
-					$('#validation-form').removeClass('hide');
+					$('#formInformacionClienteJuridica').removeClass('hide');
 				} else {
-					$('#validation-form').addClass('hide');
+					$('#formInformacionClienteJuridica').addClass('hide');
 					$('#formInformacionClienteNatural').show();
 				}
 			});
 
-			//documentation : http://docs.jquery.com/Plugins/Validation/validate
+// 			documentation : http://docs.jquery.com/Plugins/Validation/validate
 
 			$.mask.definitions['~'] = '[+-]';
-			$('#cel').mask('(99) 999999999');
-			$('#tel').mask('(99) 999-9999');
-
-			jQuery.validator.addMethod("phone", function(value, element) {
+			$('#txtTelefono_nat').mask('(99) 999-9999');
+			$('#txtCelular_nat').mask('(99) 999999999');
+			$('#txtTelefono_jur').mask('(99) 999-9999');
+			$('#txtCelular_jur').mask('(99) 999999999');
+			
+			jQuery.validator.addMethod("valTel", function(value, element) {
 				return this.optional(element)
-						|| /^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value);
-			}, "Enter a valid phone number.");
+						|| /^\(\d{2}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value);
+			}, "Ingresa un número de teléfono válido.");
+			
+			jQuery.validator.addMethod("valCel", function(value, element) {
+				return this.optional(element)
+						|| /^\(\d{2}\) \d{9}( x\d{1,6})?$/.test(value);
+			}, "Ingresa un número de celular válido.");
+			
+			
 
-			$('#validation-form')
-					.validate(
-							{
-								errorElement : 'div',
-								errorClass : 'help-block',
-								focusInvalid : false,
-								rules : {
-									email : {
-										required : true,
-										email : true
-									},
-									password : {
-										required : true,
-										minlength : 5
-									},
-									password2 : {
-										required : true,
-										minlength : 5,
-										equalTo : "#password"
-									},
-									name : {
-										required : true
-									},
-									phone : {
-										required : true,
-										phone : 'required'
-									},
-									url : {
-										required : true,
-										url : true
-									},
-									comment : {
-										required : true
-									},
-									state : {
-										required : true
-									},
-									platform : {
-										required : true
-									},
-									subscription : {
-										required : true
-									},
-									gender : 'required',
-									agree : 'required'
-								},
+//--------------VALIDACION DEL FORM INFORMACION CLIENTE (NATURAL)---------------------		
+			$('#formInformacionClienteNatural')
+			.validate(
+					{
+						errorElement : 'div',
+						errorClass : 'help-block',
+						focusInvalid : false,
+						rules : {
+							txtNombres_nat : {
+								required : true,
+							},
+							txtApePat_nat : {
+								required : true
+							},
+							txtApeMat_nat: {
+								required : true
+							},
+							cbTipoDoc_nat: {
+								required : true
+							},
+							txtNumDoc_nat: {
+								required : true
+							},
+							fileDoc_nat: {
+								required : true
+							},
+							txtCorreo_nat: {
+								required : true,
+								email : true
+							},
+							txtTelefono_nat: {
+								required : true,
+								valTel : 'required'
+							},
+							txtCelular_nat: {
+								required : true,
+								valCel : 'required'
+							},
+							chkTerminos_nat: {
+								required : true,
+							}	
+							
+						},
 
-								messages : {
-									email : {
-										required : "Correo: campo obligatorio.",
-										email : "Por favor ingrese un correo válido"
-									},
-									password : {
-										required : "Please specify a password.",
-										minlength : "Please specify a secure password."
-									},
-									subscription : "Please choose at least one option",
-									gender : "Please choose gender",
-									agree : "Please accept our policy"
-								},
+						messages : {
+							txtNombres_nat : {
+								required : "Debe ingresar su nombre."
+							},
+							txtApePat_nat: {
+								required : "Debe ingresar su apellido paterno."
+							},
+							txtApeMat_nat: {
+								required : "Debe ingresar su apellido materno."
+							},
+							cbTipoDoc_nat: "Debe seleccionar tipo de documento.",
+							txtNumDoc_nat: {
+								required : "Debe ingresar número de documento."
+							},
+							fileDoc_nat: {
+								required : "Debe adjuntar documento."
+							},
+							txtCorreo_nat: {
+								required : "Debe ingresar su correo electrónico.",
+								email : "Ingrese un correo electrónico válido"
+							},
+							txtTelefono_nat: {
+								required : "Debe ingresar su teléfono."
+							},
+							txtCelular_nat: {
+								required : "Debe ingresar su celular."
+							},
+							chkTerminos_nat: {
+								required : "Debe aceptar los términos y condiciones."
+							}
+						},
 
-								invalidHandler : function(event, validator) { //display error alert on form submit   
-									$('.alert-danger', $('.login-form')).show();
-								},
+						invalidHandler : function(event, validator) { //display error alert on form submit   
+							$('.alert-danger', $('.login-form')).show();
+						},
 
-								highlight : function(e) {
-									$(e).closest('.form-group').removeClass(
-											'has-info').addClass('has-error');
-								},
+						highlight : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-info').addClass('has-error');
+						},
 
-								success : function(e) {
-									$(e).closest('.form-group').removeClass(
-											'has-error').addClass('has-info');
-									$(e).remove();
-								},
+						success : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-error').addClass('has-info');
+							$(e).remove();
+						},
 
-								errorPlacement : function(error, element) {
-									if (element.is(':checkbox')
-											|| element.is(':radio')) {
-										var controls = element
-												.closest('div[class*="col-"]');
-										if (controls.find(':checkbox,:radio').length > 1)
-											controls.append(error);
-										else
-											error.insertAfter(element.nextAll(
-													'.lbl:eq(0)').eq(0));
-									} else if (element.is('.select2')) {
-										error
-												.insertAfter(element
-														.siblings('[class*="select2-container"]:eq(0)'));
-									} else if (element.is('.chosen-select')) {
-										error
-												.insertAfter(element
-														.siblings('[class*="chosen-container"]:eq(0)'));
-									} else
-										error.insertAfter(element.parent());
-								},
+						errorPlacement : function(error, element) {
+							if (element.is(':checkbox')
+									|| element.is(':radio')) {
+								var controls = element
+										.closest('div[class*="col-"]');
+								if (controls.find(':checkbox,:radio').length > 1)
+									controls.append(error);
+								else
+									error.insertAfter(element.nextAll(
+											'.lbl:eq(0)').eq(0));
+							} else if (element.is('.select2')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="select2-container"]:eq(0)'));
+							} else if (element.is('.chosen-select')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="chosen-container"]:eq(0)'));
+							} else
+								error.insertAfter(element.parent());
+						},
 
-								submitHandler : function(form) {
-								},
-								invalidHandler : function(form) {
-								}
-							});
+						submitHandler : function(form) {
+						},
+						invalidHandler : function(form) {
+						}
+					});
+					
+//--------------VALIDACION DEL FORM INFORMACION CLIENTE (JURIDICA)---------------------						
+			$('#formInformacionClienteJuridica')
+			.validate(
+					{
+						errorElement : 'div',
+						errorClass : 'help-block',
+						focusInvalid : false,
+						rules : {
+							txtRazSocial_jur : {
+								required : true
+							},
+							txtRUC_jur : {
+								required : true
+							},
+							txtURL_jur : {
+								url : true
+							},
+							txtNombres_jur : {
+								required : true
+							},
+							txtApePat_jur : {
+								required : true
+							},
+							txtApeMat_jur: {
+								required : true
+							},
+							cbTipoDoc_jur: {
+								required : true
+							},
+							txtNumDoc_jur: {
+								required : true
+							},
+							fileDoc_jur: {
+								required : true
+							},
+							filePoder_jur: {
+								required: true
+							},
+							txtCorreo_jur: {
+								required : true,
+								email : true
+							},
+							txtTelefono_jur: {
+								required : true,
+								valTel : 'required'
+							},
+							txtCelular_jur: {
+								required : true,
+								valCel : 'required'
+							},
+							chkTerminos_jur: {
+								required : true,
+							}	
+						},
+
+						messages : {
+							txtRUC_jur : {
+								required : "Debe ingresar R.U.C."
+							},
+							txtRazSocial_jur : {
+								required : "Debe ingresar Razón Social."
+							},
+							txtURL_jur : {
+								url : "Ingrese un URL válido"
+							},
+							txtNombres_jur : {
+								required : "Debe ingresar su nombre."
+							},
+							txtApePat_jur: {
+								required : "Debe ingresar su apellido paterno."
+							},
+							txtApeMat_jur: {
+								required : "Debe ingresar su apellido materno."
+							},
+							cbTipoDoc_jur: "Debe seleccionar tipo de documento.",
+							txtNumDoc_jur: {
+								required : "Debe ingresar número de documento."
+							},
+							fileDoc_jur: {
+								required : "Debe adjuntar documento."
+							},
+							filePoder_jur: {
+								required :"Debe adjuntar documento."
+							},
+							txtCorreo_jur: {
+								required : "Debe ingresar su correo electrónico.",
+								email : "Ingrese un correo electrónico válido"
+							},
+							txtTelefono_jur: {
+								required : "Debe ingresar su teléfono."
+							},
+							txtCelular_jur: {
+								required : "Debe ingresar su celular."
+							},
+							chkTerminos_jur: {
+								required : "Debe aceptar los términos y condiciones."
+							}
+						},
+
+						invalidHandler : function(event, validator) { //display error alert on form submit   
+							$('.alert-danger', $('.login-form')).show();
+						},
+
+						highlight : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-info').addClass('has-error');
+						},
+
+						success : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-error').addClass('has-info');
+							$(e).remove();
+						},
+
+						errorPlacement : function(error, element) {
+							if (element.is(':checkbox')
+									|| element.is(':radio')) {
+								var controls = element
+										.closest('div[class*="col-"]');
+								if (controls.find(':checkbox,:radio').length > 1)
+									controls.append(error);
+								else
+									error.insertAfter(element.nextAll(
+											'.lbl:eq(0)').eq(0));
+							} else if (element.is('.select2')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="select2-container"]:eq(0)'));
+							} else if (element.is('.chosen-select')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="chosen-container"]:eq(0)'));
+							} else
+								error.insertAfter(element.parent());
+						},
+
+						submitHandler : function(form) {
+						},
+						invalidHandler : function(form) {
+						}
+					});
+			
 
 			$('#modal-wizard .modal-header').ace_wizard();
 			$('#modal-wizard .wizard-actions .btn[data-dismiss=modal]')
 					.removeAttr('disabled');
 			
-			$('#id-input-file-2').ace_file_input({
-				no_file : 'Adjunte DNI...',
+			$('#fileDoc_nat').ace_file_input({
+				no_file : 'Adjunte Documento...',
 				btn_choose : 'Examinar',
 				btn_change : 'Cambiar',
 				droppable : false,
 				onchange : null,
-				thumbnail : false,
+				whitelist:'gif|png|jpg|jpeg',
+				blacklist:'exe|php|xlsx|pdf',
+// 				thumbnail : false,
 			});
+			
+			$('#fileDoc_jur').ace_file_input({
+				no_file : 'Adjunte Documento...',
+				btn_choose : 'Examinar',
+				btn_change : 'Cambiar',
+				droppable : false,
+				onchange : null,
+// 				thumbnail : false,
+			});
+			
+			$('#filePoder_jur').ace_file_input({
+				no_file : 'Adjunte Documento...',
+				btn_choose : 'Examinar',
+				btn_change : 'Cambiar',
+				droppable : false,
+				onchange : '',
+// 				thumbnail : false,
+			});
+			
+			
+			
+//	-----------------------------	<ENDS> PASO 1 : Información del Cliente	-----------------------------------------------
+
+
+//	-----------------------------	<BEGINS> PASO 2 : Información del Predio	-----------------------------------------------
+		$('#formInformacionPredio')
+			.validate(
+					{
+						errorElement : 'div',
+						errorClass : 'help-block',
+						focusInvalid : false,
+						rules : {
+							cbProvincia : {
+								required : true
+							}
+						},
+
+						messages : {
+							cbProvincia : {
+								required : "Debe seleccionar una provincia."
+							}
+						},
+
+						invalidHandler : function(event, validator) { //display error alert on form submit   
+							$('.alert-danger', $('.login-form')).show();
+						},
+
+						highlight : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-info').addClass('has-error');
+						},
+
+						success : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-error').addClass('has-info');
+							$(e).remove();
+						},
+
+						errorPlacement : function(error, element) {
+							if (element.is(':checkbox')
+									|| element.is(':radio')) {
+								var controls = element
+										.closest('div[class*="col-"]');
+								if (controls.find(':checkbox,:radio').length > 1)
+									controls.append(error);
+								else
+									error.insertAfter(element.nextAll(
+											'.lbl:eq(0)').eq(0));
+							} else if (element.is('.select2')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="select2-container"]:eq(0)'));
+							} else if (element.is('.chosen-select')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="chosen-container"]:eq(0)'));
+							} else
+								error.insertAfter(element.parent());
+						},
+
+						submitHandler : function(form) {
+						},
+						invalidHandler : function(form) {
+						}
+					});
+					
+		$('#filePartidaConstancia').ace_file_input({
+			no_file : 'Adjunte Documento...',
+			btn_choose : 'Examinar',
+			btn_change : 'Cambiar',
+			droppable : false,
+			onchange : '',
+//				thumbnail : false,
+		});
+		
+		$('#fileMemoria').ace_file_input({
+			no_file : 'Adjunte Documento...',
+			btn_choose : 'Examinar',
+			btn_change : 'Cambiar',
+			droppable : false,
+			onchange : '',
+//				thumbnail : false,
+		});
+		
+		$('#fileReciboVecino').ace_file_input({
+			no_file : 'Adjunte Documento...',
+			btn_choose : 'Examinar',
+			btn_change : 'Cambiar',
+			droppable : false,
+			onchange : '',
+//				thumbnail : false,
+		});
+		
+		$('#filePlanoInstalaciones').ace_file_input({
+			no_file : 'Adjunte Documento...',
+			btn_choose : 'Examinar',
+			btn_change : 'Cambiar',
+			droppable : false,
+			onchange : '',
+//				thumbnail : false,
+		});
+//	-----------------------------	<ENDS> PASO 2 : Información del Predio	-----------------------------------------------	
+
+
+//	-----------------------------	<BEGINS> PASO 3 : Presupuesto	-----------------------------------------------	
+
+//	-----------------------------	<ENDS> PASO 3 : Presupuesto	-----------------------------------------------		
+	
 		});
 	</script>
 
