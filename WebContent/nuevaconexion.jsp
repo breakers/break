@@ -124,7 +124,7 @@ html,body,#map-canvas {
 	var map;
 
 	function initialize() {
-
+		directionsDisplay = new google.maps.DirectionsRenderer();
 		var centro = new google.maps.LatLng(-16.411667, -71.532967);
 		var mapOptions = {
 			zoom : 20,
@@ -134,7 +134,6 @@ html,body,#map-canvas {
 		map = new google.maps.Map(document.getElementById('map-canvas'),
 				mapOptions);
 	}
-
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
@@ -319,11 +318,10 @@ html,body,#map-canvas {
 													data-target="#step-container">
 													<ul class="wizard-steps">
 														<li data-target="#step1" class="active"><span
-															class="step">1</span> <span class="title">Información
-																Cliente</span></li>
+															class="step">1</span> <span class="title">Información del Cliente</span></li>
 
 														<li data-target="#step2"><span class="step">2</span>
-															<span class="title">Informacion de Predio</span></li>
+															<span class="title">Informacion del Predio</span></li>
 
 														<li data-target="#step3"><span class="step">3</span>
 															<span class="title">Presupuesto</span></li>
@@ -737,9 +735,9 @@ html,body,#map-canvas {
 																	<div class="widget-main no-padding">
 
 																		<form id="formInformacionPredio" method="get" novalidate="novalidate">
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Provincia</label>
-																				<div class="controls">
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4 no-padding-right" for="cbProvincia" style="padding-bottom: 16px;">Provincia</label>
+																				<div class="controls" style="margin-top: 20px;">
 																					<select id="cbProvincia" name="cbProvincia"
 																						class="input-medium">
 																						<option value="">--------</option>
@@ -754,55 +752,58 @@ html,body,#map-canvas {
 																					</select>
 																				</div>
 
-																			</fieldset>
+																			</div>
 																			
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Distrito</label>
+																			<div class=form-group>
+																				<label class="control-label col-xs-4 col-sm-4 no-padding-right" for="cbDistrito" style="padding-bottom: 16px;">Distrito</label>
 																				<div class="controls">
 																					<select id="cbDistrito" name="cbDistrito"
 																						class="input-medium">
-																						<option>--------</option>
-
+																						<option value="">--------</option>
+																						<option>distrito1</option>
 																					</select>
 																				</div>
 
-																			</fieldset>
+																			</div>
 
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Localidad</label>
+																			<div class=form-group>
+																				<label class="control-label col-xs-4 col-sm-4 no-padding-right" for="cbLocalidad" style="padding-bottom: 16px;">Localidad</label>
 																				<div class="controls">
 																					<select id="cbLocalidad" name="cbLocalidad"
 																						class="input-medium">
-																						<option>--------</option>
-
+																						<option value="">--------</option>
+																						<option>localidad1</option>
 																					</select>
 																				</div>
 
-																			</fieldset>
+																			</div>
 
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Calle</label>
+																			<div class=form-group>
+																				<label class="control-label col-xs-4 col-sm-4 no-padding-right" for="cbCalle" style="padding-bottom: 16px;">Calle</label>
 																				<div class="controls">
 																					<select id="cbCalle" name="cbCalle"
 																						class="input-medium">
-																						<option>-------</option>
+																						<option value="">-------</option>
+																						<option>calle1</option>
 
 																					</select>
 																				</div>
 
-																			</fieldset>
+																			</div>
 
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Numero</label>
+																			<div class=form-group>
+																				<label class="control-label col-xs-4 col-sm-4 no-padding-right" for="txtNumero" style="padding-bottom: 16px;">Numero</label>
+																			<div >
 																				<input type="text" placeholder="Numero" id="txtNumero" name="txtNumero"></input>
+																			</div>
+																			</div>
 
-																			</fieldset>
-
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Referencias</label>
+																			<div class=form-group>
+																				<label class="control-label col-xs-4 col-sm-4 no-padding-right" for="txtReferencias" style="padding-bottom: 49px;">Referencias</label>
+																				<div>
 																				<textarea class="input-large" name="txtReferencias" id="txtReferencias" style="max-width: 230px;width: 230px; min-width: 230px; max-height: 145px; min-height: 70px;"></textarea>
-
-																			</fieldset>
+																				</div>
+																			</div>
 
 																		</form>
 
@@ -817,42 +818,54 @@ html,body,#map-canvas {
 																		<h4>Datos adicionales del predio</h4>
 																	</div>
 																	<div class="widget-main no-padding">
-
+																	
 																		<form id="formInformacionPredioAdicional" method="get" novalidate="novalidate">
 
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Estado</label>
-																				<div class="controls">
-																					<select id="cbEstadoPredio" name="cbEstadoPredio" class="input-medium">
-																						<option>--Estado de predio--</option>
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4" for="cbEstadoPredio" style="padding-bottom: 14px;">Estado</label>
+																				<div class="controls" style="margin-top: 20px;">
+																					<select id="cbEstadoPredio" name="cbEstadoPredio" class="input-medium" style="width: 210px;">
+																						<option value="">--Estado de predio--</option>
+																						<option>En Construcción Habitado</option>
+																						<option>En Construcción Deshabitado</option>
+																						<option>Vivienda Habitada</option>
+																						<option>Vivienda Deshabitada</option>
+																						<option>Baldio</option>
+																						<option>Cercado</option>
+																						<option>Sin Especificar</option>
 																					</select>
 																				</div>
-																			</fieldset>
+																			</div>
 
 
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Tipo</label>
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4" for="cbTipoPredio" style="padding-bottom: 14px;">Tipo</label>
 																				<div class="controls">
-																					<select id="cbTipoPredio" name="cbTipoPredio" class="input-medium">
-																						<option>--Tipo de Predio--</option>
+																					<select id="cbTipoPredio" name="cbTipoPredio" class="input-medium" style="width: 165px;">
+																						<option value="">--Tipo de Predio--</option>
+																						<option>Domestico</option>
+																						<option>Comercial</option>
+																						<option>Industrial</option>
+																						<option>Estatal</option>
 																					</select>
 																				</div>
-																			</fieldset>
+																			</div>
 																			
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Area
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4" for="txtAreaPredio" style="padding-bottom: 14px;">Area
 																					de Predio</label> 
+																				<div class="controls">
 																				<input type="text" placeholder="en m2" id="txtAreaPredio" name="txtAreaPredio"/>
-
-																			</fieldset>
+																				</div>
+																			</div>
 																			
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Diametro
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4" for="cbDiametroConexion" >Diametro
 																					de Conexion</label>
 																				<div class="controls">
 																					<select id="cbDiametroConexion" name="cbDiametroConexion"
 																						class="input-medium">
-																						<option>--Diametro-</option>
+																						<option value="">--Diametro-</option>
 																						<option>15</option>
 																						<option>20</option>
 																						<option>30</option>
@@ -860,7 +873,7 @@ html,body,#map-canvas {
 																					</select>
 																				</div>
 
-																			</fieldset>
+																			</div><br>
 
 																		</form>
 																	</div>
@@ -875,7 +888,7 @@ html,body,#map-canvas {
 
 																	</div>
 																	
-																	<div class="widget-main no-padding">
+																	<div class="widget-body">
 																		<div id="map-canvas"></div>
 																	</div>
 
@@ -891,49 +904,47 @@ html,body,#map-canvas {
 																		<h4>Adjuntar los documentos que sustenten la
 																			informacion</h4>
 																	</div>
-																	<div class="widget-main no-padding">
+																	<div class="widget-main">
 																		<form id="formDocumentos" method="get" novalidate="novalidate">
-
-																			<fieldset>
-																				<label class="control-label col-xs-8 col-sm-4">Partida
+																		<div class="row">
+																			<div class="form-group">
+																				<label class="control-label col-xs-8 col-sm-4" for="filePartidaConstancia">Partida
 																					Registral de inscripción o Constancia de Posesión Emitida por
 																					la Municipalidad:(*)</label>
-																					<div class="col-sm-5">
-																						<input type="file" id="filePartidaConstancia" name="filePartidaConstancia"/>
+																					<div class="col-sm-5" style="top: 20px;">
+																						<input type="file" id="filePartidaConstancia" name="filePartidaConstancia" width="260px;"/>
 																					</div>
-																			</fieldset>
-
-																			<fieldset>
-																				<label class="control-label col-xs-8 col-sm-4">Memoria
+																			</div>
+																		</div><br>
+																		<div class="row">
+																			<div class="form-group">
+																				<label class="control-label col-xs-8 col-sm-4" for="fileMemoria">Memoria
 																					Descriptiva Firmada por un Ing. Sanitario:(*)</label> 
-																				<div class="col-sm-5">
+																				<div class="col-sm-5" style="top: 10px;">
 																						<input type="file" id="fileMemoria" name="fileMemoria"/>
 																				</div>
-																			</fieldset>
-
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Recibo
+																			</div>
+																		</div>	<br>
+																		<div class="row">
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4" for="fileReciboVecino">Recibo
 																					Suministro Vecino:(*)</label>
 																				<div class="col-sm-5">
 																					<input type="file" id="fileReciboVecino" name="fileReciboVecino"/>
 																				</div>
-																			</fieldset>
-
-																			<fieldset>
-																				<label class="control-label col-xs-4 col-sm-4">Plano
+																			</div>
+																		</div>
+																		<div class="row">
+																			<div class="form-group">
+																				<label class="control-label col-xs-4 col-sm-4" for="filePlanoInstalaciones">Plano
 																					de Instalaciones Sanitarias, Firmadas por un Ing.
 																					Sanitario</label>
-																				<div class="col-sm-5">
+																				<div class="col-sm-5" style="top: 10px;">
 																					<input type="file" id="filePlanoInstalaciones" name="filePlanoInstalaciones" />
 																				</div>
-
-																			</fieldset>
-
-
-
+																			</div>
+																		</div>
 																		</form>
-
-
 																	</div>
 																</div>
 															</div>
@@ -1001,15 +1012,15 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div>
-																		<label class="blue"> <input name="gender"
+																		<label class="blue"> <input name="formaPago" id="formaPago" checked="checked"
 																			value="1" type="radio" class="ace" /> <span
 																			class="lbl"> Contado</span>
 																		</label>
 																	</div>
 
 																	<div>
-																		<label class="blue"> <input name="gender"
-																			value="2" type="radio" class="ace" /> <span
+																		<label class="blue"> <input name="formaPago" id="formaPago"
+																			value="2" type="radio" class="ace"/> <span
 																			class="lbl"> Cuotas</span>
 																		</label>
 																	</div>
@@ -1025,8 +1036,8 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<select class="input-medium" id="cuotas"
-																			name="cuotas">
+																		<select class="input-medium" id="numCuotas"
+																			name="numCuotas">
 																			<option value="">------------------</option>
 																			<option value="6">6</option>
 																			<option value="12">12</option>
@@ -1042,7 +1053,7 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="montocuota" name="montocuota"
+																		<input type="text" id="montoCuotas" name="montoCuotas"
 																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
@@ -1175,7 +1186,7 @@ html,body,#map-canvas {
 													</button>
 
 													<button class="btn btn-success btn-next"
-														data-last="Finish ">
+														data-last="Terminar ">
 														Continuar <i class="icon-arrow-right icon-on-right"></i>
 													</button>
 												</div>
@@ -1274,6 +1285,18 @@ html,body,#map-canvas {
 
 	<script type="text/javascript">
 		jQuery(function($) {
+			
+			$("#formaPago").click(function(){
+				if($("input[name='formaPago']:checked").val() == "1"){
+				$("#numCuotas").prop('disabled','disabled');
+				$("#montoCuotas").prop('disabled','disabled');
+				}else{
+					$("#numCuotas").prop('disabled',false);
+					$("#montoCuotas").prop('disabled',false);
+				}
+			});
+			
+			
 
 			$('[data-rel=tooltip]').tooltip();
 
@@ -1289,21 +1312,20 @@ html,body,#map-canvas {
 					.on('change', function(e, info) {
 						if (info.step == 1) {
 							if (!$('#formInformacionClienteNatural').valid())
-								return false;
+								e.preventDefault();
 							if(!$('#formInformacionClienteJuridica').valid())
-								return false;
+								e.preventDefault();
 						}else if(info.step == 2){
 							if (!$('#formInformacionPredio').valid())
-								return false;
-							if(!$('#formDocumentos').valid())
-								return false;
-							if(!$('#formInformacionPredioAdicional').valid())
-								return false;
+								e.preventDefault();
+							if (!$('#formInformacionPredioAdicional').valid())
+								e.preventDefault();
+							if (!$('#formDocumentos').valid())
+								e.preventDefault();
+							
 						}
 					})
-					.on(
-							'finished',
-							function(e) {
+					.on('finished',function(e) {
 								bootbox
 										.dialog({
 											message : "Gracias! Tu solicitud se ha enviado correctamente!",
@@ -1316,7 +1338,7 @@ html,body,#map-canvas {
 										});
 							})
 					.on('stepclick', function(e) {
- 								//return false;	//prevent clicking on steps
+ 								return false;
 					});
 			
 //	-----------------------------	<BEGINS> PASO 1 : Información del Cliente	-----------------------------------------------
@@ -1653,6 +1675,7 @@ html,body,#map-canvas {
 
 
 //	-----------------------------	<BEGINS> PASO 2 : Información del Predio	-----------------------------------------------
+		// FORM  INFORMACION DEL PREDIO
 		$('#formInformacionPredio')
 			.validate(
 					{
@@ -1662,12 +1685,43 @@ html,body,#map-canvas {
 						rules : {
 							cbProvincia : {
 								required : true
+							},
+							cbDistrito : {
+								required : true
+							},
+							cbLocalidad : {
+								required :true
+							},
+							cbCalle : {
+								required : true
+							},
+							txtNumero: {
+								required : true
+							},
+							txtReferencias : {
+								required : true
 							}
+							
 						},
 
 						messages : {
 							cbProvincia : {
 								required : "Debe seleccionar una provincia."
+							},
+							cbDistrito : {
+								required : "Debe seleccionar un distrito."
+							},
+							cbLocalidad : {
+								required : "Debe seleccionar una localidad"
+							},
+							cbCalle : {
+								required : "Debe seleccionar una calle"
+							},
+							txtNumero : {
+								required : "Debe ingresar número"
+							},
+							txtReferencias : {
+								required : "Debe ingresar referencias"
 							}
 						},
 
@@ -1714,6 +1768,170 @@ html,body,#map-canvas {
 						}
 					});
 					
+		
+		
+		
+		// VALIDACION FORM INFORMACION ADICIONAL DEL PREDIO
+		$('#formInformacionPredioAdicional')
+			.validate(
+					{
+						errorElement : 'div',
+						errorClass : 'help-block',
+						focusInvalid : false,
+						rules : {
+							cbEstadoPredio : {
+								required : true
+							},
+							cbTipoPredio : {
+								required : true
+							},
+							txtAreaPredio : {
+								required : true
+							},
+							cbDiametroConexion : {
+								required : true
+							}
+						},
+
+						messages : {
+							cbEstadoPredio : {
+								required : "Debe seleccionar un estado de predio"
+							},
+							cbTipoPredio : {
+								required : "Debe seleccionar un tipo de predio"
+							},
+							txtAreaPredio : {
+								required : "Debe ingresar el área del predio"
+							},
+							cbDiametroConexion : {
+								required : "Debe seleccionar el diámetro de conexión"
+							}
+						},
+
+						invalidHandler : function(event, validator) { //display error alert on form submit   
+							$('.alert-danger', $('.login-form')).show();
+						},
+
+						highlight : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-info').addClass('has-error');
+						},
+
+						success : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-error').addClass('has-info');
+							$(e).remove();
+						},
+
+						errorPlacement : function(error, element) {
+							if (element.is(':checkbox')
+									|| element.is(':radio')) {
+								var controls = element
+										.closest('div[class*="col-"]');
+								if (controls.find(':checkbox,:radio').length > 1)
+									controls.append(error);
+								else
+									error.insertAfter(element.nextAll(
+											'.lbl:eq(0)').eq(0));
+							} else if (element.is('.select2')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="select2-container"]:eq(0)'));
+							} else if (element.is('.chosen-select')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="chosen-container"]:eq(0)'));
+							} else
+								error.insertAfter(element.parent());
+						},
+
+						submitHandler : function(form) {
+						},
+						invalidHandler : function(form) {
+						}
+					});
+		
+		// VALIDACION DEL FORM DOCUMENTOS
+		$('#formDocumentos')
+			.validate(
+					{
+						errorElement : 'div',
+						errorClass : 'help-block',
+						focusInvalid : false,
+						rules : {
+							filePartidaConstancia : {
+								required : true
+							},
+							fileMemoria : {
+								required : true
+							},
+							fileReciboVecino : {
+								required : true
+							},
+							filePlanoInstalaciones : {
+								required : true
+							}
+						},
+
+						messages : {
+							filePartidaConstancia : {
+								required : "Debe adjuntar documento."
+							},
+							fileMemoria : {
+								required : "Debe adjuntar documento."
+							},
+							fileReciboVecino : {
+								required : "Debe adjuntar documento."
+							},
+							filePlanoInstalaciones : {
+								required : "Debe adjuntar documento."
+							}
+						},
+
+						invalidHandler : function(event, validator) { //display error alert on form submit   
+							$('.alert-danger', $('.login-form')).show();
+						},
+
+						highlight : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-info').addClass('has-error');
+						},
+
+						success : function(e) {
+							$(e).closest('.form-group').removeClass(
+									'has-error').addClass('has-info');
+							$(e).remove();
+						},
+
+						errorPlacement : function(error, element) {
+							if (element.is(':checkbox')
+									|| element.is(':radio')) {
+								var controls = element
+										.closest('div[class*="col-"]');
+								if (controls.find(':checkbox,:radio').length > 1)
+									controls.append(error);
+								else
+									error.insertAfter(element.nextAll(
+											'.lbl:eq(0)').eq(0));
+							} else if (element.is('.select2')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="select2-container"]:eq(0)'));
+							} else if (element.is('.chosen-select')) {
+								error
+										.insertAfter(element
+												.siblings('[class*="chosen-container"]:eq(0)'));
+							} else
+								error.insertAfter(element.parent());
+						},
+
+						submitHandler : function(form) {
+						},
+						invalidHandler : function(form) {
+						}
+					});
+		
+		
 		$('#filePartidaConstancia').ace_file_input({
 			no_file : 'Adjunte Documento...',
 			btn_choose : 'Examinar',
@@ -1749,6 +1967,7 @@ html,body,#map-canvas {
 			onchange : '',
 //				thumbnail : false,
 		});
+							
 //	-----------------------------	<ENDS> PASO 2 : Información del Predio	-----------------------------------------------	
 
 
