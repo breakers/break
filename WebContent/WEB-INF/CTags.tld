@@ -1,0 +1,16 @@
+<!-- Ejemplos.tld -->
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>ctag</shortname>
+	<uri></uri>
+	<info>Custom Tags</info>
+
+
+	<tag>
+		<name>comboperfil</name>
+		<tagclass>tags.ComboPerfil</tagclass>
+		<bodycontent>comboperfil</bodycontent>
+		
+	</tag>
+</taglib>

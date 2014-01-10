@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import util.MySQL;
-import bean.PerfilDTO;
 import bean.UsuarioDTO;
 import interfaces.UsuarioDAO;
 
@@ -147,7 +146,7 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 	public List<UsuarioDTO> listarUsuarios() {
 		List<UsuarioDTO> lista = new ArrayList<UsuarioDTO>();
 		Connection cn = MySQL.getConnection();
-		String sql = "CALL usp_listarUsuarios";
+		String sql = "CALL usp_listarUsuario";
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -161,6 +160,7 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 						rs.getString("dniUsuario"),
 						rs.getString("correoUsuario"),
 						rs.getString("telefonoUsuario"));
+				lista.add(usuario);
 
 			}
 

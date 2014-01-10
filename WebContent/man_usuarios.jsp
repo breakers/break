@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="/WEB-INF/CTags.tld" prefix = "ctags"%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -629,10 +630,11 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="lista" items="${requestScope.listaUsuarios}">
+												<c:forEach var="lista"
+													items="${requestScope.listarUsuarios}">
 													<tr>
 														<td>${lista.idUsuario}</td>
-														<td>${lista.nomUsuario}</td>
+														<td>${lista.nomUsuario}&nbsp${lista.apepaUsuario}&nbsp${lista.apemaUsuario}</td>
 														<td>${lista.dniUsuario}</td>
 													</tr>
 												</c:forEach>
@@ -661,7 +663,7 @@
 
 										<div class="tab-content">
 											<div id="tabAgregar" class="tab-pane in active">
-												<form method="post" action="SvUsuarios">
+												<form id="formAgregar" method="post" action="SvUsuarios">
 													<div class="row">
 														<div class="col-sm-7">
 															<br>
@@ -671,7 +673,7 @@
 																	style="padding-top: 3px;">Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtUsuario" id="txtUsuario"
-																	placeholder="Ingrese Usuario" required="required" />
+																	placeholder="Ingrese Usuario" />
 															</fieldset>
 															<br>
 															<fieldset>
@@ -679,7 +681,7 @@
 																	style="padding-top: 3px;">Contraseña:</label> <input
 																	class="col-xs-10 col-sm-9" type="password"
 																	name="txtCon" id="txtCon"
-																	placeholder="Ingrese Password" required="required" />
+																	placeholder="Ingrese Password" />
 
 															</fieldset>
 															<br>
@@ -688,8 +690,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Nombre:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" name="txtNombre"
-																	id="txtNombre" placeholder="Ingrese Nombre"
-																	required="required" />
+																	id="txtNombre" placeholder="Ingrese Nombre" />
 
 															</fieldset>
 															<br>
@@ -697,8 +698,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Paterno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" name="txtApepa"
-																	id="txtApepa" placeholder="Ingrese Apellido Paterno"
-																	required="required" />
+																	id="txtApepa" placeholder="Ingrese Apellido Paterno" />
 
 															</fieldset>
 															<br>
@@ -706,8 +706,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Materno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" name="txtApema"
-																	id="txtApema" placeholder="Ingrese Apellido Materno"
-																	required="required" />
+																	id="txtApema" placeholder="Ingrese Apellido Materno" />
 
 															</fieldset>
 															<br>
@@ -716,8 +715,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">DNI Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
-																	name="txtDNI" id="txtDNI" placeholder="Ingrese DNI"
-																	required="required" />
+																	name="txtDNI" id="txtDNI" placeholder="Ingrese DNI" />
 
 															</fieldset>
 															<br>
@@ -729,7 +727,7 @@
 																	<span class="input-group-addon"> <i
 																		class="icon-envelope"></i>
 																	</span> <input class="col-xs-10 col-sm-9" type="email"
-																		name="txtCorreo" id="txtCorreo" required="required" />
+																		name="txtCorreo" id="txtCorreo" />
 																</div>
 
 															</fieldset>
@@ -741,8 +739,7 @@
 																	<span class="input-group-addon"> <i
 																		class="icon-phone"></i>
 																	</span> <input class="col-xs-10 col-sm-9 " type="text"
-																		name="txtTelefono" id="txtTelefono"
-																		required="required" />
+																		name="txtTelefono" id="txtTelefono" />
 																</div>
 
 															</fieldset>
@@ -804,7 +801,7 @@
 
 
 											<div id="tabActualizar" class="tab-pane">
-												<form method="post" action="SvUsuarios">
+												<form method="post" id="formModificar" action="SvUsuarios">
 													<div class="row">
 														<div class="col-sm-7">
 															<br>
@@ -814,22 +811,20 @@
 																	<label class="col-sm-3 control-label no-padding-right"
 																		style="padding-top: 3px;">ID:</label> <input
 																		class="col-xs-10 col-sm-9" type="text"
-																		name="txtId_act" id="txtId_act" required="required"
-																		disabled="disabled" />
+																		name="txtId_act" id="txtId_mod" disabled="disabled" />
 																</fieldset>
 																<br> <label
 																	class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtUsuario_act" id="txtUsuario_act"
-																	required="required" />
+																	name="txtUsuario_act" id="txtUsuario_mod" />
 															</fieldset>
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Contraseña:</label> <input
 																	class="col-xs-10 col-sm-9" type="password"
-																	name="txtCon_act" id="txtCon_act" required="required" />
+																	name="txtCon_mod" id="txtCon_mod" />
 
 															</fieldset>
 															<br>
@@ -838,8 +833,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Nombre:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtNombre_act" id="txtNombre_act"
-																	required="required" />
+																	name="txtNombre_mod" id="txtNombre_mod" />
 
 															</fieldset>
 															<br>
@@ -847,8 +841,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Paterno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtApepa_act" id="txtApepa_act"
-																	required="required" />
+																	name="txtApepa_mod" id="txtApepa_mod" />
 
 															</fieldset>
 															<br>
@@ -856,8 +849,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Ape. Materno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtApema_act" id="txtApema_act"
-																	required="required" />
+																	name="txtApema_mod" id="txtApema_mod" />
 
 															</fieldset>
 															<br>
@@ -866,7 +858,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">DNI Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
-																	name="txtDNI_act" id="txtDNI_act" required="required" />
+																	name="txtDNI_mod" id="txtDNI_mod" />
 
 															</fieldset>
 															<br>
@@ -877,8 +869,7 @@
 																	<span class="input-group-addon"> <i
 																		class="icon-envelope"></i>
 																	</span> <input class="col-xs-10 col-sm-9" type="email"
-																		name="txtCorreo_act" id="txtCorreo_act"
-																		required="required" />
+																		name="txtCorreo_mod" id="txtCorreo_mod" />
 																</div>
 
 															</fieldset>
@@ -889,9 +880,8 @@
 																<div class="input-group">
 																	<span class="input-group-addon"> <i
 																		class="icon-phone"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="tel"
-																		name="txtTelefono_act" id="txtTelefono_act"
-																		required="required" />
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtTelefono_mod" id="txtTelefono_mod" />
 																</div>
 
 															</fieldset>
@@ -919,7 +909,7 @@
 																<label class="col-sm-12 control-label no-padding-right"
 																	style="padding-top: 3px;">Seleccione Tipo de
 																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
-																	id="cboPerfil_act" name="cboPerfil_act">
+																	id="cboPerfil_mod" name="cboPerfil_mod">
 																	<option value="">-- Seleccione el Tipo de
 																		Perfil</option>
 																	<option value="nada">&nbsp;</option>
@@ -957,7 +947,7 @@
 
 
 											<div id="tabEliminar" class="tab-pane">
-												<form method="post" action="SvUsuarios">
+												<form method="post" id="formEliminar" action="SvUsuarios">
 													<div class="row">
 														<div class="col-sm-7">
 															<br>
@@ -965,7 +955,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">ID:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" name="txtId_eli"
-																	id="txtId_eli" required="required" disabled="disabled" />
+																	id="txtId_eli" disabled="disabled" />
 															</fieldset>
 															<br>
 															<fieldset>
@@ -973,15 +963,14 @@
 																	style="padding-top: 3px;">Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtUsuario_eli" id="txtUsuario_eli"
-																	required="required" disabled="disabled" />
+																	disabled="disabled" />
 															</fieldset>
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Contraseña:</label> <input
 																	class="col-xs-10 col-sm-9" type="password"
-																	name="txtCon_eli" id="txtCon_eli" required="required"
-																	disabled="disabled" />
+																	name="txtCon_eli" id="txtCon_eli" disabled="disabled" />
 
 															</fieldset>
 															<br>
@@ -991,7 +980,7 @@
 																	style="padding-top: 3px;">Nombre:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtNombre_eli" id="txtNombre_eli"
-																	required="required" disabled="disabled" />
+																	disabled="disabled" />
 
 															</fieldset>
 															<br>
@@ -1000,7 +989,7 @@
 																	style="padding-top: 3px;">Ape. Paterno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtApepa_eli" id="txtApepa_eli"
-																	required="required" disabled="disabled" />
+																	disabled="disabled" />
 
 															</fieldset>
 															<br>
@@ -1009,18 +998,17 @@
 																	style="padding-top: 3px;">Ape. Materno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtApema_eli" id="txtApema_eli"
-																	required="required" disabled="disabled" />
+																	disabled="disabled" />
 
 															</fieldset>
 															<br>
 
-			
+
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">DNI Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
-																	name="txtDNI_eli" id="txtDNI_eli" required="required"
-																	disabled="disabled" />
+																	name="txtDNI_eli" id="txtDNI_eli" disabled="disabled" />
 
 															</fieldset>
 															<br>
@@ -1032,7 +1020,7 @@
 																		class="icon-envelope"></i>
 																	</span> <input class="col-xs-10 col-sm-9" type="email"
 																		name="txtCorreo_eli" id="txtCorreo_eli"
-																		required="required" disabled="disabled" />
+																		disabled="disabled" />
 																</div>
 
 															</fieldset>
@@ -1045,7 +1033,7 @@
 																		class="icon-phone"></i>
 																	</span> <input class="col-xs-10 col-sm-9" type="tel"
 																		name="txtTelefono_eli" id="txtTelefono_eli"
-																		required="required" disabled="disabled" />
+																		disabled="disabled" />
 																</div>
 
 															</fieldset>
@@ -1168,14 +1156,182 @@
 
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
-		
+		jQuery(function($) {
+			$.mask.definitions['~'] = '[+-]';
+			$('#txtTelefono').mask('(99) 999-9999');
+			$('#txtTelefono_mod').mask('(99) 999-9999');
+
+			jQuery.validator.addMethod("valTel", function(value, element) {
+				return this.optional(element)
+						|| /^\(\d{2}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value);
+			}, "Ingresa un número de teléfono válido.");
+
+			//--------------VALIDACION (AGREGAR)---------------------	
+			$('#formAgregar').validate(
+					{
+						errorElement : 'imput',
+						errorClass : 'help-block',
+						focusInvalid : false,
+						rules : {
+							txtUsuario : {
+								required : true,
+							},
+							txtCon : {
+								required : true
+							},
+							txtNombre : {
+								required : true
+							},
+							txtApepa : {
+								required : true
+							},
+							txtApema : {
+								required : true
+							},
+							txtDNI : {
+								required : true
+
+							},
+							txtCorreo : {
+								required : true,
+							},
+							txtTelefono : {
+								required : true,
+								valTel : 'required'
+							}
+
+						},
+
+						messages : {
+							txtUsuario : {
+								required : "Debe Generarse Automaticamente"
+							},
+							txtCon : {
+								required : "Debe Generar la Password"
+							},
+							txtNombre : {
+								required : "Debe Ingresar Su Nombre"
+							},
+							txtApepa : {
+								required : "Debe Ingresar su Apellido Paterno"
+							},
+							txtApema : {
+								required : "Debe Ingresar su Apellido Materno"
+							},
+							txtDNI : {
+								required : "Debe Ingresar su DNI"
+
+							},
+							txtCorreo : {
+								required : "Debe Ingresar su Correo",
+							},
+							txtTelefono : {
+								required : "Debe Ingresar Telefono"
+							}
+						},
+
+						invalidHandler : function(event, validator) { //display error alert on form submit   
+							$('.alert-danger', $('.login-form')).show();
+						},
+
+						highlight : function(e) {
+							$(e).closest('.form-group').removeClass('has-info')
+									.addClass('has-error');
+						},
+
+						success : function(e) {
+							$(e).closest('.form-group')
+									.removeClass('has-error').addClass(
+											'has-info');
+							$(e).remove();
+						}
+
+					});
+			//--------------VALIDACION (MODIFICAR)---------------------
+			$('#formModificar').validate(
+					{
+						errorElement : 'imput',
+						errorClass : 'help-block',
+						focusInvalid : false,
+						rules : {
+							txtUsuario_mod : {
+								required : true,
+							},
+							txtCon_mod : {
+								required : true
+							},
+							txtNombre_mod : {
+								required : true
+							},
+							txtApepa_mod : {
+								required : true
+							},
+							txtApema_mod : {
+								required : true
+							},
+							txtDNI_mod : {
+								required : true
+
+							},
+							txtCorreo_mod : {
+								required : true,
+							},
+							txtTelefono_mod : {
+								required : true,
+								valTel : 'required'
+							}
+
+						},
+
+						messages : {
+							txtUsuario_mod : {
+								required : "Debe Generarse Automaticamente"
+							},
+							txtCon_mod : {
+								required : "Debe Generar la Password"
+							},
+							txtNombre_mod : {
+								required : "Debe Ingresar Su Nombre"
+							},
+							txtApepa_mod : {
+								required : "Debe Ingresar su Apellido Paterno"
+							},
+							txtApema_mod : {
+								required : "Debe Ingresar su Apellido Materno"
+							},
+							txtDNI_mod : {
+								required : "Debe Ingresar su DNI"
+
+							},
+							txtCorreo_mod : {
+								required : "Debe Ingresar su Correo",
+							},
+							txtTelefono_mod : {
+								required : "Debe Ingresar Telefono"
+							}
+						},
+
+						invalidHandler : function(event, validator) { //display error alert on form submit   
+							$('.alert-danger', $('.login-form')).show();
+						},
+
+						highlight : function(e) {
+							$(e).closest('.form-group').removeClass('has-info')
+									.addClass('has-error');
+						},
+
+						success : function(e) {
+							$(e).closest('.form-group')
+									.removeClass('has-error').addClass(
+											'has-info');
+							$(e).remove();
+						}
+
+					});
+		});
 	</script>
 
 
 
-	<div class="tooltip top in"
-		style="top: 447px; left: 980px; display: none;">
-		<div class="tooltip-inner">social networks : 38.7%</div>
-	</div>
 </body>
 </html>

@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.PerfilDTO;
+
+
+
 import bean.UsuarioDTO;
 import service.UsuarioService;
 
@@ -65,41 +67,104 @@ public class SvUsuarios extends ServletParent {
 	private void listarUsuarios(HttpServletRequest request,
 			HttpServletResponse response) {
 		List<UsuarioDTO> lista = service.listarUsuarios();
-		int ultimoid= service.ultimoUsuario();
-		
-		if(lista!=null){
-		RequestDispatcher rd = request.getRequestDispatcher("/man_usuarios.jsp");
-		request.setAttribute("listaUsuarios", lista);
-		request.setAttribute("ultimoid", ultimoid);
-		try {
-			rd.forward(request, response);
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		int ultimoid = service.ultimoUsuario();
+
+		if (lista != null) {
+			RequestDispatcher rd = request
+					.getRequestDispatcher("/man_usuarios.jsp");
+			request.setAttribute("listarUsuarios", lista);
+			request.setAttribute("ultimoid", ultimoid);
+			try {
+				rd.forward(request, response);
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
-		
-		
-				}
 	}
 
 	private void registrarUsuarios(HttpServletRequest request,
 			HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		
+		System.out.println("btnAgregar si existe entonces procede a recibir todos los datos");
+		String user = (String) request.getParameter("txtUsuario");
+		int perfil = Integer.parseInt(request.getParameter("cboPerfil"));
+		String contraseña = (String) request.getParameter("txtCon");
+		String nombre=(String) request.getParameter("txtNombre");
+		String apepa=(String) request.getParameter("txtApepa");
+		String apema=(String) request.getParameter("txtApema");
+		String dni=(String) request.getParameter("txtDNI");
+		String correo=(String) request.getParameter("txtCorreo");
+		String telefono=(String) request.getParameter("txtTelefono");
+		
+		
+		UsuarioDTO usuario = new UsuarioDTO(0,perfil,user,contraseña,nombre,apepa,apema,dni,correo,telefono);
+		
+		
+		
+		service.registrarUsuario(usuario);;
+		
+		
+		request.getSession().setAttribute("evento", 1);
+		request.getSession().setAttribute("mensaje", obtenerMensaje(request,1,"Usuario"));
+		listarUsuarios(request, response);
 
 	}
 
 	private void actualizarUsuarios(HttpServletRequest request,
 			HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		
+		if(((String) request.getParameter("txtID_mod")).equals("")){
+			request.getSession().setAttribute("mensaje", obtenerMensaje(request, 5, "Usuario"));
+		}else{
+		System.out.println("btnActualizar si existe entonces procede a recibir todos los datos");
+		int id =Integer.parseInt(request.getParameter("txtID_mod"));
+		String user = (String) request.getParameter("txtUsuario_mod");
+		int perfil = Integer.parseInt(request.getParameter("cboPerfil_mod"));
+		String contraseña = (String) request.getParameter("txtCon_mod");
+		String nombre=(String) request.getParameter("txtNombre_mod");
+		String apepa=(String) request.getParameter("txtApepa_mod");
+		String apema=(String) request.getParameter("txtApema_mod");
+		String dni=(String) request.getParameter("txtDNI_mod");
+		String correo=(String) request.getParameter("txtCorreo_mod");
+		String telefono=(String) request.getParameter("txtTelefono_mod");
+		
+		
+		UsuarioDTO usuario = new UsuarioDTO(id,perfil,user,contraseña,nombre,apepa,apema,dni,correo,telefono);
+		
+		
+		
+		service.actualizarUsuario(usuario);;
+		
+		}
+		request.getSession().setAttribute("evento", 1);
+		request.getSession().setAttribute("mensaje", obtenerMensaje(request,3,"Usuario"));
+		listarUsuarios(request, response);
 
 	}
 
 	private void eliminarUsuarios(HttpServletRequest request,
 			HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		if (((String) request.getParameter("txtId_eli")).equals("")) {
+			request.getSession().setAttribute("mensaje",
+					obtenerMensaje(request, 5, "Usuario"));
+		} else {
+			int id = Integer.parseInt(request.getParameter("txtId_eli"));
+
+			System.out.println("Parametros: " + id);
+
+			service.eliminarUsuario(id);
+			request.getSession().setAttribute("mensaje",
+					obtenerMensaje(request, 4, "Usuario"));
+		}
+
+		request.getSession().setAttribute("evento", 1);
+
+		listarUsuarios(request, response);
 
 	}
 
