@@ -700,9 +700,6 @@
 
 										<div class="widget-main no-padding">
 											<form>
-
-
-
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Direccion</label>
 													<input class="col-xs-10 col-sm-5" type="text"
@@ -755,6 +752,23 @@
 								</div>
 
 							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4>Razones para el cambio</h4>
+										</div>
+										<div class="widget-body">
+											<div class="widget-main">
+												<div>
+													<label for="form-comentario"></label>
+													<textarea id="form-comentario" class="form-control limited"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
 							<div class="row">
 								<div class="col-sm-12">
@@ -790,7 +804,8 @@
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="blue bigger">Buscar Cliente</h4>
+											<h4 class="blue bigger">Buscar Cliente <small> <i class="icon-double-angle-right"></i> Ingrese algun criterio de busqueda</small></h4>
+											
 										</div>
 										<div class="modal-body overflow-visible">
 
@@ -826,13 +841,13 @@
 													<div class="space-4"></div>
 													
 													<div class="row">
-														<div class="widget-header header-color-red">
+														<div class="widget-header header-color-blue">
 															<h5 class="bigger lighter">
 																<i class="icon-table"></i> Lista de Clientes
 															</h5>
 														</div>
-														<div class="table-responsive">
-															<table id="sample-table-1" class="table table-bordered">
+														<div class="table-responsive" style="overflow:scroll;max-height: 570px;">
+															<table id="sample-table-1" class="table table-bordered"  style="margin-bottom: 0px;">
 																<thead>
 																	<tr>
 																		<th width="100">Numero</th>
@@ -1362,5 +1377,28 @@
 		style="top: 447px; left: 980px; display: none;">
 		<div class="tooltip-inner">social networks : 38.7%</div>
 	</div>
+	
+		<script type="text/javascript">
+	<!-- RENZO-->
+	$(document).ready(function () {
+		var cant = $('#sample-table-1 >tbody >tr').length;
+		$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
+		
+	    $("tr").click(function () {
+	        $(this).closest("tr").siblings().removeClass("highlighted");
+	        $(this).toggleClass("highlighted");
+	       /* 
+	        var num = $(this).find('td').eq(0).html();
+	        var nom = $(this).find('td').eq(1).html();
+	        var fec = $(this).find('td').eq(2).html();
+	        var est = $(this).find('td').eq(3).find('span').html();
+	        $("#txtNumero").val(num);
+		    $("#txtNombrePrueba").val(nom);
+		    $("#txtFecha").val(fec);
+		    $("#txtEstado").val(est);	*/
+	    });
+	});
+	
+	</script>
 </body>
 </html>
