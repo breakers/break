@@ -122,6 +122,10 @@ html,body,#map-canvas {
 	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script type="text/javascript">
 	var map;
+	
+	function resize(){
+		google.maps.event.trigger( map, 'resize' );
+	}
 
 	function initialize() {
 		directionsDisplay = new google.maps.DirectionsRenderer();
@@ -722,7 +726,7 @@ html,body,#map-canvas {
 																	<i class="icon-remove"></i>
 																</button>
 																<strong>Atencion!</strong> No olvides indicar el punto
-																de tu predio en el mapa. <br />
+																de tu predio en el mapa. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Si tienes problemas con el mapa has <a href="#" onclick="resize()" >click aqui</a></strong> <br />
 															</div>
 														</div>
 
