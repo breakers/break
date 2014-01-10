@@ -627,44 +627,45 @@
 										</div>
 										<div class="widget-main no-padding">
 											<form>
-												
+
 
 
 												<fieldset>
-													<label class="col-sm-2 control-label no-padding-right">Cliente</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Completo"  readonly="true"/> 
-													<label
-															class="col-xs-10 col-sm-3"> <a href="#modal-form"
-															role="button" class="btn btn-info" data-toggle="modal">
-																<i class="icon-group"></i> Buscar Cliente
-														</a>
+													<label class="col-sm-2 control-label no-padding-right">Cliente</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Nombre Completo" readonly="true" /> <label
+														class="col-xs-10 col-sm-3"> <a href="#modal-form"
+														role="button" class="btn btn-info" data-toggle="modal">
+															<i class="icon-group"></i> Buscar Cliente
+													</a>
 													</label>
 												</fieldset>
 												<fieldset>
-													<label class="col-sm-2 control-label no-padding-right">Codigo</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Codigo de Cliente"  readonly="true" /> 
-													
+													<label class="col-sm-2 control-label no-padding-right">Codigo</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Codigo de Cliente" readonly="true" />
+
 												</fieldset>
 
 												<fieldset>
-													<label class="col-sm-2 control-label no-padding-right">Suministro</label> 
+													<label class="col-sm-2 control-label no-padding-right">Suministro</label>
 													<label class="col-xs-10 col-sm-5"> <select
-															class="chosen-select col-xs-10 col-sm-11"
-															data-placeholder="Choose a Suministro...">
-																<option value="">&nbsp;</option>
-																<option value="1026458487">1026458487</option>
-																<option value="3026458475">3026458475</option>
-																<option value="6026454632">6026454632</option>
-																<option value="6526458654">6526458654</option>
+														class="chosen-select col-xs-10 col-sm-11"
+														data-placeholder="Choose a Suministro...">
+															<option value="">&nbsp;</option>
+															<option value="1026458487">1026458487</option>
+															<option value="3026458475">3026458475</option>
+															<option value="6026454632">6026454632</option>
+															<option value="6526458654">6526458654</option>
 
-														</select>
-														</label>
-													
+													</select>
+													</label>
+
 												</fieldset>
 
 
-												
-												
+
+
 											</form>
 										</div>
 									</div>
@@ -674,21 +675,19 @@
 									<div class="widget-box">
 										<div class="widget-header">
 											<h4>Informacion del cambio</h4>
-											
+
 										</div>
 
 										<div class="widget-body">
 											<div class="widget-main">
-												<span class="input-icon"> Copia DNI
-												</span>
-												<input type="file" id="id-input-file-1"/> 
+												<span class="input-icon"> Copia DNI </span> <input
+													type="file" id="id-input-file-1" />
 												<div class="space-6"></div>
-												<span class="input-icon"> Archivo para evaluacion de cambio
-												</span>
-												<input type="file" id="id-input-file-1"/> 
-												
-												
-												
+												<span class="input-icon"> Archivo para evaluacion de
+													cambio </span> <input type="file" id="id-input-file-1" />
+
+
+
 											</div>
 										</div>
 									</div>
@@ -705,45 +704,52 @@
 
 
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Direccion</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Direccion" readonly="true" /> 
-													
+													<label class="col-sm-3 control-label no-padding-right">Direccion</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Direccion" readonly="true" />
+
 												</fieldset>
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Localidad</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Localidad" readonly="true" /> 
-													
+													<label class="col-sm-3 control-label no-padding-right">Localidad</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Localidad" readonly="true" />
+
 												</fieldset>
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Distrito</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Distrito" readonly="true" /> 
-													
+													<label class="col-sm-3 control-label no-padding-right">Distrito</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Distrito" readonly="true" />
+
 												</fieldset>
 
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Pisos</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Cantidad de Pisos"readonly="true"/> 
-													
+													<label class="col-sm-3 control-label no-padding-right">Pisos</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Cantidad de Pisos" readonly="true" />
+
 												</fieldset>
 
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Tipo</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Tipo de Vivienda" readonly="true" /> 
-													
+													<label class="col-sm-3 control-label no-padding-right">Tipo</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Tipo de Vivienda" readonly="true" />
+
 												</fieldset>
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Diametro</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Diametro de Tuberia"  readonly="true"/> 
-													
+													<label class="col-sm-3 control-label no-padding-right">Diametro</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Diametro de Tuberia" readonly="true" />
+
 												</fieldset>
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Categoria</label> 
-													<input class="col-xs-10 col-sm-5" type="text" placeholder="Categoria actual"  readonly="true"/> 
-													
+													<label class="col-sm-3 control-label no-padding-right">Categoria</label>
+													<input class="col-xs-10 col-sm-5" type="text"
+														placeholder="Categoria actual" readonly="true" />
+
 												</fieldset>
 											</form>
 										</div>
-									</div>	
+									</div>
 
 
 								</div>
@@ -753,22 +759,25 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="widget-box">
-										<div class="widget-header">
-											<h4>Acciones del formulario</h4>
-										</div>
+<!-- 										<div class="widget-header"> -->
+<!-- 											<h4>Acciones del formulario</h4> -->
+<!-- 										</div> -->
 
 										<div class="form-actions center">
-													<button type="button" class="btn btn-primary" onclick="Enviar()"> Enviar
-															<i class="icon-share"></i>
-													</button>
-													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-													<button type="button" class="btn btn-warning" onclick="Limpiar()"> Limpiar
-															<i class="icon-share"></i>
-													</button>
-													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-													<button type="button" class="btn btn-danger" onclick="Cancelar()"> Cancelar
-															<i class="icon-share"></i>
-													</button>
+											<button type="button" class="btn btn-primary"
+												onclick="Enviar()">
+												Enviar <i class="icon-share"></i>
+											</button>
+											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+											<button type="button" class="btn btn-warning"
+												onclick="Limpiar()">
+												Limpiar <i class="icon-share"></i>
+											</button>
+											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+											<button type="button" class="btn btn-danger"
+												onclick="Cancelar()">
+												Cancelar <i class="icon-share"></i>
+											</button>
 										</div>
 
 									</div>
@@ -783,16 +792,113 @@
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
 											<h4 class="blue bigger">Buscar Cliente</h4>
 										</div>
+										<div class="modal-body overflow-visible">
 
-										<div class="modal-body overflow-visible"></div>
+											<div class="row">
+												<div class="col-xs-12 col-sm-12	">
+												
+													<form>
+													<fieldset>
+														<label class="col-sm-4 control-label no-padding-right">Nombre Cliente</label> 
+														<input class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
+													</fieldset>
+													<div class="space-4"></div>
+													<fieldset>
+														<label class="col-sm-4 control-label no-padding-right">Apellido Paterno</label> 
+														<input class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Paterno" /> 
+													</fieldset>
+													<div class="space-4"></div>
+													<fieldset>
+														<label class="col-sm-4 control-label no-padding-right">Apellido Materno</label> 
+														<input class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Materno" /> 
+													</fieldset>
+													<div class="space-4"></div>
+													<fieldset>
+														<label class="col-sm-4 control-label no-padding-right">Codigo Cliente</label> 
+														<input class="col-xs-10 col-sm-5" type="text" placeholder="Codigo" /> 
+													</fieldset>
+													
+													
+													
+													
+													</form>
+													
+													<div class="space-4"></div>
+													
+													<div class="row">
+														<div class="widget-header header-color-red">
+															<h5 class="bigger lighter">
+																<i class="icon-table"></i> Lista de Clientes
+															</h5>
+														</div>
+														<div class="table-responsive">
+															<table id="sample-table-1" class="table table-bordered">
+																<thead>
+																	<tr>
+																		<th width="100">Numero</th>
+																		<th width="200">Cliente</th>
+	
+																		<th width="100"><i
+																			class="icon-time bigger-110 hidden-480"></i> Fecha</th>
+																		<th width="100">Estado</th>
+																		<th width="100">DNI</th>
+																	</tr>
+																</thead>
+	
+																<tbody>
+																	<tr>
+																		<td>1009</td>
+																		<td>John Paul</td>
+																		<td>15-12-2013</td>
+																		<td>Inspeccionada</td>
+																		<td>43860566</td>
+																	</tr>
+																	<tr>
+																		<td>1010</td>
+																		<td>Chin Juan</td>
+																		<td>15-12-2013</td>
+																		<td>Inspeccionada</td>
+																		<td>43860562</td>
+																	</tr>
+																	<tr>
+																		<td>1011</td>
+																		<td>Klin Edwards</td>
+																		<td>15-12-2013</td>
+																		<td>Inspeccionada</td>
+																		<td>43860563</td>
+																	</tr>
+																	<tr>
+																		<td>1012</td>
+																		<td>Sandra Wilcox</td>
+																		<td>15-12-2013</td>
+																		<td>Inspeccionada</td>
+																		<td>43860564</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<!-- /.table-responsive -->
+														
+													
+													
+													</div>
+													
+
+
+												</div>
+											</div>
+
+
+
+										</div>
 
 										<div class="modal-footer">
 											<button class="btn btn-sm" data-dismiss="modal">
-												<i class="icon-remove"></i> Cancel
+												<i class="icon-remove"></i> Cancelar
 											</button>
 
 											<button class="btn btn-sm btn-primary">
-												<i class="icon-ok"></i> Save
+												<i class="icon-ok"></i> Aceptar
 											</button>
 										</div>
 									</div>
@@ -808,13 +914,22 @@
 			</div>
 			<!-- /.main-content -->
 			<div class="ace-settings-container fixed" id="ace-settings-container">
-				<div class="btn btn-app btn-xs btn-info ace-settings-btn" id="ace-settings-btn">
+				<div class="btn btn-app btn-xs btn-info ace-settings-btn"
+					id="ace-settings-btn">
 					<i class="icon-comments bigger-150"></i>
 				</div>
 
 				<div class="ace-settings-box" id="ace-settings-box">
-				<div>Este sera el chat </div>	
-				<br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<div>Este sera el chat</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
 
 
 
@@ -824,7 +939,8 @@
 
 
 				</div>
-			</div><!-- /#ace-settings-container -->
+			</div>
+			<!-- /#ace-settings-container -->
 		</div>
 		<!-- /.main-container-inner -->
 
