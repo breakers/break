@@ -145,11 +145,11 @@ INSERT INTO tb_perfil VALUES(null,'Cajero',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Perfil_Prueba',1,0,1,0,1,1,0,0,1);
 
 /*Datos en Usuarios*/
-INSERT INTO tb_usuario VALUES(null,1,'lysander','root','Felix','Apaza','Arroyo','43836055','gato@gato.com','999999999' );
-INSERT INTO tb_usuario VALUES(null,1,'rdelgado','root','Renzo','Delgado','Guerra','76527637','sdfdsfsd@fds.com','999999999');
-INSERT INTO tb_usuario VALUES(null,2,'oldkefka','qv2','Ricardo','Quevedo','Grimaldo','72454564','dfdf@dsfdsf.com','999999999');
-INSERT INTO tb_usuario VALUES(null,3,'csonan','testing','Carlos','Sonan','Yonashiro','89999993','3423@gf.com','999999999');
-INSERT INTO tb_usuario VALUES(null,3,'acoquis','testing','Andre','Coquis','Raffo','89999994','co@dsd.com','999999999');
+INSERT INTO tb_usuario VALUES(null,1,'lysander','root','Felix','Apaza','Arroyo','43836055','gato@gato.com','519999999' );
+INSERT INTO tb_usuario VALUES(null,1,'rdelgado','root','Renzo','Delgado','Guerra','76527637','renzodelgadoguerra@gmail.com','513302597');
+INSERT INTO tb_usuario VALUES(null,2,'oldkefka','qv2','Ricardo','Quevedo','Grimaldo','72454564','dfdf@dsfdsf.com','519999999');
+INSERT INTO tb_usuario VALUES(null,3,'csonan','testing','Carlos','Sonan','Yonashiro','89999993','3423@gf.com','519999999');
+INSERT INTO tb_usuario VALUES(null,3,'acoquis','testing','Andre','Coquis','Raffo','89999994','co@dsd.com','519999999');
 
 
 /*Datos en Provincia (completa)*/
@@ -456,13 +456,13 @@ END$
 
 DELIMITER $
 CREATE PROCEDURE usp_actualizarUsuario(
-idusuario int,idPerfil int,userUsuario varchar(10),passUsuario varchar(10),
-nomUsuario varchar(30),apepaUsuario varchar(30),apemaUsuario varchar(30),
-dniusuario varchar(10),correousuario varchar(30), telefonousuario char(9))
+vidusuario int,vidPerfil int,vuserUsuario varchar(10),vpassUsuario varchar(10),
+vnomUsuario varchar(30),vapepaUsuario varchar(30),vapemaUsuario varchar(30),
+vdniusuario varchar(10),vcorreousuario varchar(30), vtelefonousuario char(9))
 BEGIN
-	UPDATE tb_usuario SET idperfil=idperfil,userusuario=userusuario,passusuario=passusuario,
-	nomusuario=nomusuario,apepausuario=apepausuario,apemausuario=apemausuario,
-	dniusuario=dniusuario,correousuario=correousuario,telefonousurio=telefonousuario WHERE idusuario=idusuario;
+	UPDATE tb_usuario SET idperfil=vidperfil,userusuario=vuserusuario,passusuario=vpassusuario,
+	nomusuario=vnomusuario,apepausuario=vapepausuario,apemausuario=vapemausuario,
+	dniusuario=vdniusuario,correousuario=vcorreousuario,telefonousuario=vtelefonousuario WHERE idusuario=vidusuario;
 END$
 
 
@@ -474,13 +474,15 @@ BEGIN
 	DELETE FROM TB_USUARIO WHERE idUsuario=idUsu;
 END$
 
+DELIMITER $
+CREATE PROCEDURE usp_buscarUsuario(idUsu int)
+BEGIN
+	SELECT * FROM TB_USUARIO WHERE idUsuario=idUsu;
+END$
+
 
 DELIMITER $
 CREATE PROCEDURE usp_listarMensajesAlerta()
 BEGIN
 	SELECT * FROM tb_MensajesAlerta;
 END$
-
-
-
-
