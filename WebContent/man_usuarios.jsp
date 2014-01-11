@@ -59,7 +59,7 @@
 <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/font-awesome.min.css">
-
+<link rel="stylesheet" href="css/jquery.gritter.css">
 <!--[if IE 7]>
 		  <link rel="stylesheet" href="css/font-awesome-ie7.min.css" />
 <![endif]-->
@@ -630,12 +630,11 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="lista"
-													items="${requestScope.listarUsuarios}">
-													<tr>
-														<td>${lista.idUsuario}</td>
-														<td>${lista.nomUsuario}&nbsp${lista.apepaUsuario}&nbsp${lista.apemaUsuario}</td>
-														<td>${lista.dniUsuario}</td>
+												<c:forEach var="lista" items="${requestScope.listarUsuarios}">
+													<tr onclick="document.location ='SvUsuarios?id=${lista.idUsuario}';">
+														<td><label>${lista.idUsuario}</label></td>
+														<td><label>${lista.nomUsuario}&nbsp${lista.apepaUsuario}&nbsp${lista.apemaUsuario}</label></td>
+														<td><label>${lista.dniUsuario}</label></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -647,12 +646,12 @@
 									<div class="tabbable">
 										<ul class="nav nav-tabs" id="myTab">
 											<li class="active"><a data-toggle="tab"
-												href="#tabAgregar"> <i class="blue icon-edit bigger-150"></i>
-													Agregar
+												href="#tabActualizar"> <i class="green icon-refresh bigger-150"></i>
+													Actualizar
 											</a></li>
 
-											<li><a data-toggle="tab" href="#tabActualizar"> <i
-													class="green icon-refresh bigger-150"></i> Actualizar
+											<li><a data-toggle="tab" href="#tabAgregar"> <i
+													class="blue icon-edit bigger-150"></i> Agregar
 											</a></li>
 
 											<li><a data-toggle="tab" href="#tabEliminar"> <i
@@ -662,8 +661,154 @@
 										</ul>
 
 										<div class="tab-content">
-											<div id="tabAgregar" class="tab-pane in active">
-												<form id="formAgregar" method="post" action="SvUsuarios">
+											<div id="tabActualizar" class="tab-pane in active">
+												<form method="post" id="formModificar" action="SvUsuarios">
+													<div class="row">
+														<div class="col-sm-7">
+															<br>
+
+															<fieldset>
+																<fieldset>
+																	<label class="col-sm-3 control-label no-padding-right"
+																		style="padding-top: 3px;">ID:</label> <input
+																		class="col-xs-10 col-sm-9" type="text"
+																		name="txtID_mod" id="txtId_mod" readonly="readonly" value="${requestScope.datosUsuario.idUsuario}"/>
+																</fieldset>
+																<br> <label
+																	class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtUsuario_mod" id="txtUsuario_mod" value="${requestScope.datosUsuario.userUsuario}"/>
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Contraseña:</label> <input
+																	class="col-xs-10 col-sm-9"  type="text"
+																	name="txtCon_mod" id="txtCon_mod" value="${requestScope.datosUsuario.passUsuario}"/>
+
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Nombre:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtNombre_mod" id="txtNombre_mod" value="${requestScope.datosUsuario.nomUsuario}"/>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Paterno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtApepa_mod" id="txtApepa_mod"  value="${requestScope.datosUsuario.apepaUsuario}"/>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Ape. Materno:</label> <input
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtApema_mod" id="txtApema_mod" value="${requestScope.datosUsuario.apemaUsuario}"/>
+
+															</fieldset>
+															<br>
+
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">DNI Usuario:</label> <input
+																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
+																	name="txtDNI_mod" id="txtDNI_mod"  value="${requestScope.datosUsuario.dniUsuario}"/>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Correo:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-envelope"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="email"
+																		name="txtCorreo_mod" id="txtCorreo_mod" value="${requestScope.datosUsuario.correoUsuario}"/>
+																</div>
+
+															</fieldset>
+															<br>
+															<fieldset>
+																<label class="col-sm-3 control-label no-padding-right"
+																	style="padding-top: 3px;">Teléfono:</label>
+																<div class="input-group">
+																	<span class="input-group-addon"> <i
+																		class="icon-phone"></i>
+																	</span> <input class="col-xs-10 col-sm-9" type="text"
+																		name="txtTelefono_mod" id="txtTelefono_mod" value="${requestScope.datosUsuario.telefonoUsuario }"/>
+																</div>
+
+															</fieldset>
+															<br>
+														</div>
+														<div class="col-sm-5 center">
+
+															<span class="profile-picture"> <img
+																class="editable img-responsive" alt="Prueba" id="avatar"
+																src="img/users/${requestScope.datosUsuario.idUsuario != null ? requestScope.datosUsuario.idUsuario : 'profile-pic' }.jpg">
+															</span>
+
+															<div class="space space-4"></div>
+
+															<a href="#" class="btn btn-xs btn-block btn-yellow">
+																<i class="icon-refresh bigger-120"></i> <span
+																class="bigger-110">Cambiar Foto</span>
+															</a>
+
+															<div class="space space-10"></div>
+
+
+
+															<fieldset>
+																<label class="col-sm-12 control-label no-padding-right"
+																	style="padding-top: 3px;">Tipo de
+																	Perfil:</label>
+																<select class="form-control col-xs-10 col-sm-5"	id="cboPerfil_mod" name="cboPerfil_mod" >
+																	<option value="">-- Seleccione el Tipo de Perfil</option>
+																	<c:forEach var="perfil" items="${requestScope.perfiles}">
+																	<c:if test="${perfil.idPerfil == requestScope.datosUsuario.idPerfil }">
+																	<c:set var="encontroperfil" value="selected=\"selected\""></c:set>
+																	</c:if>
+																	<option value="${perfil.idPerfil}" ${encontroperfil}>${perfil.desPerfil}</option>
+																	<c:set var="encontroperfil" value=""></c:set>
+																	</c:forEach>
+																</select>
+															</fieldset>
+															<br>
+
+															<div class="space space-10"></div>
+															<fieldset>
+
+																<button class="btn btn-lg btn-block btn-yellow"
+																	id="boton" name="boton" value="Actualizar"
+																	type="submit">
+																	<i class="icon-refresh"></i> <span class="bigger-110">Actualizar
+																		Usuario</span>
+																</button>
+<!-- 																<button class="btn btn-sm" type="reset"> -->
+<!-- 																	<i class="icon-undo bigger-110"></i> -->
+<!-- 																</button> -->
+															</fieldset>
+
+
+															<br>
+
+
+														</div>
+													</div>
+												</form>
+
+											</div>
+
+
+											<div id="tabAgregar" class="tab-pane"><form id="formAgregar" method="post" action="SvUsuarios">
 													<div class="row">
 														<div class="col-sm-7">
 															<br>
@@ -679,7 +824,7 @@
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Contraseña:</label> <input
-																	class="col-xs-10 col-sm-9" type="password"
+																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtCon" id="txtCon"
 																	placeholder="Ingrese Password" />
 
@@ -771,10 +916,10 @@
 																	style="padding-top: 3px;">Seleccione Tipo de
 																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
 																	id="cboPerfil" name="cboPerfil">
-																	<option value="">-- Seleccione el Tipo de
-																		Perfil</option>
-																	<option value="nada">&nbsp;</option>
-
+																	<option value="">-- Seleccione el Tipo de Perfil</option>
+																	<c:forEach var="perfil" items="${requestScope.perfiles}">
+																	<option value="${perfil.idPerfil}">${perfil.desPerfil}</option>
+																	</c:forEach>
 																</select>
 															</fieldset>
 															<br>
@@ -796,152 +941,7 @@
 														</div>
 													</div>
 												</form>
-
-											</div>
-
-
-											<div id="tabActualizar" class="tab-pane">
-												<form method="post" id="formModificar" action="SvUsuarios">
-													<div class="row">
-														<div class="col-sm-7">
-															<br>
-
-															<fieldset>
-																<fieldset>
-																	<label class="col-sm-3 control-label no-padding-right"
-																		style="padding-top: 3px;">ID:</label> <input
-																		class="col-xs-10 col-sm-9" type="text"
-																		name="txtId_act" id="txtId_mod" disabled="disabled" />
-																</fieldset>
-																<br> <label
-																	class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">Usuario:</label> <input
-																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtUsuario_act" id="txtUsuario_mod" />
-															</fieldset>
-															<br>
-															<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">Contraseña:</label> <input
-																	class="col-xs-10 col-sm-9" type="password"
-																	name="txtCon_mod" id="txtCon_mod" />
-
-															</fieldset>
-															<br>
-
-															<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">Nombre:</label> <input
-																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtNombre_mod" id="txtNombre_mod" />
-
-															</fieldset>
-															<br>
-															<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">Ape. Paterno:</label> <input
-																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtApepa_mod" id="txtApepa_mod" />
-
-															</fieldset>
-															<br>
-															<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">Ape. Materno:</label> <input
-																	class="col-xs-10 col-sm-9" type="text"
-																	name="txtApema_mod" id="txtApema_mod" />
-
-															</fieldset>
-															<br>
-
-															<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">DNI Usuario:</label> <input
-																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
-																	name="txtDNI_mod" id="txtDNI_mod" />
-
-															</fieldset>
-															<br>
-															<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">Correo:</label>
-																<div class="input-group">
-																	<span class="input-group-addon"> <i
-																		class="icon-envelope"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="email"
-																		name="txtCorreo_mod" id="txtCorreo_mod" />
-																</div>
-
-															</fieldset>
-															<br>
-															<fieldset>
-																<label class="col-sm-3 control-label no-padding-right"
-																	style="padding-top: 3px;">Teléfono:</label>
-																<div class="input-group">
-																	<span class="input-group-addon"> <i
-																		class="icon-phone"></i>
-																	</span> <input class="col-xs-10 col-sm-9" type="text"
-																		name="txtTelefono_mod" id="txtTelefono_mod" />
-																</div>
-
-															</fieldset>
-															<br>
-														</div>
-														<div class="col-sm-5 center">
-
-															<span class="profile-picture"> <img
-																class="editable img-responsive" alt="Prueba" id="avatar"
-																src="img/users/profile-pic.jpg">
-															</span>
-
-															<div class="space space-4"></div>
-
-															<a href="#" class="btn btn-xs btn-block btn-yellow">
-																<i class="icon-refresh bigger-120"></i> <span
-																class="bigger-110">Cambiar Foto</span>
-															</a>
-
-															<div class="space space-10"></div>
-
-
-
-															<fieldset>
-																<label class="col-sm-12 control-label no-padding-right"
-																	style="padding-top: 3px;">Seleccione Tipo de
-																	Perfil:</label> <select class="form-control col-xs-10 col-sm-5"
-																	id="cboPerfil_mod" name="cboPerfil_mod">
-																	<option value="">-- Seleccione el Tipo de
-																		Perfil</option>
-																	<option value="nada">&nbsp;</option>
-
-																</select>
-															</fieldset>
-															<br>
-
-															<div class="space space-10"></div>
-															<fieldset>
-
-																<button class="btn btn-lg btn-block btn-yellow"
-																	id="boton" name="boton" value="Actualizar"
-																	type="submit">
-																	<i class="icon-refresh"></i> <span class="bigger-110">Actualizar
-																		Usuario</span>
-																</button>
-																<button class="btn btn-sm" type="reset">
-
-																	<i class="icon-undo bigger-110"></i>
-
-
-																</button>
-															</fieldset>
-
-
-															<br>
-
-
-														</div>
-													</div>
-												</form>
+												
 
 											</div>
 
@@ -955,7 +955,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">ID:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" name="txtId_eli"
-																	id="txtId_eli" disabled="disabled" />
+																	id="txtId_eli" readonly="readonly" value="${requestScope.datosUsuario.idUsuario}"/>
 															</fieldset>
 															<br>
 															<fieldset>
@@ -963,14 +963,14 @@
 																	style="padding-top: 3px;">Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtUsuario_eli" id="txtUsuario_eli"
-																	disabled="disabled" />
+																	disabled="disabled" value="${requestScope.datosUsuario.userUsuario}"/>
 															</fieldset>
 															<br>
 															<fieldset>
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">Contraseña:</label> <input
-																	class="col-xs-10 col-sm-9" type="password"
-																	name="txtCon_eli" id="txtCon_eli" disabled="disabled" />
+																	class="col-xs-10 col-sm-9" type="text"
+																	name="txtCon_eli" id="txtCon_eli" disabled="disabled" value="${requestScope.datosUsuario.passUsuario}"/>
 
 															</fieldset>
 															<br>
@@ -980,7 +980,7 @@
 																	style="padding-top: 3px;">Nombre:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtNombre_eli" id="txtNombre_eli"
-																	disabled="disabled" />
+																	disabled="disabled" value="${requestScope.datosUsuario.nomUsuario}"/>
 
 															</fieldset>
 															<br>
@@ -989,7 +989,7 @@
 																	style="padding-top: 3px;">Ape. Paterno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtApepa_eli" id="txtApepa_eli"
-																	disabled="disabled" />
+																	disabled="disabled" value="${requestScope.datosUsuario.apepaUsuario}"/>
 
 															</fieldset>
 															<br>
@@ -998,7 +998,7 @@
 																	style="padding-top: 3px;">Ape. Materno:</label> <input
 																	class="col-xs-10 col-sm-9" type="text"
 																	name="txtApema_eli" id="txtApema_eli"
-																	disabled="disabled" />
+																	disabled="disabled" value="${requestScope.datosUsuario.apemaUsuario}"/>
 
 															</fieldset>
 															<br>
@@ -1008,7 +1008,7 @@
 																<label class="col-sm-3 control-label no-padding-right"
 																	style="padding-top: 3px;">DNI Usuario:</label> <input
 																	class="col-xs-10 col-sm-9" type="text" maxlength="8"
-																	name="txtDNI_eli" id="txtDNI_eli" disabled="disabled" />
+																	name="txtDNI_eli" id="txtDNI_eli" disabled="disabled" value="${requestScope.datosUsuario.dniUsuario}"/>
 
 															</fieldset>
 															<br>
@@ -1020,7 +1020,7 @@
 																		class="icon-envelope"></i>
 																	</span> <input class="col-xs-10 col-sm-9" type="email"
 																		name="txtCorreo_eli" id="txtCorreo_eli"
-																		disabled="disabled" />
+																		disabled="disabled" value="${requestScope.datosUsuario.correoUsuario}"/>
 																</div>
 
 															</fieldset>
@@ -1033,7 +1033,7 @@
 																		class="icon-phone"></i>
 																	</span> <input class="col-xs-10 col-sm-9" type="tel"
 																		name="txtTelefono_eli" id="txtTelefono_eli"
-																		disabled="disabled" />
+																		disabled="disabled" value="${requestScope.datosUsuario.telefonoUsuario }"/>
 																</div>
 
 															</fieldset>
@@ -1043,7 +1043,7 @@
 
 															<span class="profile-picture"> <img
 																class="editable img-responsive" alt="Prueba" id="avatar"
-																src="img/users/profile-pic.jpg">
+																src="img/users/${requestScope.datosUsuario.idUsuario}.jpg">
 															</span>
 
 															<div class="space space-4"></div>
@@ -1054,8 +1054,13 @@
 																	style="padding-top: 3px;">Tipo de Perfil:</label> <select
 																	class="form-control col-xs-10 col-sm-5" id="cboPerfil"
 																	name="cboPerfil" disabled="disabled">
-																	<option value="nada">&nbsp;</option>
-
+																	<c:forEach var="perfil" items="${requestScope.perfiles}">
+																	<c:if test="${perfil.idPerfil == requestScope.datosUsuario.idPerfil }">
+																	<c:set var="idperfil" value="${perfi.idPerfil}"/>
+																	<c:set var="desperf" value="${perfil.desPerfil}"/>
+																	</c:if>
+																	</c:forEach>
+																	<option value="${idperfil}">${desperf}</option>
 																</select>
 															</fieldset>
 															<br>
@@ -1152,10 +1157,30 @@
 	<script src="js/ace-elements.min.js"></script>
 	<script src="js/ace.min.js"></script>
 	<script src="js/assets/jquery.maskedinput.min.js"></script>
-
+	<script src="js/jquery.gritter.min.js"></script>
 
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
+		$(document).ready(function(){
+			  $("tr").click(function (){
+			        $(this).closest("tr").siblings().removeClass("highlighted");
+			        $(this).toggleClass("highlighted");
+			        
+			  });
+			  
+			  if("${sessionScope.evento}"==1){
+		 			<% sesion.setAttribute("evento", 0); %>
+		 			$.gritter.add({
+						title: "${sessionScope.mensaje.tituloMensajeAlerta}",
+						text: "${sessionScope.mensaje.cuerpoMensajeAlerta}",
+						image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
+						time: 2000,
+						class_name: 'gritter-light gritter-info'
+					});	
+		 		}
+		});
+	
+	
 		jQuery(function($) {
 			$.mask.definitions['~'] = '[+-]';
 			$('#txtTelefono').mask('(99) 999-9999');

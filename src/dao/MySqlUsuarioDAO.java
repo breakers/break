@@ -58,7 +58,7 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 	public void registrarUsuario(UsuarioDTO usuario) {
 		Connection cn = MySQL.getConnection();
 
-		String sql = "CALL usp_registrarUsuario(?,?,?,?,?,?,?,?,?,)";
+		String sql = "CALL usp_registrarUsuario(?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);
@@ -152,7 +152,8 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				UsuarioDTO usuario = new UsuarioDTO(rs.getInt("idUsuario"),
-						rs.getInt("idPerfil"), rs.getString("userUsuario"),
+						rs.getInt("idPerfil"),
+						rs.getString("userUsuario"),
 						rs.getString("passUsuario"),
 						rs.getString("nomUsuario"),
 						rs.getString("apepaUsuario"),
@@ -180,9 +181,43 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 	}
 
 	@Override
-	public UsuarioDTO buscarPorId(String idUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+	public UsuarioDTO buscarPorId(int idUsuario) {
+Connection cn = MySQL.getConnection();
+		UsuarioDTO usu = new UsuarioDTO();
+		String sql = "CALL usp_buscarUsuario(?)";
+		
+		try {
+			PreparedStatement ps = cn.prepareStatement(sql);
+			ps.setInt(1, idUsuario);
+			
+			ResultSet rs=ps.executeQuery();
+			if (rs.next()) {
+				usu.setIdUsuario(rs.getInt("idUsuario"));
+				usu.setIdPerfil(rs.getInt("idPerfil"));
+				usu.setUserUsuario(rs.getString("userUsuario"));
+				usu.setPassUsuario(rs.getString("passUsuario"));
+				usu.setNomUsuario(rs.getString("nomUsuario"));
+				usu.setApepaUsuario(rs.getString("apepaUsuario"));
+				usu.setApemaUsuario(rs.getString("apemaUsuario"));
+				usu.setDniUsuario(rs.getString("dniUsuario"));
+				usu.setCorreoUsuario(rs.getString("correoUsuario"));
+				usu.setTelefonoUsuario(rs.getString("telefonoUsuario"));
+			}
+			
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return usu;
+		
 	}
 
 	@Override

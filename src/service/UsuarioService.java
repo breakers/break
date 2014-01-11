@@ -31,7 +31,7 @@ public class UsuarioService {
 		return usuariodao.listarUsuarios();
 	}
 
-	public UsuarioDTO buscarPorId(String idUsuario) {
+	public UsuarioDTO buscarPorId(int idUsuario) {
 		return usuariodao.buscarPorId(idUsuario);
 	}
 

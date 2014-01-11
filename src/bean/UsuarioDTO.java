@@ -20,7 +20,6 @@ public class UsuarioDTO {
 			String passUsuario, String nomUsuario, String apepaUsuario,
 			String apemaUsuario, String dniUsuario, String correoUsuario, 
 			String telefonoUsuario) {
-		super();
 		this.idUsuario = idUsuario;
 		this.idPerfil = idPerfil;
 		this.userUsuario = userUsuario;

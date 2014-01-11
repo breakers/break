@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
+import bean.PerfilDTO;
 import bean.UsuarioDTO;
+import service.PerfilService;
 import service.UsuarioService;
 
 /**
@@ -23,7 +27,7 @@ import service.UsuarioService;
 public class SvUsuarios extends ServletParent {
 	private static final long serialVersionUID = 1L;
 	UsuarioService service = new UsuarioService();
-
+	PerfilService servicePerfil = new PerfilService();
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -38,8 +42,19 @@ public class SvUsuarios extends ServletParent {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		listarUsuarios(request, response);
+		
+		if(request.getParameter("id")!=null){
+			mostrarDatosUsuario(request, response);
+		}else{
+			listarUsuarios(request, response);
+		}
+	}
 
+	private void mostrarDatosUsuario(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+			UsuarioDTO u = service.buscarPorId(Integer.parseInt(request.getParameter("id")));
+			request.setAttribute("datosUsuario", u);
+			listarUsuarios(request, response);
 	}
 
 	/**
@@ -53,8 +68,7 @@ public class SvUsuarios extends ServletParent {
 		if (((String) request.getParameter("boton")).equals("Agregar")) {
 			System.out.println("Método registrar usuario");
 			registrarUsuarios(request, response);
-		} else if (((String) request.getParameter("boton"))
-				.equals("Actualizar")) {
+		} else if (((String) request.getParameter("boton")).equals("Actualizar")) {
 			System.out.println("Método actualizar usuario");
 			actualizarUsuarios(request, response);
 		} else if (((String) request.getParameter("boton")).equals("Eliminar")) {
@@ -65,30 +79,24 @@ public class SvUsuarios extends ServletParent {
 	}
 
 	private void listarUsuarios(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws ServletException, IOException {
 		List<UsuarioDTO> lista = service.listarUsuarios();
 		int ultimoid = service.ultimoUsuario();
+		List<PerfilDTO> perfiles = servicePerfil.listarPerfiles();
 
 		if (lista != null) {
 			RequestDispatcher rd = request
 					.getRequestDispatcher("/man_usuarios.jsp");
 			request.setAttribute("listarUsuarios", lista);
 			request.setAttribute("ultimoid", ultimoid);
-			try {
+			request.setAttribute("perfiles", perfiles);
 				rd.forward(request, response);
-			} catch (ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 
 		}
 	}
 
 	private void registrarUsuarios(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("btnAgregar si existe entonces procede a recibir todos los datos");
 		String user = (String) request.getParameter("txtUsuario");
@@ -99,14 +107,14 @@ public class SvUsuarios extends ServletParent {
 		String apema=(String) request.getParameter("txtApema");
 		String dni=(String) request.getParameter("txtDNI");
 		String correo=(String) request.getParameter("txtCorreo");
-		String telefono=(String) request.getParameter("txtTelefono");
+		String telefono=(String) request.getParameter("txtTelefono").replaceAll("[(|)| |-]", "");
 		
 		
 		UsuarioDTO usuario = new UsuarioDTO(0,perfil,user,contraseña,nombre,apepa,apema,dni,correo,telefono);
 		
 		
 		
-		service.registrarUsuario(usuario);;
+		service.registrarUsuario(usuario);
 		
 		
 		request.getSession().setAttribute("evento", 1);
@@ -116,56 +124,56 @@ public class SvUsuarios extends ServletParent {
 	}
 
 	private void actualizarUsuarios(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws ServletException, IOException {
 		
 		if(((String) request.getParameter("txtID_mod")).equals("")){
 			request.getSession().setAttribute("mensaje", obtenerMensaje(request, 5, "Usuario"));
 		}else{
 		System.out.println("btnActualizar si existe entonces procede a recibir todos los datos");
-		int id =Integer.parseInt(request.getParameter("txtID_mod"));
+		int id =Integer.parseInt((String)request.getParameter("txtID_mod"));
 		String user = (String) request.getParameter("txtUsuario_mod");
-		int perfil = Integer.parseInt(request.getParameter("cboPerfil_mod"));
+		int perfil = Integer.parseInt((String)request.getParameter("cboPerfil_mod"));
 		String contraseña = (String) request.getParameter("txtCon_mod");
 		String nombre=(String) request.getParameter("txtNombre_mod");
 		String apepa=(String) request.getParameter("txtApepa_mod");
 		String apema=(String) request.getParameter("txtApema_mod");
 		String dni=(String) request.getParameter("txtDNI_mod");
 		String correo=(String) request.getParameter("txtCorreo_mod");
-		String telefono=(String) request.getParameter("txtTelefono_mod");
+		String telefono=(String) request.getParameter("txtTelefono_mod").replaceAll("[(|)| |-]", "");
 		
 		
 		UsuarioDTO usuario = new UsuarioDTO(id,perfil,user,contraseña,nombre,apepa,apema,dni,correo,telefono);
 		
-		
-		
-		service.actualizarUsuario(usuario);;
-		
+		service.actualizarUsuario(usuario);
+		request.getSession().setAttribute("mensaje", obtenerMensaje(request,3,"Usuario"));
 		}
 		request.getSession().setAttribute("evento", 1);
-		request.getSession().setAttribute("mensaje", obtenerMensaje(request,3,"Usuario"));
+		
 		listarUsuarios(request, response);
 
 	}
 
 	private void eliminarUsuarios(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws ServletException, IOException{
 		if (((String) request.getParameter("txtId_eli")).equals("")) {
-			request.getSession().setAttribute("mensaje",
-					obtenerMensaje(request, 5, "Usuario"));
+			request.getSession().setAttribute("mensaje",obtenerMensaje(request, 5, "Usuario"));
 		} else {
-			int id = Integer.parseInt(request.getParameter("txtId_eli"));
+			int id = Integer.parseInt((String)request.getParameter("txtId_eli"));
 
 			System.out.println("Parametros: " + id);
 
 			service.eliminarUsuario(id);
-			request.getSession().setAttribute("mensaje",
-					obtenerMensaje(request, 4, "Usuario"));
+			request.getSession().setAttribute("mensaje",obtenerMensaje(request, 4, "Usuario"));
 		}
 
 		request.getSession().setAttribute("evento", 1);
 
 		listarUsuarios(request, response);
 
+	}
+	
+	public static void OnRowSelect(){
+		
 	}
 
 }

@@ -15,7 +15,7 @@ public interface UsuarioDAO {
 	
 	public List<UsuarioDTO> listarUsuarios();
 	
-	public UsuarioDTO buscarPorId(String idUsuario);
+	public UsuarioDTO buscarPorId(int idUsuario);
 	
 	public UsuarioDTO validarSoloUsuario(String idUsuario);
 	
