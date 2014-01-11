@@ -695,36 +695,131 @@
 												<br>
 													
 												<div class="form-group">
-													<label class="col-sm-2 control-label no-padding-right" for="form-field-apemat">Apellido Materno:</label>
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-codigo">Codigo:</label>
 												
 													<div class="col-sm-9">
-															<input type="text" name="apemat" id="form-field-apemat"/>
+															<input type="text" name="codigo" id="form-field-codigo"/>
+															<input type="button" name="Detalle Cliente" value="Detalle Cliente">
 													</div>
 												</div><!-- form-group -->
 												
+												
+												<div class="form-group">
+													<label class="col-sm-4 control-label no-padding-right" for="form-field-razon">Razón de Cambio del Cliente:</label>
+												</div>	
+												<div class="col-sm-9">
+															<input type="text" size="100" name="razon" id="form-field-razon"/>
+												</div>	
+																											
 												<br><br>
+												
+												
 												
 												
 												</div><br><br><br><br><br>
 											</div>
 										</div>
 									</div><!-- /span -->
+									
+									
+									<br>
+									
+									<div class="col-sm-12">
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="smaller">Detalle Inspección</h4>
+											</div>
 
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-inspeccion">Inspección:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="inspeccion" id="form-field-inspeccion"/>
+													</div>
+												</div><!-- form-group -->
+												
+												<br>
+													
+												<div class="form-group">
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-inspeccion">Fecha Inspección:</label>
+												
+													<div class="col-sm-9">
+															<input type="text" name="inspeccion" id="form-field-inspeccion"/>
+													</div>
+												</div><!-- form-group -->
+												
+												<br>
+													
+												<div class="form-group">
+													<label class="col-sm-3 control-label no-padding-right" for="form-field-Inspector">Inspector		:		Daniel Eltra Vieso</label>
+													<label class="col-sm-2 control-label no-padding-right" for="form-field-codigo">Codigo	:	IXXX</label>
+													<input type="button" name="Detalle Inspector" value="Detalle Inspector">
+												</div>
+												
+											
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-distrito">Distrito:</label>
+													<input type="text" size="100" name="distrito" id="form-field-distrito"/>
+												</div>
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-terreno">Terreno:</label>
+													<input type="text" name="Terreno" id="form-field-terreno"/>
+													</div>
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-pisos">Pisos:</label>
+													<input type="text" name="Pisos" id="form-field-pisos"/>
+												</div>
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-zona">Zona:</label>
+													<input type="text" name="Zona" id="form-field-zona"/>
+												</div>
+												
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right" for="form-field-vivienda">Tipo Vivienda:</label>
+													<input type="text" name="Vivienda" id="form-field-vivienda"/>
+												</div>
+												
+												<div class="form-group">
+													<input type="button" name="Imagen Predio" value="Imagen Predio">
+												</div>
+												
+												<div class="col-sm-12"><br>
+														<label class="col-sm-2 control-label no-padding-right" for="form-field-pisos">Comentario Inspector:</label>
+												<input type="text" size="100" name="comentario" id="form-field-comentario"/>
+												<!-- form-group -->															
+												<br><br>
+											</div><br><br><br>
+										</div>
+									</div>
+								</div><!-- /span -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+								<br><br><br>
+								
+								
+										<div class="col-sm-12"><br><br>
+												<label class="col-sm-2 control-label no-padding-right" for="form-field-pisos">Comentario Revisión:</label>
+												<input type="text" size="100" name="revision" id="form-field-revision"/>
+										</div>
+								
+																
+								<div class="col-sm-12"><br>
+											<label class="col-sm-2" for="form-field-vivienda">Categoría según Evaluación:</label> 
+											<select name="thelist" onChange="combo(this, 'theinput')">
+  												<option>Categoría A</option>
+ 												<option>Categoría B</option>
+ 												<option>Categoría C</option>
+											</select>
+								</div>
+								
+								<div class="col-sm-12"><br>
+										<input class="col-sm-1" type="button" name="Aceptar" value="Aceptar">
+										<input class="col-sm-1" type="button" name="Limpiar" value="Limpiar">
+										
+								</div>
+								
 							<!-- /row -->
 
 							<!-- PAGE CONTENT ENDS -->
