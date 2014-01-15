@@ -660,7 +660,7 @@
 
 
 
-								<!-- Datos del Solicitante -->
+
 								<div class="col-sm-6">
 									<div class="widget-box">
 										<div class="widget-header">
@@ -750,10 +750,10 @@
 
 
 								</div>
-								<!-- ends col-sm-6 -->
+
 
 							</div>
-							<!-- ends row -->
+
 
 							<div class="row">
 								<div class="col-sm-12">
@@ -767,13 +767,14 @@
 												<div class="row">
 													<div class="col-sm-6">
 
-													<fieldset>
-														<label><strong>Por qué debe hacerse el cambio de Categoria</strong></label>
-													</fieldset>
-														
+														<fieldset>
+															<label><strong>Por qué debe hacerse el
+																	cambio de Categoria</strong></label>
+														</fieldset>
+
 														<br>
 														<fieldset>
-															
+
 															<textarea class="col-sm-10" id="txtMotivo"
 																style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181); resize: none;"
 																readonly="readonly"></textarea>
@@ -786,9 +787,9 @@
 													<div class="col-sm-6">
 
 
-																											<fieldset>
-														<label><strong>Documentos</strong></label>
-													</fieldset>
+														<fieldset>
+															<label><strong>Documentos</strong></label>
+														</fieldset>
 														<div class="hr hr-24"
 															style="margin-top: 5px; margin-bottom: 10px;"></div>
 														<fieldset>
@@ -804,8 +805,8 @@
 															style="margin-top: 5px; margin-bottom: 10px;"></div>
 
 														<fieldset>
-															<label class="col-sm-7 control-label no-padding-right">Documento<br>2
-															</label> <label class="col-sm-2"> <a id="lnkPartida"
+															<label class="col-sm-7 control-label no-padding-right">Documento
+																2 </label> <label class="col-sm-2"> <a id="lnkPartida"
 																href="#" class="btn btn-info" data-toggle="modal"
 																style="height: 32px; padding-top: 0px; width: 153px; padding-left: 7px; padding-right: 4px; top: 10px;">
 																	<i class="icon-search"></i> Ver Documento
@@ -817,10 +818,10 @@
 															style="margin-top: 5px; margin-bottom: 10px;"></div>
 
 														<fieldset>
-															<label class="col-sm-7 control-label no-padding-right">Documento<br>1
-																Sanitario
-															</label> <label class="col-sm-2"> <a id="lnkDocumento1"
-																href="#" class="btn btn-info" data-toggle="modal"
+															<label class="col-sm-7 control-label no-padding-right">Documento
+																1 </label> <label class="col-sm-2"> <a
+																id="lnkDocumento1" href="#" class="btn btn-info"
+																data-toggle="modal"
 																style="height: 32px; padding-top: 0px; width: 153px; padding-left: 7px; padding-right: 4px; top: 5px;">
 																	<i class="icon-search"></i> Ver Documento
 															</a>
@@ -839,7 +840,7 @@
 
 
 							</div>
-							<!-- ends row datos del predio,documentos -->
+
 
 							<div class="row">
 								<!-- begins row botones -->
@@ -890,7 +891,121 @@
 
 
 
+							<div id="modal-cliente" class="modal" tabindex="-1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="blue bigger">
+												Detalle de Cliente <small> <i
+													class="icon-double-angle-right"></i> Información de Cliente
+												</small>
+											</h4>
 
+										</div>
+										<div class="modal-body overflow-visible">
+
+											<div class="row">
+												<div class="col-xs-12 col-sm-12	">
+
+													<form>
+														<fieldset>
+															<label class="col-sm-4 control-label no-padding-right">Nombre
+																Cliente</label> <input class="col-xs-10 col-sm-5" type="text"
+																name="txtNomCliente" id="txtNomCliente"
+																placeholder="Nombre Cliente" readonly="readonly" />
+														</fieldset>
+														<div class="space-4"></div>
+														<fieldset>
+															<label class="col-sm-4 control-label no-padding-right">Apellido
+																Paterno</label> <input class="col-xs-10 col-sm-5" type="text"
+																name="txtApepaCLiente" id="txtApepaCliente"
+																placeholder="Apellido Paterno" readonly="readonly" />
+														</fieldset>
+														<div class="space-4"></div>
+														<fieldset>
+															<label class="col-sm-4 control-label no-padding-right">Apellido
+																Materno</label> <input class="col-xs-10 col-sm-5" type="text"
+																name="txtApemaCLiente" id="txtApemaCliente"
+																placeholder="Apellido Materno" readonly="readonly" />
+														</fieldset>
+														<div class="space-4"></div>
+														<fieldset>
+															<label class="col-sm-4 control-label no-padding-right">Codigo
+																Cliente</label> <input class="col-xs-10 col-sm-5" type="text"
+																placeholder="Codigo" name="txtIdCLiente"
+																id="txtIdCliente" readonly="readonly" />
+														</fieldset>
+														<div class="space-4"></div>
+														<fieldset>
+															<label class="col-sm-4 control-label no-padding-right">Correo
+																Electronico</label> <input class="col-xs-10 col-sm-5"
+																type="text" placeholder="Correo Electronico"
+																name="txtIdCorreo" id="txtIdCorreo" readonly="readonly" />
+														</fieldset>
+														<div class="space-4"></div>
+														<fieldset>
+															<label class="col-sm-4 control-label no-padding-right">Teléfono</label>
+															<input class="col-xs-10 col-sm-5" type="text"
+																placeholder="Teléfono Fijo" name="txtTelefono"
+																id="txtIdCliente" readonly="readonly" />
+														</fieldset>
+														<div class="space-4"></div>
+														<fieldset>
+															<label class="col-sm-4 control-label no-padding-right">Celular</label>
+															<input class="col-xs-10 col-sm-5" type="text"
+																placeholder="Teléfono Celular" name="txtCelular"
+																id="txtIdCliente" readonly="readonly" />
+														</fieldset>
+
+													</form>
+
+													<div class="space-4"></div>
+
+													<div class="row">
+														<div class="widget-header header-color-blue">
+															<h5 class="bigger lighter">
+																<i class="icon-table"></i> Lista de Suministros
+															</h5>
+														</div>
+														<div class="table-responsive"
+															style="overflow: scroll; max-height: 570px;">
+															<table id="sample-table-1" class="table table-bordered"
+																style="margin-bottom: 0px;">
+																<thead>
+																	<tr>
+																		<th width="100">Cod. Suministro</th>
+																		<th width="100">Cod. Contrato</th>
+
+																		<th width="100"><i
+																			class="icon-time bigger-110 hidden-480"></i> Fecha</th>
+																	</tr>
+																</thead>
+
+																<tbody>
+																	<tr>
+																		<td>1009</td>
+																		<td>312323</td>
+																		<td>15-12-2013</td>
+																	</tr>
+																	<tr>
+																		<td>231</td>
+																		<td>7657</td>
+																		<td>14-12-2013</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<!-- /.table-responsive -->
+
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
 
 
