@@ -11,7 +11,7 @@
 	String nombre = (String) sesion.getAttribute("nombreCompleto");
 	String foto = (Integer) sesion.getAttribute("foto") + "";
 	String nombrePerfil = (String) sesion.getAttribute("desPerfil");
-	
+
 	int tipo = 1;
 	String skin = "default";
 
@@ -96,13 +96,15 @@
 </head>
 
 <body class="navbar-fixed breadcrumbs-fixed <%=skin%>" style="">
-<c:choose>
+	<c:choose>
 		<c:when test="${param.idioma != null}">
-		<fmt:setLocale value="${param.idioma}" scope="session" />
-		<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
+			<fmt:setLocale value="${param.idioma}" scope="session" />
+			<c:set var="bandera" value="${param.idioma}" scope="session"></c:set>
 		</c:when>
 		<c:otherwise>
-		<c:set var="bandera" value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}" scope="session"></c:set>
+			<c:set var="bandera"
+				value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"
+				scope="session"></c:set>
 		</c:otherwise>
 	</c:choose>
 
@@ -128,9 +130,9 @@
 				<ul class="nav ace-nav">
 					<!-- BARRA IDIOMA -->
 					<li class="orange2"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img src="img/${bandera}_flag.gif"
-							class="msg-photo" alt="Idioma"> <span
-							class="badge badge-grey"><fmt:message
+						class="dropdown-toggle" href="#"> <img
+							src="img/${bandera}_flag.gif" class="msg-photo" alt="Idioma">
+							<span class="badge badge-grey"><fmt:message
 									key="label.actualidioma" /></span>
 					</a>
 
@@ -140,17 +142,17 @@
 									key="label.seleccionaidioma" /></li>
 
 
-							<li><a href="?idioma=es"> <img
-									src="img/es_flag.gif" class="msg-photo" alt="Castellano">
-									<span class="msg-body"> <span class="msg-title">
-											<span class="blue"><fmt:message key="label.español" /></span>
+							<li><a href="?idioma=es"> <img src="img/es_flag.gif"
+									class="msg-photo" alt="Castellano"> <span
+									class="msg-body"> <span class="msg-title"> <span
+											class="blue"><fmt:message key="label.español" /></span>
 									</span>
 								</span>
 							</a></li>
-							<li><a href="?idioma=en"> <img
-									src="img/en_flag.gif" class="msg-photo" alt="Ingles"> <span
-									class="msg-body"> <span class="msg-title"> <span
-											class="blue"><fmt:message key="label.ingles" /></span>
+							<li><a href="?idioma=en"> <img src="img/en_flag.gif"
+									class="msg-photo" alt="Ingles"> <span class="msg-body">
+										<span class="msg-title"> <span class="blue"><fmt:message
+													key="label.ingles" /></span>
 									</span>
 								</span>
 							</a></li>
@@ -384,9 +386,8 @@
 				<!-- #sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
-					<li><a href="home.jsp"> <i
-							class="icon-dashboard"></i> <span class="menu-text"> <fmt:message
-									key="label.resumen" />
+					<li><a href="home.jsp"> <i class="icon-dashboard"></i> <span
+							class="menu-text"> <fmt:message key="label.resumen" />
 						</span>
 					</a></li>
 
@@ -427,14 +428,14 @@
 						</ul></li>
 
 
-					<li class="active open"><a href="#" class="dropdown-toggle"> <i
-							class="icon-share"></i> <span class="menu-text"><fmt:message
+					<li class="active open"><a href="#" class="dropdown-toggle">
+							<i class="icon-share"></i> <span class="menu-text"><fmt:message
 									key="label.Categoria" /> </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-							<li class="active open"><a href="#" class="dropdown-toggle"> <i
-									class="icon-double-angle-right"></i> <fmt:message
+							<li class="active open"><a href="#" class="dropdown-toggle">
+									<i class="icon-double-angle-right"></i> <fmt:message
 										key="label.Solicitud" /><b class="arrow icon-angle-down"></b>
 							</a>
 
@@ -443,8 +444,8 @@
 											class="icon-pencil"></i> <fmt:message key="label.Registrar" />
 									</a></li>
 
-									<li class="active"><a href="cc_sol_revision.jsp"> <i class="icon-ok"></i>
-											<fmt:message key="label.Revisar" />
+									<li class="active"><a href="cc_sol_revision.jsp"> <i
+											class="icon-ok"></i> <fmt:message key="label.Revisar" />
 									</a></li>
 								</ul></li>
 
@@ -510,7 +511,7 @@
 
 
 					<li><a href="#mantenimiento" class="dropdown-toggle"> <i
-							class="icon-cogs"></i> <span class="menu-text"> <fmt:message
+							class="icon-cog"></i> <span class="menu-text"> <fmt:message
 									key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
@@ -596,9 +597,10 @@
 				<div class="page-content">
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
-						<h1> <fmt:message key="label.Categoria" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Revisar" /> 
-								<fmt:message key="label.Solicitud" /></small>
+						<h1>
+							<fmt:message key="label.Categoria" />
+							<small> <i class="icon-double-angle-right"></i> <fmt:message
+									key="label.Revisar" /> <fmt:message key="label.Solicitud" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
@@ -607,8 +609,283 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							Aqui va el contenido de la pagina <br>
-							
+
+							<div class="row">
+
+								<div class="col-sm-6">
+									<div class="widget-header header-color-blue">
+										<h5 class="bigger lighter">
+											<i class="icon-table"></i> Solicitudes de Cambio de Categoria
+										</h5>
+									</div>
+									<div class="table-responsive"
+										style="overflow: scroll; max-height: 570px;">
+										<table id="sample-table-1" class="table table-bordered "
+											style="margin-bottom: 0px;">
+											<thead>
+												<tr>
+													<th width="100">Numero</th>
+													<th width="200">Cliente</th>
+
+													<th width="100"><i
+														class="icon-time bigger-110 hidden-480"></i> Fecha</th>
+													<th width="100">Estado</th>
+
+												</tr>
+											</thead>
+
+											<tbody>
+												<c:forEach var="lista" items="${requestScope.lista}">
+													<tr>
+														<td>${lista.numero}</td>
+														<td>${lista.nomUsuario}&nbsp${lista.apepaUsuario}&nbsp${lista.apemaUsuario}</td>
+														<td>${lista.fecha}</td>
+														<td class="hidden-480"><span
+															class="label label-sm label-danger arrowed">${lista.estado}</span>
+														</td>
+													</tr>
+												</c:forEach>
+
+											</tbody>
+										</table>
+									</div>
+									<!-- /.table-responsive -->
+
+									<label class="col-sm-6 control-label no-padding-right"
+										style="left: 200px; top: 5px; padding-left: 31px;">Cantidad
+										de Solicitudes Pendientes:</label> <label id="lblCantidadSol"
+										class="col-sm-3 control-label no-padding-right"
+										style="left: 210px; top: 5px; padding-left: 0px;"><strong>9999</strong></label>
+								</div>
+
+
+
+								<!-- Datos del Solicitante -->
+								<div class="col-sm-6">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4 class="smaller">Datos de la Solicitud</h4>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main">
+												<form>
+
+													<fieldset>
+														<label><strong>Datos Generales</strong></label>
+													</fieldset>
+													<fieldset>
+														<label class="col-sm-3">Nro. de Solicitud:</label> <input
+															class="col-sm-3 input-lg" type="text"
+															name="txIdSolicitud" id="txtIdSolicitud"
+															readonly="readonly" />
+
+													</fieldset>
+													<br>
+													<fieldset>
+														<label class="col-sm-3">Nombre Cliente:</label> <input
+															class="col-sm-4" type="text" name="txtCliente"
+															id="txtCliente" readonly="readonly" /><label
+															class="col-sm-3"> <a href="#modal-cliente"
+															class="btn btn-info" data-toggle="modal"
+															style="height: 32px; padding-top: 0px; width: 153px; padding-left: 7px; padding-right: 4px;">
+																<i class="icon-user"></i> Detalle Cliente
+														</a>
+														</label>
+													</fieldset>
+													<fieldset>
+														<br> <label class="col-sm-3">Código Cliente:</label>
+														<input class="col-sm-3" type="text" name="txtCodCliente"
+															id="txtCodCliente" readonly="readonly" />
+													</fieldset>
+													<fieldset>
+														<br> <label class="col-sm-3">Nro. Suministro:</label>
+														<input class="col-sm-3" type="text" name="txtSuministro"
+															id="txtSuministro" readonly="readonly" />
+													</fieldset>
+													<br>
+
+													<fieldset>
+														<label><strong>Datos del Servicio</strong></label>
+													</fieldset>
+													<fieldset>
+														<label class="col-sm-3">Categoria Actual:</label> <input
+															class="input-lg" type="text" name="txtCategoria"
+															id="txtCategoria" readonly="readonly" />
+													</fieldset>
+													<br>
+													<fieldset disabled>
+														<label class="col-sm-3">Direccion:</label>
+														<textarea class="col-sm-4" rows="3" name="txtDireccion"
+															id="txtDireccion"
+															style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181); resize: none;"
+															readonly="readonly"></textarea>
+
+													</fieldset>
+													<br>
+													<fieldset>
+														<label class="col-sm-3">Nro. de Pisos:</label> <input
+															type="text" name="txtPisos" id="txtPisos"
+															readonly="readonly" />
+													</fieldset>
+													<fieldset>
+														<br> <label class="col-sm-3">Diámetro
+															Tuberia:</label> <input type="text" name="txtTuberia"
+															id="txtTuberia" readonly="readonly" />
+													</fieldset>
+													<fieldset>
+														<br> <label class="col-sm-3">Tipo de
+															Vivienda:</label> <input type="text" name="txtTipVivienda"
+															id="txtTipVivienda" readonly="readonly" />
+													</fieldset>
+													<br>
+												</form>
+
+											</div>
+										</div>
+									</div>
+									<!-- /span -->
+
+									<div class="space-6"></div>
+
+
+								</div>
+								<!-- ends col-sm-6 -->
+
+							</div>
+							<!-- ends row -->
+
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="widget-box">
+										<div class="widget-header">
+											<h4 class="smaller">Información del Cambio</h4>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main" style="padding-bottom: 45px;">
+												<div class="row">
+													<div class="col-sm-6">
+
+													<fieldset>
+														<label><strong>Por qué debe hacerse el cambio de Categoria</strong></label>
+													</fieldset>
+														
+														<br>
+														<fieldset>
+															
+															<textarea class="col-sm-10" id="txtMotivo"
+																style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181); resize: none;"
+																readonly="readonly"></textarea>
+
+														</fieldset>
+														<br>
+														<fieldset></fieldset>
+
+													</div>
+													<div class="col-sm-6">
+
+
+																											<fieldset>
+														<label><strong>Documentos</strong></label>
+													</fieldset>
+														<div class="hr hr-24"
+															style="margin-top: 5px; margin-bottom: 10px;"></div>
+														<fieldset>
+															<label class="col-sm-7 control-label no-padding-right">Copia
+																DNI: </label> <label class="col-sm-2"> <a id="lnkDNI"
+																href="#" class="btn btn-info" data-toggle="modal"
+																style="height: 32px; padding-top: 0px; width: 153px; padding-left: 7px; padding-right: 4px; top: 2px;">
+																	<i class="icon-search"></i> Ver Documento
+															</a>
+															</label>
+														</fieldset>
+														<div class="hr hr-24"
+															style="margin-top: 5px; margin-bottom: 10px;"></div>
+
+														<fieldset>
+															<label class="col-sm-7 control-label no-padding-right">Documento<br>2
+															</label> <label class="col-sm-2"> <a id="lnkPartida"
+																href="#" class="btn btn-info" data-toggle="modal"
+																style="height: 32px; padding-top: 0px; width: 153px; padding-left: 7px; padding-right: 4px; top: 10px;">
+																	<i class="icon-search"></i> Ver Documento
+															</a>
+															</label>
+														</fieldset>
+
+														<div class="hr hr-24"
+															style="margin-top: 5px; margin-bottom: 10px;"></div>
+
+														<fieldset>
+															<label class="col-sm-7 control-label no-padding-right">Documento<br>1
+																Sanitario
+															</label> <label class="col-sm-2"> <a id="lnkDocumento1"
+																href="#" class="btn btn-info" data-toggle="modal"
+																style="height: 32px; padding-top: 0px; width: 153px; padding-left: 7px; padding-right: 4px; top: 5px;">
+																	<i class="icon-search"></i> Ver Documento
+															</a>
+															</label>
+														</fieldset>
+
+
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+							<!-- ends row datos del predio,documentos -->
+
+							<div class="row">
+								<!-- begins row botones -->
+								<div class="hr hr-24"></div>
+								<div class="col-sm-12" style="padding-left: 420px;">
+
+
+
+									<button class="btn btn-success" type="button">
+										<i class="icon-thumbs-up bigger-110"></i> Aprobar
+									</button>
+
+									&nbsp; &nbsp; &nbsp;
+
+									<button class="btn btn-danger" type="button">
+										<i class="icon-thumbs-down bigger-110"></i> Rechazar
+									</button>
+								</div>
+							</div>
+
+							<div id="modal-documento" class="modal" tabindex="-1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="blue bigger">Documento de Identidad</h4>
+										</div>
+
+										<div class="modal-body">
+											<img src="img/renzo-test/dni1.jpg" align="middle">
+
+										</div>
+
+										<div class="modal-footer">
+											<button class="btn btn-sm" data-dismiss="modal">
+												<i class="icon-remove"></i> Cerrar
+											</button>
+
+											<button class="btn btn-sm btn-primary">
+												<i class="icon-download"></i> Descargar
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
 
 
 

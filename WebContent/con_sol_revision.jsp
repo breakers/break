@@ -506,7 +506,7 @@
 
 
 										<li><a href="#mantenimiento" class="dropdown-toggle"> <i
-							class="icon-cogs"></i> <span class="menu-text"> <fmt:message
+							class="icon-cog"></i> <span class="menu-text"> <fmt:message
 									key="label.Mantenimiento" />
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
