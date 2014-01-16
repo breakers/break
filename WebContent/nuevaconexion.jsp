@@ -1,3 +1,4 @@
+<%@ page isELIgnored="false" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
@@ -25,8 +26,8 @@
 		default :
 			skin = "default";
 	}
+	pageContext.setAttribute("cuot",1);
 %>
-
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
@@ -444,7 +445,7 @@ html,body,#map-canvas {
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
 																	for="plano">Adjutar Documento: (*)</label>
 																<div class="col-sm-3">
-																	<input type="file" id="fileDoc_nat" name="fileDoc_nat"/>
+																	<input type="file" id="fileDoc_nat" name="fileDoc_nat" />
 
 																</div>
 															</div>
@@ -726,7 +727,7 @@ html,body,#map-canvas {
 																	<i class="icon-remove"></i>
 																</button>
 																<strong>Atencion!</strong> No olvides indicar el punto
-																de tu predio en el mapa. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Si tienes problemas con el mapa has <a href="#" onclick="resize()" >click aqui</a></strong> <br />
+																de tu predio en el mapa.
 															</div>
 														</div>
 
@@ -745,14 +746,9 @@ html,body,#map-canvas {
 																					<select id="cbProvincia" name="cbProvincia"
 																						class="input-medium">
 																						<option value="">--------</option>
-																						<option>Arequipa</option>
-																						<option>Canamá</option>
-																						<option>Caravelí</option>
-																						<option>Catilla</option>
-																						<option>Caylloma</option>
-																						<option>Condesuyos</option>
-																						<option>Islay</option>
-																						<option>La Unión</option>
+																						<c:forEach var="prov" items="${requestScope.provincias}">
+																						<option value="${prov.codUbigeo}">${prov.nomUbigeo}</option>
+																						</c:forEach>
 																					</select>
 																				</div>
 
@@ -764,7 +760,7 @@ html,body,#map-canvas {
 																					<select id="cbDistrito" name="cbDistrito"
 																						class="input-medium">
 																						<option value="">--------</option>
-																						<option>distrito1</option>
+																						
 																					</select>
 																				</div>
 
@@ -774,9 +770,8 @@ html,body,#map-canvas {
 																				<label class="control-label col-xs-4 col-sm-4 no-padding-right" for="cbLocalidad" style="padding-bottom: 16px;">Localidad</label>
 																				<div class="controls">
 																					<select id="cbLocalidad" name="cbLocalidad"
-																						class="input-medium">
+																						class="input-medium" tabindex="4">
 																						<option value="">--------</option>
-																						<option>localidad1</option>
 																					</select>
 																				</div>
 
@@ -787,8 +782,7 @@ html,body,#map-canvas {
 																				<div class="controls">
 																					<select id="cbCalle" name="cbCalle"
 																						class="input-medium">
-																						<option value="">-------</option>
-																						<option>calle1</option>
+																						<option value="">--------</option>
 
 																					</select>
 																				</div>
@@ -888,8 +882,8 @@ html,body,#map-canvas {
 															<div class="col-sm-8">
 																<div class="widget-box">
 																	<div class="widget-header">
-																		<h4>Mapa Arequipa</h4>
-
+																		<h4>Mapa de Arequipa</h4>
+																		<span style="margin-left: 330px;">Si tienes problemas con el mapa has<strong> <a href="#" onclick="resize()" >click aqui</a></strong></span> 
 																	</div>
 																	
 																	<div class="widget-body">
@@ -976,8 +970,8 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="name" name="name"
-																			class="col-xs-12 col-sm-5" />
+																		<input type="text" id="txtNombres" name="txtNombres"
+																			class="col-xs-12 col-sm-5" readonly="readonly"/>
 																	</div>
 																</div>
 															</div>
@@ -989,8 +983,8 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="apepa" name="apepa"
-																			class="col-xs-12 col-sm-5" />
+																		<input type="text" id="txtServicio" name="txtServicio"
+																			class="col-xs-12 col-sm-5" readonly="readonly"/>
 																	</div>
 																</div>
 															</div>
@@ -999,11 +993,10 @@ html,body,#map-canvas {
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
 																	for="name">Costo:</label>
-
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="apema" name="apema"
-																			class="col-xs-12 col-sm-5" />
+																		<input type="text" id="txtCosto" name="txtCosto"
+																			class="col-xs-12 col-sm-5" readonly="readonly"/>
 																	</div>
 																</div>
 															</div>
@@ -1016,14 +1009,13 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div>
-																		<label class="blue"> <input name="formaPago" id="formaPago" checked="checked"
+																		<label class="blue"> <input name="formaPago" id="rbContado" checked="checked"
 																			value="1" type="radio" class="ace" /> <span
 																			class="lbl"> Contado</span>
 																		</label>
 																	</div>
-
 																	<div>
-																		<label class="blue"> <input name="formaPago" id="formaPago"
+																		<label class="blue"> <input name="formaPago" id="rbCuotas"
 																			value="2" type="radio" class="ace"/> <span
 																			class="lbl"> Cuotas</span>
 																		</label>
@@ -1036,29 +1028,16 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="platform">Numero de Cuotas</label>
+																	for="numCuotas" id="lblNumCuotas" hidden="true">Numero de Cuotas</label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<select class="input-medium" id="numCuotas"
-																			name="numCuotas">
-																			<option value="">------------------</option>
+																			name="numCuotas" hidden="true">
+																			<option value="1">------------------</option>
 																			<option value="6">6</option>
 																			<option value="12">12</option>
-																			<option value="24">24</option>
 																		</select>
-																	</div>
-																</div>
-															</div>
-															<div class="form-group">
-																<label
-																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Monto por cuota:</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div class="clearfix">
-																		<input type="text" id="montoCuotas" name="montoCuotas"
-																			class="col-xs-12 col-sm-5" />
 																	</div>
 																</div>
 															</div>
@@ -1067,54 +1046,7 @@ html,body,#map-canvas {
 																<label for="" class="control-label col-xs-12 col-sm-3 no-padding-right"></label>
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<div class="table-responsive">
-																			<table id="sample-table-1" class="table table-bordered">
-																				<thead>
-																					<tr>
-																						<th width="100">Numero</th>
-																						<th width="200">Monto</th>
-								
-																						<th width="100">
-																							<i class="icon-time bigger-110 hidden-480"></i>
-																							Fecha Emision
-																						</th>
-																						<th width="100">Fecha Vencimiento</th>
-																						<th width="100">Motivo</th>
-																					</tr>
-																				</thead>
-								
-																				<tbody>
-																					<tr>
-																						<td>1</td>
-																						<td>85.25</td>
-																						<td>15-12-2013</td>
-																						<td>15-01-2014</td>
-																						<td>Nueva Conexion</td>
-																					</tr>
-																					<tr>
-																						<td>2</td>
-																						<td>85.25</td>
-																						<td>15-12-2013</td>
-																						<td>15-02-2014</td>
-																						<td>Nueva Conexion</td>
-																					</tr>
-																					<tr>
-																						<td>3</td>
-																						<td>85.25</td>
-																						<td>15-12-2013</td>
-																						<td>15-03-2014</td>
-																						<td>Nueva Conexion</td>
-																					</tr>
-																					<tr>
-																						<td>4</td>
-																						<td>85.25</td>
-																						<td>15-12-2013</td>
-																						<td>15-04-2014</td>
-																						<td>Nueva Conexion</td>
-																					</tr>
-																				</tbody>
-																			</table>
-																		</div><!-- /.table-responsive -->
+																		<jsp:include page="tbCuotas.jsp"></jsp:include>
 																	
 																	</div>
 																</div>
@@ -1132,8 +1064,8 @@ html,body,#map-canvas {
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="email" name="email" id="email"
-																			class="col-xs-12 col-sm-6" />
+																		<input type="email" name="txtCorreo" id="txtCorreo"
+																			class="col-xs-12 col-sm-6" readonly="readonly" />
 																	</div>
 																</div>
 															</div>
@@ -1149,7 +1081,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="phone" name="phone" />
+																		</span> <input type="tel" id="txtTelefono" name="txtTelefono" readonly="readonly"/>
 																	</div>
 																</div>
 															</div>
@@ -1165,7 +1097,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="phone" name="phone" />
+																		</span> <input type="tel" id="txtCelular" name="txtCelular"  readonly="readonly"/>
 																	</div>
 																</div>
 															</div>
@@ -1177,8 +1109,8 @@ html,body,#map-canvas {
 													<div class="step-pane" id="step4">
 														<div class="center">
 															<h3 class="green">Felicidades!</h3>
-															Tu Solicitud esta completa! Click finalizar para
-															terminar!
+															Tu Solicitud esta completa! Click en Enviar para
+															enviar tu solicitud!
 														</div>
 													</div>
 												</div>
@@ -1190,7 +1122,7 @@ html,body,#map-canvas {
 													</button>
 
 													<button class="btn btn-success btn-next"
-														data-last="Terminar ">
+														data-last="Enviar ">
 														Continuar <i class="icon-arrow-right icon-on-right"></i>
 													</button>
 												</div>
@@ -1289,16 +1221,55 @@ html,body,#map-canvas {
 
 	<script type="text/javascript">
 		jQuery(function($) {
-			
-			$("#formaPago").click(function(){
-				if($("input[name='formaPago']:checked").val() == "1"){
-				$("#numCuotas").prop('disabled','disabled');
-				$("#montoCuotas").prop('disabled','disabled');
-				}else{
-					$("#numCuotas").prop('disabled',false);
-					$("#montoCuotas").prop('disabled',false);
+			var monto = $("#txtCosto").val();
+		    var cuot = 1;
+				 $('#divTabla').load('tbCuotas.jsp?cuot='+cuot+'&monto='+monto);
+			$("#rbContado,#rbCuotas").change(function(){
+				if($("#rbContado").is(":checked")){
+					$("#numCuotas").hide();
+					$("#montoCuotas").hide();
+					$("#lblMontoCuotas").hide();
+					$("#lblNumCuotas").hide();
+					$('#divTabla').load('tbCuotas.jsp?cuot=1&monto='+monto);
+					$("#numCuotas").val("1");
+				}
+				if($("#rbCuotas").is(":checked")){
+					$("#numCuotas").show();
+					$("#montoCuotas").show();
+					$("#lblMontoCuotas").show();
+					$("#lblNumCuotas").show();
 				}
 			});
+			
+			$("#numCuotas").change(function(){
+				var monto = $("#txtCosto").val();
+			    var cuot = this.value;
+					 $('#divTabla').load('tbCuotas.jsp?cuot='+cuot+'&monto='+monto);	
+			});
+			
+			$("#cbProvincia").change(function(){
+				var cod_provincia = this.value;
+		        $.get("SvUbigeo", { codigo:cod_provincia, requerimiento:"distritos" },
+		            function(response){
+		                $("#cbDistrito").html(response);
+		       });
+		    });
+			
+			$("#cbDistrito").change(function(){
+				var cod_distrito = this.value;
+		        $.get("SvUbigeo", { codigo:cod_distrito, requerimiento:"localidades" },
+		            function(response){
+		                $("#cbLocalidad").html(response);
+		       });
+		    });
+			
+			$("#cbLocalidad").change(function(){
+				var cod_localidad = this.value;
+		        $.get("SvUbigeo", { codigo:cod_localidad, requerimiento:"calles" },
+		            function(response){
+		                $("#cbCalle").html(response);
+		       });
+		    });
 			
 			
 
@@ -1327,6 +1298,23 @@ html,body,#map-canvas {
 							if (!$('#formDocumentos').valid())
 								e.preventDefault();
 							
+							if($("#txtNombres_nat").val() == ""){
+								$("#txtNombres").val($("#txtNombres_jur").val());
+								$("#txtCorreo").val($("#txtCorreo_jur").val());
+								$("#txtTelefono").val($("#txtTelefono_jur").val());
+								$("#txtCelular").val($("#txtCelular_jur").val());
+							}else if($("#txtNombres_jur").val() == ""){
+								$("#txtNombres").val($("#txtNombres_nat").val());
+								$("#txtCorreo").val($("#txtCorreo_nat").val());
+								$("#txtTelefono").val($("#txtTelefono_nat").val());
+								$("#txtCelular").val($("#txtCelular_nat").val());
+							}
+							
+							$("#txtServicio").val("Nueva Conexión");
+							$("#txtCosto").val("1200");
+							monto = $("#txtCosto").val();
+							
+							$('#divTabla').load('tbCuotas.jsp?cuot='+cuot+'&monto='+monto);
 						}
 					})
 					.on('finished',function(e) {
@@ -1336,13 +1324,18 @@ html,body,#map-canvas {
 											buttons : {
 												"success" : {
 													"label" : "OK",
-													"className" : "btn-sm btn-primary"
+													"className" : "btn-sm btn-primary",
+													"callback" : function() {
+													        location.href="index.jsp";
+													      	}
 												}
+											
 											}
+											
 										});
 							})
 					.on('stepclick', function(e) {
- 								return false;
+ 							return false;
 					});
 			
 //	-----------------------------	<BEGINS> PASO 1 : Información del Cliente	-----------------------------------------------
@@ -1352,19 +1345,46 @@ html,body,#map-canvas {
 				if (this.checked) {
 					$('#formInformacionClienteNatural').hide();
 					$('#formInformacionClienteJuridica').removeClass('hide');
+					
+					$("#txtNombres_nat").val("");
+					$("#txtApePat_nat").val("");
+					$("#txtApeMat_nat").val("");
+					$("#cbTipoDoc_nat").val("");
+					$("#txtNumDoc_nat").val("");
+					$("#fileDoc_nat").val("");
+					$("#txtCorreo_nat").val("");
+					$("#txtTelefono_nat").val("");
+					$("#txtCelular_nat").val("");
+					$("#chkTerminos_nat").prop('checked',false);
+					
 				} else {
 					$('#formInformacionClienteJuridica').addClass('hide');
 					$('#formInformacionClienteNatural').show();
+					
+					$("#txtRazSocial_jur").val("");
+					$("#txtRUC_jur").val("");
+					$("#txtURL_jur").val("");
+					$("#txtNombres_jur").val("");
+					$("#txtApePat_jur").val("");
+					$("#txtApeMat_jur").val("");
+					$("#cbTipoDoc_jur").val("");
+					$("#txtNumDoc_jur").val("");
+					$("#fileDoc_jur").val("");
+					$("#filePoder_jur").val("");
+					$("#txtCorreo_jur").val("");
+					$("#txtTelefono_jur").val("");
+					$("#txtCelular_jur").val("");
+					$("#chkTerminos_jur").prop('checked',false);
 				}
 			});
 
 // 			documentation : http://docs.jquery.com/Plugins/Validation/validate
 
 			$.mask.definitions['~'] = '[+-]';
-			$('#txtTelefono_nat').mask('(99) 999-9999');
-			$('#txtCelular_nat').mask('(99) 999999999');
-			$('#txtTelefono_jur').mask('(99) 999-9999');
-			$('#txtCelular_jur').mask('(99) 999999999');
+			$('#txtTelefono_nat').mask('(54) 999-9999');
+			$('#txtCelular_nat').mask('(54) 999999999');
+			$('#txtTelefono_jur').mask('(54) 999-9999');
+			$('#txtCelular_jur').mask('(54) 999999999');
 			
 			jQuery.validator.addMethod("valTel", function(value, element) {
 				return this.optional(element)
@@ -1978,12 +1998,12 @@ html,body,#map-canvas {
 //	-----------------------------	<BEGINS> PASO 3 : Presupuesto	-----------------------------------------------	
 
 //	-----------------------------	<ENDS> PASO 3 : Presupuesto	-----------------------------------------------		
-	
+		
 		});
+		
+		
+		
 	</script>
-
-
-
 
 </body>
 </html>

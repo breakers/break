@@ -1,6 +1,7 @@
 package dao;
 
 import interfaces.Con_SolicitudDAO;
+import interfaces.NuevaConexionDAO;
 import interfaces.PerfilDAO;
 import interfaces.UsuarioDAO;
 
@@ -13,6 +14,7 @@ public abstract class DAOFactory {
 	public abstract UsuarioDAO getUsuarioDAO();
 	public abstract PerfilDAO getPerfilDAO();
 	public abstract Con_SolicitudDAO getCon_SolicitudDAO();
+	public abstract NuevaConexionDAO getNuevaConexionDAO();
 	
 	public static DAOFactory getDAOFactory(int w){
 		

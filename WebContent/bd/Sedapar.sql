@@ -2,6 +2,13 @@ DROP DATABASE IF EXISTS `DB_Sedapar` ;
 create database DB_Sedapar;
 use DB_Sedapar;
 
+create table tb_valorizaciones(
+idValoriza int primary key auto_increment,
+desValoriza varchar(40),
+precioValoriza decimal
+);
+
+
 create table tb_perfil(
 idPerfil int primary key auto_increment,
 desPerfil varchar(50),
@@ -137,6 +144,22 @@ tituloMensajeAlerta varchar(50),
 cuerpoMensajeAlerta varchar(50),
 imagenMensajeAlerta varchar(50)
 );
+
+/*Datos en Valorizaciones*/
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+INSERT INTO tb_valorizaciones VALUES(null,'',0);
+
 
 /*Datos en Perfiles*/
 INSERT INTO tb_perfil VALUES(null,'Administrador',1,1,1,1,1,1,1,1,1);
@@ -301,7 +324,6 @@ INSERT INTO tb_localidad VALUES(null,'Vallecito','are',2);
 INSERT INTO tb_localidad VALUES(null,'Villa Hermosa','are',2);
 INSERT INTO tb_localidad VALUES(null,'Villa Los Girasoles','are',2);
 INSERT INTO tb_localidad VALUES(null,'Zemanat','are',2);
-INSERT INTO tb_localidad VALUES(null,'--','are',2);
 
 /*Datos en Calles (solo Centro historico, Arequipa/centro, Arequipa)*/
 INSERT INTO tb_calle VALUES(null,'Perú','are',2,7);
@@ -485,4 +507,30 @@ DELIMITER $
 CREATE PROCEDURE usp_listarMensajesAlerta()
 BEGIN
 	SELECT * FROM tb_MensajesAlerta;
+END$
+
+
+DELIMITER $
+CREATE PROCEDURE usp_listarProvincias()
+BEGIN
+	SELECT * FROM tb_provincia;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_listarDistritos(Vcod_prov varchar(10) )
+BEGIN
+	SELECT id_dis,nombre FROM tb_distrito where id_prov=Vcod_prov;
+END$
+
+
+DELIMITER $
+CREATE PROCEDURE usp_listarLocalidades(Vcod_dis varchar(10) )
+BEGIN
+	SELECT id_loc,nombre FROM tb_localidad where id_dis=Vcod_dis;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_listarCalles(Vcod_loc varchar(10) )
+BEGIN
+	SELECT id_calle,nombre FROM tb_calle where id_loc=Vcod_loc;
 END$
