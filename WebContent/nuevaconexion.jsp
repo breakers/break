@@ -442,8 +442,8 @@ html,body,#map-canvas {
 																			name="cbTipoDoc_nat">
 																			<option value="">----------------------</option>
 																			<c:forEach var="tipoDoc" items="${requestScope.tiposDoc}">
-																						<option value="${tipoDoc.idTipoDoc}">${tipoDoc.desTipoDoc}</option>
-																						</c:forEach>
+																				<option value="${tipoDoc.idTipoDoc}">${tipoDoc.desTipoDoc}</option>
+																			</c:forEach>
 																		</select>
 																	</div>
 																</div>
@@ -633,9 +633,9 @@ html,body,#map-canvas {
 																		<select class="input-medium" id="cbTipoDoc_jur"
 																			name="cbTipoDoc_jur">
 																			<option value="">------------------</option>
-																			<option value="DNI">DNI</option>
-																			<option value="Carnet Extranjeria">Carnet
-																				Extranjeria</option>
+																			<c:forEach var="tipoDoc" items="${requestScope.tiposDoc}">
+																				<option value="${tipoDoc.idTipoDoc}">${tipoDoc.desTipoDoc}</option>
+																			</c:forEach>
 																		</select>
 																	</div>
 																</div>
