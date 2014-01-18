@@ -3,10 +3,17 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import util.MySQL;
 import bean.Con_SolicitudDTO;
+import bean.DiametroConexionDTO;
+import bean.EstadoPredioDTO;
+import bean.SolicitudNuevaConexionDTO;
+import bean.TipoDocIdentidadDTO;
+import bean.TipoPredioDTO;
 import bean.UbigeoDTO;
 import interfaces.Con_SolicitudDAO;
 import interfaces.NuevaConexionDAO;
@@ -109,6 +116,148 @@ public class MySqlNuevaConexionDAO implements NuevaConexionDAO{
 		return calles;
 	}
 
+	@Override
+	public boolean registrarSolicitudNuevaConexion(SolicitudNuevaConexionDTO solicitud) {
+		Connection cn = MySQL.getConnection();
+		
+		String sql= "CALL usp_registrarSolicitudNuevaConexion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		
+		try {
+			PreparedStatement ps = cn.prepareStatement(sql);
+			ps.setString(1,solicitud.getRazonsocial());
+			ps.setString(2,solicitud.getRuc());
+			ps.setString(3,solicitud.getUrl());
+			ps.setString(4,solicitud.getNombres());
+			ps.setString(5,solicitud.getApepat());
+			ps.setString(6,solicitud.getApemat());
+			ps.setInt(7,solicitud.getIdTipoDoc());
+			ps.setString(8,solicitud.getNumDoc());
+			ps.setString(9,solicitud.getCorreo());
+			ps.setString(10,solicitud.getTelefono());
+			ps.setString(11,solicitud.getCelular());
+			ps.setInt(12,solicitud.getId_calle());
+			ps.setInt(13,solicitud.getId_localidad());
+			ps.setInt(14, solicitud.getId_distrito());
+			ps.setInt(15,solicitud.getId_provincia());
+			ps.setString(16,solicitud.getNumero());
+			ps.setString(17,solicitud.getReferencias());
+			ps.setInt(18,solicitud.getIdEstadoPredio());
+			ps.setInt(19,solicitud.getIdTipoPredio());
+			ps.setString(20,solicitud.getArea());
+			ps.setInt(21,solicitud.getIdDiametroConexion());
+			ps.setDouble(22,solicitud.getCosto());
+			ps.setInt(23,solicitud.getNumcuotas());
+			ps.setString(24,solicitud.getCoordenadas());
+			ps.executeUpdate();
+			ps.close();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+
+	@Override
+	public List<EstadoPredioDTO> listarEstadosPredio() {
+		ArrayList<EstadoPredioDTO> estados = new ArrayList<EstadoPredioDTO>();
+		try {
+			Connection cn=MySQL.getConnection();
+			String sql="call usp_listarEstadoPredio()";
+			PreparedStatement pst=cn.prepareStatement(sql);
+			ResultSet rs=pst.executeQuery();
+			
+			while (rs.next()) {
+				EstadoPredioDTO est = new EstadoPredioDTO();
+				est.setIdEstadoPredio(rs.getInt(1));
+				est.setDesEstadoPredio(rs.getString(2));
+				estados.add(est);
+			}
+			
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		
+		return estados;
+	}
+
+	@Override
+	public List<TipoPredioDTO> listarTiposPredio() {
+		ArrayList<TipoPredioDTO> tipos = new ArrayList<TipoPredioDTO>();
+		try {
+			Connection cn=MySQL.getConnection();
+			String sql="call usp_listarTipoPredio()";
+			PreparedStatement pst=cn.prepareStatement(sql);
+			ResultSet rs=pst.executeQuery();
+			
+			while (rs.next()) {
+				TipoPredioDTO tipo = new TipoPredioDTO();
+				tipo.setIdTipoPredio(rs.getInt(1));
+				tipo.setDesTipoPredio(rs.getString(2));
+				tipos.add(tipo);
+			}
+			
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		
+		return tipos;
+	}
+
+	@Override
+	public List<DiametroConexionDTO> listarDiametrosConexion() {
+		ArrayList<DiametroConexionDTO> diametros = new ArrayList<DiametroConexionDTO>();
+		try {
+			Connection cn=MySQL.getConnection();
+			String sql="call usp_listarDiametroConexion()";
+			PreparedStatement pst=cn.prepareStatement(sql);
+			ResultSet rs=pst.executeQuery();
+			
+			while (rs.next()) {
+				DiametroConexionDTO diam = new DiametroConexionDTO();
+				diam.setIdDiametroConexion(rs.getInt(1));
+				diam.setDesDiametroConexion(rs.getString(2));
+				diametros.add(diam);
+			}
+			
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		
+		return diametros;
+	}
+
+	@Override
+	public List<TipoDocIdentidadDTO> listarTiposDoc() {
+		ArrayList<TipoDocIdentidadDTO> tipos = new ArrayList<TipoDocIdentidadDTO>();
+		try {
+			Connection cn=MySQL.getConnection();
+			String sql="call usp_listarTiposDoc()";
+			PreparedStatement pst=cn.prepareStatement(sql);
+			ResultSet rs=pst.executeQuery();
+			
+			while (rs.next()) {
+				TipoDocIdentidadDTO tipo = new TipoDocIdentidadDTO();
+				tipo.setIdTipoDoc(rs.getInt(1));
+				tipo.setDesTipoDoc(rs.getString(2));
+				tipos.add(tipo);
+			}
+			
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		
+		return tipos;
+	}
 	
 
 }

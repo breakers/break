@@ -1,6 +1,5 @@
-/tags
 /servlets
+/bean
 /service
 /dao
 /interfaces
-/bean

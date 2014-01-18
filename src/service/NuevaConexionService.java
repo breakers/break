@@ -5,7 +5,13 @@ package service;
 import interfaces.NuevaConexionDAO;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import bean.DiametroConexionDTO;
+import bean.EstadoPredioDTO;
+import bean.SolicitudNuevaConexionDTO;
+import bean.TipoDocIdentidadDTO;
+import bean.TipoPredioDTO;
 import bean.UbigeoDTO;
 import dao.DAOFactory;
 
@@ -29,6 +35,27 @@ public class NuevaConexionService {
 
 	public ArrayList<UbigeoDTO> listarCalles(String cod_calle) {
 		return con_solicituddao.listarCalles(cod_calle);
+	}
+
+	public boolean registrarSolicitudNuevaConexion(SolicitudNuevaConexionDTO solicitud) {
+	return con_solicituddao.registrarSolicitudNuevaConexion(solicitud);
+	
+	}
+
+	public List<EstadoPredioDTO> listarEstadosPredio() {
+		return con_solicituddao.listarEstadosPredio();
+	}
+
+	public List<TipoPredioDTO> listarTiposPredio() {
+		return con_solicituddao.listarTiposPredio();
+	}
+
+	public List<DiametroConexionDTO> listarDiametrosConexion() {
+		return con_solicituddao.listarDiametrosConexion();
+	}
+
+	public List<TipoDocIdentidadDTO> listarTiposDoc() {
+		return con_solicituddao.listarTiposDoc();
 	}
 
 	

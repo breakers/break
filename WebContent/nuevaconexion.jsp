@@ -8,6 +8,10 @@
 <head>
 
 <%
+	if(request.getAttribute("provincias")==null){
+		response.sendRedirect("SvNuevaConexion");
+	}
+
 	HttpSession sesion = request.getSession();
 	String nombre = "Cliente";
 	String foto = "nofoto";
@@ -123,23 +127,40 @@ html,body,#map-canvas {
 	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script type="text/javascript">
 	var map;
-	
+	var marker;
 	function resize(){
 		google.maps.event.trigger( map, 'resize' );
 	}
 
 	function initialize() {
 		directionsDisplay = new google.maps.DirectionsRenderer();
-		var centro = new google.maps.LatLng(-16.411667, -71.532967);
+		var centro = new google.maps.LatLng(-16.410851,-71.53438);
 		var mapOptions = {
-			zoom : 20,
+			zoom : 16,
 			center : centro,
 			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
-		map = new google.maps.Map(document.getElementById('map-canvas'),
-				mapOptions);
+		map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+		
+		marker = new google.maps.Marker({
+		    map:map,
+		    draggable:true,
+		    animation: google.maps.Animation.DROP,
+		    position: new google.maps.LatLng(-16.415719,-71.526436)
+		  });
+		  google.maps.event.addListener(marker, 'click', toggleBounce);
+		}
+
+		function toggleBounce() {
+
+		  if (marker.getAnimation() != null) {
+		    marker.setAnimation(null);
+		  } else {
+		    marker.setAnimation(google.maps.Animation.BOUNCE);
+		  }
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
+	marker.setAnimation(google.maps.Animation.BOUNCE);
 </script>
 
 </head>
@@ -365,7 +386,7 @@ html,body,#map-canvas {
 														</div>
 
 														<!--  Datos si es Natural -->
-														<form class="form-horizontal" id="formInformacionClienteNatural" method="get" novalidate="novalidate">
+														<form class="form-horizontal" id="formInformacionClienteNatural" method="get"  action="sad.jsp">
 
 															<div class="form-group">
 																<label
@@ -419,10 +440,10 @@ html,body,#map-canvas {
 																	<div class="clearfix">
 																		<select class="input-medium" id="cbTipoDoc_nat"
 																			name="cbTipoDoc_nat">
-																			<option value="">------------------</option>
-																			<option value="DNI">DNI</option>
-																			<option value="Carnet Extranjeria">Carnet
-																				Extranjeria</option>
+																			<option value="">----------------------</option>
+																			<c:forEach var="tipoDoc" items="${requestScope.tiposDoc}">
+																						<option value="${tipoDoc.idTipoDoc}">${tipoDoc.desTipoDoc}</option>
+																						</c:forEach>
 																		</select>
 																	</div>
 																</div>
@@ -824,13 +845,9 @@ html,body,#map-canvas {
 																				<div class="controls" style="margin-top: 20px;">
 																					<select id="cbEstadoPredio" name="cbEstadoPredio" class="input-medium" style="width: 210px;">
 																						<option value="">--Estado de predio--</option>
-																						<option>En Construcción Habitado</option>
-																						<option>En Construcción Deshabitado</option>
-																						<option>Vivienda Habitada</option>
-																						<option>Vivienda Deshabitada</option>
-																						<option>Baldio</option>
-																						<option>Cercado</option>
-																						<option>Sin Especificar</option>
+																						<c:forEach var="est" items="${requestScope.estados}">
+																						<option value="${est.idEstadoPredio}">${est.desEstadoPredio}</option>
+																						</c:forEach>
 																					</select>
 																				</div>
 																			</div>
@@ -841,10 +858,9 @@ html,body,#map-canvas {
 																				<div class="controls">
 																					<select id="cbTipoPredio" name="cbTipoPredio" class="input-medium" style="width: 165px;">
 																						<option value="">--Tipo de Predio--</option>
-																						<option>Domestico</option>
-																						<option>Comercial</option>
-																						<option>Industrial</option>
-																						<option>Estatal</option>
+																						<c:forEach var="tipoPredio" items="${requestScope.tiposPredio}">
+																						<option value="${tipoPredio.idTipoPredio}">${tipoPredio.desTipoPredio}</option>
+																						</c:forEach>
 																					</select>
 																				</div>
 																			</div>
@@ -864,10 +880,9 @@ html,body,#map-canvas {
 																					<select id="cbDiametroConexion" name="cbDiametroConexion"
 																						class="input-medium">
 																						<option value="">--Diametro-</option>
-																						<option>15</option>
-																						<option>20</option>
-																						<option>30</option>
-
+																						<c:forEach var="diam" items="${requestScope.diametros}">
+																						<option value="${diam.idDiametroConexion}">${diam.desDiametroConexion}</option>
+																						</c:forEach>
 																					</select>
 																				</div>
 
@@ -1121,8 +1136,8 @@ html,body,#map-canvas {
 														<i class="icon-arrow-left"></i> Regresar
 													</button>
 
-													<button class="btn btn-success btn-next"
-														data-last="Enviar ">
+													<button class="btn btn-success btn-next" 
+														data-last="Enviar" id="btnEnviar">
 														Continuar <i class="icon-arrow-right icon-on-right"></i>
 													</button>
 												</div>
@@ -1270,8 +1285,6 @@ html,body,#map-canvas {
 		                $("#cbCalle").html(response);
 		       });
 		    });
-			
-			
 
 			$('[data-rel=tooltip]').tooltip();
 
@@ -1316,23 +1329,91 @@ html,body,#map-canvas {
 							
 							$('#divTabla').load('tbCuotas.jsp?cuot='+cuot+'&monto='+monto);
 						}
+						
 					})
 					.on('finished',function(e) {
-								bootbox
-										.dialog({
-											message : "Gracias! Tu solicitud se ha enviado correctamente!",
-											buttons : {
-												"success" : {
-													"label" : "OK",
-													"className" : "btn-sm btn-primary",
-													"callback" : function() {
-													        location.href="index.jsp";
-													      	}
-												}
-											
-											}
-											
-										});
+						var razSocSolicitante = "";
+						var rucSolicitante = "";
+						var urlSolicitante = "";
+						var nombreSolicitante = "";
+						var apePatSolicitante = "";
+						var apeMatSolicitante = "";
+						var tipDocSolicitante = "";
+						var numDocSolicitante = "";
+						var correoSolicitante = "";
+						var telefonoSolicitante = "";
+						var celularSolicitante = "";
+						
+						if($("#txtNombres_nat").val() == ""){
+							razSocSolicitante = $("#txtRazSocial_jur").val();
+							rucSolicitante = $("#txtRUC_jur").val();
+							urlSolicitante = $("#txtURL_jur").val();
+							nombreSolicitante = $("#txtNombres_jur").val();
+							apePatSolicitante = $("#txtApePat_jur").val();
+							apeMatSolicitante = $("#txtApeMat_jur").val();
+							tipDocSolicitante = $("#cbTipoDoc_jur").val();
+							numDocSolicitante = $("#txtNumDoc_jur").val();
+//	 						var fileDocSolicitante = $("#fileDoc_jur").val();
+//							var filePoderSolicitante = $("#filePoder_jur").val();
+							correoSolicitante = $("#txtCorreo_jur").val();
+							telefonoSolicitante = $("#txtTelefono_jur").val();
+							celularSolicitante = $("#txtCelular_jur").val();
+						}else{
+							nombreSolicitante = $("#txtNombres_nat").val();
+							apePatSolicitante = $("#txtApePat_nat").val();
+							apeMatSolicitante = $("#txtApeMat_nat").val();
+							tipDocSolicitante = $("#cbTipoDoc_nat").val();
+							numDocSolicitante = $("#txtNumDoc_nat").val();
+//	 						var fileDocSolicitante = $("#fileDoc_nat").val();				
+							correoSolicitante = $("#txtCorreo_nat").val();
+							telefonoSolicitante = $("#txtTelefono_nat").val();
+							celularSolicitante = $("#txtCelular_nat").val();
+						}
+						
+						var provPredio = $("#cbProvincia").val();
+						var disPredio = $("#cbDistrito").val();
+						var locPredio = $("#cbLocalidad").val();
+						var callePredio = $("#cbCalle").val();
+						var numPredio = $("#txtNumero").val();
+						var refPredio = $("#txtReferencias").val();
+						var estPredio = $("#cbEstadoPredio").val();
+						var tipPredio = $("#cbTipoPredio").val();
+						var areaPredio = $("#txtAreaPredio").val();
+						var diamconPredio = $("#cbDiametroConexion").val();
+//	 					var filePartidaConstancia = $("#filePartidaConstancia").val();
+//	 					var fileMemoria = $("#fileMemoria").val();
+//	 					var fileReciboVecino = $("#fileReciboVecino").val();
+//	 					var filePlanoInstalaciones = $("#filePlanoInstalaciones").val();
+						var costoConexion = $("#txtCosto").val();
+						var numCuotas = $("#numCuotas").val();
+						
+						var coordenadas = new String(marker.getPosition());
+					
+					$.post("SvNuevaConexion", {razonsocial:razSocSolicitante,ruc:rucSolicitante,url:urlSolicitante,
+											nombres:nombreSolicitante,apepat:apePatSolicitante,apemat:apeMatSolicitante,
+											tipodoc:tipDocSolicitante,numdoc:numDocSolicitante,correo:correoSolicitante,
+											telefono:telefonoSolicitante,celular:celularSolicitante,provincia:provPredio,
+											distrito:disPredio,localidad:locPredio,calle:callePredio,numero:numPredio,
+											referencias:refPredio,estado:estPredio,tipopredio:tipPredio,area:areaPredio,
+											diametro:diamconPredio,costo:costoConexion,numcuotas:numCuotas,coordenadas:coordenadas},
+				            function(response){
+												bootbox
+												.dialog({
+													message : response,
+													buttons : {
+														"success" : {
+															"label" : "OK",
+															"className" : "btn-sm btn-primary",
+		 													"callback" : function() {
+		 													        location.href="index.jsp";
+		 													      	}
+														}
+													
+													}
+													
+												});
+												$("#btnEnviar").prop('disabled','disabled');
+				       });
 							})
 					.on('stepclick', function(e) {
  							return false;
