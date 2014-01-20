@@ -94,6 +94,25 @@
 <script src="js/ace-extra.min.js"></script>
 <style type="text/css"></style>
 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#btnlistar").click(
+				function(){
+					var usuario= $("#NombreCli").val();
+					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
+						$('#table-cli').text(responselist);
+						
+					});
+				}
+			);
+		
+		}
+	);
+
+
+</script>
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
 <!--[if lt IE 9]>
@@ -634,11 +653,15 @@
 													<label class="col-sm-2 control-label no-padding-right">Cliente</label>
 													<input class="col-xs-10 col-sm-5" type="text"
 														placeholder="Nombre Completo" readonly="true" /> <label
-														class="col-xs-10 col-sm-3"> <a href="#modal-form"
+														class="col-xs-10 col-sm-3"> <a href="#modal-form" id="btnBuscar"
 														role="button" class="btn btn-info" data-toggle="modal">
 															<i class="icon-group"></i> Buscar Cliente
 													</a>
 													</label>
+												</fieldset>
+												<fieldset>
+												<input type="button" id="btnlistar" value="Procesador"/>
+												
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-2 control-label no-padding-right">Codigo</label>
@@ -815,7 +838,7 @@
 													<form>
 													<fieldset>
 														<label class="col-sm-4 control-label no-padding-right">Nombre Cliente</label> 
-														<input class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
+														<input id="NombreCli" class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
 													</fieldset>
 													<div class="space-4"></div>
 													<fieldset>
@@ -846,8 +869,8 @@
 																<i class="icon-table"></i> Lista de Clientes
 															</h5>
 														</div>
-														<div class="table-responsive" style="overflow:scroll;max-height: 570px;">
-															<table id="sample-table-1" class="table table-bordered"  style="margin-bottom: 0px;">
+														<div id="table-cli" class="table-responsive" style="overflow:scroll;max-height: 570px;">
+															<table id="table-clientes" class="table table-bordered"  style="margin-bottom: 0px;">
 																<thead>
 																	<tr>
 																		<th width="100">Numero</th>

@@ -18,22 +18,48 @@ public class SvCC_Solicitud extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public SvCC_Solicitud() {
-        super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		procesarRequest(request,response);
 	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		procesarRequest(request,response);
+	}
+	
+	private void procesarRequest(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+			
+		try {
+			
+			String val = request.getParameter("nusuario");
+			String mensaje="";
+			
+			if(val!=null){
+				mensaje = "Hola "+val;
+			}else{
+				mensaje = "No hay nombre enviado";
+			}
+			
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/plain");
+			response.getWriter().write("mensaje");
+			
+			
+		} finally {
+			// TODO: handle exception
+		}
+		
+		
 	}
 
 }
