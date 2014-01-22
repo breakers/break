@@ -92,7 +92,7 @@ public class SvCC_Solicitud extends HttpServlet {
 					out.print("<td> "+cliente.getNomCliente() + "</td>");
 					out.print("<td> "+cliente.getApepaCliente() + "</td>");
 					out.print("<td> "+cliente.getApemaCliente() + "</td>");
-					out.print("<td> "+cliente.getDniCliente() + "</td>");
+					out.print("<td> "+cliente.getNumDocCliente() + "</td>");
 					out.print("</tr>");
 				}
 			

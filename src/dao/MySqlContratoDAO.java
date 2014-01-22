@@ -50,7 +50,7 @@ public class MySqlContratoDAO implements ContratoDAO{
 				ClienteDTO cliente = new ClienteDTO();
 				cliente.setApemaCliente(rs.getString("apemaCliente"));
 				cliente.setApepaCliente(rs.getString("apepaCliente"));
-				cliente.setDniCliente(rs.getString("dniCliente"));
+				cliente.setNumDocCliente(rs.getString("numDocCliente"));
 				cliente.setNomCliente(rs.getString("nomCliente"));
 				cliente.setIdCliente(rs.getInt("idCliente"));
 				
