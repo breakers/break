@@ -202,21 +202,39 @@ imagenMensajeAlerta varchar(50)
 );
 
 /*       */
-
-create table tb_cliente(
-idCliente  int auto_increment primary key,
-nomCliente varchar(100),
-apepaCliente varchar(100),
-apemaCliente varchar(100),
-dniCliente varchar(10) unique
+create table tb_tipo_cliente(
+idtipoCliente int primary key auto_increment ,
+destipoCliente varchar(200)
 );
 
-insert into tb_cliente values(null,'Juan Carlos','Marco','Cordova','12345678');
-insert into tb_cliente values(null,'Manuel','Leon','Garritas','45678921');
-insert into tb_cliente values(null,'Antonio','Marco','Marquinelli','45684521');
-insert into tb_cliente values(null,'Mario','Huaman','Valero','12312312');
-insert into tb_cliente values(null,'Karla','Valentina','Matellini','96325841');
-insert into tb_cliente values(null,'Julian','Vilavicencio','Moran','56565656');
+insert into tb_tipo_cliente values (null,'Natural');
+insert into tb_tipo_cliente values (null,'Juridica');
+
+create table tb_cliente(
+idCliente  int auto_increment primary key comment 'indica el codigo autogenerado del cliente, sea natural o juridica',
+idtipoCliente int references tb_tipo_cliente(idtipoCliente),
+numDocCliente varchar(12) unique comment 'indica el numero de documento del cliente DNI natural, RUC en caso juridica, UNICO',
+nomCliente varchar(100) comment 'indica el nombre del cliente, en caso juridica es la razon social',
+apepaCliente varchar(100) default 'No aplica' comment 'indica el apellido paterno del cliente, en caso juridica, no aplica',
+apemaCliente varchar(100) default 'No aplica' comment 'indice el apellido materno, juridica no aplica',
+mailCliente varchar(200) comment 'indica el correo del cliente',
+telefonoCliente varchar(100) comment 'indica el numero de telefono fijo del cliente',
+celularCliente varchar(100) comment 'indica el numero movil del cliente',
+urlCliente varchar(300) default 'No aplica' comment 'indica la direccion web del cliente juridico',
+tipoDocRepresentante int references tb_tipoDoc(idTipoDoc) , -- comment 'indica el codigo del tipo de documento del representante, aqui siempre es natural'
+numDocRepresentante varchar(100) comment 'indica el numero de documento del representante en juridica, en natural es el mismo de numdoccliente',
+nomRepresentante varchar(100) comment 'indica el nombre del representante en juridica, en natural es el mismo de nomCliente',
+apepaRepresentante varchar(100) comment 'indica apellido paterno representante , idem',
+apemaRepresentante varchar(100) comment 'indica apellido materno representante, idem'
+-- dniCliente varchar(10) unique
+);
+
+insert into tb_cliente values(null,1,'12345678','Juan Carlos','Marco','Cordova','jmarco@gmail.com','45612345','991234568',null,1,'12345678','Juan Carlos','Marco','Cordova');
+insert into tb_cliente values(null,1,'45678921','Manuel','Leon','Garritas','mgarritas@gmail.com','45466455','99999999',null,1,'45678921','Manuel','Leon','Garritas');
+insert into tb_cliente values(null,1,'45684521','Antonio','Marco','Marquinelli','antoniomar@gmail.com','35464587','992255225',null,1,'45684521','Antonio','Marco','Marquinelli');
+insert into tb_cliente values(null,1,'12312312','Mario','Huaman','Valero','mariovalero@gmail.com','64658465','992256896',null,1,'12312312','Mario','Huaman','Valero');
+insert into tb_cliente values(null,1,'96325841','Karla','Valentina','Matellini','karlaval@gmail.com','45632165','994488569',null,1,'96325841','Karla','Valentina','Matellini');
+insert into tb_cliente values(null,1,'56565656','Julian','Vilavicencio','Moran','julimora@gmail.com','45687522','998877888',null,1,'56565656','Julian','Vilavicencio','Moran');
 
 /*Datos en Valorizaciones*/
 INSERT INTO tb_valorizaciones VALUES(null,'',0);
