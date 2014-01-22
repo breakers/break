@@ -2,6 +2,7 @@ package dao;
 
 
 import interfaces.Con_SolicitudDAO;
+import interfaces.ContratoDAO;
 import interfaces.NuevaConexionDAO;
 import interfaces.PerfilDAO;
 import interfaces.UsuarioDAO;
@@ -27,6 +28,14 @@ public class MySqlDAOFactory extends DAOFactory{
 	public NuevaConexionDAO getNuevaConexionDAO() {
 		return new MySqlNuevaConexionDAO();
 	}
+
+	@Override
+	public ContratoDAO getContratoDAO() {
+		
+		return new MySqlContratoDAO();
+	}
+	
+	
 	
 	
 }

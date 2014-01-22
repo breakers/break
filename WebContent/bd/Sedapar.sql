@@ -201,6 +201,23 @@ cuerpoMensajeAlerta varchar(50),
 imagenMensajeAlerta varchar(50)
 );
 
+/*       */
+
+create table tb_cliente(
+idCliente  int auto_increment primary key,
+nomCliente varchar(100),
+apepaCliente varchar(100),
+apemaCliente varchar(100),
+dniCliente varchar(10) unique
+);
+
+insert into tb_cliente values(null,'Juan Carlos','Marco','Cordova','12345678');
+insert into tb_cliente values(null,'Manuel','Leon','Garritas','45678921');
+insert into tb_cliente values(null,'Antonio','Marco','Marquinelli','45684521');
+insert into tb_cliente values(null,'Mario','Huaman','Valero','12312312');
+insert into tb_cliente values(null,'Karla','Valentina','Matellini','96325841');
+insert into tb_cliente values(null,'Julian','Vilavicencio','Moran','56565656');
+
 /*Datos en Valorizaciones*/
 INSERT INTO tb_valorizaciones VALUES(null,'',0);
 INSERT INTO tb_valorizaciones VALUES(null,'',0);
@@ -233,13 +250,13 @@ INSERT INTO tb_usuario VALUES(null,3,'acoquis','testing','Andre','Coquis','Raffo
 
 /*Datos en Provincia (completa)*/
 INSERT INTO tb_provincia VALUES(null,'Arequipa');
-INSERT INTO tb_provincia VALUES(null,'Camaná');
-INSERT INTO tb_provincia VALUES(null,'Caravelí');
+INSERT INTO tb_provincia VALUES(null,'CamanÃ¡');
+INSERT INTO tb_provincia VALUES(null,'CaravelÃ­');
 INSERT INTO tb_provincia VALUES(null,'Castilla');
 INSERT INTO tb_provincia VALUES(null,'Caylloma');
 INSERT INTO tb_provincia VALUES(null,'Condesuyos');
 INSERT INTO tb_provincia VALUES(null,'Islay');
-INSERT INTO tb_provincia VALUES(null,'La Unión');
+INSERT INTO tb_provincia VALUES(null,'La UniÃ³n');
 
 /*Datos en Distrito (completa)*/
 INSERT INTO tb_distrito VALUES(null,'Alto Selva Alegre',1);
@@ -249,7 +266,7 @@ INSERT INTO tb_distrito VALUES(null,'Cerro Colorado',1);
 INSERT INTO tb_distrito VALUES(null,'Characato',1);
 INSERT INTO tb_distrito VALUES(null,'Chiguata',1);
 INSERT INTO tb_distrito VALUES(null,'Jacobo Hunter',1);
-INSERT INTO tb_distrito VALUES(null,'José Luis Bustamante y Rivero',1);
+INSERT INTO tb_distrito VALUES(null,'JosÃ© Luis Bustamante y Rivero',1);
 INSERT INTO tb_distrito VALUES(null,'La Joya',1);
 INSERT INTO tb_distrito VALUES(null,'Mariano Melgar',1);
 INSERT INTO tb_distrito VALUES(null,'Miraflores',1);
@@ -257,8 +274,8 @@ INSERT INTO tb_distrito VALUES(null,'Mollebaya',1);
 INSERT INTO tb_distrito VALUES(null,'Paucarpata',1);
 INSERT INTO tb_distrito VALUES(null,'Pocsi',1);
 INSERT INTO tb_distrito VALUES(null,'Polobaya',1);
-INSERT INTO tb_distrito VALUES(null,'Quequeña',1);
-INSERT INTO tb_distrito VALUES(null,'Sabandía',1);
+INSERT INTO tb_distrito VALUES(null,'QuequeÃ±a',1);
+INSERT INTO tb_distrito VALUES(null,'SabandÃ­a',1);
 INSERT INTO tb_distrito VALUES(null,'Sachaca',1);
 INSERT INTO tb_distrito VALUES(null,'San Juan de Siguas',1);
 INSERT INTO tb_distrito VALUES(null,'San Juan de Tarucani',1);
@@ -271,19 +288,19 @@ INSERT INTO tb_distrito VALUES(null,'Vitor',1);
 INSERT INTO tb_distrito VALUES(null,'Yanahuara',1);
 INSERT INTO tb_distrito VALUES(null,'Yarabamba',1);
 INSERT INTO tb_distrito VALUES(null,'Yura',1);
-INSERT INTO tb_distrito VALUES(null,'Camaná',2);
-INSERT INTO tb_distrito VALUES(null,'José María Quimper',2);
-INSERT INTO tb_distrito VALUES(null,'Mariano Nicolás Valcarcel',2);
-INSERT INTO tb_distrito VALUES(null,'Mariscal Cáceres',2);
-INSERT INTO tb_distrito VALUES(null,'Nicolás de Piérola',2);
-INSERT INTO tb_distrito VALUES(null,'Ocoña',2);
+INSERT INTO tb_distrito VALUES(null,'CamanÃ¡',2);
+INSERT INTO tb_distrito VALUES(null,'JosÃ© MarÃ­a Quimper',2);
+INSERT INTO tb_distrito VALUES(null,'Mariano NicolÃ¡s Valcarcel',2);
+INSERT INTO tb_distrito VALUES(null,'Mariscal CÃ¡ceres',2);
+INSERT INTO tb_distrito VALUES(null,'NicolÃ¡s de PiÃ©rola',2);
+INSERT INTO tb_distrito VALUES(null,'OcoÃ±a',2);
 INSERT INTO tb_distrito VALUES(null,'Quilca',2);
 INSERT INTO tb_distrito VALUES(null,'Samuel Pastor',2);
-INSERT INTO tb_distrito VALUES(null,'Caravelí',3);
-INSERT INTO tb_distrito VALUES(null,'Acarí',3);
+INSERT INTO tb_distrito VALUES(null,'CaravelÃ­',3);
+INSERT INTO tb_distrito VALUES(null,'AcarÃ­',3);
 INSERT INTO tb_distrito VALUES(null,'Atico',3);
 INSERT INTO tb_distrito VALUES(null,'Atiquipa',3);
-INSERT INTO tb_distrito VALUES(null,'Bella Unión',3);
+INSERT INTO tb_distrito VALUES(null,'Bella UniÃ³n',3);
 INSERT INTO tb_distrito VALUES(null,'Cahuacho',3);
 INSERT INTO tb_distrito VALUES(null,'Chala',3);
 INSERT INTO tb_distrito VALUES(null,'Chaparra',3);
@@ -302,8 +319,8 @@ INSERT INTO tb_distrito VALUES(null,'Huancarqui',4);
 INSERT INTO tb_distrito VALUES(null,'Machaguay',4);
 INSERT INTO tb_distrito VALUES(null,'Orcopampa',4);
 INSERT INTO tb_distrito VALUES(null,'Pampacolca',4);
-INSERT INTO tb_distrito VALUES(null,'Tipán',4);
-INSERT INTO tb_distrito VALUES(null,'Uñón',4);
+INSERT INTO tb_distrito VALUES(null,'TipÃ¡n',4);
+INSERT INTO tb_distrito VALUES(null,'UÃ±Ã³n',4);
 INSERT INTO tb_distrito VALUES(null,'Uraca - Corire',4);
 INSERT INTO tb_distrito VALUES(null,'Viraco',4);
 INSERT INTO tb_distrito VALUES(null,'Achoma',5);
@@ -330,15 +347,15 @@ INSERT INTO tb_distrito VALUES(null,'Andaray',6);
 INSERT INTO tb_distrito VALUES(null,'Cayarani',6);
 INSERT INTO tb_distrito VALUES(null,'Chichas',6);
 INSERT INTO tb_distrito VALUES(null,'Iray',6);
-INSERT INTO tb_distrito VALUES(null,'Río Grande',6);
+INSERT INTO tb_distrito VALUES(null,'RÃ­o Grande',6);
 INSERT INTO tb_distrito VALUES(null,'Salamanca',6);
 INSERT INTO tb_distrito VALUES(null,'Yanaquihua - Ispacas',6);
 INSERT INTO tb_distrito VALUES(null,'Mollendo',7);
 INSERT INTO tb_distrito VALUES(null,'Cocachacra',7);
-INSERT INTO tb_distrito VALUES(null,'Deán Valdivia',7);
+INSERT INTO tb_distrito VALUES(null,'DeÃ¡n Valdivia',7);
 INSERT INTO tb_distrito VALUES(null,'Islay',7);
-INSERT INTO tb_distrito VALUES(null,'Mejía',7);
-INSERT INTO tb_distrito VALUES(null,'Punta de Bombón',7);
+INSERT INTO tb_distrito VALUES(null,'MejÃ­a',7);
+INSERT INTO tb_distrito VALUES(null,'Punta de BombÃ³n',7);
 INSERT INTO tb_distrito VALUES(null,'Alca',8);
 INSERT INTO tb_distrito VALUES(null,'Charcana',8);
 INSERT INTO tb_distrito VALUES(null,'Huaynacotas',8);
@@ -346,7 +363,7 @@ INSERT INTO tb_distrito VALUES(null,'Pampamarca',8);
 INSERT INTO tb_distrito VALUES(null,'Puyca',8);
 INSERT INTO tb_distrito VALUES(null,'Quechualla',8);
 INSERT INTO tb_distrito VALUES(null,'Sayla',8);
-INSERT INTO tb_distrito VALUES(null,'Tauría',8);
+INSERT INTO tb_distrito VALUES(null,'TaurÃ­a',8);
 INSERT INTO tb_distrito VALUES(null,'Tomepampa',8);
 INSERT INTO tb_distrito VALUES(null,'Toro',8);
 
@@ -371,7 +388,7 @@ INSERT INTO tb_localidad VALUES(null,'Municipal',1,2);
 INSERT INTO tb_localidad VALUES(null,'Pablo VI',1,2);
 INSERT INTO tb_localidad VALUES(null,'Parque Industrial',1,2);
 INSERT INTO tb_localidad VALUES(null,'San Francisco de Asis',1,2);
-INSERT INTO tb_localidad VALUES(null,'San Jerónimo',1,2);
+INSERT INTO tb_localidad VALUES(null,'San JerÃ³nimo',1,2);
 INSERT INTO tb_localidad VALUES(null,'Selva Alegre',1,2);
 INSERT INTO tb_localidad VALUES(null,'Sidsur',1,2);
 INSERT INTO tb_localidad VALUES(null,'Tingo',1,2);
@@ -382,7 +399,7 @@ INSERT INTO tb_localidad VALUES(null,'Villa Los Girasoles',1,2);
 INSERT INTO tb_localidad VALUES(null,'Zemanat',1,2);
 
 /*Datos en Calles (solo Centro historico, Arequipa/centro, Arequipa)*/
-INSERT INTO tb_calle VALUES(null,'Perú',1,2,7);
+INSERT INTO tb_calle VALUES(null,'PerÃº',1,2,7);
 INSERT INTO tb_calle VALUES(null,'Pizarro',1,2,7);
 INSERT INTO tb_calle VALUES(null,'Palacio Viejo',1,2,7);
 INSERT INTO tb_calle VALUES(null,'Consuelo',1,2,7);
@@ -391,13 +408,13 @@ INSERT INTO tb_calle VALUES(null,'La Merced',1,2,7); /*CALLE DE caja municipal*/
 INSERT INTO tb_calle VALUES(null,'Santa Catalina',1,2,7); /*CALLE DE Monasterio Santa Catalina*/
 
 
-/*Datos Estado Solicitud Nueva Conexi�n*/
+/*Datos Estado Solicitud Nueva Conexión*/
 INSERT INTO tb_tipoDoc VALUES(null,'DNI');
 INSERT INTO tb_TipoDoc VALUES(null,'Carnet de Extranjeria');
 INSERT INTO tb_TipoDoc VALUES(null,'Pasaporte');
 
-INSERT INTO tb_estadoPredio VALUES(null,'En Construcci�n Habitado');
-INSERT INTO tb_estadoPredio VALUES(null,'En Construcci�n Deshabitado');
+INSERT INTO tb_estadoPredio VALUES(null,'En Construcción Habitado');
+INSERT INTO tb_estadoPredio VALUES(null,'En Construcción Deshabitado');
 INSERT INTO tb_estadoPredio VALUES(null,'Vivienda Habitada');
 INSERT INTO tb_estadoPredio VALUES(null,'Vivienda Deshabitada');
 INSERT INTO tb_estadoPredio VALUES(null,'Baldio');

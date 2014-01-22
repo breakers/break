@@ -95,14 +95,14 @@
 <style type="text/css"></style>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<!-- Script que llamar al servlet y redibuja la tabla para buscar cliente -->
 <script>
 	$(document).ready(function(){
-		$("#btnlistar").click(
+		$("#btnBuscar").click(
 				function(){
 					var usuario= $("#NombreCli").val();
 					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
-						$('#table-cli').text(responselist);
-						
+						$('#table-cli').html(responselist);
 					});
 				}
 			);
@@ -110,6 +110,17 @@
 		}
 	);
 
+
+</script>
+
+<script type="text/javascript">
+	
+				function listarclientes(){
+					var usuario= $("#NombreCli").val();
+					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
+						$('#table-cli').html(responselist);
+					});
+				}
 
 </script>
 
@@ -838,7 +849,7 @@
 													<form>
 													<fieldset>
 														<label class="col-sm-4 control-label no-padding-right">Nombre Cliente</label> 
-														<input id="NombreCli" class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
+														<input id="NombreCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
 													</fieldset>
 													<div class="space-4"></div>
 													<fieldset>
