@@ -114,10 +114,14 @@
 </script>
 
 <script type="text/javascript">
-	
+// DocumentoCli,NombreCli,NombreRepresentanteCli,ApellidoRepresentanteCli
 				function listarclientes(){
-					var usuario= $("#NombreCli").val();
-					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
+					var nomcli= $("#NombreCli").val();
+					var doccli= $("#DocumentoCli").val();
+					var nomrepcli= $("#NombreRepresentanteCli").val();
+					var aperepcli= $("#ApellidoRepresentanteCli").val();
+					
+					$.get('SvCC_Solicitud',{nusuario:nomcli,ndoccli:doccli,nnomrepcli:nomrepcli,naperepcli:aperepcli},function(responselist){
 						$('#table-cli').html(responselist);
 					});
 				}
@@ -848,24 +852,26 @@
 												
 													<form>
 													<fieldset>
+														<label class="col-sm-4 control-label no-padding-right">Numero Documento</label> 
+														<input id="DocumentoCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
+													</fieldset>
+													<div class="space-4"></div>
+													<fieldset>
 														<label class="col-sm-4 control-label no-padding-right">Nombre Cliente</label> 
-														<input id="NombreCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
+														<input id="NombreCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Paterno" /> 
 													</fieldset>
 													<div class="space-4"></div>
 													<fieldset>
-														<label class="col-sm-4 control-label no-padding-right">Apellido Paterno</label> 
-														<input class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Paterno" /> 
+														<label class="col-sm-4 control-label no-padding-right">Nombre Representante</label> 
+														<input id="NombreRepresentanteCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Materno" /> 
 													</fieldset>
 													<div class="space-4"></div>
 													<fieldset>
-														<label class="col-sm-4 control-label no-padding-right">Apellido Materno</label> 
-														<input class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Materno" /> 
+														<label class="col-sm-4 control-label no-padding-right">Apellido Representante</label> 
+														<input id="ApellidoRepresentanteCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Codigo" /> 
 													</fieldset>
-													<div class="space-4"></div>
-													<fieldset>
-														<label class="col-sm-4 control-label no-padding-right">Codigo Cliente</label> 
-														<input class="col-xs-10 col-sm-5" type="text" placeholder="Codigo" /> 
-													</fieldset>
+													
+													
 													
 													
 													

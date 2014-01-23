@@ -10,7 +10,7 @@ public interface ContratoDAO {
 	//Trabajando con los clientes
 	public List<ClienteDTO> listarClientes();
 	
-	public List<ClienteDTO> listarClientesPorNombre(String nombre);
+	public List<ClienteDTO> listarClientesPorNombre(String nombre, String doc, String nomrep, String aperep);
 	
 	public ClienteDTO obtenerCliente(int codigo);
 	

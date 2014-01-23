@@ -53,16 +53,41 @@ public class SvCC_Solicitud extends HttpServlet {
 			
 		try {
 			
-			String val = request.getParameter("nusuario");
-			String mensaje="";
+			String nombrecli = request.getParameter("nusuario");
+			String doccli = request.getParameter("ndoccli");
+			String nomrepcli = request.getParameter("nnomrepcli");
+			String aperepcli = request.getParameter("naperepcli");
 			
-			if(val!=null){
-				mensaje = val;
+			if(nombrecli!=null){
+				nombrecli = nombrecli+"";
 			}else{
-				mensaje = "A";
+				nombrecli = "";
 			}
 			
-			List<ClienteDTO> lista = serviciocon.listarClientesPorNombre(mensaje);
+			if(doccli!=null){
+				doccli = doccli+"";
+			}else{
+				doccli = "";
+			}
+			
+			if(nomrepcli!=null){
+				nomrepcli = nomrepcli+"";
+			}else{
+				nomrepcli = "";
+			}
+			
+			if(aperepcli!=null){
+				aperepcli = aperepcli+"";
+			}else{
+				aperepcli = "";
+			}
+			
+			System.out.println("Li nombrecli:"+nombrecli);
+			System.out.println("Li doccli:"+doccli);
+			System.out.println("Li nomrepcli:"+nomrepcli);
+			System.out.println("Li aperepcli:"+aperepcli);
+			
+			List<ClienteDTO> lista = serviciocon.listarClientesPorNombre(nombrecli,doccli,nomrepcli,aperepcli);
 			
 			//List<PerfilDTO> lista = service.listarPerfiles(); // de prueba
 			PrintWriter out = response.getWriter();
@@ -70,10 +95,10 @@ public class SvCC_Solicitud extends HttpServlet {
 			out.print("<thead>");
 			out.print("	<tr>");
 					out.print("<th width=\"100\" style=\"font-size: 11px;\">ID</th>");
-					out.print("<th width=\"100\" style=\"font-size: 11px;\">Nombre</th>");
-					out.print("<th width=\"100\" style=\"font-size: 11px;\">A Paterno</th>");
-					out.print("<th width=\"100\" style=\"font-size: 11px;\">A Materno</th>");
-					out.print("<th width=\"100\" style=\"font-size: 11px;\">DNI</th>");
+					out.print("<th width=\"100\" style=\"font-size: 11px;\">num Documento</th>");
+					out.print("<th width=\"100\" style=\"font-size: 11px;\">nom Cliente</th>");
+					out.print("<th width=\"100\" style=\"font-size: 11px;\">nom Representante</th>");
+					out.print("<th width=\"100\" style=\"font-size: 11px;\">apellido Representante</th>");
 //					out.print("<th width=\"100\" style=\"font-size: 11px;\">moduloReportes</th>");
 //					out.print("<th width=\"100\" style=\"font-size: 11px;\">moduloManClientes</th>");
 //					out.print("<th width=\"100\" style=\"font-size: 11px;\">moduloManPerfiles</th>");
@@ -89,10 +114,11 @@ public class SvCC_Solicitud extends HttpServlet {
 					cliente = lista.get(i);
 					out.print("<tr>");
 					out.print("<td> "+cliente.getIdCliente() + "</td>");
-					out.print("<td> "+cliente.getNomCliente() + "</td>");
-					out.print("<td> "+cliente.getApepaCliente() + "</td>");
-					out.print("<td> "+cliente.getApemaCliente() + "</td>");
 					out.print("<td> "+cliente.getNumDocCliente() + "</td>");
+					out.print("<td> "+cliente.getNomCliente() + "</td>");
+					out.print("<td> "+cliente.getNomRepresentante() + "</td>");
+					out.print("<td> "+cliente.getApepaRepresentante() + "</td>");
+					
 					out.print("</tr>");
 				}
 			
@@ -107,5 +133,5 @@ public class SvCC_Solicitud extends HttpServlet {
 		
 		
 	}
-
+	
 }

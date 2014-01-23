@@ -235,7 +235,9 @@ insert into tb_cliente values(null,1,'45684521','Antonio','Marco','Marquinelli',
 insert into tb_cliente values(null,1,'12312312','Mario','Huaman','Valero','mariovalero@gmail.com','64658465','992256896',null,1,'12312312','Mario','Huaman','Valero');
 insert into tb_cliente values(null,1,'96325841','Karla','Valentina','Matellini','karlaval@gmail.com','45632165','994488569',null,1,'96325841','Karla','Valentina','Matellini');
 insert into tb_cliente values(null,1,'56565656','Julian','Vilavicencio','Moran','julimora@gmail.com','45687522','998877888',null,1,'56565656','Julian','Vilavicencio','Moran');
-
+insert into tb_cliente values(null,2,'2043836055','Americos S.A.C.',null,null,'info@americos.com','45687522','998877888','http://www.americos.com',1,'56565656','Julian','Vilavicencio','Moran');
+insert into tb_cliente values(null,2,'2012345678','Digital Enviorement S.A.A.',null,null,'suport@digitalenvieromentgroup.com','45687522','998877888','http://www.digitalenvieromentgroup.com',1,'43836055','Felix','Apaza','Arroyo');
+insert into tb_cliente values(null,2,'1087654321','Edelar S.A.C',null,null,'edelar@edelar.pe','45687522','998877888','http://www.edelar.pe',1,'461234568','Mario','Castañeda','Jimenez');
 /*Datos en Valorizaciones*/
 INSERT INTO tb_valorizaciones VALUES(null,'',0);
 INSERT INTO tb_valorizaciones VALUES(null,'',0);

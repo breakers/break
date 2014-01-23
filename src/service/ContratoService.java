@@ -17,8 +17,8 @@ public class ContratoService{
 		return contrato.listarClientes();
 	}
 
-	public List<ClienteDTO> listarClientesPorNombre(String nombre) {
-		return contrato.listarClientesPorNombre(nombre);
+	public List<ClienteDTO> listarClientesPorNombre(String nombre,String doc,String nomrep,String aperep) {
+		return contrato.listarClientesPorNombre(nombre,doc,nomrep,aperep);
 	}
 
 	public ClienteDTO obtenerCliente(int codigo) {
