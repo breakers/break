@@ -19,7 +19,7 @@ import bean.PerfilDTO;
  * Servlet implementation class SvCC_Solicitud
  */
 @WebServlet("/SvCC_Solicitud")
-public class SvCC_Solicitud extends HttpServlet {
+public class SvCC_Solicitud extends ServletParent {
 	private static final long serialVersionUID = 1L;
 	
 	PerfilService service = new PerfilService(); //de prueba

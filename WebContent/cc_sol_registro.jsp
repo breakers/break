@@ -97,18 +97,18 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- Script que llamar al servlet y redibuja la tabla para buscar cliente -->
 <script>
-	$(document).ready(function(){
-		$("#btnBuscar").click(
-				function(){
-					var usuario= $("#NombreCli").val();
-					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
-						$('#table-cli').html(responselist);
-					});
-				}
-			);
+// 	$(document).ready(function(){
+// 		$("#btnBuscar").click(
+// 				function(){
+// 					var usuario= $("#NombreCli").val();
+// 					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
+// 						$('#table-cli').html(responselist);
+// 					});
+// 				}
+// 			);
 		
-		}
-	);
+// 		}
+// 	);
 
 
 </script>
@@ -122,7 +122,7 @@
 					var aperepcli= $("#ApellidoRepresentanteCli").val();
 					
 					$.get('SvCC_Solicitud',{nusuario:nomcli,ndoccli:doccli,nnomrepcli:nomrepcli,naperepcli:aperepcli},function(responselist){
-						$('#table-cli').html(responselist);
+						$('#table-cli').html(responselist).CSS2Properties;
 					});
 				}
 
@@ -666,7 +666,7 @@
 
 												<fieldset>
 													<label class="col-sm-2 control-label no-padding-right">Cliente</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input id="nomCliente" class="col-xs-10 col-sm-5" type="text"
 														placeholder="Nombre Completo" readonly="true" /> <label
 														class="col-xs-10 col-sm-3"> <a href="#modal-form" id="btnBuscar"
 														role="button" class="btn btn-info" data-toggle="modal">
@@ -674,10 +674,10 @@
 													</a>
 													</label>
 												</fieldset>
-												<fieldset>
-												<input type="button" id="btnlistar" value="Procesador"/>
+<!-- 												<fieldset> -->
+<!-- 												<input type="button" id="btnlistar" value="Procesador"/> -->
 												
-												</fieldset>
+<!-- 												</fieldset> -->
 												<fieldset>
 													<label class="col-sm-2 control-label no-padding-right">Codigo</label>
 													<input class="col-xs-10 col-sm-5" type="text"
@@ -1420,7 +1420,7 @@
 	
 		<script type="text/javascript">
 	<!-- RENZO-->
-	$(document).ready(function () {
+	
 		var cant = $('#sample-table-1 >tbody >tr').length;
 		$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
 		
@@ -1436,8 +1436,8 @@
 		    $("#txtNombrePrueba").val(nom);
 		    $("#txtFecha").val(fec);
 		    $("#txtEstado").val(est);	*/
-	    });
-	});
+	   }
+	);
 	
 	</script>
 </body>
