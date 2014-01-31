@@ -671,9 +671,9 @@ var cliente = ${param.idCliente};
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Suministro</label>
-													<label class="col-xs-6 col-sm-5"> <select
-														class="chosen-select col-xs-10 col-sm-11"
-														data-placeholder="Choose a Suministro...">
+													<label class="col-xs-6 col-sm-5"> 
+													<select id="cboSuministro" name="cboSuministro" class="chosen-select col-xs-10 col-sm-11"
+														data-placeholder="Choose a Suministro..." >
 															<option value="">--------</option>
 															<c:forEach var="contrato" items="${requestScope.contratos}">
 																<option value="${contrato.idContrato}"> ${contrato.codSuministro}</option>
@@ -718,18 +718,20 @@ var cliente = ${param.idCliente};
 										</div>
 									</div>
 								</div>
+								
+								
 								<div class="col-sm-6">
 									<div class="widget-box">
 										<div class="widget-header">
 											<h4>Datos del Suministro</h4>
 										</div>
 
-										<div class="widget-main no-padding">
-											<form>
+										<div class="widget-main no-padding" >
+											<form action="">
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Direccion</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Direccion" readonly="true" />
+														placeholder="Direccion" readonly="true" id="txtDireccion" />
 
 												</fieldset>
 												<fieldset>
@@ -772,6 +774,7 @@ var cliente = ${param.idCliente};
 												</fieldset>
 											</form>
 										</div>
+										
 									</div>
 
 
@@ -1085,6 +1088,19 @@ var cliente = ${param.idCliente};
 					inp.value = "This text field is disabled!";
 				}
 			});
+			//FELIX
+			$("#cboSuministro").change(function(){
+				var idContra = this.value;
+		        $.get("SvCC_Solicitud", { idContrato:idContra, proceso:"direccion" },
+		            function(response){
+		                $("#txtDireccion").value("Hay mama");
+		       });
+		    });
+			
+// 			$("#cboSuministro").change(function(){
+// 				var idContrato = $("#cboSuministro").val();
+// 					 $('#divTabla').load('cc_sol_registro_datos.jsp?idContrato='+idContrato+'&proceso=obtenerContrato');	
+// 			});
 			
 			  $("tr").click(function () {
 			        $(this).closest("tr").siblings().removeClass("highlighted");

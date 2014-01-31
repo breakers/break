@@ -55,7 +55,26 @@ public class SvCC_Solicitud extends ServletParent {
 			cargarCliente(request,response,codigo);
 			
 		}
+//		else if(proceso.equals("obtenerContrato")){
+//			String codContrato= request.getParameter("idContrato");
+//			int idContrato=-1;
+//			System.out.println("Contrato seleccionado en el metodo get"+codContrato);
+//			try {
+//				idContrato = Integer.parseInt(codContrato);
+//			} catch (Exception e) {
+//				idContrato=-1;
+//			}
+//			
+//			cargarContrato(request,response,idContrato);
+//		}
 //		
+		else if(proceso.equals("direccion")){
+			response.setContentType("text/html");
+	        PrintWriter out = response.getWriter();
+	             
+	        	out.println("Sexooo");
+	        	System.out.println("entra a la direccion");
+		}
 		
 		
 	}
@@ -63,6 +82,12 @@ public class SvCC_Solicitud extends ServletParent {
 
 
 
+
+	private void cargarContrato(HttpServletRequest request,
+			HttpServletResponse response, int idContrato) {
+		System.out.println("yahoo contrato >"+idContrato);
+		
+	}
 
 	private void cargarCliente(HttpServletRequest request,
 			HttpServletResponse response, int codigo) {
