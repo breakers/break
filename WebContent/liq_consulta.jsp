@@ -1,4 +1,5 @@
 <%@ include file="contenido_head.jsp"%>
+<!-- aqui deben ingresar el nombre de la pagina sin extension(solo las paginas ya creadas) Ejem: contenido.jsp: contenido-->
 <% request.getSession().setAttribute("pagina", "liq_consulta"); %>
 
 <div class="main-container" id="main-container">
