@@ -72,7 +72,7 @@ public class SvCC_Solicitud extends ServletParent {
 			response.setContentType("text/html");
 	        PrintWriter out = response.getWriter();
 	             
-	        	out.println("Sexooo");
+	        	out.println("felix-es-el-mejor-yahoo");
 	        	System.out.println("entra a la direccion");
 		}
 		

@@ -737,39 +737,39 @@ var cliente = ${param.idCliente};
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Localidad</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Localidad" readonly="true" />
+														placeholder="Localidad" readonly="true" id="txtLocalidad" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Distrito</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Distrito" readonly="true" />
+														placeholder="Distrito" readonly="true" id="txtDistrito" />
 
 												</fieldset>
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Estado</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Estado Predio" readonly="true" />
+														placeholder="Estado Predio" readonly="true" id="txtEstado" />
 
 												</fieldset>
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Tipo</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Tipo de Vivienda" readonly="true" />
+														placeholder="Tipo de Vivienda" readonly="true" id="txtTipo" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Diametro</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Diametro de Tuberia" readonly="true" />
+														placeholder="Diametro de Tuberia" readonly="true" id="txtDiametro" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Categoria</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Categoria actual" readonly="true" />
+														placeholder="Categoria actual" readonly="true" id="txtCategoria" />
 
 												</fieldset>
 											</form>
@@ -1093,7 +1093,17 @@ var cliente = ${param.idCliente};
 				var idContra = this.value;
 		        $.get("SvCC_Solicitud", { idContrato:idContra, proceso:"direccion" },
 		            function(response){
-		                $("#txtDireccion").value("Hay mama");
+		        	
+		        	var cadena = response;
+		                $("#txtDireccion").val(cadena);
+		                $("#txtLocalidad").val(cadena);
+		                $("#txtDistrito").val(cadena);
+		                $("#txtEstado").val(cadena);
+		                $("#txtTipo").val(cadena);
+		                $("#txtDiametro").val(cadena);
+		                $("#txtCategoria").val(cadena);
+		                
+		                
 		       });
 		    });
 			
