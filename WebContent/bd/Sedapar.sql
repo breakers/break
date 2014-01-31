@@ -183,32 +183,6 @@ create table tb_Predio (
     foreign key (idTipoPredio) references tb_TipoPredio (idTipoPredio)
 );
 
-create table tb_EstadoSolicitudCambio (
-    idEstado int primary key auto_increment,
-    desEstado varchar(100)
-);
-
-create table tb_SolCambioCategoria (
-    idSolCategoria int primary key auto_increment,
-    idContrato int,
-    idEstado int references tb_EstadoSolicitudCambio,
-    dniSolicitud varchar(250),
-    archivo1 varchar(250),
-    fechaSolicitud datetime,
-
-	foreign key (idContrato) references tb_contrato (idContrato)
-);
-
-create table tb_DetalleSolicitudCambioCat (
-    idSolCategoria int references tb_SolCambioCategoria,
-    idEstado int references tb_EstadoSolicitudCambio,
-    idUsuario int references tb_usuario,
-    fechaDetalle datetime,
-
-	foreign key (idUsuario) references tb_usuario (idUsuario),
-    foreign key (idSolCategoria) references tb_solcambiocategoria (idSolCategoria),
-    foreign key (idEstado) references tb_estadosolicitudcambio (idEstado)
-);
 
 
 
@@ -243,7 +217,8 @@ create table tb_cliente (
 create table tb_Contrato (
     idContrato int primary key auto_increment,
 	idCliente int references tb_cliente,
-	codSuministro varchar(10),	
+	codSuministro varchar(10) comment 'Formado por idcliente+idpredio Ejemplo 1-1',	
+	idPredio int references tb_predio,
 	idCategoria int references tb_categoria,
 	idUsuario int references tb_usuario,
 	idSolicitud int references tb_solicitudNuevaConexion,
@@ -252,4 +227,30 @@ create table tb_Contrato (
 	/*foreign key (idSolicitud) references tb_solicitudnuevaconexion (idSolicitud)*/
 );
 
+create table tb_EstadoSolicitudCambio (
+    idEstado int primary key auto_increment,
+    desEstado varchar(100)
+);
+
+create table tb_SolCambioCategoria (
+    idSolCategoria int primary key auto_increment,
+    idContrato int,
+    idEstado int references tb_EstadoSolicitudCambio,
+    dniSolicitud varchar(250),
+    archivo1 varchar(250),
+    fechaSolicitud datetime,
+
+	foreign key (idContrato) references tb_contrato (idContrato)
+);
+
+create table tb_DetalleSolicitudCambioCat (
+    idSolCategoria int references tb_SolCambioCategoria,
+    idEstado int references tb_EstadoSolicitudCambio,
+    idUsuario int references tb_usuario,
+    fechaDetalle datetime,
+
+	foreign key (idUsuario) references tb_usuario (idUsuario),
+    foreign key (idSolCategoria) references tb_solcambiocategoria (idSolCategoria),
+    foreign key (idEstado) references tb_estadosolicitudcambio (idEstado)
+);
 

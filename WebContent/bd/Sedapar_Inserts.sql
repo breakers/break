@@ -1,4 +1,4 @@
-
+use DB_Sedapar;
 
 insert into tb_tipo_cliente values (null,'Natural');
 insert into tb_tipo_cliente values (null,'Juridica');
@@ -254,9 +254,13 @@ INSERT INTO tb_TipoPredio VALUES(null,'Comercial');
 INSERT INTO tb_TipoPredio VALUES(null,'Industrial');
 INSERT INTO tb_TipoPredio VALUES(null,'Estatal');
 
+-- Inserts de Predio > idPredio,idTipoPredio,idEstadoPredio,id_provincia,id_distrito ,id_localidad,id_calle,numPredio,CoordenadasPredio
 INSERT INTO tb_Predio VALUES(null,1,6,1,2,29,5,'1701','-16.411667,-71.532967'); /* SEDAPAR */
 INSERT INTO tb_Predio VALUES(null,1,6,1,2,7,6,'106','-16.399335,-71.537484'); /* Caja Municipal */
 INSERT INTO tb_Predio VALUES(null,1,3,1,2,7,7,'301','-16.395305,-71.536795'); /* Monasterio Santa Catalina */
+INSERT INTO tb_Predio VALUES(null,1,3,1,2,7,7,'303','-16.395205,-71.536695'); /* direccion ficticia, reemplazar por datos reales*/
+INSERT INTO tb_Predio VALUES(null,1,3,1,2,7,7,'305','-16.395105,-71.536595'); /* direccion ficticia, reemplazar por datos reales*/
+
 
 INSERT INTO tb_Categoria VALUES(null,'Categoria Social'); 
 INSERT INTO tb_Categoria VALUES(null,'Categoria Domestica');
@@ -264,9 +268,16 @@ INSERT INTO tb_Categoria VALUES(null,'Comercial y Otros');
 INSERT INTO tb_Categoria VALUES(null,'Industrial');
 INSERT INTO tb_Categoria VALUES(null,'Estatal');
 
-INSERT INTO tb_Contrato VALUES(null,2,2,2,2); 
-INSERT INTO tb_Contrato VALUES(null,2,2,2,2); 
-INSERT INTO tb_Contrato VALUES(null,2,2,2,2);
+INSERT INTO tb_solicitudNuevaConexion VALUES(null,null,null,null,null,'Prueba1','','',1,'','',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+INSERT INTO tb_solicitudNuevaConexion VALUES(null,null,null,null,null,'Prueba2','','',1,'','',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+INSERT INTO tb_solicitudNuevaConexion VALUES(null,null,null,null,null,'Prueba3','','',1,'','',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+
+-- contratos idContrato,idCliente,codSuministro,idPredio ,idCategoria,idUsuario,idSolicitud
+INSERT INTO tb_Contrato VALUES(null,1,'1-1',1,2,1,1); 
+INSERT INTO tb_Contrato VALUES(null,2,'2-2',2,2,1,2); 
+INSERT INTO tb_Contrato VALUES(null,3,'3-3',3,2,1,3);
+INSERT INTO tb_Contrato VALUES(null,1,'1-4',4,2,1,4);
+INSERT INTO tb_Contrato VALUES(null,1,'1-5',5,2,1,5);
  
 INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Registrada');
 INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Validado');
