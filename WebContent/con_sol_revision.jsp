@@ -61,38 +61,38 @@
 							<div class="row">
 								
 									<div class="col-sm-6">
-									<div class="widget-header header-color-blue">
+									<div class="widget-header header-color-red">
 												<h5 class="bigger lighter">
 													<i class="icon-table"></i>
-													Solicitudes de Nueva Conexion
+													Solicitudes de Nueva Conexion (Pendientes)
 												</h5>
 									</div>
-									<div class="table-responsive" style="overflow:scroll;max-height: 570px;">
+									<div class="table-responsive" style="overflow-y:scroll;max-height: 570px;">
 											<table id="sample-table-1" class="table table-bordered " style="margin-bottom: 0px;">
 												<thead>
 													<tr>
-														<th width="70">Numero</th>
-														<th width="150">Nombre</th>
+														<th width="8%" style="text-align: center;">N°</th>
+														<th width="36%" style="text-align: center;">Nombre</th>
 
-														<th width="100">
+														<th width="18%" style="text-align: center;">
 															<i class="icon-time bigger-110 hidden-480"></i>
 															Fecha
 														</th>
-														<th width="100">Estado</th>
-														<th></th>
+														<th width="18%" style="text-align: center;">Estado</th>
+														<th width="20%"></th>
 													</tr>
 												</thead>
 
 												<tbody>
 												<c:forEach var="sol" items="${requestScope.lista}">
 													<tr>
-														<td>${sol.idSolicitud}</td>
+														<td style="text-align: center;">${sol.idSolicitud}</td>
 														<td>${sol.nombres} ${sol.apepat} ${sol.apemat}</td>
-														<td>${sol.fechaSolicitud}</td>
-														<td class="hidden-480">
+														<td style="text-align: center;">${sol.fechaSolicitud}</td>
+														<td class="hidden-480" style="text-align: center;">
 															<span class="label label-sm label-danger arrowed">${sol.desEstadoSolicitudNuevaConexion}</span>
 														</td>
-														<td>
+														<td style="text-align: center;">
 															<a href="SvCon_Solicitud?num=${sol.idSolicitud}"><i class="icon-eye-open"></i> Ver Datos</a>
 														</td>
 													</tr>
@@ -103,7 +103,7 @@
 									</div><!-- /.table-responsive -->
 									
 									<label class="col-sm-6 control-label no-padding-right" style="left: 200px; top: 5px; padding-left: 31px;">Cantidad de Solicitudes Pendientes:</label>
-									<label id="lblCantidadSol" class="col-sm-3 control-label no-padding-right" style="left: 210px; top: 5px; padding-left: 0px;"><strong>9999</strong></label>	
+									<label id="lblCantidadSol" class="col-sm-3 control-label no-padding-right" style="left: 210px; top: 5px; padding-left: 0px;"></label>	
 									</div>
 								
 							

@@ -175,7 +175,7 @@
 						</a></li>
 					</ul></li>
 
-				<li class=" <%=con_contrato%>"><a href="con_contrato.jsp">
+				<li class=" <%=con_contrato%>"><a href="SvContrato">
 						<i class="icon-double-angle-right"></i> <fmt:message
 							key="label.Generar" />
 				</a></li>

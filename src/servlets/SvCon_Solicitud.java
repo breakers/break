@@ -44,7 +44,7 @@ public class SvCon_Solicitud extends HttpServlet {
 	}
 	
 	protected void listarSolicitudesPendientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-			ArrayList<SolicitudNuevaConexionDTO> lista = servicioSolicitud.listarSolicitudesPendientes();
+			ArrayList<SolicitudNuevaConexionDTO> lista = servicioSolicitud.listarSolicitudes(1);
 		
 		if(lista!=null){
 			RequestDispatcher rd = request.getRequestDispatcher("/con_sol_revision.jsp");
@@ -58,7 +58,11 @@ public class SvCon_Solicitud extends HttpServlet {
 			SolicitudNuevaConexionDTO solicitud = servicioSolicitud.mostrarDatosSolicitud(idSolicitud);
 			
 			if(solicitud!=null){
-				request.setAttribute("solicitud", solicitud);
+				if(solicitud.getDesEstadoSolicitudNuevaConexion().equals("Pendiente")){
+					request.setAttribute("solicitud", solicitud);
+					}else{
+						request.setAttribute("solicitud", null);
+					}
 			}
 			listarSolicitudesPendientes(request, response);
 		

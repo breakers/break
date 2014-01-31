@@ -414,7 +414,7 @@
 									</a></li>
 								</ul></li>
 
-							<li><a href="con_contrato.jsp"> <i
+							<li><a href="SvContrato"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Generar" />
 							</a></li>

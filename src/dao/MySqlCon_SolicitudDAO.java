@@ -12,12 +12,13 @@ import interfaces.Con_SolicitudDAO;
 public class MySqlCon_SolicitudDAO implements Con_SolicitudDAO{
 
 	@Override
-	public ArrayList<SolicitudNuevaConexionDTO> listarSolicitudesPendientes() {
+	public ArrayList<SolicitudNuevaConexionDTO> listarSolicitudes(int estado) {
 		ArrayList<SolicitudNuevaConexionDTO> lista=new ArrayList<SolicitudNuevaConexionDTO>();
 		try {
 			Connection cn=MySQL.getConnection();
-			String sql="call usp_listarSolicitudesPendientes()";
+			String sql="call usp_listarSolicitudes(?)";
 			PreparedStatement pst=cn.prepareStatement(sql);
+			pst.setInt(1, estado);
 			ResultSet rs=pst.executeQuery();
 			
 			while (rs.next()) {

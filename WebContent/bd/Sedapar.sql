@@ -583,13 +583,13 @@ END$
 
 
 DELIMITER $
-DROP PROCEDURE IF EXISTS usp_listarSolicitudesPendientes $
-CREATE PROCEDURE usp_listarSolicitudesPendientes()
+DROP PROCEDURE IF EXISTS usp_listarSolicitudes $
+CREATE PROCEDURE usp_listarSolicitudes(estado int)
 BEGIN
 	select snc.idSolicitud,snc.nombres,snc.apepat,snc.apemat,snc.fechaSolicitud,esnc.desEstadoSolicitudNuevaConexion
 	from tb_solicitudnuevaconexion snc inner join tb_estadosolicitudnuevaconexion esnc
 	on snc.idEstadoSolicitudNuevaConexion = esnc.idEstadoSolicitudNuevaConexion
-	where esnc.idEstadoSolicitudNuevaConexion=1;
+	where esnc.idEstadoSolicitudNuevaConexion=estado;
 												
 END$
 
