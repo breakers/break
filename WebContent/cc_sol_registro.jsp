@@ -1094,14 +1094,14 @@ var cliente = ${param.idCliente};
 		        $.get("SvCC_Solicitud", { idContrato:idContra, proceso:"direccion" },
 		            function(response){
 		        	
-		        	var cadena = response;
-		                $("#txtDireccion").val(cadena);
-		                $("#txtLocalidad").val(cadena);
-		                $("#txtDistrito").val(cadena);
-		                $("#txtEstado").val(cadena);
-		                $("#txtTipo").val(cadena);
-		                $("#txtDiametro").val(cadena);
-		                $("#txtCategoria").val(cadena);
+		        	var cadena = response.split("-");
+		                $("#txtDireccion").val(cadena[0]);
+		                $("#txtLocalidad").val(cadena[1]);
+		                $("#txtDistrito").val(cadena[2]);
+		                $("#txtEstado").val(cadena[3]);
+		                $("#txtTipo").val(cadena[4]);
+		                $("#txtDiametro").val(cadena[5]);
+		                $("#txtCategoria").val(cadena[6]);
 		                
 		                
 		       });

@@ -5,6 +5,7 @@ import interfaces.Con_SolicitudDAO;
 import interfaces.ContratoDAO;
 import interfaces.NuevaConexionDAO;
 import interfaces.PerfilDAO;
+import interfaces.PredioDAO;
 import interfaces.UsuarioDAO;
 
 public class MySqlDAOFactory extends DAOFactory{
@@ -31,8 +32,12 @@ public class MySqlDAOFactory extends DAOFactory{
 
 	@Override
 	public ContratoDAO getContratoDAO() {
-		
 		return new MySqlContratoDAO();
+	}
+
+	@Override
+	public PredioDAO getPredioDAO() {
+		return new MySqlPredioDAO();
 	}
 	
 	

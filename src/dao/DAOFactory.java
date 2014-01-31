@@ -4,6 +4,7 @@ import interfaces.Con_SolicitudDAO;
 import interfaces.ContratoDAO;
 import interfaces.NuevaConexionDAO;
 import interfaces.PerfilDAO;
+import interfaces.PredioDAO;
 import interfaces.UsuarioDAO;
 
 public abstract class DAOFactory {
@@ -17,6 +18,7 @@ public abstract class DAOFactory {
 	public abstract Con_SolicitudDAO getCon_SolicitudDAO();
 	public abstract NuevaConexionDAO getNuevaConexionDAO();
 	public abstract ContratoDAO getContratoDAO();
+	public abstract PredioDAO getPredioDAO();
 	
 	public static DAOFactory getDAOFactory(int w){
 		

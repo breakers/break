@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.ContratoService;
 import service.PerfilService;
+import service.PredioService;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
 import bean.PerfilDTO;
+import bean.PredioDTO;
 
 /**
  * Servlet implementation class SvCC_Solicitud
@@ -27,7 +29,7 @@ public class SvCC_Solicitud extends ServletParent {
 	PerfilService service = new PerfilService(); //de prueba
 	
 	ContratoService serviciocon = new ContratoService();
-       
+    PredioService serviciopredio= new PredioService();  
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -55,25 +57,17 @@ public class SvCC_Solicitud extends ServletParent {
 			cargarCliente(request,response,codigo);
 			
 		}
-//		else if(proceso.equals("obtenerContrato")){
-//			String codContrato= request.getParameter("idContrato");
-//			int idContrato=-1;
-//			System.out.println("Contrato seleccionado en el metodo get"+codContrato);
-//			try {
-//				idContrato = Integer.parseInt(codContrato);
-//			} catch (Exception e) {
-//				idContrato=-1;
-//			}
-//			
-//			cargarContrato(request,response,idContrato);
-//		}
-//		
 		else if(proceso.equals("direccion")){
-			response.setContentType("text/html");
-	        PrintWriter out = response.getWriter();
-	             
-	        	out.println("felix-es-el-mejor-yahoo");
-	        	System.out.println("entra a la direccion");
+			String codContrato= request.getParameter("idContrato");
+			int idContrato=-1;
+			System.out.println("Contrato seleccionado en el metodo get"+codContrato);
+			try {
+				idContrato = Integer.parseInt(codContrato);
+			} catch (Exception e) {
+				idContrato=-1;
+			}
+			cargarSuministro(request,response,idContrato);
+			
 		}
 		
 		
@@ -83,11 +77,34 @@ public class SvCC_Solicitud extends ServletParent {
 
 
 
-	private void cargarContrato(HttpServletRequest request,
-			HttpServletResponse response, int idContrato) {
-		System.out.println("yahoo contrato >"+idContrato);
-		
+	private void cargarSuministro(HttpServletRequest request,
+			HttpServletResponse response, int idContrato) throws IOException {
+			
+		ContratoDTO contrato= serviciocon.obtenerContrato(idContrato);
+		PredioDTO predio= serviciopredio.obtenerPredio(contrato.getIdPredio());
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+             String datos="";
+             
+             datos+=predio.getNomCalle()+" No "+predio.getNumPredio()+"-"; //direccion :calle +num
+             datos+=predio.getNomLocalidad()+"-";
+             datos+=predio.getNomDistrito()+"-";
+             datos+=predio.getNomEstadoPredio()+"-";
+             datos+=predio.getNomTipoPredio()+"-";
+             
+             datos+=contrato.getDesDiametroConexion()+"-";
+             datos+=contrato.getNomCategoria()+"-";
+             
+             
+             
+             
+        	out.println(datos);
+        	System.out.println("contrato :" + contrato.getDesDiametroConexion());
+        	System.out.println(""+contrato.getNomCategoria());
+        	System.out.println("entra a la direccion");
 	}
+
+
 
 	private void cargarCliente(HttpServletRequest request,
 			HttpServletResponse response, int codigo) {
