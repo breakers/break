@@ -674,11 +674,15 @@ var cliente = ${param.idCliente};
 													<label class="col-xs-10 col-sm-5"> <select
 														class="chosen-select col-xs-10 col-sm-11"
 														data-placeholder="Choose a Suministro...">
-															<option value="">&nbsp;</option>
-															<option value="1026458487">1026458487</option>
-															<option value="3026458475">3026458475</option>
-															<option value="6026454632">6026454632</option>
-															<option value="6526458654">6526458654</option>
+															<option value="">--------</option>
+															<c:forEach var="contrato" items="${requestScope.contratos}">
+																<option value="${contrato.codSuministro}"> ${contrato.codSuministro}</option>
+															
+															</c:forEach>
+<!-- 															<option value="1026458487">1026458487</option> -->
+<!-- 															<option value="3026458475">3026458475</option> -->
+<!-- 															<option value="6026454632">6026454632</option> -->
+<!-- 															<option value="6526458654">6526458654</option> -->
 
 													</select>
 													</label>

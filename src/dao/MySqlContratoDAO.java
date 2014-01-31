@@ -213,14 +213,71 @@ public class MySqlContratoDAO implements ContratoDAO{
 
 	@Override
 	public ClienteDTO obtenerCliente(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql="select * from tb_cliente where idCliente = ?";
+		
+		Connection cn=null;
+		PreparedStatement ps=null;
+		cn = MySQL.getConnection();
+		ClienteDTO cliente=null;
+		
+		try {
+			ps = cn.prepareStatement(sql);
+			ps.setInt(1, codigo);
+			
+			ResultSet rs= ps.executeQuery();
+			
+			if (rs.next()) {
+				cliente = new ClienteDTO();
+				cliente.setIdCliente(rs.getInt("idCliente"));
+				cliente.setNomCliente(rs.getString("nomCliente"));
+				
+				
+			}
+			
+			rs.close();
+			ps.close();
+			cn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cliente;
 	}
 
 	@Override
 	public List<ContratoDTO> obtenerContratosPorCliente(int codCliente) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<ContratoDTO> contratos = new ArrayList<ContratoDTO>();
+		
+		String sql= "select * from tb_contratos Where codCliente = ? ";
+		Connection cn= null;
+		PreparedStatement ps=null;
+		
+		try {
+			cn= MySQL.getConnection();
+			ps=cn.prepareStatement(sql);
+			ps.setInt(1, codCliente);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				ContratoDTO contract = new ContratoDTO();
+				contract.setIdContrato(rs.getInt("idContrato"));
+				contract.setCodSuministro(rs.getString("codSuministro"));
+				contratos.add(contract);
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return contratos;
 	}
 
 

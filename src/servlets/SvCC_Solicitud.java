@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.ContratoService;
 import service.PerfilService;
 import bean.ClienteDTO;
+import bean.ContratoDTO;
 import bean.PerfilDTO;
 
 /**
@@ -50,7 +52,7 @@ public class SvCC_Solicitud extends ServletParent {
 			} catch (Exception e) {
 				codigo=-1;
 			}
-			cargarCliente(codigo);
+			cargarCliente(request,response,codigo);
 			
 		}
 //		
@@ -60,10 +62,17 @@ public class SvCC_Solicitud extends ServletParent {
 
 
 
-	private void cargarCliente(int codigo) {
+
+
+	private void cargarCliente(HttpServletRequest request,
+			HttpServletResponse response, int codigo) {
 		
+		ClienteDTO cliente=serviciocon.obtenerCliente(codigo);
+		List<ContratoDTO> contratos= serviciocon.obtenerContratosPorCliente(cliente.getIdCliente());
 		
-		
+		request.setAttribute("clienteDTO", cliente);
+		request.setAttribute("contratos", contratos);
+		RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 		
 		
 	}
