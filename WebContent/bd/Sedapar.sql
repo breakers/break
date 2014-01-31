@@ -222,6 +222,7 @@ create table tb_Contrato (
 	idCategoria int references tb_categoria,
 	idUsuario int references tb_usuario,
 	idSolicitud int references tb_solicitudNuevaConexion,
+	idDiametroConexion int references tb_diametroConexion,
     foreign key (idCategoria) references tb_Categoria (idCategoria),
     foreign key (idUsuario) references tb_usuario (idUsuario)
 	/*foreign key (idSolicitud) references tb_solicitudnuevaconexion (idSolicitud)*/

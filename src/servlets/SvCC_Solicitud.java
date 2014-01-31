@@ -72,7 +72,16 @@ public class SvCC_Solicitud extends ServletParent {
 		
 		request.setAttribute("clienteDTO", cliente);
 		request.setAttribute("contratos", contratos);
-		RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/cc_sol_registro.jsp");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}

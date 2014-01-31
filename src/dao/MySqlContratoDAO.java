@@ -230,6 +230,7 @@ public class MySqlContratoDAO implements ContratoDAO{
 				cliente = new ClienteDTO();
 				cliente.setIdCliente(rs.getInt("idCliente"));
 				cliente.setNomCliente(rs.getString("nomCliente"));
+				cliente.setNumDocCliente(rs.getString("numDocCliente"));
 				
 				
 			}
@@ -249,7 +250,7 @@ public class MySqlContratoDAO implements ContratoDAO{
 	public List<ContratoDTO> obtenerContratosPorCliente(int codCliente) {
 		ArrayList<ContratoDTO> contratos = new ArrayList<ContratoDTO>();
 		
-		String sql= "select * from tb_contratos Where codCliente = ? ";
+		String sql= "select * from tb_Contrato Where idCliente = ? ";
 		Connection cn= null;
 		PreparedStatement ps=null;
 		
@@ -278,6 +279,108 @@ public class MySqlContratoDAO implements ContratoDAO{
 		
 		
 		return contratos;
+	}
+
+	@Override
+	public ContratoDTO obtenerContrato(int idContrato) {
+		
+		String sql = "select * from tb_contrato Where idContrato = ?";
+		
+		Connection cn;
+		PreparedStatement ps=null;
+		ContratoDTO contrato = new ContratoDTO();
+		boolean valido= false;
+		
+		try {
+			cn= MySQL.getConnection();
+			ps=cn.prepareStatement(sql);
+			ps.setInt(1, idContrato);
+			
+			ResultSet rs=ps.executeQuery();
+			
+			if (rs.next()) {
+				valido = true;
+				contrato.setIdContrato(rs.getInt("idContrato"));
+				contrato.setIdCliente(rs.getInt("idCliente"));
+				contrato.setIdCategoria(rs.getInt("idCategoria"));
+				contrato.setIdDiametroConexion(rs.getInt("idDiametroConexion"));
+				contrato.setIdPredio(rs.getInt("idPredio"));
+				contrato.setIdSolicitud(rs.getInt("idSolicitud"));
+				contrato.setIdUsuario(rs.getInt("idUsuario"));
+				contrato.setCodSuministro(rs.getString("codSuministro"));		
+			}
+			rs.close();
+			ps.close();
+			cn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if (valido) {
+			String sqlcliente= "select * from tb_cliente Where idCliente = ?";
+			int idCliente = contrato.getIdCliente();
+			
+			
+			try {
+				cn= MySQL.getConnection();
+				ps = cn.prepareStatement(sqlcliente);
+				ps.setInt(1, idCliente);
+				
+				ResultSet rs = ps.executeQuery();
+				if (rs.next()) {
+					contrato.setNomCliente(rs.getString("nomCliente"));
+					contrato.setNumDocCliente(rs.getString("numDocCliente"));
+					//contrato.setNomCategoria(rs.getString("nomCategoria"));
+					
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			String sqlcategoria = "select * from tb_categoria Where idCategoria = ?";
+			int idCategoria = contrato.getIdCategoria();
+			
+			try {
+				cn= MySQL.getConnection();
+				ps= cn.prepareStatement(sqlcategoria);
+				ps.setInt(1, idCategoria);
+
+				ResultSet rs = ps.executeQuery();
+				if (rs.next()) {
+				contrato.setNomCategoria(rs.getString("desCategoria"));
+				}
+				
+				rs.close();
+				ps.close();
+				cn.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			String sqldiametro = "select * from tb_diametroConexion Where idDiametroConexion = ? ";
+			int iddiametro = contrato.getIdDiametroConexion();
+			try {
+				cn= MySQL.getConnection();
+				ps= cn.prepareStatement(sqldiametro);
+				ps.setInt(1, iddiametro);
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (rs.next()) {
+					contrato.setDesDiametroConexion(rs.getString("desDiametroConexion"));
+				}
+				
+				rs.close();
+				ps.close();
+				cn.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return contrato;
 	}
 
 

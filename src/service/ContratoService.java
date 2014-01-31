@@ -28,5 +28,9 @@ public class ContratoService{
 	public List<ContratoDTO> obtenerContratosPorCliente(int codCliente) {
 		return contrato.obtenerContratosPorCliente(codCliente);
 	}
+	
+	public ContratoDTO obtenerContrato(int idContrato){
+		return contrato.obtenerContrato(idContrato);
+	}
 
 }

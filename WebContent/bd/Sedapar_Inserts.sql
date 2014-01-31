@@ -273,11 +273,11 @@ INSERT INTO tb_solicitudNuevaConexion VALUES(null,null,null,null,null,'Prueba2',
 INSERT INTO tb_solicitudNuevaConexion VALUES(null,null,null,null,null,'Prueba3','','',1,'','',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
 
 -- contratos idContrato,idCliente,codSuministro,idPredio ,idCategoria,idUsuario,idSolicitud
-INSERT INTO tb_Contrato VALUES(null,1,'1-1',1,2,1,1); 
-INSERT INTO tb_Contrato VALUES(null,2,'2-2',2,2,1,2); 
-INSERT INTO tb_Contrato VALUES(null,3,'3-3',3,2,1,3);
-INSERT INTO tb_Contrato VALUES(null,1,'1-4',4,2,1,4);
-INSERT INTO tb_Contrato VALUES(null,1,'1-5',5,2,1,5);
+INSERT INTO tb_Contrato VALUES(null,1,'1-1',1,2,1,1,1); 
+INSERT INTO tb_Contrato VALUES(null,2,'2-2',2,2,1,2,1); 
+INSERT INTO tb_Contrato VALUES(null,3,'3-3',3,2,1,3,1);
+INSERT INTO tb_Contrato VALUES(null,1,'1-4',4,2,1,4,1);
+INSERT INTO tb_Contrato VALUES(null,1,'1-5',5,2,1,5,1);
  
 INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Registrada');
 INSERT INTO tb_EstadoSolicitudCambio VALUES(null,'Validado');

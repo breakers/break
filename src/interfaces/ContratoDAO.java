@@ -16,5 +16,7 @@ public interface ContratoDAO {
 	
 	//Trabajando con los contratos
 	public List<ContratoDTO> obtenerContratosPorCliente(int codCliente); 
+	
+	public ContratoDTO obtenerContrato(int idContrato);
 
 }

@@ -649,10 +649,10 @@ var cliente = ${param.idCliente};
 
 
 												<fieldset>
-													<label class="col-sm-2 control-label no-padding-right">Cliente</label>
+													<label class="col-sm-3 control-label no-padding-right">Cliente</label>
 													<input id="nomCliente" class="col-xs-10 col-sm-5" type="text"
-														placeholder="Nombre Completo" readonly="true" /> <label
-														class="col-xs-10 col-sm-3"> <a href="#modal-form" id="btnBuscar"
+														placeholder="Nombre Completo" readonly="true" value="${clienteDTO.nomCliente }" /> <label
+														class="col-xs-6 col-sm-3"> <a href="#modal-form" id="btnBuscar"
 														role="button" class="btn btn-info" data-toggle="modal">
 															<i class="icon-group"></i> Buscar Cliente
 													</a>
@@ -663,20 +663,20 @@ var cliente = ${param.idCliente};
 												
 <!-- 												</fieldset> -->
 												<fieldset>
-													<label class="col-sm-2 control-label no-padding-right">Codigo</label>
-													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Codigo de Cliente" readonly="true" />
+													<label class="col-sm-3 control-label no-padding-right">Documento</label>
+													<input class="col-xs-6 col-sm-5" type="text"
+														placeholder="numero Documento" readonly="true" value="${clienteDTO.numDocCliente }"/>
 
 												</fieldset>
 
 												<fieldset>
-													<label class="col-sm-2 control-label no-padding-right">Suministro</label>
-													<label class="col-xs-10 col-sm-5"> <select
+													<label class="col-sm-3 control-label no-padding-right">Suministro</label>
+													<label class="col-xs-6 col-sm-5"> <select
 														class="chosen-select col-xs-10 col-sm-11"
 														data-placeholder="Choose a Suministro...">
 															<option value="">--------</option>
 															<c:forEach var="contrato" items="${requestScope.contratos}">
-																<option value="${contrato.codSuministro}"> ${contrato.codSuministro}</option>
+																<option value="${contrato.idContrato}"> ${contrato.codSuministro}</option>
 															
 															</c:forEach>
 <!-- 															<option value="1026458487">1026458487</option> -->
@@ -746,9 +746,9 @@ var cliente = ${param.idCliente};
 												</fieldset>
 
 												<fieldset>
-													<label class="col-sm-3 control-label no-padding-right">Pisos</label>
+													<label class="col-sm-3 control-label no-padding-right">Estado</label>
 													<input class="col-xs-10 col-sm-5" type="text"
-														placeholder="Cantidad de Pisos" readonly="true" />
+														placeholder="Estado Predio" readonly="true" />
 
 												</fieldset>
 
