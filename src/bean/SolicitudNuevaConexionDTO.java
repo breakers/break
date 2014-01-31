@@ -1,45 +1,66 @@
 package bean;
 
 public class SolicitudNuevaConexionDTO {
+
 	private int idSolicitud;
-	private String razonsocial;
-	private String ruc;
-	private String url;
-	private String nombres;
-	private String apepat;
-	private String apemat;
-	private int idTipoDoc;
-	private String numDoc;
-	private String correo;
-	private String telefono;
-	private String celular;
-	private int id_calle;
-	private int id_localidad;
-	private int id_distrito;
-	private int id_provincia;
-	private String numero;
-	private String referencias;
-	private int idEstadoPredio;
-	private int idTipoPredio;
-	private String area;
-	private int idDiametroConexion;
-	private double costo;
-	private int numcuotas;
-	private String coordenadas;
-	private int idEstadoSolicitudNuevaConexion;
-	private byte[] fileDocumentoIdentidad;
-	private byte[] fileCartaPoder;
-	private byte[] filePartidaConstancia;
-	private byte[] fileMemoria;
-	private byte[] fileReciboVecino;
-	private byte[] filePlanoInstalaciones;
-	
-	
+	private String fechaSolicitud;
+    private String razonsocial = "";
+    private String ruc = "";
+    private String url = "";
+    private String nombres;
+    private String apepat;
+    private String apemat;
+    private int idTipoDoc;
+    private String numDoc;
+    private String correo;
+    private String telefono;
+    private String celular;
+    private int id_calle;
+    private String des_calle;
+    private int id_localidad;
+    private String des_localidad;
+    private int id_distrito;
+    private String des_distrito;
+    private int id_provincia;
+    private String des_provincia;
+    private String numero;
+    private String referencias = "";
+    private int idEstadoPredio;
+    private int idTipoPredio;
+    private String area;
+    private int idDiametroConexion;
+    private double costo;
+    private int numcuotas;
+    private String coordenadas;
+    private int idEstadoSolicitudNuevaConexion;
+    private String desEstadoSolicitudNuevaConexion = "";
+    private String fileDocumentoIdentidad;
+    private String fileCartaPoder;
+    private String filePartidaConstancia;
+    private String fileMemoria;
+    private String fileReciboVecino;
+    private String filePlanoInstalaciones;
+    
+    
+    private TipoDocIdentidadDTO tipodoc = new TipoDocIdentidadDTO();
+    
+    private EstadoPredioDTO estpredio = new EstadoPredioDTO();
+    private TipoPredioDTO tipopredio = new TipoPredioDTO();
+    private DiametroConexionDTO diamcon = new DiametroConexionDTO();
+    
+    
+    
 	public int getIdSolicitud() {
 		return idSolicitud;
 	}
 	public void setIdSolicitud(int idSolicitud) {
 		this.idSolicitud = idSolicitud;
+	}
+	public String getFechaSolicitud() {
+		return fechaSolicitud;
+	}
+	public void setFechaSolicitud(String fechaSolicitud) {
+		this.fechaSolicitud = fechaSolicitud;
 	}
 	public String getRazonsocial() {
 		return razonsocial;
@@ -83,6 +104,7 @@ public class SolicitudNuevaConexionDTO {
 	public void setIdTipoDoc(int idTipoDoc) {
 		this.idTipoDoc = idTipoDoc;
 	}
+	
 	public String getNumDoc() {
 		return numDoc;
 	}
@@ -113,11 +135,23 @@ public class SolicitudNuevaConexionDTO {
 	public void setId_calle(int id_calle) {
 		this.id_calle = id_calle;
 	}
+	public String getDes_calle() {
+		return des_calle;
+	}
+	public void setDes_calle(String des_calle) {
+		this.des_calle = des_calle;
+	}
 	public int getId_localidad() {
 		return id_localidad;
 	}
 	public void setId_localidad(int id_localidad) {
 		this.id_localidad = id_localidad;
+	}
+	public String getDes_localidad() {
+		return des_localidad;
+	}
+	public void setDes_localidad(String des_localidad) {
+		this.des_localidad = des_localidad;
 	}
 	public int getId_distrito() {
 		return id_distrito;
@@ -125,11 +159,23 @@ public class SolicitudNuevaConexionDTO {
 	public void setId_distrito(int id_distrito) {
 		this.id_distrito = id_distrito;
 	}
+	public String getDes_distrito() {
+		return des_distrito;
+	}
+	public void setDes_distrito(String des_distrito) {
+		this.des_distrito = des_distrito;
+	}
 	public int getId_provincia() {
 		return id_provincia;
 	}
 	public void setId_provincia(int id_provincia) {
 		this.id_provincia = id_provincia;
+	}
+	public String getDes_provincia() {
+		return des_provincia;
+	}
+	public void setDes_provincia(String des_provincia) {
+		this.des_provincia = des_provincia;
 	}
 	public String getNumero() {
 		return numero;
@@ -149,12 +195,14 @@ public class SolicitudNuevaConexionDTO {
 	public void setIdEstadoPredio(int idEstadoPredio) {
 		this.idEstadoPredio = idEstadoPredio;
 	}
+	
 	public int getIdTipoPredio() {
 		return idTipoPredio;
 	}
 	public void setIdTipoPredio(int idTipoPredio) {
 		this.idTipoPredio = idTipoPredio;
 	}
+	
 	public String getArea() {
 		return area;
 	}
@@ -191,43 +239,107 @@ public class SolicitudNuevaConexionDTO {
 	public void setIdEstadoSolicitudNuevaConexion(int idEstadoSolicitudNuevaConexion) {
 		this.idEstadoSolicitudNuevaConexion = idEstadoSolicitudNuevaConexion;
 	}
-	public byte[] getFileDocumentoIdentidad() {
+	public String getDesEstadoSolicitudNuevaConexion() {
+		return desEstadoSolicitudNuevaConexion;
+	}
+	public void setDesEstadoSolicitudNuevaConexion(
+			String desEstadoSolicitudNuevaConexion) {
+		this.desEstadoSolicitudNuevaConexion = desEstadoSolicitudNuevaConexion;
+	}
+	public String getFileDocumentoIdentidad() {
 		return fileDocumentoIdentidad;
 	}
-	public void setFileDocumentoIdentidad(byte[] fileDocumentoIdentidad) {
+	public void setFileDocumentoIdentidad(String fileDocumentoIdentidad) {
 		this.fileDocumentoIdentidad = fileDocumentoIdentidad;
 	}
-	public byte[] getFileCartaPoder() {
+	public String getFileCartaPoder() {
 		return fileCartaPoder;
 	}
-	public void setFileCartaPoder(byte[] fileCartaPoder) {
+	public void setFileCartaPoder(String fileCartaPoder) {
 		this.fileCartaPoder = fileCartaPoder;
 	}
-	public byte[] getFilePartidaConstancia() {
+	public String getFilePartidaConstancia() {
 		return filePartidaConstancia;
 	}
-	public void setFilePartidaConstancia(byte[] filePartidaConstancia) {
+	public void setFilePartidaConstancia(String filePartidaConstancia) {
 		this.filePartidaConstancia = filePartidaConstancia;
 	}
-	public byte[] getFileMemoria() {
+	public String getFileMemoria() {
 		return fileMemoria;
 	}
-	public void setFileMemoria(byte[] fileMemoria) {
+	public void setFileMemoria(String fileMemoria) {
 		this.fileMemoria = fileMemoria;
 	}
-	public byte[] getFileReciboVecino() {
+	public String getFileReciboVecino() {
 		return fileReciboVecino;
 	}
-	public void setFileReciboVecino(byte[] fileReciboVecino) {
+	public void setFileReciboVecino(String fileReciboVecino) {
 		this.fileReciboVecino = fileReciboVecino;
 	}
-	public byte[] getFilePlanoInstalaciones() {
+	public String getFilePlanoInstalaciones() {
 		return filePlanoInstalaciones;
 	}
-	public void setFilePlanoInstalaciones(byte[] filePlanoInstalaciones) {
+	public void setFilePlanoInstalaciones(String filePlanoInstalaciones) {
 		this.filePlanoInstalaciones = filePlanoInstalaciones;
+	}
+	public TipoDocIdentidadDTO getTipodoc() {
+		return tipodoc;
+	}
+	public void setTipodoc(TipoDocIdentidadDTO tipodoc) {
+		this.tipodoc = tipodoc;
+	}
+	public EstadoPredioDTO getEstpredio() {
+		return estpredio;
+	}
+	public void setEstpredio(EstadoPredioDTO estpredio) {
+		this.estpredio = estpredio;
+	}
+	public TipoPredioDTO getTipopredio() {
+		return tipopredio;
+	}
+	public void setTipopredio(TipoPredioDTO tipopredio) {
+		this.tipopredio = tipopredio;
+	}
+	public DiametroConexionDTO getDiamcon() {
+		return diamcon;
+	}
+	public void setDiamcon(DiametroConexionDTO diamcon) {
+		this.diamcon = diamcon;
+	}
+	@Override
+	public String toString() {
+		return "SolicitudNuevaConexionDTO [idSolicitud=" + idSolicitud
+				+ ", fechaSolicitud=" + fechaSolicitud + ", razonsocial="
+				+ razonsocial + ", ruc=" + ruc + ", url=" + url + ", nombres="
+				+ nombres + ", apepat=" + apepat + ", apemat=" + apemat
+				+ ", idTipoDoc=" + idTipoDoc + ", numDoc=" + numDoc
+				+ ", correo=" + correo + ", telefono=" + telefono
+				+ ", celular=" + celular + ", id_calle=" + id_calle
+				+ ", des_calle=" + des_calle + ", id_localidad=" + id_localidad
+				+ ", des_localidad=" + des_localidad + ", id_distrito="
+				+ id_distrito + ", des_distrito=" + des_distrito
+				+ ", id_provincia=" + id_provincia + ", des_provincia="
+				+ des_provincia + ", numero=" + numero + ", referencias="
+				+ referencias + ", idEstadoPredio=" + idEstadoPredio
+				+ ", idTipoPredio=" + idTipoPredio + ", area=" + area
+				+ ", idDiametroConexion=" + idDiametroConexion + ", costo="
+				+ costo + ", numcuotas=" + numcuotas + ", coordenadas="
+				+ coordenadas + ", idEstadoSolicitudNuevaConexion="
+				+ idEstadoSolicitudNuevaConexion
+				+ ", desEstadoSolicitudNuevaConexion="
+				+ desEstadoSolicitudNuevaConexion + ", fileDocumentoIdentidad="
+				+ fileDocumentoIdentidad + ", fileCartaPoder=" + fileCartaPoder
+				+ ", filePartidaConstancia=" + filePartidaConstancia
+				+ ", fileMemoria=" + fileMemoria + ", fileReciboVecino="
+				+ fileReciboVecino + ", filePlanoInstalaciones="
+				+ filePlanoInstalaciones + ", tipodoc=" + tipodoc
+				+ ", estpredio=" + estpredio + ", tipopredio=" + tipopredio
+				+ ", diamcon=" + diamcon + "]";
 	}
 	
 	
-
+	
+	
+	
+    
 }

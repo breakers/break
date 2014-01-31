@@ -15,30 +15,36 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-import bean.Con_SolicitudDTO;
+import bean.SolicitudNuevaConexionDTO;
 import service.Con_SolicitudService;
 
-/**
- * Servlet implementation class SvPruebaSol
- */
 @WebServlet("/SvCon_Solicitud")
 public class SvCon_Solicitud extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Con_SolicitudService servicioSolicitud= new Con_SolicitudService();  
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public SvCon_Solicitud() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Con_SolicitudDTO> lista = servicioSolicitud.listarSolicitudesPendientes();
+    
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getParameter("est")!=null){
+			evaluarSolicitud(request,response);
+		}
+			
+	}
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getParameter("num")!=null){
+			mostrarDatosSolicitud(request, response);
+		}else{
+			listarSolicitudesPendientes(request, response);
+		}
+	}
+	
+	protected void listarSolicitudesPendientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+			ArrayList<SolicitudNuevaConexionDTO> lista = servicioSolicitud.listarSolicitudesPendientes();
 		
 		if(lista!=null){
 			RequestDispatcher rd = request.getRequestDispatcher("/con_sol_revision.jsp");
@@ -46,5 +52,26 @@ public class SvCon_Solicitud extends HttpServlet {
 			rd.forward(request, response);
 		}
 	}
-
+	
+	protected void mostrarDatosSolicitud(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		int idSolicitud = Integer.parseInt(request.getParameter("num"));
+			SolicitudNuevaConexionDTO solicitud = servicioSolicitud.mostrarDatosSolicitud(idSolicitud);
+			
+			if(solicitud!=null){
+				request.setAttribute("solicitud", solicitud);
+			}
+			listarSolicitudesPendientes(request, response);
+		
+	}
+	
+	protected void evaluarSolicitud(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		int idSolicitud = Integer.parseInt(request.getParameter("id"));
+		int estado = Integer.parseInt(request.getParameter("est"));
+			
+		if(servicioSolicitud.evaluarSolicitud(idSolicitud,estado)){
+		}
+		
+		listarSolicitudesPendientes(request, response);
+	}
+	
 }

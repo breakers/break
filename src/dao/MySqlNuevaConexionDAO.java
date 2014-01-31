@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import util.MySQL;
-import bean.Con_SolicitudDTO;
+import bean.SolicitudNuevaConexionDTO;
 import bean.DiametroConexionDTO;
 import bean.EstadoPredioDTO;
 import bean.SolicitudNuevaConexionDTO;
@@ -120,7 +120,7 @@ public class MySqlNuevaConexionDAO implements NuevaConexionDAO{
 	public boolean registrarSolicitudNuevaConexion(SolicitudNuevaConexionDTO solicitud) {
 		Connection cn = MySQL.getConnection();
 		
-		String sql= "CALL usp_registrarSolicitudNuevaConexion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql= "CALL usp_registrarSolicitudNuevaConexion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement ps = cn.prepareStatement(sql);
@@ -148,6 +148,7 @@ public class MySqlNuevaConexionDAO implements NuevaConexionDAO{
 			ps.setDouble(22,solicitud.getCosto());
 			ps.setInt(23,solicitud.getNumcuotas());
 			ps.setString(24,solicitud.getCoordenadas());
+			ps.setString(25, solicitud.getFileDocumentoIdentidad());
 			ps.executeUpdate();
 			ps.close();
 			return true;

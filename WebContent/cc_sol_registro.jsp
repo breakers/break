@@ -398,7 +398,7 @@
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
 						<button class="btn btn-success"
-							onclick="location.href='con_sol_revision.jsp';">
+							onclick="location.href='SvCon_Solicitud';">
 							<i class="icon-signal"></i>
 						</button>
 
@@ -446,7 +446,7 @@
 
 								<ul class="submenu">
 
-									<li><a href="con_sol_revision.jsp"> <i class="icon-ok"></i>
+									<li><a href="SvCon_Solicitud"> <i class="icon-ok"></i>
 											<fmt:message key="label.Evaluar" />
 									</a></li>
 

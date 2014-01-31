@@ -2,10 +2,14 @@ package interfaces;
 
 import java.util.ArrayList;
 
-import bean.Con_SolicitudDTO;
+import bean.SolicitudNuevaConexionDTO;
 
 public interface Con_SolicitudDAO {
 	
-	public ArrayList<Con_SolicitudDTO> listarSolicitudesPendientes();
+	public ArrayList<SolicitudNuevaConexionDTO> listarSolicitudesPendientes();
+
+	public SolicitudNuevaConexionDTO mostrarDatosSolicitud(int idSolicitud);
+
+	public boolean evaluarSolicitud(int idSolicitud, int estado);
 	
 }

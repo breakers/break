@@ -112,6 +112,7 @@ create table tb_EstadoSolicitudNuevaConexion (
 
 create table tb_solicitudNuevaConexion (
     idSolicitud int primary key auto_increment,
+	fechaSolicitud date,
     razonsocial varchar(50),
     ruc varchar(11),
     url varchar(50),
@@ -137,12 +138,12 @@ create table tb_solicitudNuevaConexion (
     numcuotas int,
     coordenadas varchar(40),
     idEstadoSolicitudNuevaConexion int,
-    fileDocumentoIdentidad longblob,
-    fileCartaPoder longblob,
-    filePartidaConstancia longblob,
-    fileMemoria longblob,
-    fileReciboVecino longblob,
-    filePlanoInstalaciones longblob,
+    fileDocumentoIdentidad mediumblob,
+    fileCartaPoder mediumblob,
+    filePartidaConstancia mediumblob,
+    fileMemoria mediumblob,
+    fileReciboVecino mediumblob,
+    filePlanoInstalaciones mediumblob,
     foreign key (idTipoDoc) references tb_tipoDoc (idTipoDoc),
     foreign key (id_calle) references tb_calle (id_calle),
     foreign key (id_localidad) references tb_localidad (id_loc),
@@ -568,17 +569,59 @@ area varchar(10),
 idDiametroConexion int,
 costo decimal,
 numcuotas int,
-coordenadas varchar(40)
+coordenadas varchar(40),
+fileDocumentoIdentidad mediumblob
 )
 BEGIN
-	INSERT INTO tb_solicitudNuevaConexion VALUES(null,razonsocial,ruc,url,nombres,apepat,
+	INSERT INTO tb_solicitudNuevaConexion VALUES(null,DATE_FORMAT(now(),'%Y/%m/%d'),razonsocial,ruc,url,nombres,apepat,
 												apemat,idTipoDoc,numDoc,correo,telefono,
 												celular,id_calle,id_localidad,id_distrito,id_provincia,numero,referencias,idEstadoPredio,
 												idTipoPredio,area,idDiametroConexion,costo,
-												numcuotas,coordenadas,1,null,null,null,null,null,null);
+												numcuotas,coordenadas,1,fileDocumentoIdentidad,null,null,null,null,null);
 												
 END$
 
+
+DELIMITER $
+DROP PROCEDURE IF EXISTS usp_listarSolicitudesPendientes $
+CREATE PROCEDURE usp_listarSolicitudesPendientes()
+BEGIN
+	select snc.idSolicitud,snc.nombres,snc.apepat,snc.apemat,snc.fechaSolicitud,esnc.desEstadoSolicitudNuevaConexion
+	from tb_solicitudnuevaconexion snc inner join tb_estadosolicitudnuevaconexion esnc
+	on snc.idEstadoSolicitudNuevaConexion = esnc.idEstadoSolicitudNuevaConexion
+	where esnc.idEstadoSolicitudNuevaConexion=1;
+												
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_mostrarDatosSolicitud(VidSolicitud int)
+BEGIN
+	select snc.idSolicitud,snc.fechaSolicitud,snc.razonsocial,snc.ruc,snc.url,snc.nombres,snc.apepat,
+snc.apemat,td.desTipoDoc,snc.numDoc,snc.correo,snc.telefono,snc.celular,cal.nombre,loc.nombre,
+dis.nombre,prov.nombre,snc.numero,snc.referencias,ep.desEstadoPredio,tp.desTipoPredio,snc.area,
+dc.desDiametroConexion,snc.costo,snc.numcuotas,snc.coordenadas,esnc.desEstadoSolicitudNuevaConexion,
+snc.fileDocumentoIdentidad,snc.fileCartaPoder,snc.filePartidaConstancia,snc.fileMemoria,
+snc.fileReciboVecino,snc.filePlanoInstalaciones
+from tb_solicitudnuevaconexion as snc
+inner join tb_tipodoc as td on snc.idTipoDoc = td.idTipoDoc
+inner join tb_calle as cal on snc.id_calle = cal.id_calle
+inner join tb_localidad as loc on snc.id_localidad = loc.id_loc
+inner join tb_distrito as dis on snc.id_distrito = dis.id_dis
+inner join tb_provincia as prov on snc.id_provincia = prov.id_prov
+inner join tb_estadopredio as ep on snc.idEstadoPredio = ep.idEstadoPredio
+inner join tb_tipopredio as tp on snc.idTipoPredio = tp.idTipoPredio
+inner join tb_diametroconexion as dc on snc.idDiametroConexion = dc.idDiametroConexion
+inner join tb_estadosolicitudnuevaconexion as esnc on snc.idEstadoSolicitudNuevaConexion = esnc.idEstadoSolicitudNuevaConexion
+
+WHERE snc.idSolicitud=VidSolicitud;
+END$
+
+DELIMITER $
+CREATE PROCEDURE usp_evaluarSolicitud(VidSolicitud int, Vestado int)
+BEGIN
+	UPDATE tb_solicitudnuevaconexion set idEstadoSolicitudNuevaConexion=Vestado
+	WHERE idSolicitud = VidSolicitud;
+END $
 
 DELIMITER $
 CREATE PROCEDURE usp_listarTiposDoc()

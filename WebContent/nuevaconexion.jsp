@@ -33,6 +33,26 @@
 	pageContext.setAttribute("cuot",1);
 %>
 
+<script type="text/javascript">
+function procesar_fileDoc_nat(files){
+	var file = files[0];
+	var reader = new FileReader();
+	reader.onload = function (e) {
+	$("#fileDoc_natBLOB").val(e.target.result);
+	};
+	reader.readAsDataURL(file);
+	}
+	
+function procesar_fileDoc_jur(files){
+	var file = files[0];
+	var reader = new FileReader();
+	reader.onload = function (e) {
+	$("#fileDoc_jurBLOB").val(e.target.result);
+	};
+	reader.readAsDataURL(file);
+	}
+</script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <!-- ########### Modificar Label -->
@@ -396,7 +416,7 @@ html,body,#map-canvas {
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtNombres_nat" name="txtNombres_nat"
-																			class="col-xs-12 col-sm-5" />
+																			class="col-xs-12 col-sm-5" placeholder="Ingrese su Nombre..."/>
 																	</div>
 																</div>
 															</div>
@@ -409,7 +429,7 @@ html,body,#map-canvas {
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtApePat_nat" name="txtApePat_nat"
-																			class="col-xs-12 col-sm-5" />
+																			class="col-xs-12 col-sm-5" placeholder="Ingrese su Apellido Paterno..."/>
 																	</div>
 																</div>
 															</div>
@@ -422,7 +442,7 @@ html,body,#map-canvas {
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtApeMat_nat" name="txtApeMat_nat"
-																			class="col-xs-12 col-sm-5" />
+																			class="col-xs-12 col-sm-5" placeholder="Ingrese su Apellido Materno..."/>
 																	</div>
 																</div>
 															</div>
@@ -456,7 +476,7 @@ html,body,#map-canvas {
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtNumDoc_nat" name="txtNumDoc_nat"
-																			class="col-xs-12 col-sm-5" />
+																			class="col-xs-12 col-sm-5" maxlength="8" placeholder="Ingrese Nro. de Documento"/>
 																	</div>
 																</div>
 															</div>
@@ -466,7 +486,7 @@ html,body,#map-canvas {
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
 																	for="plano">Adjutar Documento: (*)</label>
 																<div class="col-sm-3">
-																	<input type="file" id="fileDoc_nat" name="fileDoc_nat" />
+																	<input type="file" id="fileDoc_nat" name="fileDoc_nat" onchange="procesar_fileDoc_nat(this.files)"/>
 
 																</div>
 															</div>
@@ -482,7 +502,7 @@ html,body,#map-canvas {
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="email" name="txtCorreo_nat" id="txtCorreo_nat"
-																			class="col-xs-12 col-sm-6" />
+																			class="col-xs-12 col-sm-6" placeholder="Ingrese su Correo Electrónico..."/>
 																	</div>
 																</div>
 															</div>
@@ -498,7 +518,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="txtTelefono_nat" name="txtTelefono_nat" />
+																		</span> <input type="tel" id="txtTelefono_nat" name="txtTelefono_nat" placeholder="Ingrese su Teléfono..."/>
 																	</div>
 																</div>
 															</div>
@@ -514,7 +534,7 @@ html,body,#map-canvas {
 																	<div class="input-group">
 																		<span class="input-group-addon"> <i
 																			class="icon-phone"></i>
-																		</span> <input type="tel" id="txtCelular_nat" name="txtCelular_nat" />
+																		</span> <input type="tel" id="txtCelular_nat" name="txtCelular_nat" placeholder="Ingrese su Celular..."/>
 																	</div>
 																</div>
 															</div>
@@ -660,7 +680,7 @@ html,body,#map-canvas {
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
 																	for="plano">Adjutar Documento: (*)</label>
 																	<div class="col-sm-3">
-																	<input type="file" id="fileDoc_jur" name="fileDoc_jur"/>
+																	<input type="file" id="fileDoc_jur" name="fileDoc_jur" onchange="procesar_fileDoc_jur(this.files)"/>
 																	</div>
 															</div>
 															<div class="space-2"></div>
@@ -670,7 +690,7 @@ html,body,#map-canvas {
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
 																	for="plano" style="padding-top: 0px;">Adjuntar Vigencia de poder o<br>Carta de Poder legalizada: (*)</label>
 																<div class="col-sm-3" >
-																	<input type="file" id="filePoder_jur" name="filePoder_jur"/>
+																	<input type="file" id="filePoder_jur" name="filePoder_jur" />
 																	</div>
 															</div>
 
@@ -934,7 +954,7 @@ html,body,#map-canvas {
 																				<label class="control-label col-xs-8 col-sm-4" for="fileMemoria">Memoria
 																					Descriptiva Firmada por un Ing. Sanitario:(*)</label> 
 																				<div class="col-sm-5" style="top: 10px;">
-																						<input type="file" id="fileMemoria" name="fileMemoria"/>
+																						<input type="file" id="fileMemoria" name="fileMemoria" />
 																				</div>
 																			</div>
 																		</div>	<br>
@@ -953,7 +973,7 @@ html,body,#map-canvas {
 																					de Instalaciones Sanitarias, Firmadas por un Ing.
 																					Sanitario</label>
 																				<div class="col-sm-5" style="top: 10px;">
-																					<input type="file" id="filePlanoInstalaciones" name="filePlanoInstalaciones" />
+																					<input type="file" id="filePlanoInstalaciones" name="filePlanoInstalaciones"/>
 																				</div>
 																			</div>
 																		</div>
@@ -1179,6 +1199,14 @@ html,body,#map-canvas {
 	</div>
 	<!-- /.main-container -->
 
+<!-- NATURAL -->
+<input type="hidden" name="fileDoc_natBLOB" id="fileDoc_natBLOB">
+<!-- JURIDICA -->
+<input type="hidden" name="fileDoc_jurBLOB" id="fileDoc_jurBLOB">
+
+
+
+
 	<!-- basic scripts -->
 
 	<!--[if !IE]> -->
@@ -1343,7 +1371,8 @@ html,body,#map-canvas {
 						var correoSolicitante = "";
 						var telefonoSolicitante = "";
 						var celularSolicitante = "";
-						
+						var fileDocSolicitante = "";
+						// JURIDICA
 						if($("#txtNombres_nat").val() == ""){
 							razSocSolicitante = $("#txtRazSocial_jur").val();
 							rucSolicitante = $("#txtRUC_jur").val();
@@ -1353,18 +1382,17 @@ html,body,#map-canvas {
 							apeMatSolicitante = $("#txtApeMat_jur").val();
 							tipDocSolicitante = $("#cbTipoDoc_jur").val();
 							numDocSolicitante = $("#txtNumDoc_jur").val();
-//	 						var fileDocSolicitante = $("#fileDoc_jur").val();
-//							var filePoderSolicitante = $("#filePoder_jur").val();
+	 						fileDocSolicitante = $("#fileDoc_jurBLOB").val();
 							correoSolicitante = $("#txtCorreo_jur").val();
 							telefonoSolicitante = $("#txtTelefono_jur").val();
 							celularSolicitante = $("#txtCelular_jur").val();
-						}else{
+						}else{	// NATURAL
 							nombreSolicitante = $("#txtNombres_nat").val();
 							apePatSolicitante = $("#txtApePat_nat").val();
 							apeMatSolicitante = $("#txtApeMat_nat").val();
 							tipDocSolicitante = $("#cbTipoDoc_nat").val();
 							numDocSolicitante = $("#txtNumDoc_nat").val();
-//	 						var fileDocSolicitante = $("#fileDoc_nat").val();				
+	 						fileDocSolicitante = $("#fileDoc_natBLOB").val();				
 							correoSolicitante = $("#txtCorreo_nat").val();
 							telefonoSolicitante = $("#txtTelefono_nat").val();
 							celularSolicitante = $("#txtCelular_nat").val();
@@ -1380,40 +1408,41 @@ html,body,#map-canvas {
 						var tipPredio = $("#cbTipoPredio").val();
 						var areaPredio = $("#txtAreaPredio").val();
 						var diamconPredio = $("#cbDiametroConexion").val();
-//	 					var filePartidaConstancia = $("#filePartidaConstancia").val();
-//	 					var fileMemoria = $("#fileMemoria").val();
-//	 					var fileReciboVecino = $("#fileReciboVecino").val();
-//	 					var filePlanoInstalaciones = $("#filePlanoInstalaciones").val();
 						var costoConexion = $("#txtCosto").val();
 						var numCuotas = $("#numCuotas").val();
 						
 						var coordenadas = new String(marker.getPosition());
+						$.ajax({
+							  url:"SvNuevaConexion",
+							  type:"POST",
+							  data:{razonsocial:razSocSolicitante,ruc:rucSolicitante,url:urlSolicitante,
+									nombres:nombreSolicitante,apepat:apePatSolicitante,apemat:apeMatSolicitante,
+									tipodoc:tipDocSolicitante,numdoc:numDocSolicitante,correo:correoSolicitante,
+									telefono:telefonoSolicitante,celular:celularSolicitante,provincia:provPredio,
+									distrito:disPredio,localidad:locPredio,calle:callePredio,numero:numPredio,
+									referencias:refPredio,estado:estPredio,tipopredio:tipPredio,area:areaPredio,
+									diametro:diamconPredio,costo:costoConexion,numcuotas:numCuotas,coordenadas:coordenadas,
+									fileDocSolicitante:fileDocSolicitante},
+									
+							  success: function(response){
+								  bootbox.dialog({
+										message : response,
+										buttons : {
+											"success" : {
+												"label" : "OK",
+												"className" : "btn-sm btn-primary",
+												"callback" : function() {
+												        location.href="index.jsp";
+												      	}
+											}
+										
+										}
+										
+									});
+									$("#btnEnviar").prop('disabled','disabled');
+							  }
+							});
 					
-					$.post("SvNuevaConexion", {razonsocial:razSocSolicitante,ruc:rucSolicitante,url:urlSolicitante,
-											nombres:nombreSolicitante,apepat:apePatSolicitante,apemat:apeMatSolicitante,
-											tipodoc:tipDocSolicitante,numdoc:numDocSolicitante,correo:correoSolicitante,
-											telefono:telefonoSolicitante,celular:celularSolicitante,provincia:provPredio,
-											distrito:disPredio,localidad:locPredio,calle:callePredio,numero:numPredio,
-											referencias:refPredio,estado:estPredio,tipopredio:tipPredio,area:areaPredio,
-											diametro:diamconPredio,costo:costoConexion,numcuotas:numCuotas,coordenadas:coordenadas},
-				            function(response){
-												bootbox
-												.dialog({
-													message : response,
-													buttons : {
-														"success" : {
-															"label" : "OK",
-															"className" : "btn-sm btn-primary",
-		 													"callback" : function() {
-		 													        location.href="index.jsp";
-		 													      	}
-														}
-													
-													}
-													
-												});
-												$("#btnEnviar").prop('disabled','disabled');
-				       });
 							})
 					.on('stepclick', function(e) {
  							return false;
@@ -2082,9 +2111,6 @@ html,body,#map-canvas {
 		
 		});
 		
-		
-		
 	</script>
-
 </body>
 </html>

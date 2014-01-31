@@ -19,9 +19,6 @@ import bean.TipoPredioDTO;
 import bean.UbigeoDTO;
 import service.NuevaConexionService;
 
-/**
- * Servlet implementation class SvNuevaConexion
- */
 @WebServlet("/SvNuevaConexion")
 public class SvNuevaConexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,7 +32,6 @@ public class SvNuevaConexion extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String razonsocial = (String) request.getParameter("razonsocial");
 		String ruc = (String) request.getParameter("ruc");
 		String url = (String) request.getParameter("url");
@@ -60,6 +56,7 @@ public class SvNuevaConexion extends HttpServlet {
 		double costo = Double.parseDouble((String) request.getParameter("costo"));
 		int numcuotas = Integer.parseInt((String) request.getParameter("numcuotas"));
 		String coordenadas = ((String) request.getParameter("coordenadas")).replaceAll("[(|)| ]", "");
+		String fileDocSolicitante = request.getParameter("fileDocSolicitante");
 		
 		SolicitudNuevaConexionDTO solicitud = new SolicitudNuevaConexionDTO();
 		solicitud.setRazonsocial(razonsocial);
@@ -86,6 +83,7 @@ public class SvNuevaConexion extends HttpServlet {
 		solicitud.setCosto(costo);
 		solicitud.setNumcuotas(numcuotas);
 		solicitud.setCoordenadas(coordenadas);
+		solicitud.setFileDocumentoIdentidad(fileDocSolicitante);
 		
 		 response.setContentType("text/plain");
 	        PrintWriter out = response.getWriter();
