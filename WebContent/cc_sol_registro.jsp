@@ -115,16 +115,7 @@
 
 <script type="text/javascript">
 // DocumentoCli,NombreCli,NombreRepresentanteCli,ApellidoRepresentanteCli
-				function listarclientes(){
-					var nomcli= $("#NombreCli").val();
-					var doccli= $("#DocumentoCli").val();
-					var nomrepcli= $("#NombreRepresentanteCli").val();
-					var aperepcli= $("#ApellidoRepresentanteCli").val();
-					
-					$.get('SvCC_Solicitud',{nusuario:nomcli,ndoccli:doccli,nnomrepcli:nomrepcli,naperepcli:aperepcli},function(responselist){
-						$('#table-cli').html(responselist).CSS2Properties;
-					});
-				}
+				
 
 </script>
 
@@ -887,7 +878,7 @@
 															</h5>
 														</div>
 														<div id="table-cli" class="table-responsive" style="overflow:scroll;max-height: 570px;">
-															<table id="table-clientes" class="table table-bordered"  style="margin-bottom: 0px;">
+															<table id="defefef" class="table table-bordered"  style="margin-bottom: 0px;">
 																<thead>
 																	<tr>
 																		<th width="100">Numero</th>
@@ -1097,6 +1088,20 @@
 					inp.value = "This text field is disabled!";
 				}
 			});
+			
+			  $("tr").click(function () {
+			        $(this).closest("tr").siblings().removeClass("highlighted");
+			        $(this).toggleClass("highlighted");
+			       /* 
+			        var num = $(this).find('td').eq(0).html();
+			        var nom = $(this).find('td').eq(1).html();
+			        var fec = $(this).find('td').eq(2).html();
+			        var est = $(this).find('td').eq(3).find('span').html();
+			        $("#txtNumero").val(num);
+				    $("#txtNombrePrueba").val(nom);
+				    $("#txtFecha").val(fec);
+				    $("#txtEstado").val(est);	*/
+			   });
 
 			$(".chosen-select").chosen();
 			$('#chosen-multiple-style').on('click', function(e) {
@@ -1423,21 +1428,17 @@
 	
 		var cant = $('#sample-table-1 >tbody >tr').length;
 		$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
-		
-	    $("tr").click(function () {
-	        $(this).closest("tr").siblings().removeClass("highlighted");
-	        $(this).toggleClass("highlighted");
-	       /* 
-	        var num = $(this).find('td').eq(0).html();
-	        var nom = $(this).find('td').eq(1).html();
-	        var fec = $(this).find('td').eq(2).html();
-	        var est = $(this).find('td').eq(3).find('span').html();
-	        $("#txtNumero").val(num);
-		    $("#txtNombrePrueba").val(nom);
-		    $("#txtFecha").val(fec);
-		    $("#txtEstado").val(est);	*/
-	   }
-	);
+		function listarclientes(){
+			var nomcli= $("#NombreCli").val();
+			var doccli= $("#DocumentoCli").val();
+			var nomrepcli= $("#NombreRepresentanteCli").val();
+			var aperepcli= $("#ApellidoRepresentanteCli").val();
+			
+			$.get('SvCC_Solicitud',{nusuario:nomcli,ndoccli:doccli,nnomrepcli:nomrepcli,naperepcli:aperepcli},function(responselist){
+				$('#table-cli').html(responselist);
+			});
+		}
+	  
 	
 	</script>
 </body>

@@ -144,7 +144,8 @@
 														<label class="col-sm-3 control-label no-padding-right">Tipo:</label> 													
 														<input class="col-sm-4" type="text" name="txtTipo" id="txtTipo" readonly="readonly" value="${requestScope.solicitud.tipodoc.desTipoDoc}"/>
 														
-														<label class="col-sm-2" > <a href="#modal-documento" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px;">
+														<label class="col-sm-2"  style="display: ${requestScope.solicitud.idSolicitud eq null ? 'none': 'inline'};"> 
+														<a href="#modal-documento" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px;">
 																<i class="icon-search"></i> Ver Documento
 														</a>
 													</label>
@@ -156,7 +157,7 @@
 													<fieldset>
 														<label class="col-sm-3"  style="display: ${requestScope.solicitud.ruc eq '' ? 'none' : 'inline'};">R.U.C.:</label> 
 														<input class="col-sm-4" type="text" name="txtRUC" id="txtRUC" readonly="readonly" value="${requestScope.solicitud.ruc}" style="display: ${requestScope.solicitud.ruc eq '' ? 'none' : 'inline'};"/>
-													<label class="col-sm-2" style="display: ${requestScope.solicitud.ruc eq '' ? 'none' : 'inline'};"> <a href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 195px;padding-left: 3px;padding-right: 4px;" >
+													<label class="col-sm-2" style="display: ${requestScope.solicitud.ruc eq '' or requestScope.solicitud.idSolicitud eq null ? 'none' : 'inline'};"> <a href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 195px;padding-left: 3px;padding-right: 4px;" >
 																<i class="icon-search"></i> Ver Vigencia de Poder
 														</a>
 														</label>
@@ -260,7 +261,8 @@
 												
 													<fieldset>
 														<label class="col-sm-7 control-label no-padding-right">Partida Registral de Inscripción<br>y Copia Simple de Escritura Pública<br> de Compra-Venta</label> 													
-														<label class="col-sm-2" > <a id="lnkPartida" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 10px;">
+														<label class="col-sm-2" style="display: ${requestScope.solicitud.idSolicitud eq null ? 'none': 'inline'};"> 
+														<a id="lnkPartida" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 10px;">
 																<i class="icon-search"></i> Ver Documento
 														</a>
 														</label>
@@ -270,7 +272,8 @@
 												
 													<fieldset>
 														<label class="col-sm-7 control-label no-padding-right">Memoria descriptiva firmada<br>por un Ing. Sanitario</label> 													
-														<label class="col-sm-2" > <a id="lnkMemoria" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 2px;">
+														<label class="col-sm-2" style="display: ${requestScope.solicitud.idSolicitud eq null ? 'none': 'inline'};"> 
+														<a id="lnkMemoria" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 2px;">
 																<i class="icon-search"></i> Ver Documento
 														</a>
 														</label>
@@ -280,7 +283,8 @@
 												
 													<fieldset>
 														<label class="col-sm-7 control-label no-padding-right">Plano de instalaciones sanitarias<br>firmado por un Ing. Sanitario</label> 													
-														<label class="col-sm-2" > <a id="lnkPlanoInstalaciones" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 5px;">
+														<label class="col-sm-2" style="display: ${requestScope.solicitud.idSolicitud eq null ? 'none': 'inline'};"> 
+														<a id="lnkPlanoInstalaciones" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 5px;">
 																<i class="icon-search"></i> Ver Documento
 														</a>
 														</label>
@@ -290,7 +294,8 @@
 												
 													<fieldset>
 														<label class="col-sm-7 control-label no-padding-right">Recibo Suministro vecino</label> 													
-														<label class="col-sm-2" > <a id="lnkReciboVecino" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 0px;">
+														<label class="col-sm-2" style="display: ${requestScope.solicitud.idSolicitud eq null ? 'none': 'inline'};"> 
+														<a id="lnkReciboVecino" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 0px;">
 																<i class="icon-search"></i> Ver Documento
 														</a>
 														</label>
@@ -300,7 +305,8 @@
 												
 													<fieldset>
 														<label class="col-sm-7 control-label no-padding-right">Plano de ubicacion o<br>croquis del predio</label> 													
-														<label class="col-sm-2" > <a id="lnkPlanoUbicacion" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 5px;">
+														<label class="col-sm-2" style="display: ${requestScope.solicitud.idSolicitud eq null ? 'none': 'inline'};"> 
+														<a id="lnkPlanoUbicacion" href="#" class="btn btn-info" data-toggle="modal" style="height: 32px;padding-top: 0px;width: 153px;padding-left: 7px;padding-right: 4px; top: 5px;">
 																<i class="icon-search"></i> Ver Documento
 														</a>
 														</label>
@@ -318,7 +324,7 @@
 						
 						
 						
-							<button class="btn btn-success" type="button" id="btnAprobar">
+							<button class="btn btn-success" type="button" id="btnAprobar" ${requestScope.solicitud.idSolicitud eq null ? 'disabled="disabled"': '' }>
 								<i class="icon-thumbs-up bigger-110"></i>
 								Aprobar
 							</button>
@@ -326,7 +332,7 @@
 
 							&nbsp; &nbsp; &nbsp;
 							
-							<button class="btn btn-danger" type="button" id="btnRechazar">
+							<button class="btn btn-danger" type="button" id="btnRechazar" ${requestScope.solicitud.idSolicitud eq null ? 'disabled="disabled"': '' }>
 								<i class="icon-thumbs-down bigger-110"></i>
 								Rechazar
 							</button>
@@ -473,21 +479,13 @@
 	<script type="text/javascript">
 	<!-- RENZO-->
 	$(document).ready(function () {
+		
 		var cant = $('#sample-table-1 >tbody >tr').length;
 		$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
 		
 	    $("tr").click(function () {
 	        $(this).closest("tr").siblings().removeClass("highlighted");
 	        $(this).toggleClass("highlighted");
-	       /* 
-	        var num = $(this).find('td').eq(0).html();
-	        var nom = $(this).find('td').eq(1).html();
-	        var fec = $(this).find('td').eq(2).html();
-	        var est = $(this).find('td').eq(3).find('span').html();
-	        $("#txtNumero").val(num);
-		    $("#txtNombrePrueba").val(nom);
-		    $("#txtFecha").val(fec);
-		    $("#txtEstado").val(est);	*/
 	    });
 	    
 	    $( "#btnAprobar" ).on('click', function(e) {
