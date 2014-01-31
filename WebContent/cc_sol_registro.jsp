@@ -97,18 +97,27 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- Script que llamar al servlet y redibuja la tabla para buscar cliente -->
 <script>
-// 	$(document).ready(function(){
-// 		$("#btnBuscar").click(
-// 				function(){
-// 					var usuario= $("#NombreCli").val();
-// 					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
-// 						$('#table-cli').html(responselist);
-// 					});
-// 				}
-// 			);
+	$(document).ready(function(){
+		$("#btnBuscar").click(
+				function(){
+					var usuario= $("#NombreCli").val();
+					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
+						$('#table-cli').html(responselist);
+					});
+				}
+			);
 		
-// 		}
-// 	);
+		}
+	);
+
+
+</script>
+
+<script type="text/javascript">
+// YA TIENE EL PARAMETRO, NECESITO ENVIARLO AL SERVLET PARA QUE MUESTRE LA INFO DE ESE CLIENTE CON SUS SUMINISTROS EN EL COMBOBOX
+var cliente = ${param.idCliente};
+
+
 
 
 </script>
@@ -828,7 +837,7 @@
 
 							</div>
 
-							<div id="modal-form" class="modal" tabindex="-1">
+							<div id="modal-form" class="modal" tabindex="-1" style="min-width: 800px;">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -877,7 +886,7 @@
 																<i class="icon-table"></i> Lista de Clientes
 															</h5>
 														</div>
-														<div id="table-cli" class="table-responsive" style="overflow:scroll;max-height: 570px;">
+														<div id="table-cli" class="table-responsive" style="overflow:scroll;max-height: 670px;">
 															<table id="defefef" class="table table-bordered"  style="margin-bottom: 0px;">
 																<thead>
 																	<tr>

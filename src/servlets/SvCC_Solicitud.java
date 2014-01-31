@@ -94,9 +94,10 @@ public class SvCC_Solicitud extends ServletParent {
 			out.print("<table id=\"sample-table-1\" class=\"table table-bordered \" style=\"margin-bottom: 0px;\">");
 			out.print("<thead>");
 			out.print("	<tr>");
+					out.print("<th width=\"100\" style=\"font-size: 11px;\">Seleccion</th>");
 					out.print("<th width=\"100\" style=\"font-size: 11px;\">ID</th>");
 					out.print("<th width=\"100\" style=\"font-size: 11px;\">num Documento</th>");
-					out.print("<th width=\"100\" style=\"font-size: 11px;\">nom Cliente</th>");
+					out.print("<th width=\"200\" style=\"font-size: 11px;\">nom Cliente</th>");
 					out.print("<th width=\"100\" style=\"font-size: 11px;\">nom Representante</th>");
 					out.print("<th width=\"100\" style=\"font-size: 11px;\">apellido Representante</th>");
 //					out.print("<th width=\"100\" style=\"font-size: 11px;\">moduloReportes</th>");
@@ -113,6 +114,7 @@ public class SvCC_Solicitud extends ServletParent {
 				for (int i = 0; i < lista.size(); i++) {
 					cliente = lista.get(i);
 					out.print("<tr>");
+					out.print("<td> <a href=\"cc_sol_registro.jsp?idCliente="+cliente.getIdCliente() + " \">Seleccionar </a> </td>");
 					out.print("<td> "+cliente.getIdCliente() + "</td>");
 					out.print("<td> "+cliente.getNumDocCliente() + "</td>");
 					out.print("<td> "+cliente.getNomCliente() + "</td>");
