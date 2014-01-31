@@ -36,19 +36,46 @@ public class SvCC_Solicitud extends ServletParent {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		procesarRequest(request,response);
+		
+		String proceso = request.getParameter("proceso");
+		
+		if (proceso.equals("listar")) {
+			listarClientes(request,response);
+		}else if(proceso.equals("buscarCliente")){
+			String codCli= request.getParameter("idCliente");
+			int codigo=-1;
+			System.out.println("Cliente seleccionado en el metodo get"+codCli);
+			try {
+				codigo = Integer.parseInt(codCli);
+			} catch (Exception e) {
+				codigo=-1;
+			}
+			cargarCliente(codigo);
+			
+		}
+//		
+		
+		
 	}
 
 
+
+	private void cargarCliente(int codigo) {
+		
+		
+		
+		
+		
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		procesarRequest(request,response);
+		listarClientes(request,response);
 	}
 	
-	private void procesarRequest(HttpServletRequest request,
+	private void listarClientes(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 			
 		try {
@@ -114,7 +141,7 @@ public class SvCC_Solicitud extends ServletParent {
 				for (int i = 0; i < lista.size(); i++) {
 					cliente = lista.get(i);
 					out.print("<tr>");
-					out.print("<td> <a href=\"cc_sol_registro.jsp?idCliente="+cliente.getIdCliente() + " \">Seleccionar </a> </td>");
+					out.print("<td> <a href=\"SvCC_Solicitud?proceso=buscarCliente&idCliente="+cliente.getIdCliente() + " \">Seleccionar </a> </td>");
 					out.print("<td> "+cliente.getIdCliente() + "</td>");
 					out.print("<td> "+cliente.getNumDocCliente() + "</td>");
 					out.print("<td> "+cliente.getNomCliente() + "</td>");

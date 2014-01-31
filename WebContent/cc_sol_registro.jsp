@@ -95,23 +95,7 @@
 <style type="text/css"></style>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- Script que llamar al servlet y redibuja la tabla para buscar cliente -->
-<script>
-	$(document).ready(function(){
-		$("#btnBuscar").click(
-				function(){
-					var usuario= $("#NombreCli").val();
-					$.get('SvCC_Solicitud',{nusuario:usuario},function(responselist){
-						$('#table-cli').html(responselist);
-					});
-				}
-			);
-		
-		}
-	);
 
-
-</script>
 
 <script type="text/javascript">
 // YA TIENE EL PARAMETRO, NECESITO ENVIARLO AL SERVLET PARA QUE MUESTRE LA INFO DE ESE CLIENTE CON SUS SUMINISTROS EN EL COMBOBOX
@@ -1431,6 +1415,23 @@ var cliente = ${param.idCliente};
 		style="top: 447px; left: 980px; display: none;">
 		<div class="tooltip-inner">social networks : 38.7%</div>
 	</div>
+	<!-- Script que llamar al servlet y redibuja la tabla para buscar cliente -->
+		<script>
+			$(document).ready(function(){
+				$("#btnBuscar").click(
+						function(){
+							var usuario= $("#NombreCli").val();
+							$.get('SvCC_Solicitud',{nusuario:usuario,proceso:"listar"},function(responselist){
+								$('#table-cli').html(responselist);
+							});
+						}
+					);
+				
+				}
+			);
+		
+		
+		</script>
 	
 		<script type="text/javascript">
 	<!-- RENZO-->
@@ -1443,7 +1444,7 @@ var cliente = ${param.idCliente};
 			var nomrepcli= $("#NombreRepresentanteCli").val();
 			var aperepcli= $("#ApellidoRepresentanteCli").val();
 			
-			$.get('SvCC_Solicitud',{nusuario:nomcli,ndoccli:doccli,nnomrepcli:nomrepcli,naperepcli:aperepcli},function(responselist){
+			$.get('SvCC_Solicitud',{nusuario:nomcli,ndoccli:doccli,nnomrepcli:nomrepcli,naperepcli:aperepcli,proceso:"listar"},function(responselist){
 				$('#table-cli').html(responselist);
 			});
 		}
