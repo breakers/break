@@ -37,6 +37,11 @@ INSERT INTO tb_perfil VALUES(null,'Administrador',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Tecnico',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Cajero',1,1,1,1,1,1,1,1,1);
 INSERT INTO tb_perfil VALUES(null,'Perfil_Prueba',1,0,1,0,1,1,0,0,1);
+INSERT INTO tb_perfil VALUES(null,'Gerencia',1,1,0,1,0,0,0,1,0);
+INSERT INTO tb_perfil VALUES(null,'R.R.H.H',1,0,0,0,1,1,0,0,0);
+INSERT INTO tb_perfil VALUES(null,'A.Contable',0,0,1,0,0,0,0,1,1);
+INSERT INTO tb_perfil VALUES(null,'Cliente',1,0,1,0,0,0,0,1,1);
+
 
 /*Datos en Usuarios*/
 INSERT INTO tb_usuario VALUES(null,1,'lysander','root','Felix','Apaza','Arroyo','43836055','gato@gato.com','519999999' );
@@ -204,6 +209,42 @@ INSERT INTO tb_calle VALUES(null,'Consuelo',1,2,7);
 INSERT INTO tb_calle VALUES(null,'Virgen del Pilar',1,2,29); /*CALLE DE SEDAPAR*/
 INSERT INTO tb_calle VALUES(null,'La Merced',1,2,7); /*CALLE DE caja municipal*/
 INSERT INTO tb_calle VALUES(null,'Santa Catalina',1,2,7); /*CALLE DE Monasterio Santa Catalina*/
+INSERT INTO tb_calle VALUES(null,'San Agustin',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Moral',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Ugarte',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Villaliba',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Calle Sucre',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Chili',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Cruz Verde',1,2,7);
+INSERT INTO tb_calle VALUES(null,'La Merced',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Rivero',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Pinos',1,2,7);
+INSERT INTO tb_calle VALUES(null,'San Camilo',1,2,7);
+INSERT INTO tb_calle VALUES(null,'San Franz',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Lirias',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Otero',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Union',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Olimpica',1,2,7);
+INSERT INTO tb_calle VALUES(null,'San Juan',1,2,7);
+INSERT INTO tb_calle VALUES(null,'San Martin',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Santa Tereza',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Ibanez',1,2,7);
+INSERT INTO tb_calle VALUES(null,'El Sol',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Belen',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Jerusalen',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Ismael',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Isaac',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Mesias',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Josue',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Sinai',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Iberico',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Nazaret',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Ezequiel',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Esau',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Damasco',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Ponse',1,2,7);
+INSERT INTO tb_calle VALUES(null,'Olimpia',1,2,7);
+
 
 /*Datos Estado Solicitud Nueva Conexión*/
 INSERT INTO tb_tipoDoc VALUES(null,'DNI');
