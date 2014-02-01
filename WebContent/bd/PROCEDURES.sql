@@ -425,3 +425,45 @@ INNER JOIN tb_categoria cat on s.idCategoria = cat.idCategoria
 
 WHERE c.idCliente = VidCliente;
 END $
+
+
+DELIMITER $
+
+CREATE PROCEDURE usp_listarSuministrosPorCliente(
+VidCliente int
+)
+BEGIN
+	SELECT idSuministro,codSuministro from tb_suministro where idCliente = VidCliente;
+END $
+
+DELIMITER $
+
+CREATE PROCEDURE usp_mostrarDatosSuministro(
+VidCliente int,
+VidSuministro int
+)
+BEGIN
+SELECT 
+concat(cal.nombre,p.numPredio),
+loc.nombre,
+dis.nombre,
+ep.desEstadoPredio,
+tp.desTipoPredio,
+dc.desDiametroConexion,
+cat.desCategoria
+
+FROM tb_cliente c 
+INNER JOIN tb_suministro s on c.idCliente = s.idCliente
+INNER JOIN tb_contrato con on con.idCliente = c.idCliente
+
+INNER JOIN tb_predio p on s.idPredio = p.idPredio
+INNER JOIN tb_calle as cal on p.id_calle = cal.id_calle
+INNER JOIN tb_localidad as loc on p.id_localidad = loc.id_loc
+INNER JOIN tb_distrito as dis on p.id_distrito = dis.id_dis
+INNER JOIN tb_estadopredio as ep on p.idEstadoPredio = ep.idEstadoPredio
+INNER JOIN tb_tipopredio as tp on p.idTipoPredio = tp.idTipoPredio
+INNER JOIN tb_diametroconexion as dc on dc.idDiametroConexion = con.idDiametroConexion
+INNER JOIN tb_categoria cat on s.idCategoria = cat.idCategoria
+
+WHERE c.idCliente = VidCliente;
+END $

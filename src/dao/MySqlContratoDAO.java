@@ -11,6 +11,7 @@ import util.MySQL;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
 import bean.FiltroClienteDTO;
+import bean.SuministroDTO;
 import interfaces.ContratoDAO;
 
 public class MySqlContratoDAO implements ContratoDAO{
@@ -479,7 +480,32 @@ public class MySqlContratoDAO implements ContratoDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return cliente;
+	}
+
+	@Override
+	public ArrayList<SuministroDTO> listarSuministrosPorCliente(int idCliente) {
+		ArrayList<SuministroDTO> suministros = new ArrayList<SuministroDTO>();
+		try {
+			Connection cn = MySQL.getConnection();
+			String sql = "call usp_listarSuministrosPorCliente(?)";
+			PreparedStatement pst =  cn.prepareStatement(sql);
+			pst.setInt(1, idCliente);
+			ResultSet rs = pst.executeQuery();
+				if(rs.next()){
+					SuministroDTO sum = new SuministroDTO();
+					sum.setIdSuministro(rs.getInt(1));
+					sum.setCodSuministro(rs.getString(2));
+					suministros.add(sum);
+				}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return suministros;
 	}
 
 

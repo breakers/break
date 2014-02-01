@@ -675,15 +675,10 @@ var cliente = ${param.idCliente};
 													<select id="cboSuministro" name="cboSuministro" class="chosen-select col-xs-10 col-sm-11"
 														data-placeholder="Choose a Suministro..." >
 															<option value="">--------</option>
-															<c:forEach var="contrato" items="${requestScope.contratos}">
-																<option value="${contrato.idContrato}"> ${contrato.codSuministro}</option>
+															<c:forEach var="suministros" items="${requestScope.cliente.suministros}">
+																<option value="${suministros.idSuministro}"> ${suministros.codSuministro}</option>
 															
 															</c:forEach>
-<!-- 															<option value="1026458487">1026458487</option> -->
-<!-- 															<option value="3026458475">3026458475</option> -->
-<!-- 															<option value="6026454632">6026454632</option> -->
-<!-- 															<option value="6526458654">6526458654</option> -->
-
 													</select>
 													</label>
 
@@ -730,45 +725,45 @@ var cliente = ${param.idCliente};
 											<form action="">
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Direccion</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.direccion}"
 														placeholder="Direccion" readonly="true" id="txtDireccion" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Localidad</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.nomLocalidad}"
 														placeholder="Localidad" readonly="true" id="txtLocalidad" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Distrito</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.nomDistrito}"
 														placeholder="Distrito" readonly="true" id="txtDistrito" />
 
 												</fieldset>
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Estado</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.desEstadoPredio}"
 														placeholder="Estado Predio" readonly="true" id="txtEstado" />
 
 												</fieldset>
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Tipo</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.desTipoPredio}"
 														placeholder="Tipo de Vivienda" readonly="true" id="txtTipo" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Diametro</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.contrato.desDiametroConexion}"
 														placeholder="Diametro de Tuberia" readonly="true" id="txtDiametro" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Categoria</label>
-													<input class="col-xs-10 col-sm-5" type="text"
+													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.desCategoria}"
 														placeholder="Categoria actual" readonly="true" id="txtCategoria" />
 
 												</fieldset>

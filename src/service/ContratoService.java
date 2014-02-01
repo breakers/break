@@ -9,6 +9,7 @@ import dao.DAOFactory;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
 import bean.FiltroClienteDTO;
+import bean.SuministroDTO;
 
 public class ContratoService{
 	
@@ -45,6 +46,10 @@ public class ContratoService{
 
 	public ClienteDTO mostrarDatosCliente(int idCliente) {
 		return contrato.mostrarDatosCliente(idCliente);
+	}
+
+	public ArrayList<SuministroDTO> listarSuministrosPorCliente(int idCliente) {
+		return contrato.listarSuministrosPorCliente(idCliente);
 	}
 
 }

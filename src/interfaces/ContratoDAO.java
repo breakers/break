@@ -6,6 +6,7 @@ import java.util.List;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
 import bean.FiltroClienteDTO;
+import bean.SuministroDTO;
 
 public interface ContratoDAO {
 	
@@ -26,5 +27,7 @@ public interface ContratoDAO {
 	public ArrayList<ClienteDTO> filtrarClientes(FiltroClienteDTO filtrocliente);
 
 	public ClienteDTO mostrarDatosCliente(int idCliente);
+
+	public ArrayList<SuministroDTO> listarSuministrosPorCliente(int idCliente);
 
 }

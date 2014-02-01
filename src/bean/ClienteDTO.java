@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.ArrayList;
+
 public class ClienteDTO {
 	
 	private int idCliente;
@@ -18,6 +20,9 @@ public class ClienteDTO {
     private PredioDTO predio = new PredioDTO();
     
     private ContratoDTO contrato = new ContratoDTO();
+    
+    
+    private ArrayList<SuministroDTO> suministros = new ArrayList<SuministroDTO>();
     
     
 	public int getIdCliente() {
@@ -103,6 +108,12 @@ public class ClienteDTO {
 	}
 	public void setContrato(ContratoDTO contrato) {
 		this.contrato = contrato;
+	}
+	public ArrayList<SuministroDTO> getSuministros() {
+		return suministros;
+	}
+	public void setSuministros(ArrayList<SuministroDTO> suministros) {
+		this.suministros = suministros;
 	}
 	
 	

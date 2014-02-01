@@ -332,6 +332,7 @@ public class SvCC_Solicitud extends ServletParent {
 		int idCliente = Integer.parseInt(request.getParameter("idCliente"));
 		
 		ClienteDTO cliente = serviciocon.mostrarDatosCliente(idCliente);
+		cliente.setSuministros(serviciocon.listarSuministrosPorCliente(cliente.getIdCliente()));
 		request.setAttribute("cliente", cliente);
 		request.getRequestDispatcher("/cc_sol_registro.jsp").forward(request, response);
 		

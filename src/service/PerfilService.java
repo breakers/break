@@ -2,10 +2,12 @@ package service;
 
 import interfaces.PerfilDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.DAOFactory;
 import bean.PerfilDTO;
+import bean.SuministroDTO;
 
 
 public class PerfilService {
@@ -36,5 +38,6 @@ public class PerfilService {
 	public int ultimoPerfil(){
 		return perfildao.ultimoPerfil();
 	}
+
 
 }
