@@ -257,7 +257,7 @@ create table tb_Boleta(
 	idBoleta int primary key auto_increment,
 	montoPagado decimal(5,2),
 	idUsuario int references tb_usuario,
-	idCliente int references tb_cliente,
+	idCliente int references tb_cliente
 );
 
 
