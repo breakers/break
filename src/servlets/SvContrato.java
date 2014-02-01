@@ -13,12 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.SolicitudNuevaConexionDTO;
 import service.Con_SolicitudService;
+import service.ContratoService;
 
 @WebServlet("/SvContrato")
 public class SvContrato extends ServletParent {
 	private static final long serialVersionUID = 1L;
 	
-	Con_SolicitudService servicioSolicitud= new Con_SolicitudService();  
+	Con_SolicitudService servicioSolicitud= new Con_SolicitudService(); 
+	ContratoService servicioContrato = new ContratoService();
 	
     public SvContrato() {
         super();
@@ -28,7 +30,13 @@ public class SvContrato extends ServletParent {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	if(request.getParameter("generar")!=null){
     		int idSolicitud = Integer.parseInt(request.getParameter("id"));
-    		System.out.println("Se procederá a generar el contrato para la solicitud: " + idSolicitud);    		
+    		int idUsuario = Integer.parseInt(request.getSession().getAttribute("iduser").toString());
+    		System.out.println("Se procederá a generar el contrato para la solicitud: " + idSolicitud);
+    		if(servicioContrato.generarContrato(idUsuario,idSolicitud)){
+    			request.getSession().setAttribute("evento", 1);
+    			request.getSession().setAttribute("mensaje", obtenerMensaje(request,6,"Contrato"));
+    		}
+    		
     	}
 	}
     

@@ -19,4 +19,6 @@ public interface ContratoDAO {
 	
 	public ContratoDTO obtenerContrato(int idContrato);
 
+	public boolean generarContrato(int idUsuario, int idSolicitud);
+
 }

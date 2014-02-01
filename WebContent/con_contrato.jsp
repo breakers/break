@@ -1,6 +1,7 @@
 <%@ include file="contenido_head.jsp"%>
 <% request.getSession().setAttribute("pagina", "con_contrato"); %>
 <link rel="stylesheet" href="css/assets/jquery-ui-1.10.3.full.min.css" />
+<link rel="stylesheet" href="css/jquery.gritter.css">
 <div class="main-container" id="main-container">
 	<script type="text/javascript">
 		try {
@@ -291,9 +292,6 @@
 															</h5>
 														</div>
 														<jsp:include page="tbCuotas.jsp"></jsp:include>
-														
-													
-													
 													</div>
 													
 
@@ -411,9 +409,21 @@
 	
 	<script src="js/jquery-ui-1.10.3.full.min.js"></script>
 	<script src="js/jjquery.ui.touch-punch.min.js"></script>
+	<script src="js/jquery.gritter.min.js"></script>
 	<script type="text/javascript">
 	<!-- RENZO-->
 	$(document).ready(function () {
+		
+		 if("${sessionScope.evento}"==1){
+	 			<% sesion.setAttribute("evento", 0); %>
+	 			$.gritter.add({
+					title: "${sessionScope.mensaje.tituloMensajeAlerta}",
+					text: "${sessionScope.mensaje.cuerpoMensajeAlerta}",
+					image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
+					time: 2000,
+					class_name: 'gritter-light gritter-info'
+				});	
+	 		}
 		
 		var monto = $("#txtMonto").val();
 	    var cuot = 1;

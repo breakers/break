@@ -32,6 +32,7 @@ public class SvNuevaConexion extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int tipoPersona = Integer.parseInt(request.getParameter("tipoPersona"));
 		String razonsocial = (String) request.getParameter("razonsocial");
 		String ruc = (String) request.getParameter("ruc");
 		String url = (String) request.getParameter("url");
@@ -59,6 +60,7 @@ public class SvNuevaConexion extends HttpServlet {
 		String fileDocSolicitante = request.getParameter("fileDocSolicitante");
 		
 		SolicitudNuevaConexionDTO solicitud = new SolicitudNuevaConexionDTO();
+		solicitud.setTipoPersona(tipoPersona);
 		solicitud.setRazonsocial(razonsocial);
 		solicitud.setRuc(ruc);
 		solicitud.setUrl(url);

@@ -33,4 +33,8 @@ public class ContratoService{
 		return contrato.obtenerContrato(idContrato);
 	}
 
+	public boolean generarContrato(int idUsuario, int idSolicitud) {
+		return contrato.generarContrato(idUsuario,idSolicitud);
+	}
+
 }

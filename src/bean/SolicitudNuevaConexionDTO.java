@@ -3,6 +3,7 @@ package bean;
 public class SolicitudNuevaConexionDTO {
 
 	private int idSolicitud;
+	private int tipoPersona;
 	private String fechaSolicitud;
     private String razonsocial = "";
     private String ruc = "";
@@ -335,6 +336,12 @@ public class SolicitudNuevaConexionDTO {
 				+ filePlanoInstalaciones + ", tipodoc=" + tipodoc
 				+ ", estpredio=" + estpredio + ", tipopredio=" + tipopredio
 				+ ", diamcon=" + diamcon + "]";
+	}
+	public int getTipoPersona() {
+		return tipoPersona;
+	}
+	public void setTipoPersona(int tipoPersona) {
+		this.tipoPersona = tipoPersona;
 	}
 	
 	

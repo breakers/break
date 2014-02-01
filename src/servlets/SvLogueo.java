@@ -75,6 +75,7 @@ public class SvLogueo extends ServletParent {
 		sesion.setAttribute("desPerfil", profile.getDesPerfil());
 		sesion.setAttribute("usuario", usuario.getUserUsuario());
 		sesion.setAttribute("nombreCompleto", usuario.getNomUsuario()+" "+usuario.getApepaUsuario());
+		sesion.setAttribute("iduser", usuario.getIdUsuario());
 		sesion.setAttribute("foto", usuario.getIdUsuario());
 		sesion.setAttribute("tipo", usuario.getIdPerfil());
 		sesion.setAttribute("evento", 1);

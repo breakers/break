@@ -383,6 +383,28 @@ public class MySqlContratoDAO implements ContratoDAO{
 		return contrato;
 	}
 
+	@Override
+	public boolean generarContrato(int idUsuario, int idSolicitud) {
+		boolean estadoContrato = false;
+			
+			try {
+				Connection cn = MySQL.getConnection();
+				String sql = "call usp_generarContrato(?,?)";
+				PreparedStatement pst;
+				pst = cn.prepareStatement(sql);
+				pst.setInt(1, idUsuario);
+				pst.setInt(2, idSolicitud);
+				pst.executeUpdate();
+				estadoContrato = true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				estadoContrato = false;
+			}
+			
+			return estadoContrato;
+			
+	}
+
 
 
 }
