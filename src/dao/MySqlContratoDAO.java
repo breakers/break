@@ -467,13 +467,7 @@ public class MySqlContratoDAO implements ContratoDAO{
 					cliente.setRucCliente(rs.getString(3));
 					cliente.setNomCliente(rs.getString(4));
 					cliente.getTipodoc().setDesTipoDoc(rs.getString(5));
-					cliente.getPredio().setDireccion(rs.getString(6));
-					cliente.getPredio().setNomLocalidad(rs.getString(7));
-					cliente.getPredio().setNomDistrito(rs.getString(8));
-					cliente.getPredio().setDesEstadoPredio(rs.getString(9));
-					cliente.getPredio().setDesTipoPredio(rs.getString(10));
-					cliente.getContrato().setDesDiametroConexion(rs.getString(11));
-					cliente.getPredio().setDesCategoria(rs.getString(12));
+					
 				}
 			
 			
@@ -506,6 +500,34 @@ public class MySqlContratoDAO implements ContratoDAO{
 		}
 		
 		return suministros;
+	}
+
+	@Override
+	public SuministroDTO mostrarDatosSuministro(int idSuministro) {
+		SuministroDTO suministro = new SuministroDTO();
+		try {
+			Connection cn = MySQL.getConnection();
+			String sql = "call usp_mostrarDatosSuministro(?)";
+			PreparedStatement pst =  cn.prepareStatement(sql);
+			pst.setInt(1, idSuministro);
+			ResultSet rs = pst.executeQuery();
+				if(rs.next()){
+					suministro.getPredio().setDireccion(rs.getString(1));
+					suministro.getPredio().setNomLocalidad(rs.getString(2));
+					suministro.getPredio().setNomDistrito(rs.getString(3));
+					suministro.getPredio().setDesEstadoPredio(rs.getString(4));
+					suministro.getPredio().setDesTipoPredio(rs.getString(5));
+					suministro.getPredio().getDiametro().setDesDiametroConexion(rs.getString(6));
+					suministro.getPredio().getContrato().setNomCategoria(rs.getString(7));
+					
+				}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return suministro;
 	}
 
 

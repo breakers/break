@@ -494,7 +494,7 @@
 
 							<li><a href="SvReportes"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Edc" />
+										key="label.EstSolicitudes" />
 							</a></li>
 
 						</ul></li>

@@ -29,6 +29,10 @@ public class PredioDTO {
     
     private String direccion;
     
+    private DiametroConexionDTO diametro = new DiametroConexionDTO();
+    
+    private ContratoDTO contrato = new ContratoDTO();
+    
     public PredioDTO() {
     	
 	}
@@ -191,6 +195,22 @@ public class PredioDTO {
 
 	public void setDesCategoria(String desCategoria) {
 		this.desCategoria = desCategoria;
+	}
+
+	public DiametroConexionDTO getDiametro() {
+		return diametro;
+	}
+
+	public void setDiametro(DiametroConexionDTO diametro) {
+		this.diametro = diametro;
+	}
+
+	public ContratoDTO getContrato() {
+		return contrato;
+	}
+
+	public void setContrato(ContratoDTO contrato) {
+		this.contrato = contrato;
 	}
     
     

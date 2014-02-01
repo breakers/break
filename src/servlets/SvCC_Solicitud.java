@@ -20,6 +20,7 @@ import bean.ContratoDTO;
 import bean.FiltroClienteDTO;
 import bean.PerfilDTO;
 import bean.PredioDTO;
+import bean.SuministroDTO;
 
 /**
  * Servlet implementation class SvCC_Solicitud
@@ -65,7 +66,27 @@ public class SvCC_Solicitud extends ServletParent {
 		}else if(proceso.equals("mostrarDatos")){
 			mostrarDatosCliente(request,response);
 			
-		}	
+		}else if(proceso.equals("mostrarDatosSuministro")){
+			System.out.println("suministro");
+			int idSuministro = Integer.parseInt(request.getParameter("idSuministro"));
+			SuministroDTO datosSuministro = serviciocon.mostrarDatosSuministro(idSuministro);
+			
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+             String datos="";
+             
+             datos+=datosSuministro.getPredio().getDireccion()+"-"; //direccion :calle +num
+             datos+=datosSuministro.getPredio().getNomLocalidad()+"-";
+             datos+=datosSuministro.getPredio().getNomDistrito()+"-";
+             datos+=datosSuministro.getPredio().getDesEstadoPredio()+"-";
+             datos+=datosSuministro.getPredio().getDesTipoPredio()+"-";
+             
+             datos+=datosSuministro.getPredio().getDiametro().getDesDiametroConexion()+"-";
+             datos+=datosSuministro.getPredio().getContrato().getNomCategoria()+"-";
+             
+             
+        	out.println(datos);
+		}
 		
 //		else if(proceso.equals("direccion")){
 //			String codContrato= request.getParameter("idContrato");

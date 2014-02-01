@@ -3,6 +3,10 @@ package bean;
 public class SuministroDTO {
 	private int idSuministro;
 	private String codSuministro;
+	
+	
+	private PredioDTO predio = new PredioDTO();
+	
 	public String getCodSuministro() {
 		return codSuministro;
 	}
@@ -14,5 +18,11 @@ public class SuministroDTO {
 	}
 	public void setIdSuministro(int idSuministro) {
 		this.idSuministro = idSuministro;
+	}
+	public PredioDTO getPredio() {
+		return predio;
+	}
+	public void setPredio(PredioDTO predio) {
+		this.predio = predio;
 	}
 }

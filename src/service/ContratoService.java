@@ -52,4 +52,8 @@ public class ContratoService{
 		return contrato.listarSuministrosPorCliente(idCliente);
 	}
 
+	public SuministroDTO mostrarDatosSuministro(int idSuministro) {
+		return contrato.mostrarDatosSuministro(idSuministro);
+	}
+
 }

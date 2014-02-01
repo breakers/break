@@ -527,9 +527,9 @@ var cliente = ${param.idCliente};
 										key="label.Sc" />
 							</a></li>
 
-							<li><a href="rep_estadistica.jsp"> <i
+							<li><a href="SvReportes"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Edc" />
+										key="label.EstSolicitudes" />
 							</a></li>
 
 						</ul></li>
@@ -721,49 +721,49 @@ var cliente = ${param.idCliente};
 											<h4>Datos del Suministro</h4>
 										</div>
 
-										<div class="widget-main no-padding" >
+										<div class="widget-main no-padding" id="divSuministro" >
 											<form action="">
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Direccion</label>
-													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.direccion}"
+													<input class="col-xs-10 col-sm-5" type="text" value=""
 														placeholder="Direccion" readonly="true" id="txtDireccion" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Localidad</label>
-													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.nomLocalidad}"
+													<input class="col-xs-10 col-sm-5" type="text" value=""
 														placeholder="Localidad" readonly="true" id="txtLocalidad" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Distrito</label>
-													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.nomDistrito}"
+													<input class="col-xs-10 col-sm-5" type="text" value=""
 														placeholder="Distrito" readonly="true" id="txtDistrito" />
 
 												</fieldset>
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Estado</label>
-													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.desEstadoPredio}"
+													<input class="col-xs-10 col-sm-5" type="text" value=""
 														placeholder="Estado Predio" readonly="true" id="txtEstado" />
 
 												</fieldset>
 
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Tipo</label>
-													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.desTipoPredio}"
+													<input class="col-xs-10 col-sm-5" type="text" value=""
 														placeholder="Tipo de Vivienda" readonly="true" id="txtTipo" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Diametro</label>
-													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.contrato.desDiametroConexion}"
+													<input class="col-xs-10 col-sm-5" type="text" value=""
 														placeholder="Diametro de Tuberia" readonly="true" id="txtDiametro" />
 
 												</fieldset>
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Categoria</label>
-													<input class="col-xs-10 col-sm-5" type="text" value="${requestScope.cliente.predio.desCategoria}"
+													<input class="col-xs-10 col-sm-5" type="text" value=""
 														placeholder="Categoria actual" readonly="true" id="txtCategoria" />
 
 												</fieldset>
@@ -1060,8 +1060,9 @@ var cliente = ${param.idCliente};
 			});
 			//FELIX
 			$("#cboSuministro").change(function(){
-				var idContra = this.value;
-		        $.get("SvCC_Solicitud", { idContrato:idContra, proceso:"direccion" },
+					
+				var idSuministro = $("#cboSuministro").val();
+		        $.get("SvCC_Solicitud", { idSuministro:idSuministro, proceso:"mostrarDatosSuministro" },
 		            function(response){
 		        	
 		        	var cadena = response.split("-");
@@ -1418,6 +1419,8 @@ var cliente = ${param.idCliente};
 	<!-- Script que llamar al servlet y redibuja la tabla para buscar cliente -->
 		<script>
 			$(document).ready(function(){
+				
+				
 				
 				$("#rbNatural,#rbJuridica").change(function(){
 					if($("#rbNatural").is(":checked")){

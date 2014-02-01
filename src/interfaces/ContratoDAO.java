@@ -30,4 +30,6 @@ public interface ContratoDAO {
 
 	public ArrayList<SuministroDTO> listarSuministrosPorCliente(int idCliente);
 
+	public SuministroDTO mostrarDatosSuministro(int idSuministro);
+
 }

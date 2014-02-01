@@ -263,7 +263,7 @@
 
 				<li class=" <%=rep_estadistica%>"><a
 					href="SvReportes"> <i class="icon-double-angle-right"></i>
-						<fmt:message key="label.Edc" />
+						<fmt:message key="label.EstSolicitudes" />
 				</a></li>
 
 			</ul></li>

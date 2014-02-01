@@ -502,9 +502,9 @@
 										key="label.Sc" />
 							</a></li>
 
-							<li class="active"><a href="rep_estadistica.jsp"> <i
+							<li class="active"><a href="SvReportes"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Edc" />
+										key="label.EstSolicitudes" />
 							</a></li>
 
 						</ul></li>
@@ -600,7 +600,7 @@
 						<h1>
 							<fmt:message key="label.Reportes" />
 							<small> <i class="icon-double-angle-right"></i> <fmt:message
-									key="label.Edc" /></small>
+									key="label.EstSolicitudes" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->
