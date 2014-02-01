@@ -296,8 +296,8 @@ INSERT INTO tb_TipoPredio VALUES(null,'Industrial');
 INSERT INTO tb_TipoPredio VALUES(null,'Estatal');
 
 -- Inserts de Predio > idPredio,idTipoPredio,idEstadoPredio,id_provincia,id_distrito ,id_localidad,id_calle,numPredio,CoordenadasPredio
-INSERT INTO tb_Predio VALUES(null,1,6,1,2,29,5,'1701','-16.411667,-71.532967'); /* SEDAPAR */
-INSERT INTO tb_Predio VALUES(null,1,6,1,2,7,6,'106','-16.399335,-71.537484'); /* Caja Municipal */
+INSERT INTO tb_Predio VALUES(null,1,1,1,2,29,5,'1701','-16.411667,-71.532967'); /* SEDAPAR */
+INSERT INTO tb_Predio VALUES(null,1,1,1,2,7,6,'106','-16.399335,-71.537484'); /* Caja Municipal */
 INSERT INTO tb_Predio VALUES(null,1,3,1,2,7,7,'301','-16.395305,-71.536795'); /* Monasterio Santa Catalina */
 INSERT INTO tb_Predio VALUES(null,1,3,1,2,7,7,'303','-16.395205,-71.536695'); /* direccion ficticia, reemplazar por datos reales*/
 INSERT INTO tb_Predio VALUES(null,1,3,1,2,7,7,'305','-16.395105,-71.536595'); /* direccion ficticia, reemplazar por datos reales*/
