@@ -4,12 +4,18 @@ use DB_Sedapar;
 
 
 /*Tablas Generales*/
+
+create table tb_tipo_persona (
+    idtipoPersona int primary key auto_increment,
+    destipoPersona varchar(200)
+);
+
 create table tb_perfil (
     idPerfil int primary key auto_increment comment 'indica el codigo autogenerado del tipo de perfil',
     desPerfil varchar(50) comment 'indica el nombre del perfil',
     moduloContratos tinyint comment 'indica si el modulo Contratos esta activo (no/0,si/1)',
     moduloCategorias tinyint comment 'indica si el modulo Categorias esta activo (no/0,si/1)',
-    moduloLiquidacion tinyint comment 'indica si el modulo Liquidación esta activo (no/0,si/1)',
+    moduloLiquidacion tinyint comment 'indica si el modulo LiquidaciÃ³n esta activo (no/0,si/1)',
     moduloReportes tinyint comment 'indica si el modulo Reportes esta activo (no/0,si/1)',
     moduloManClientes tinyint comment 'indica si el modulo Mant. CLientesesta activo (no/0,si/1)',
     moduloManPerfiles tinyint comment 'indica si el modulo Mant. CLientes activo (no/0,si/1)',
@@ -31,13 +37,6 @@ create table tb_usuario (
     telefonoUsuario char(9) comment 'indica telefono del usuario',
     foreign key (idPerfil)
         references tb_perfil (idPerfil)
-);
-
-create table tb_test_solicitud (
-    num_solicitud int primary key auto_increment,
-    nombre varchar(30),
-    fecha_solicitud date,
-    estado varchar(40) check (estado in ('Pendiente' , 'Aprobada'))
 );
 
 create table tb_provincia (
@@ -77,12 +76,12 @@ create table tb_MensajesAlerta (
 );
 
 
-/*Tablas de Solicitud de Nueva Conexión*/
+/*Tablas de Solicitud de Nueva ConexiÃ³n*/
 
 create table tb_valorizaciones (
-    idValoriza int primary key auto_increment  comment 'indica el id de valorización',
+    idValoriza int primary key auto_increment  comment 'indica el id de valorizaciÃ³n',
     desValoriza varchar(40)  comment 'indica el campo a valorizar',
-    precioValoriza decimal  comment 'indica el precio de la valorización'
+    precioValoriza decimal  comment 'indica el precio de la valorizaciÃ³n'
 );
 
 create table tb_tipoDoc (
@@ -106,16 +105,17 @@ create table tb_diametroConexion (
 );
 
 create table tb_EstadoSolicitudNuevaConexion (
-    idEstadoSolicitudNuevaConexion int primary key auto_increment  comment 'indica el id del estado del estado de la solicitud nueva conexión',
-    desEstadoSolicitudNuevaConexion varchar(100)  comment 'indica el estadi de la solicitud de neuva conexión'
+    idEstadoSolicitudNuevaConexion int primary key auto_increment  comment 'indica el id del estado del estado de la solicitud nueva conexiÃ³n',
+    desEstadoSolicitudNuevaConexion varchar(100)  comment 'indica el estadi de la solicitud de neuva conexiÃ³n'
 );
 
 create table tb_solicitudNuevaConexion (
-    idSolicitud int primary key auto_increment  comment 'indica el id autogenerado de nueva conexión',
+    idSolicitud int primary key auto_increment  comment 'indica el id autogenerado de nueva conexiÃ³n',
 	fechaSolicitud date  comment 'indica la fecha de la solicitud',
-    razonsocial varchar(50)  comment 'indica la razón social (si es persona jurídica)',
-    ruc varchar(11)  comment 'indica el ruc (si es persona jurídica)',
-    url varchar(50)  comment 'indica el url de su web(si es persona jurídica)',
+	tipoPersona int,
+    razonsocial varchar(50)  comment 'indica la razÃ³n social (si es persona jurÃ­dica)',
+    ruc varchar(11)  comment 'indica el ruc (si es persona jurÃ­dica)',
+    url varchar(50)  comment 'indica el url de su web(si es persona jurÃ­dica)',
     nombres varchar(50) not null  comment 'indica el nombre del solicitante(o representante legal)',
     apepat varchar(50) not null comment 'indica el apellido paterno del solicitante(o representante legal)',
     apemat varchar(50) not null comment 'indica el apellido materno del solicitante(o representante legal)',
@@ -135,7 +135,7 @@ create table tb_solicitudNuevaConexion (
     area varchar(10)  comment 'indica el area del predio de la solicitud',
     idDiametroConexion int  comment 'referencia el diametro del predio de la solicitud',
     costo decimal comment 'indica el costo generado de la solicitud',
-    numcuotas int  comment 'indica el número de cuotas a pagar la solicitud',
+    numcuotas int  comment 'indica el nÃºmero de cuotas a pagar la solicitud',
     coordenadas varchar(40) comment 'indica las coordenadas del predio de la solicitud',
     idEstadoSolicitudNuevaConexion int comment 'referencia el estado de la solicitud',
     fileDocumentoIdentidad mediumblob  comment 'almacena el pdf del documento de identidad',
@@ -144,6 +144,7 @@ create table tb_solicitudNuevaConexion (
     fileMemoria mediumblob comment 'almacena el pdf de la memoria descriptiva',
     fileReciboVecino mediumblob comment 'almacena el pdf del recibo del vecino',
     filePlanoInstalaciones mediumblob comment 'almacena el pdf del plano del predio',
+	foreign key (tipoPersona) references tb_tipo_persona (idtipoPersona),
     foreign key (idTipoDoc) references tb_tipoDoc (idTipoDoc),
     foreign key (id_calle) references tb_calle (id_calle),
     foreign key (id_localidad) references tb_localidad (id_loc),
@@ -182,6 +183,7 @@ create table tb_Predio (
     id_localidad int comment 'referencia la localidad del predio',
     id_calle int comment 'referencia la calle del predio',
     numPredio varchar(200) comment 'indica el numero del predio',
+	referencias varchar(200),
     CoordenadasPredio varchar(100) comment 'indica las coordenadas del predio',
 
 	foreign key (id_calle) references tb_calle (id_calle),
@@ -193,46 +195,53 @@ create table tb_Predio (
 );
 
 
-create table tb_tipo_cliente (
-    idtipoCliente int primary key auto_increment,
-    destipoCliente varchar(200)
-);
-
 create table tb_cliente (
     idCliente int auto_increment primary key comment 'indica el codigo autogenerado del cliente, sea natural o juridica',
-    idtipoCliente int,
-    numDocCliente varchar(12) unique comment 'indica el numero de documento del cliente DNI natural, RUC en caso juridica, UNICO',
-    nomCliente varchar(100) comment 'indica el nombre del cliente, en caso juridica es la razon social',
-    apepaCliente varchar(100) default 'No aplica' comment 'indica el apellido paterno del cliente, en caso juridica, no aplica',
-    apemaCliente varchar(100) default 'No aplica' comment 'indice el apellido materno, juridica no aplica',
-    mailCliente varchar(200) comment 'indica el correo del cliente',
-    telefonoCliente varchar(100) comment 'indica el numero de telefono fijo del cliente',
-    celularCliente varchar(100) comment 'indica el numero movil del cliente',
-    urlCliente varchar(300) default 'No aplica' comment 'indica la direccion web del cliente juridico',
-    tipoDocRepresentante int references tb_tipoDoc (idTipoDoc),
-    numDocRepresentante varchar(100) comment 'indica el numero de documento del representante en juridica, en natural es el mismo de numdoccliente',
-    nomRepresentante varchar(100) comment 'indica el nombre del representante en juridica, en natural es el mismo de nomCliente',
-    apepaRepresentante varchar(100) comment 'indica apellido paterno representante , idem',
-    apemaRepresentante varchar(100) comment 'indica apellido materno representante, idem',
+    idtipoPersona int,
+	razonsocial varchar(50)  comment 'indica la razÃ³n social (si es persona jurÃ­dica)',
+    rucCliente varchar(11)  comment 'indica el ruc (si es persona jurÃ­dica)',
+	urlCliente varchar(50) default 'No aplica' comment 'indica la direccion web del cliente juridico',
+    nomCliente varchar(50) comment 'indica el nombre del cliente',
+    apepaCliente varchar(50) default 'No aplica' comment 'indica el apellido paterno del cliente',
+    apemaCliente varchar(50) default 'No aplica' comment 'indice el apellido materno',
+	idTipoDoc int not null comment 'indica el tipo de documento del solicitante(o representante legal)',
+    numDocCliente varchar(30) unique comment 'indica el numero de documento de identidad',
+	fileDocCliente mediumblob comment 'Es el archivo del documento de identidad del cliente',
+    correoCliente varchar(50) comment 'indica el correo del cliente',
+    telefonoCliente varchar(9) comment 'indica el numero de telefono fijo del cliente',
+    celularCliente varchar(11) comment 'indica el numero movil del cliente',
+	foreign key (idtipoPersona) references tb_tipo_persona (idtipoPersona)
+);
 
-	foreign key (idtipoCliente) references tb_tipo_cliente (idtipoCliente)
+create table tb_Suministro (
+	idSuministro int primary key auto_increment,
+	idCliente int not null,
+	idPredio int not null,
+	foreign key (idCliente) references tb_cliente(idCliente),
+	foreign key (idPredio) references tb_predio(idPredio)
 );
 
 create table tb_Contrato (
     idContrato int primary key auto_increment comment 'id autogenerado del contrato',
-	idCliente int comment 'Referencia al cliente'
-	references tb_cliente ,
-	codSuministro varchar(10) comment 'Formado por idcliente+idpredio Ejemplo 1-1',	
-	idPredio int references tb_predio,
-	idCategoria int references tb_categoria,
-	idUsuario int references tb_usuario,
-	idSolicitud int	references tb_solicitudNuevaConexion,
-	idDiametroConexion int references tb_diametroConexion,
+	idCliente int comment 'Referencia al cliente',
+	idPredio int,
+	idSuministro int,	
+	idCategoria int,
+	idUsuario int,
+	idSolicitud int,
+	idDiametroConexion int ,
+	costo double,
+	foreign key (idCliente) references tb_cliente(idCliente),
+	foreign key (idPredio) references tb_predio(idPredio),
+	foreign key (idSuministro) references tb_Suministro(idSuministro),
     foreign key (idCategoria) references tb_Categoria (idCategoria),
-    foreign key (idUsuario) references tb_usuario (idUsuario)
+    foreign key (idUsuario) references tb_usuario (idUsuario),
+	foreign key (idSolicitud) references tb_solicitudnuevaconexion(idSolicitud),
+	foreign key (idDiametroConexion) references tb_diametroconexion(idDiametroConexion)
+	
+	
 	/*foreign key (idSolicitud) references tb_solicitudnuevaconexion (idSolicitud)*/
 );
-
 
 create table tb_EstadoCuota(
 	idEstadoCuota int primary key auto_increment,
@@ -266,7 +275,7 @@ create table tb_Boleta(
 
 create table tb_EstadoSolicitudCambio (
     idEstado int primary key auto_increment comment 'Indica id auto generado de estado de cambio de categoria',
-    desEstado varchar(100) comment 'indica la descripción del estado de la solicitud de cambio de categoria'
+    desEstado varchar(100) comment 'indica la descripciÃ³n del estado de la solicitud de cambio de categoria'
 );
 
 create table tb_SolCambioCategoria (
@@ -274,8 +283,8 @@ create table tb_SolCambioCategoria (
     idContrato int comment 'Referencia al contrto al que se le desea cambair la categoria',
     idEstado int references tb_EstadoSolicitudCambio,
     dniSolicitud varchar(250) comment 'Indica el DNI del solicitante',
-    archivo1 varchar(250) comment 'Indica la ubicaión de la imagen guarda',
-    fechaSolicitud datetime comment 'Indica al fecha de la creación de la solicitud',
+    archivo1 varchar(250) comment 'Indica la ubicaiÃ³n de la imagen guarda',
+    fechaSolicitud datetime comment 'Indica al fecha de la creaciÃ³n de la solicitud',
 
 	foreign key (idContrato) references tb_contrato (idContrato)
 );

@@ -7,6 +7,7 @@ import interfaces.NuevaConexionDAO;
 import interfaces.PagoDAO;
 import interfaces.PerfilDAO;
 import interfaces.PredioDAO;
+import interfaces.ReportesDAO;
 import interfaces.UsuarioDAO;
 
 public class MySqlDAOFactory extends DAOFactory{
@@ -44,6 +45,11 @@ public class MySqlDAOFactory extends DAOFactory{
 	@Override
 	public PagoDAO getPagoDAO() {
 		return new MySqlPagoDAO();
+	}
+
+	@Override
+	public ReportesDAO getReportesDAO() {
+		return new MySqlReportesDAO();
 	}	
 	
 	

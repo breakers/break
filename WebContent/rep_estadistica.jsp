@@ -609,7 +609,113 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 
-							Aqui va el contenido de la pagina <br>
+							<div class="col-sm-8">
+									<div class="widget-box">
+										<div
+											class="widget-header widget-header-flat widget-header-small">
+											<h5>
+												<i class="icon-signal"></i> Estadística de Solicitudes
+											</h5>
+
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main">
+												<div id="piechart-placeholder"
+													style="width: 90%; min-height: 150px; padding: 0px; position: relative;">
+													<canvas class="flot-base"
+														style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 367px; height: 150px;"
+														width="367" height="150"></canvas><strong>${requestScope.estadistica.cantidadPendientes eq 0 && 
+																									requestScope.estadistica.cantidadAprobadas eq 0 && 
+																									requestScope.estadistica.cantidadRechazadas eq 0 && 
+																									requestScope.estadistica.cantidadContratadas eq 0 ? 
+																									'No hay solicitudes.' : '' }</strong>
+													<canvas class="flot-overlay"
+														style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 367px; height: 150px;"
+														width="367" height="150"></canvas>
+													<div class="legend">
+														<div
+															style="position: absolute; width: 95px; height: 110px; top: 15px; right: -30px; background-color: rgb(255, 255, 255); opacity: 0.85;">
+														</div>
+														<table
+															style="position: absolute; top: 15px; right: -30px;; font-size: smaller; color: #545454">
+															<tbody>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #68BC31; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">Pendientes</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #2091CF; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">Aprobadas</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #AF4E96; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">Rechazadas</td>
+																</tr>
+																<tr>
+																	<td class="legendColorBox"><div
+																			style="border: 1px solid null; padding: 1px">
+																			<div
+																				style="width: 4px; height: 0; border: 5px solid #DA5430; overflow: hidden"></div>
+																		</div></td>
+																	<td class="legendLabel">Contratadas</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+
+												<div class="hr hr8 hr-double"></div>
+
+												<div class="clearfix">
+													<div class="grid2">
+														<span class="grey"> <i
+															class="icon-tags icon-2x green"></i> &nbsp; Pendientes
+														</span>
+														<h4 class="bigger pull-right">${requestScope.estadistica.cantidadPendientes}</h4>
+													</div>
+
+													<div class="grid2">
+														<span class="grey"> <i
+															class="icon-thumbs-up icon-2x blue"></i> &nbsp;
+															Aprobadas
+														</span>
+														<h4 class="bigger pull-right">${requestScope.estadistica.cantidadAprobadas}</h4>
+													</div>
+
+													<div class="grid2">
+														<span class="grey"> <i
+															class="icon-ban-circle icon-2x red"></i> &nbsp; Rechazadas
+														</span>
+														<h4 class="bigger pull-right">${requestScope.estadistica.cantidadRechazadas}</h4>
+													</div>
+													
+													<div class="grid2">
+														<span class="grey"> <i
+															class="icon-check icon-2x purple"></i> &nbsp; Contratadas
+														</span>
+														<h4 class="bigger pull-right">${requestScope.estadistica.cantidadContratadas}</h4>
+													</div>
+												</div>
+											</div>
+											<!-- /widget-main -->
+										</div>
+										<!-- /widget-body -->
+									</div>
+									<!-- /widget-box -->
+								</div>
 
 
 
@@ -688,7 +794,10 @@
 	</script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/typeahead-bs2.min.js"></script>
-
+	<script src="js/jquery.easy-pie-chart.min.js"></script>
+	<script src="js/flot/jquery.flot.min.js"></script>
+	<script src="js/flot/jquery.flot.pie.min.js"></script>
+	<script src="js/flot/jquery.flot.resize.min.js"></script>
 	<!-- page specific plugin scripts -->
 
 	<!--[if lte IE 8]>
@@ -703,12 +812,95 @@
 
 	<!-- inline scripts related to this page -->
 
+<script type="text/javascript">
+jQuery(function($) {
+
+	var placeholder = $('#piechart-placeholder').css({
+		'width' : '90%',
+		'min-height' : '150px'
+	});
+	var data = [ {
+		label : "Pendientes",
+		data : "${requestScope.estadistica.cantidadPendientes}",
+		color : "#68BC31"
+	}, {
+		label : "Aprobadas",
+		data : "${requestScope.estadistica.cantidadAprobadas}",
+		color : "#2091CF"
+	}, {
+		label : "Rechazadas",
+		data : "${requestScope.estadistica.cantidadRechazadas}",
+		color : "#DA5430"
+	}, {
+		label : "Contratadas",
+		data : "${requestScope.estadistica.cantidadContratadas}",
+		color : "#AF4E96"
+	} ];
+	function drawPieChart(placeholder, data, position) {
+		$.plot(placeholder, data, {
+			series : {
+				pie : {
+					show : true,
+					tilt : 0.8,
+					highlight : {
+						opacity : 0.25
+					},
+					stroke : {
+						color : '#fff',
+						width : 2
+					},
+					startAngle : 2
+				}
+			},
+			legend : {
+				show : true,
+				position : position || "ne",
+				labelBoxBorderColor : null,
+				margin : [ -30, 15 ]
+			},
+			grid : {
+				hoverable : true,
+				clickable : true
+			}
+		})
+	}
+	drawPieChart(placeholder, data);
+
+	/**
+	we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
+	so that's not needed actually.
+	 */
+	placeholder.data('chart', data);
+	placeholder.data('draw', drawPieChart);
+
+	var $tooltip = $(
+			"<div class='tooltip top in'><div class='tooltip-inner'></div></div>")
+			.hide().appendTo('body');
+	var previousPoint = null;
+
+	placeholder.on('plothover', function(event, pos, item) {
+		if (item) {
+			if (previousPoint != item.seriesIndex) {
+				previousPoint = item.seriesIndex;
+				var tip = item.series['label'] + " : "
+						+ item.series['percent'] + '%';
+				$tooltip.show().children(0).text(tip);
+			}
+			$tooltip.css({
+				top : pos.pageY + 10,
+				left : pos.pageX + 10
+			});
+		} else {
+			$tooltip.hide();
+			previousPoint = null;
+		}
+
+	});
 
 
+});
+</script>
 
-	<div class="tooltip top in"
-		style="top: 447px; left: 980px; display: none;">
-		<div class="tooltip-inner">social networks : 38.7%</div>
-	</div>
+
 </body>
 </html>
