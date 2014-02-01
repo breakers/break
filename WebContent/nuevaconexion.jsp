@@ -13,7 +13,7 @@
 	}
 
 	HttpSession sesion = request.getSession();
-	String nombre = "Cliente";
+	String nombre = "Solicitante";
 	String foto = "nofoto";
 	String nombrePerfil = "Cliente";
 
