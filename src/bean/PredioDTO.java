@@ -21,6 +21,14 @@ public class PredioDTO {
     private String nomLocalidad;
     private String nomCalle;
     
+    private String desEstadoPredio;
+    private String desTipoPredio;
+    private String desSuministro;
+    private String desCategoria;
+    
+    
+    private String direccion;
+    
     public PredioDTO() {
     	
 	}
@@ -143,6 +151,46 @@ public class PredioDTO {
 
 	public void setNomCalle(String nomCalle) {
 		this.nomCalle = nomCalle;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getDesEstadoPredio() {
+		return desEstadoPredio;
+	}
+
+	public void setDesEstadoPredio(String desEstadoPredio) {
+		this.desEstadoPredio = desEstadoPredio;
+	}
+
+	public String getDesTipoPredio() {
+		return desTipoPredio;
+	}
+
+	public void setDesTipoPredio(String desTipoPredio) {
+		this.desTipoPredio = desTipoPredio;
+	}
+
+	public String getDesSuministro() {
+		return desSuministro;
+	}
+
+	public void setDesSuministro(String desSuministro) {
+		this.desSuministro = desSuministro;
+	}
+
+	public String getDesCategoria() {
+		return desCategoria;
+	}
+
+	public void setDesCategoria(String desCategoria) {
+		this.desCategoria = desCategoria;
 	}
     
     

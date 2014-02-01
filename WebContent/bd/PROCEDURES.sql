@@ -308,6 +308,8 @@ BEGIN
 	DECLARE idSuministroGenerado int;
 	DECLARE VidDiametroConexion int;
 	DECLARE Vcosto decimal;
+	DECLARE VultimoSum int;
+	SET VultimoSum = (SELECT COUNT(*)+1 FROM tb_suministro);
 
 	SELECT idDiametroConexion from tb_solicitudnuevaconexion where idSolicitud=VidSolicitud
 	INTO VidDiametroConexion;
@@ -321,15 +323,16 @@ BEGIN
 	CALL usp_llenarDatosPredio(VidSolicitud);
 	SET idPredioGenerado = (SELECT MAX(idPredio) from tb_predio);
 	
-	INSERT INTO tb_suministro VALUES(null,idClienteGenerado,idPredioGenerado);
+	INSERT INTO tb_suministro VALUES(null,concat('SUM-00',VultimoSum),idClienteGenerado,idPredioGenerado,1);
 	SET idSuministroGenerado = (SELECT MAX(idSuministro) from tb_suministro);
 
-	INSERT INTO tb_Contrato VALUES(null,idClienteGenerado,idPredioGenerado,idSuministroGenerado,
-								2,VidUsuario,VidSolicitud,VidDiametroConexion,Vcosto);
+	INSERT INTO tb_Contrato VALUES(null,idClienteGenerado,idPredioGenerado,idSuministroGenerado,VidUsuario,VidSolicitud,VidDiametroConexion,Vcosto);
 
 	UPDATE tb_solicitudnuevaconexion set idEstadoSolicitudNuevaConexion = 4
 	WHERE idSolicitud = VidSolicitud;
 END $
+
+
 
 DELIMITER $
 CREATE PROCEDURE listarEstadisticaSolicitudes()
@@ -348,8 +351,6 @@ BEGIN
 
 	
 END $
-
-CALL usp_filtrarClientes(1,'','','','','','') $
 
 DELIMITER $
 CREATE PROCEDURE usp_filtrarClientes(
@@ -389,4 +390,38 @@ ELSE
 
 END IF;
 
+END $
+
+DELIMITER $
+
+CREATE PROCEDURE usp_mostrarDatosCliente(
+VidCliente int
+)
+BEGIN
+SELECT c.idCliente,
+c.razonsocial,
+c.rucCliente, 
+c.nomCliente,
+c.numDocCliente, 
+concat(cal.nombre,p.numPredio),
+loc.nombre,
+dis.nombre,
+ep.desEstadoPredio,
+tp.desTipoPredio,
+dc.desDiametroConexion,
+cat.desCategoria
+
+FROM tb_cliente c 
+INNER JOIN tb_contrato con on con.idCliente = c.idCliente
+INNER JOIN tb_suministro s on c.idCliente = s.idCliente
+INNER JOIN tb_predio p on s.idPredio = p.idPredio
+INNER JOIN tb_calle as cal on p.id_calle = cal.id_calle
+INNER JOIN tb_localidad as loc on p.id_localidad = loc.id_loc
+INNER JOIN tb_distrito as dis on p.id_distrito = dis.id_dis
+INNER JOIN tb_estadopredio as ep on p.idEstadoPredio = ep.idEstadoPredio
+INNER JOIN tb_tipopredio as tp on p.idTipoPredio = tp.idTipoPredio
+INNER JOIN tb_diametroconexion as dc on dc.idDiametroConexion = con.idDiametroConexion
+INNER JOIN tb_categoria cat on s.idCategoria = cat.idCategoria
+
+WHERE c.idCliente = VidCliente;
 END $

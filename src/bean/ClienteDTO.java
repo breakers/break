@@ -17,6 +17,7 @@ public class ClienteDTO {
     
     private PredioDTO predio = new PredioDTO();
     
+    private ContratoDTO contrato = new ContratoDTO();
     
     
 	public int getIdCliente() {
@@ -96,6 +97,12 @@ public class ClienteDTO {
 	}
 	public void setPredio(PredioDTO predio) {
 		this.predio = predio;
+	}
+	public ContratoDTO getContrato() {
+		return contrato;
+	}
+	public void setContrato(ContratoDTO contrato) {
+		this.contrato = contrato;
 	}
 	
 	

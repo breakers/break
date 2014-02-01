@@ -453,7 +453,33 @@ public class MySqlContratoDAO implements ContratoDAO{
 
 	@Override
 	public ClienteDTO mostrarDatosCliente(int idCliente) {
-		return null;
+		ClienteDTO cliente = new ClienteDTO();
+		try {
+			Connection cn = MySQL.getConnection();
+			String sql = "call usp_mostrarDatosCliente(?)";
+			PreparedStatement pst =  cn.prepareStatement(sql);
+			pst.setInt(1, idCliente);
+			ResultSet rs = pst.executeQuery();
+				if(rs.next()){
+					cliente.setIdCliente(rs.getInt(1));
+					cliente.setRazonsocial(rs.getString(2));
+					cliente.setRucCliente(rs.getString(3));
+					cliente.setNomCliente(rs.getString(4));
+					cliente.getTipodoc().setDesTipoDoc(rs.getString(5));
+					cliente.getPredio().setDireccion(rs.getString(6));
+					cliente.getPredio().setNomLocalidad(rs.getString(7));
+					cliente.getPredio().setNomDistrito(rs.getString(8));
+					cliente.getPredio().setDesEstadoPredio(rs.getString(9));
+					cliente.getPredio().setDesTipoPredio(rs.getString(10));
+					cliente.getContrato().setDesDiametroConexion(rs.getString(11));
+					cliente.getPredio().setDesCategoria(rs.getString(12));
+				}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cliente;
 	}
 
 

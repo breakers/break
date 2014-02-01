@@ -651,8 +651,8 @@ var cliente = ${param.idCliente};
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Cliente</label>
 													<input id="nomCliente" class="col-xs-10 col-sm-5" type="text"
-														placeholder="Nombre Completo" readonly="true" value="${clienteDTO.nomCliente }" /> <label
-														class="col-xs-6 col-sm-3"> <a href="#modal-form" id="btnBuscar"
+														placeholder="Nombre Completo" readonly="true" value="${requestScope.cliente.razonsocial eq '' ? requestScope.cliente.nomCliente : requestScope.cliente.razonsocial}" /> <label
+														class="col-xs-6 col-sm-3"> <a href="#modal-form" id="btnBuscar" onclick="listarclientes()"
 														role="button" class="btn btn-info" data-toggle="modal">
 															<i class="icon-group"></i> Buscar Cliente
 													</a>
@@ -665,7 +665,7 @@ var cliente = ${param.idCliente};
 												<fieldset>
 													<label class="col-sm-3 control-label no-padding-right">Documento</label>
 													<input class="col-xs-6 col-sm-5" type="text"
-														placeholder="numero Documento" readonly="true" value="${clienteDTO.numDocCliente }"/>
+														placeholder="numero Documento" readonly="true" value="${requestScope.cliente.rucCliente eq '' ? requestScope.cliente.tipodoc.desTipoDoc : requestScope.cliente.rucCliente}"/>
 
 												</fieldset>
 
@@ -897,50 +897,6 @@ var cliente = ${param.idCliente};
 															</h5>
 														</div>
 														<div id="table-cli" class="table-responsive" style="overflow:scroll;max-height: 670px;">
-															<table id="defefef" class="table table-bordered"  style="margin-bottom: 0px;">
-																<thead>
-																	<tr>
-																		<th width="100">Numero</th>
-																		<th width="200">Cliente</th>
-	
-																		<th width="100"><i
-																			class="icon-time bigger-110 hidden-480"></i> Fecha</th>
-																		<th width="100">Estado</th>
-																		<th width="100">DNI</th>
-																	</tr>
-																</thead>
-	
-																<tbody>
-																	<tr>
-																		<td>1009</td>
-																		<td>John Paul</td>
-																		<td>15-12-2013</td>
-																		<td>Inspeccionada</td>
-																		<td>43860566</td>
-																	</tr>
-																	<tr>
-																		<td>1010</td>
-																		<td>Chin Juan</td>
-																		<td>15-12-2013</td>
-																		<td>Inspeccionada</td>
-																		<td>43860562</td>
-																	</tr>
-																	<tr>
-																		<td>1011</td>
-																		<td>Klin Edwards</td>
-																		<td>15-12-2013</td>
-																		<td>Inspeccionada</td>
-																		<td>43860563</td>
-																	</tr>
-																	<tr>
-																		<td>1012</td>
-																		<td>Sandra Wilcox</td>
-																		<td>15-12-2013</td>
-																		<td>Inspeccionada</td>
-																		<td>43860564</td>
-																	</tr>
-																</tbody>
-															</table>
 														</div>
 														<!-- /.table-responsive -->
 														
