@@ -234,6 +234,34 @@ create table tb_Contrato (
 );
 
 
+create table tb_EstadoCuota(
+	idEstadoCuota int primary key auto_increment,
+	desEstadoCuota varchar(20)
+);
+
+create table tb_Cuota(
+	idCuota int primary key auto_increment,
+	motivoCuota varchar(50),
+	montoCuota decimal(5,2),
+	fechaEmision date,
+	fechaVencimiento date,
+	idUsuario int references tb_usuario,
+	idCliente int references tb_cliente,
+	idEstadoCuota int references tb_estadocuta,
+
+	foreign key (idCliente) references tb_cliente (idCliente),
+	foreign key (idEstadoCuota) references tb_EstadoCuota (idEstadoCuota)
+);
+
+create table tb_Boleta(
+	idBoleta int primary key auto_increment,
+	montoPagado decimal(5,2),
+	idUsuario int references tb_usuario,
+	idCliente int references tb_cliente,
+);
+
+
+
 /* Tablas de cambio de categoria*/
 
 create table tb_EstadoSolicitudCambio (

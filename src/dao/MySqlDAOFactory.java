@@ -4,6 +4,7 @@ package dao;
 import interfaces.Con_SolicitudDAO;
 import interfaces.ContratoDAO;
 import interfaces.NuevaConexionDAO;
+import interfaces.PagoDAO;
 import interfaces.PerfilDAO;
 import interfaces.PredioDAO;
 import interfaces.UsuarioDAO;
@@ -39,7 +40,11 @@ public class MySqlDAOFactory extends DAOFactory{
 	public PredioDAO getPredioDAO() {
 		return new MySqlPredioDAO();
 	}
-	
+
+	@Override
+	public PagoDAO getPagoDAO() {
+		return new MySqlPagoDAO();
+	}	
 	
 	
 	

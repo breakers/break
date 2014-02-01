@@ -3,6 +3,7 @@ package dao;
 import interfaces.Con_SolicitudDAO;
 import interfaces.ContratoDAO;
 import interfaces.NuevaConexionDAO;
+import interfaces.PagoDAO;
 import interfaces.PerfilDAO;
 import interfaces.PredioDAO;
 import interfaces.UsuarioDAO;
@@ -19,6 +20,7 @@ public abstract class DAOFactory {
 	public abstract NuevaConexionDAO getNuevaConexionDAO();
 	public abstract ContratoDAO getContratoDAO();
 	public abstract PredioDAO getPredioDAO();
+	public abstract PagoDAO getPagoDAO();
 	
 	public static DAOFactory getDAOFactory(int w){
 		
