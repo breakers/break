@@ -1,6 +1,7 @@
 package dao;
 
 
+import interfaces.CC_SolicitudDAO;
 import interfaces.Con_SolicitudDAO;
 import interfaces.ContratoDAO;
 import interfaces.NuevaConexionDAO;
@@ -50,6 +51,11 @@ public class MySqlDAOFactory extends DAOFactory{
 	@Override
 	public ReportesDAO getReportesDAO() {
 		return new MySqlReportesDAO();
+	}
+
+	@Override
+	public CC_SolicitudDAO getCc_SolicitudDAO() {
+		return new MySqlCC_SolicitudDAO();
 	}	
 	
 	

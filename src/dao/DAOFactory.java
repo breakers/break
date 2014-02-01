@@ -1,5 +1,6 @@
 package dao;
 
+import interfaces.CC_SolicitudDAO;
 import interfaces.Con_SolicitudDAO;
 import interfaces.ContratoDAO;
 import interfaces.NuevaConexionDAO;
@@ -23,6 +24,7 @@ public abstract class DAOFactory {
 	public abstract PredioDAO getPredioDAO();
 	public abstract PagoDAO getPagoDAO();
 	public abstract ReportesDAO getReportesDAO();
+	public abstract CC_SolicitudDAO getCc_SolicitudDAO();
 	
 	public static DAOFactory getDAOFactory(int w){
 		
