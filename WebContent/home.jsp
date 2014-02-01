@@ -495,7 +495,7 @@
 										key="label.Sc" />
 							</a></li>
 
-							<li><a href="rep_estadistica.jsp"> <i
+							<li><a href="SvReportes"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Edc" />
 							</a></li>

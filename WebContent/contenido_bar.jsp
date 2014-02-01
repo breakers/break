@@ -262,7 +262,7 @@
 				</a></li>
 
 				<li class=" <%=rep_estadistica%>"><a
-					href="rep_estadistica.jsp"> <i class="icon-double-angle-right"></i>
+					href="SvReportes"> <i class="icon-double-angle-right"></i>
 						<fmt:message key="label.Edc" />
 				</a></li>
 
