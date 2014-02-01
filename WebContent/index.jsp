@@ -228,7 +228,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
           <nav class="block block-system  block-menu" id="block-system-main-menu">
           
             
-      <ul><li><a href="/produkte" title="Nuestros Proyectos">Proyectos</a></li>
+      <ul><li><a href="nuevaconexion.jsp" title="Nuestros Proyectos">Nueva Conexion</a></li>
 <li><a href="/portfolio" title="Alianzas estrategicas">Alianzas</a></li>
 <li><a href="/service" title="Servicios sedapar">Servicios</a></li>
 <li><a href="/support" title="Mesa de Ayuda">Ayuda</a></li>
