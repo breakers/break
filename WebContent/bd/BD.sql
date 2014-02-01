@@ -215,8 +215,11 @@ create table tb_cliente (
 
 create table tb_Suministro (
 	idSuministro int primary key auto_increment,
+	codSuministro varchar(10) not null unique,
 	idCliente int not null,
 	idPredio int not null,
+	idCategoria int,
+	foreign key (idCategoria) references tb_Categoria (idCategoria),
 	foreign key (idCliente) references tb_cliente(idCliente),
 	foreign key (idPredio) references tb_predio(idPredio)
 );
@@ -226,7 +229,6 @@ create table tb_Contrato (
 	idCliente int comment 'Referencia al cliente',
 	idPredio int,
 	idSuministro int,	
-	idCategoria int,
 	idUsuario int,
 	idSolicitud int,
 	idDiametroConexion int ,
@@ -234,7 +236,6 @@ create table tb_Contrato (
 	foreign key (idCliente) references tb_cliente(idCliente),
 	foreign key (idPredio) references tb_predio(idPredio),
 	foreign key (idSuministro) references tb_Suministro(idSuministro),
-    foreign key (idCategoria) references tb_Categoria (idCategoria),
     foreign key (idUsuario) references tb_usuario (idUsuario),
 	foreign key (idSolicitud) references tb_solicitudnuevaconexion(idSolicitud),
 	foreign key (idDiametroConexion) references tb_diametroconexion(idDiametroConexion)
@@ -280,13 +281,14 @@ create table tb_EstadoSolicitudCambio (
 
 create table tb_SolCambioCategoria (
     idSolCategoria int primary key auto_increment comment 'Indica el id autogenerado de la solicitud de cambio de categoria',
-    idContrato int comment 'Referencia al contrto al que se le desea cambair la categoria',
+    idSuministro int comment 'Referencia al contrto al que se le desea cambair la categoria',
     idEstado int references tb_EstadoSolicitudCambio,
-    dniSolicitud varchar(250) comment 'Indica el DNI del solicitante',
-    archivo1 varchar(250) comment 'Indica la ubicaión de la imagen guarda',
-    fechaSolicitud datetime comment 'Indica al fecha de la creación de la solicitud',
+    imgDNI mediumblob comment 'Indica el DNI del solicitante',
+    imgArchivo mediumblob comment 'Indica la ubicaiÃ³n de la imagen guarda',
+	idUsuario int references tb_usuario,
+    fechaSolicitud datetime comment 'Indica al fecha de la creaciÃ³n de la solicitud',
 
-	foreign key (idContrato) references tb_contrato (idContrato)
+	foreign key (idSuministro) references tb_suministro (idSuministro)
 );
 
 create table tb_DetalleSolicitudCambioCat (
