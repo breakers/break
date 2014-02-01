@@ -4,7 +4,6 @@ use DB_Sedapar;
 
 DELIMITER $
 CREATE PROCEDURE usp_registrarSolicitudNuevaConexion(
-tipoPersona int,
 razonsocial varchar(50),
 ruc varchar(11),
 url varchar(50),
@@ -32,7 +31,7 @@ coordenadas varchar(40),
 fileDocumentoIdentidad mediumblob
 )
 BEGIN
-	INSERT INTO tb_solicitudNuevaConexion VALUES(null,DATE_FORMAT(now(),'%Y/%m/%d'),tipoPersona,razonsocial,ruc,url,nombres,apepat,
+	INSERT INTO tb_solicitudNuevaConexion VALUES(null,DATE_FORMAT(now(),'%Y/%m/%d'),razonsocial,ruc,url,nombres,apepat,
 												apemat,idTipoDoc,numDoc,correo,telefono,
 												celular,id_calle,id_localidad,id_distrito,id_provincia,numero,referencias,idEstadoPredio,
 												idTipoPredio,area,idDiametroConexion,costo,
@@ -236,99 +235,4 @@ CREATE PROCEDURE usp_listarCalles(Vcod_loc varchar(10) )
 BEGIN
 	SELECT id_calle,nombre FROM tb_calle where id_loc=Vcod_loc;
 END$
-
-DELIMITER $
-CREATE PROCEDURE usp_llenarDatosCliente(
-VidSolicitud int
-)
-BEGIN
-	INSERT INTO TB_CLIENTE(
-		idtipoPersona,
-		razonsocial,
-		rucCliente,
-		urlCliente,
-		nomCliente,
-		apepaCliente,
-		apemaCliente,
-		idTipoDoc,
-		numDocCliente,
-		fileDocCliente,
-		correoCliente,
-		telefonoCliente,
-		celularCliente)
-	SELECT 	tipoPersona,
-			razonsocial,
-			ruc,
-			url,
-			nombres,
-			apepat,
-			apemat,
-			idTipoDoc,
-			numDoc,
-			fileDocumentoIdentidad,
-			correo,
-			telefono,
-			celular FROM tb_solicitudnuevaconexion WHERE idSolicitud=VidSolicitud;
-END $
-
-DELIMITER $
-CREATE PROCEDURE usp_llenarDatosPredio(
-VidSolicitud int
-)
-BEGIN
-	INSERT INTO TB_PREDIO(
-		idTipoPredio,
-		idEstadoPredio,
-		id_provincia,
-		id_distrito,
-		id_localidad,
-		id_calle,
-		numPredio,
-		referencias,
-		CoordenadasPredio)
-	SELECT 	idTipoPredio,
-			idEstadoPredio,
-			id_provincia,
-			id_distrito,
-			id_localidad,
-			id_calle,
-			numero,
-			referencias,
-			coordenadas	FROM tb_solicitudnuevaconexion WHERE idSolicitud=VidSolicitud;
-END $
-
-DELIMITER $
-CREATE PROCEDURE usp_generarContrato(
-VidUsuario int,
-VidSolicitud int
-)
-BEGIN
-	DECLARE idClienteGenerado int;
-	DECLARE idPredioGenerado int;
-	DECLARE idSuministroGenerado int;
-	DECLARE VidDiametroConexion int;
-	DECLARE Vcosto decimal;
-
-	SELECT idDiametroConexion from tb_solicitudnuevaconexion where idSolicitud=VidSolicitud
-	INTO VidDiametroConexion;
-
-	SELECT costo from tb_solicitudnuevaconexion where idSolicitud=VidSolicitud
-	INTO Vcosto;
-
-	CALL usp_llenarDatosCliente(VidSolicitud);
-	SET idClienteGenerado = (SELECT MAX(idCliente) from tb_cliente);
-
-	CALL usp_llenarDatosPredio(VidSolicitud);
-	SET idPredioGenerado = (SELECT MAX(idPredio) from tb_predio);
-	
-	INSERT INTO tb_suministro VALUES(null,idClienteGenerado,idPredioGenerado);
-	SET idSuministroGenerado = (SELECT MAX(idSuministro) from tb_suministro);
-
-	INSERT INTO tb_Contrato VALUES(null,idClienteGenerado,idPredioGenerado,idSuministroGenerado,
-								2,VidUsuario,VidSolicitud,VidDiametroConexion,Vcosto);
-
-	UPDATE tb_solicitudnuevaconexion set idEstadoSolicitudNuevaConexion = 4
-	WHERE idSolicitud = VidSolicitud;
-END $
-
 
