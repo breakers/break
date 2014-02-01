@@ -256,7 +256,7 @@
 			</span> <b class="arrow icon-angle-down"></b>
 		</a>
 			<ul class="submenu">
-				<li class=" <%=rep_servicios%>"><a href="rep_servicios.jsp">
+				<li class=" <%=rep_servicios%>"><a href="SvReportes">
 						<i class="icon-double-angle-right"></i> <fmt:message
 							key="label.Sc" />
 				</a></li>

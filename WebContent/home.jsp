@@ -490,7 +490,7 @@
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="rep_servicios.jsp"> <i
+							<li><a href="SvReportes"> <i
 									class="icon-double-angle-right"></i> <fmt:message
 										key="label.Sc" />
 							</a></li>
