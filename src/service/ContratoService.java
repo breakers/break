@@ -2,11 +2,13 @@ package service;
 
 import interfaces.ContratoDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.DAOFactory;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
+import bean.FiltroClienteDTO;
 
 public class ContratoService{
 	
@@ -35,6 +37,14 @@ public class ContratoService{
 
 	public boolean generarContrato(int idUsuario, int idSolicitud) {
 		return contrato.generarContrato(idUsuario,idSolicitud);
+	}
+
+	public ArrayList<ClienteDTO> filtrarClientes(FiltroClienteDTO filtrocliente) {
+		return contrato.filtrarClientes(filtrocliente);
+	}
+
+	public ClienteDTO mostrarDatosCliente(int idCliente) {
+		return contrato.mostrarDatosCliente(idCliente);
 	}
 
 }

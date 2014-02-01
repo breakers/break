@@ -10,6 +10,7 @@ import java.util.List;
 import util.MySQL;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
+import bean.FiltroClienteDTO;
 import interfaces.ContratoDAO;
 
 public class MySqlContratoDAO implements ContratoDAO{
@@ -190,12 +191,12 @@ public class MySqlContratoDAO implements ContratoDAO{
 				
 				
 				
-				cliente.setIdCliente(rs.getInt("idCliente"));
-				cliente.setNumDocCliente(rs.getString("numDocCliente"));
-				cliente.setNomCliente(rs.getString("nomCliente"));
-				cliente.setNomRepresentante(rs.getString("nomRepresentante"));
-				cliente.setApepaRepresentante(rs.getString("apepaRepresentante"));
-				
+//				cliente.setIdCliente(rs.getInt("idCliente"));
+//				cliente.setNumDocCliente(rs.getString("numDocCliente"));
+//				cliente.setNomCliente(rs.getString("nomCliente"));
+//				cliente.setNomRepresentante(rs.getString("nomRepresentante"));
+//				cliente.setApepaRepresentante(rs.getString("apepaRepresentante"));
+//				
 				
 				arreglo.add(cliente);
 			}
@@ -228,9 +229,9 @@ public class MySqlContratoDAO implements ContratoDAO{
 			
 			if (rs.next()) {
 				cliente = new ClienteDTO();
-				cliente.setIdCliente(rs.getInt("idCliente"));
-				cliente.setNomCliente(rs.getString("nomCliente"));
-				cliente.setNumDocCliente(rs.getString("numDocCliente"));
+//				cliente.setIdCliente(rs.getInt("idCliente"));
+//				cliente.setNomCliente(rs.getString("nomCliente"));
+//				cliente.setNumDocCliente(rs.getString("numDocCliente"));
 				
 				
 			}
@@ -403,6 +404,56 @@ public class MySqlContratoDAO implements ContratoDAO{
 			
 			return estadoContrato;
 			
+	}
+
+	@Override
+	public ArrayList<ClienteDTO> filtrarClientes(FiltroClienteDTO filtrocliente) {
+		ArrayList<ClienteDTO> clientesfiltrados = new ArrayList<ClienteDTO>();
+		try {
+			Connection cn = MySQL.getConnection();
+			String sql = "call usp_filtrarClientes(?,?,?,?,?,?,?)";
+			PreparedStatement pst =  cn.prepareStatement(sql);
+			pst.setInt(1, filtrocliente.getTipoPersona());
+			pst.setString(2, filtrocliente.getNomcli());
+			pst.setString(3, filtrocliente.getNumdoc());
+			pst.setString(4, filtrocliente.getRuc());
+			pst.setString(5, filtrocliente.getRazsocial());
+			pst.setString(6, filtrocliente.getNombreRepre());
+			pst.setString(7, filtrocliente.getApeRepre());
+			ResultSet rs = pst.executeQuery();
+			if(filtrocliente.getTipoPersona()==1){
+				while(rs.next()){
+					ClienteDTO cliente = new ClienteDTO();
+					cliente.setIdCliente(rs.getInt(1));
+					cliente.getTipodoc().setDesTipoDoc(rs.getString(2));
+					cliente.setNomCliente(rs.getString(3));
+					cliente.setApepaCliente(rs.getString(4));
+					cliente.setApemaCliente(rs.getString(5));
+					clientesfiltrados.add(cliente);
+					}
+			}else{
+				while(rs.next()){
+					ClienteDTO cliente = new ClienteDTO();
+					cliente.setIdCliente(rs.getInt(1));
+					cliente.setRucCliente(rs.getString(2));
+					cliente.setRazonsocial(rs.getString(3));
+					cliente.setNomCliente(rs.getString(4));
+					cliente.setApepaCliente(rs.getString(5));
+					clientesfiltrados.add(cliente);
+					}
+				}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return clientesfiltrados;
+			
+	}
+
+	@Override
+	public ClienteDTO mostrarDatosCliente(int idCliente) {
+		return null;
 	}
 
 

@@ -331,4 +331,62 @@ BEGIN
 	WHERE idSolicitud = VidSolicitud;
 END $
 
+DELIMITER $
+CREATE PROCEDURE listarEstadisticaSolicitudes()
+BEGIN
+	DECLARE cantidadPendientes int;
+	DECLARE cantidadAprobadas int;
+	DECLARE cantidadRechazadas int;
+	DECLARE cantidadContratadas int;
 
+	set cantidadPendientes = (SELECT COUNT(*) FROM tb_solicitudnuevaconexion WHERE idEstadoSolicitudNuevaConexion=1);
+	set cantidadAprobadas = (SELECT COUNT(*) FROM tb_solicitudnuevaconexion WHERE idEstadoSolicitudNuevaConexion=2);
+	set cantidadRechazadas = (SELECT COUNT(*) FROM tb_solicitudnuevaconexion WHERE idEstadoSolicitudNuevaConexion=3);
+	set cantidadContratadas = (SELECT COUNT(*) FROM tb_solicitudnuevaconexion WHERE idEstadoSolicitudNuevaConexion=4);
+
+	SELECT cantidadPendientes,cantidadAprobadas,cantidadRechazadas,cantidadContratadas;
+
+	
+END $
+
+CALL usp_filtrarClientes(1,'','','','','','') $
+
+DELIMITER $
+CREATE PROCEDURE usp_filtrarClientes(
+VTipoPersona int,
+VNomcli varchar(40),
+VNumdoc varchar(40),
+VRuc varchar(40),
+VRazsocial varchar(40),
+VNombreRepre varchar(40),
+VApeRepre varchar(40)
+)
+BEGIN
+
+IF VTipoPersona = 1 THEN
+	SELECT idCliente, numDocCliente, nomCliente, apepaCliente, apemaCliente  FROM TB_CLIENTE 
+	WHERE 
+
+	idtipoPersona=VTipoPersona AND
+
+	IFNULL(nomCliente like concat('%',VNomcli,'%'), nomCliente) AND
+	
+	IFNULL(numDocCliente like concat(VNumdoc,'%'), numDocCliente);
+ELSE 
+
+	SELECT idCliente, rucCliente, razonsocial, nomCliente, apepaCliente FROM TB_CLIENTE 
+	WHERE 
+
+	idtipoPersona=VTipoPersona AND
+
+	IFNULL(rucCliente like concat(VRuc,'%'), rucCliente) AND
+
+	IFNULL(razonsocial like concat('%',VRazsocial,'%'), razonsocial) AND
+
+	IFNULL(nomCliente like concat('%',VNombreRepre,'%'), nomCliente) AND
+
+	IFNULL(apepaCliente like concat('%',VApeRepre,'%'), apepaCliente);
+
+END IF;
+
+END $

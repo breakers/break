@@ -1,9 +1,11 @@
 package interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bean.ClienteDTO;
 import bean.ContratoDTO;
+import bean.FiltroClienteDTO;
 
 public interface ContratoDAO {
 	
@@ -20,5 +22,9 @@ public interface ContratoDAO {
 	public ContratoDTO obtenerContrato(int idContrato);
 
 	public boolean generarContrato(int idUsuario, int idSolicitud);
+
+	public ArrayList<ClienteDTO> filtrarClientes(FiltroClienteDTO filtrocliente);
+
+	public ClienteDTO mostrarDatosCliente(int idCliente);
 
 }

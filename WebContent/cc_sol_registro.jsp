@@ -843,26 +843,45 @@ var cliente = ${param.idCliente};
 												
 													<form>
 													<fieldset>
-														<label class="col-sm-4 control-label no-padding-right">Numero Documento</label> 
-														<input id="DocumentoCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Client" /> 
+														<input id="rbNatural" name="rbTipoPersona" class="col-xs-10 col-sm-1" type="radio"checked="checked"/>
+														<label id="lblContado" class="col-sm-3 control-label no-padding-right">Natural</label>  
+													</fieldset>
+													<fieldset>
+														<input id="rbJuridica" name="rbTipoPersona" class="col-xs-10 col-sm-1" type="radio" />
+														<label id="lblCuotas" class="col-sm-3 control-label no-padding-right">Jurídica</label>  
 													</fieldset>
 													<div class="space-4"></div>
 													<fieldset>
-														<label class="col-sm-4 control-label no-padding-right">Nombre Cliente</label> 
-														<input id="NombreCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Paterno" /> 
+														<label id="lblDocumentoCli" class="col-sm-4 control-label no-padding-right">Numero Documento</label> 
+														<input id="DocumentoCli"  class="col-xs-10 col-sm-5" type="text" placeholder="Numero Documento" /> 
 													</fieldset>
 													<div class="space-4"></div>
 													<fieldset>
-														<label class="col-sm-4 control-label no-padding-right">Nombre Representante</label> 
-														<input id="NombreRepresentanteCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Apellido Materno" /> 
+														<label id="lblNombreCli" class="col-sm-4 control-label no-padding-right">Nombre Cliente</label> 
+														<input id="NombreCli" class="col-xs-10 col-sm-5" type="text" placeholder="Nombre Cliente" /> 
 													</fieldset>
 													<div class="space-4"></div>
 													<fieldset>
-														<label class="col-sm-4 control-label no-padding-right">Apellido Representante</label> 
-														<input id="ApellidoRepresentanteCli" onkeyUp="listarclientes();" class="col-xs-10 col-sm-5" type="text" placeholder="Codigo" /> 
+														<label id="lblRUC" class="col-sm-4 control-label no-padding-right" hidden="true">R.U.C.</label> 
+														<input hidden="true" id="txtRUC"  class="col-xs-10 col-sm-5" type="text" placeholder="Ingrese RUC" /> 
+													</fieldset>
+													<div class="space-4"></div>
+													<fieldset>
+														<label hidden="true" id="lblRazSocial" class="col-sm-4 control-label no-padding-right">Razon Social</label> 
+														<input hidden="true" id="txtRazSocial"  class="col-xs-10 col-sm-5" type="text" placeholder="Ingrese Raz. Social" /> 
+													</fieldset>
+													<div class="space-4"></div>
+													<fieldset>
+														<label id="lblNombreRepresentanteCli" class="col-sm-4 control-label no-padding-right" hidden="true">Nombre Representante</label> 
+														<input id="NombreRepresentanteCli" class="col-xs-10 col-sm-5" type="text" placeholder="Ingrese Nombre Representante" hidden="true"/> 
+													</fieldset>
+													<div class="space-4"></div>
+													<fieldset>
+														<label id="lblApellidoRepresentanteCli" class="col-sm-4 control-label no-padding-right" hidden="true">Apellido Representante</label> 
+														<input id="ApellidoRepresentanteCli" class="col-xs-10 col-sm-5" type="text" placeholder="Ingrese Apellido Representante" hidden="true"/> 
 													</fieldset>
 													
-													
+												<label><a href="#" onclick="listarclientes()"><i class="icon-search"></i> Buscar</a></label>
 													
 													
 													
@@ -1448,14 +1467,49 @@ var cliente = ${param.idCliente};
 	<!-- Script que llamar al servlet y redibuja la tabla para buscar cliente -->
 		<script>
 			$(document).ready(function(){
-				$("#btnBuscar").click(
-						function(){
-							var usuario= $("#NombreCli").val();
-							$.get('SvCC_Solicitud',{nusuario:usuario,proceso:"listar"},function(responselist){
-								$('#table-cli').html(responselist);
-							});
-						}
-					);
+				
+				$("#rbNatural,#rbJuridica").change(function(){
+					if($("#rbNatural").is(":checked")){
+						$("#NombreRepresentanteCli").hide();
+						$("#ApellidoRepresentanteCli").hide();
+						$("#lblNombreRepresentanteCli").hide();
+						$("#lblApellidoRepresentanteCli").hide();
+						$("#txtRUC").hide();
+						$("#lblRUC").hide();
+						$("#txtRazSocial").hide();
+						$("#lblRazSocial").hide();
+						$("#DocumentoCli").show();
+						$("#lblDocumentoCli").show();
+						$("#NombreCli").show();
+						$("#lblNombreCli").show();
+					}
+					if($("#rbJuridica").is(":checked")){
+						$("#NombreRepresentanteCli").show();
+						$("#ApellidoRepresentanteCli").show();
+						$("#lblNombreRepresentanteCli").show();
+						$("#lblApellidoRepresentanteCli").show();
+						$("#txtRUC").show();
+						$("#lblRUC").show();
+						$("#txtRazSocial").show();
+						$("#lblRazSocial").show();	
+						$("#DocumentoCli").hide();
+						$("#lblDocumentoCli").hide();
+						$("#NombreCli").hide();
+						$("#lblNombreCli").hide();
+					}
+				});
+				
+				
+				
+				
+// 				$("#btnBuscar").click(
+// 						function(){
+// 							var usuario= $("#NombreCli").val();
+// 							$.get('SvCC_Solicitud',{nusuario:usuario,proceso:"listar"},function(responselist){
+// 								$('#table-cli').html(responselist);
+// 							});
+// 						}
+// 					);
 				
 				}
 			);
@@ -1469,15 +1523,23 @@ var cliente = ${param.idCliente};
 		var cant = $('#sample-table-1 >tbody >tr').length;
 		$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
 		function listarclientes(){
+			var tipoPersona = 0;
+			if($("#rbNatural").is(":checked")){
+				tipoPersona = 1;
+			}else{
+				tipoPersona = 2;
+			}
 			var nomcli= $("#NombreCli").val();
-			var doccli= $("#DocumentoCli").val();
-			var nomrepcli= $("#NombreRepresentanteCli").val();
-			var aperepcli= $("#ApellidoRepresentanteCli").val();
+			var numdoc= $("#DocumentoCli").val();
+			var nombreRepre= $("#NombreRepresentanteCli").val();
+			var apeRepre= $("#ApellidoRepresentanteCli").val();
+			var ruc = $("#txtRUC").val();
+			var razsocial = $("#txtRazSocial").val();
 			
-			$.get('SvCC_Solicitud',{nusuario:nomcli,ndoccli:doccli,nnomrepcli:nomrepcli,naperepcli:aperepcli,proceso:"listar"},function(responselist){
+			$.get('SvCC_Solicitud',{tipoPersona:tipoPersona,nomcli:nomcli,numdoc:numdoc,ruc:ruc,razsocial:razsocial,nombreRepre:nombreRepre,apeRepre:apeRepre,proceso:"filtrar"},function(responselist){
 				$('#table-cli').html(responselist);
 			});
-		}
+		};
 	  
 	
 	</script>

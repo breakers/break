@@ -3,147 +3,100 @@ package bean;
 public class ClienteDTO {
 	
 	private int idCliente;
-	private int idtipoCliente;
-	private String numDocCliente;
-	private String nomCliente;
-	private String apepaCliente;
-	private String apemaCliente;
-	private String mailCliente;
-	private String telefonoCliente;
-	private String celularCliente;
+    private int idtipoPersona;
+	private String razonsocial;
+    private String rucCliente;
 	private String urlCliente;
-	private int tipoDocRepresentante;
-	private String numDocRepresentante;
-	private String nomRepresentante;
-	private String apepaRepresentante;
-	private String apemaRepresentante;
-	
-	public ClienteDTO() {
-		// TODO Auto-generated constructor stub
-	}
-
+    private String nomCliente;
+    private String apepaCliente;
+    private String apemaCliente;
+	private TipoDocIdentidadDTO tipodoc = new TipoDocIdentidadDTO();
+    private String correoCliente;
+    private String telefonoCliente;
+    private String celularCliente;
+    
+    private PredioDTO predio = new PredioDTO();
+    
+    
+    
 	public int getIdCliente() {
 		return idCliente;
 	}
-
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
-
-	public int getIdtipoCliente() {
-		return idtipoCliente;
+	public int getIdtipoPersona() {
+		return idtipoPersona;
 	}
-
-	public void setIdtipoCliente(int idtipoCliente) {
-		this.idtipoCliente = idtipoCliente;
+	public void setIdtipoPersona(int idtipoPersona) {
+		this.idtipoPersona = idtipoPersona;
 	}
-
-	public String getNumDocCliente() {
-		return numDocCliente;
+	public String getRazonsocial() {
+		return razonsocial;
 	}
-
-	public void setNumDocCliente(String numDocCliente) {
-		this.numDocCliente = numDocCliente;
+	public void setRazonsocial(String razonsocial) {
+		this.razonsocial = razonsocial;
 	}
-
-	public String getNomCliente() {
-		return nomCliente;
+	public String getRucCliente() {
+		return rucCliente;
 	}
-
-	public void setNomCliente(String nomCliente) {
-		this.nomCliente = nomCliente;
+	public void setRucCliente(String rucCliente) {
+		this.rucCliente = rucCliente;
 	}
-
-	public String getApepaCliente() {
-		return apepaCliente;
-	}
-
-	public void setApepaCliente(String apepaCliente) {
-		this.apepaCliente = apepaCliente;
-	}
-
-	public String getApemaCliente() {
-		return apemaCliente;
-	}
-
-	public void setApemaCliente(String apemaCliente) {
-		this.apemaCliente = apemaCliente;
-	}
-
-	public String getMailCliente() {
-		return mailCliente;
-	}
-
-	public void setMailCliente(String mailCliente) {
-		this.mailCliente = mailCliente;
-	}
-
-	public String getTelefonoCliente() {
-		return telefonoCliente;
-	}
-
-	public void setTelefonoCliente(String telefonoCliente) {
-		this.telefonoCliente = telefonoCliente;
-	}
-
-	public String getCelularCliente() {
-		return celularCliente;
-	}
-
-	public void setCelularCliente(String celularCliente) {
-		this.celularCliente = celularCliente;
-	}
-
 	public String getUrlCliente() {
 		return urlCliente;
 	}
-
 	public void setUrlCliente(String urlCliente) {
 		this.urlCliente = urlCliente;
 	}
-
-	public int getTipoDocRepresentante() {
-		return tipoDocRepresentante;
+	public String getNomCliente() {
+		return nomCliente;
 	}
-
-	public void setTipoDocRepresentante(int tipoDocRepresentante) {
-		this.tipoDocRepresentante = tipoDocRepresentante;
+	public void setNomCliente(String nomCliente) {
+		this.nomCliente = nomCliente;
 	}
-
-	public String getNumDocRepresentante() {
-		return numDocRepresentante;
+	public String getApepaCliente() {
+		return apepaCliente;
 	}
-
-	public void setNumDocRepresentante(String numDocRepresentante) {
-		this.numDocRepresentante = numDocRepresentante;
+	public void setApepaCliente(String apepaCliente) {
+		this.apepaCliente = apepaCliente;
 	}
-
-	public String getNomRepresentante() {
-		return nomRepresentante;
+	public String getApemaCliente() {
+		return apemaCliente;
 	}
-
-	public void setNomRepresentante(String nomRepresentante) {
-		this.nomRepresentante = nomRepresentante;
+	public void setApemaCliente(String apemaCliente) {
+		this.apemaCliente = apemaCliente;
 	}
-
-	public String getApepaRepresentante() {
-		return apepaRepresentante;
+	public TipoDocIdentidadDTO getTipodoc() {
+		return tipodoc;
 	}
-
-	public void setApepaRepresentante(String apepaRepresentante) {
-		this.apepaRepresentante = apepaRepresentante;
+	public void setTipodoc(TipoDocIdentidadDTO tipodoc) {
+		this.tipodoc = tipodoc;
 	}
-
-	public String getApemaRepresentante() {
-		return apemaRepresentante;
+	public String getCorreoCliente() {
+		return correoCliente;
 	}
-
-	public void setApemaRepresentante(String apemaRepresentante) {
-		this.apemaRepresentante = apemaRepresentante;
+	public void setCorreoCliente(String correoCliente) {
+		this.correoCliente = correoCliente;
 	}
-	
-	
-	
+	public String getTelefonoCliente() {
+		return telefonoCliente;
+	}
+	public void setTelefonoCliente(String telefonoCliente) {
+		this.telefonoCliente = telefonoCliente;
+	}
+	public String getCelularCliente() {
+		return celularCliente;
+	}
+	public void setCelularCliente(String celularCliente) {
+		this.celularCliente = celularCliente;
+	}
+	public PredioDTO getPredio() {
+		return predio;
+	}
+	public void setPredio(PredioDTO predio) {
+		this.predio = predio;
+	}
 	
 	
 }
