@@ -20,6 +20,11 @@ public class MySqlCC_SolicitudDAO implements CC_SolicitudDAO{
 		Connection cn = null;
 		PreparedStatement ps = null;
 		
+		System.out.println("SSSS Suministro " + solicitudcc.getIdSuministro());
+		System.out.println("SSSS Suministro " + solicitudcc.getIdEstado());
+		System.out.println("SSSS Suministro " + solicitudcc.getImgDNI());
+		System.out.println("SSSS Suministro " + solicitudcc.getImgArchivo());
+		System.out.println("SSSS Suministro " + solicitudcc.getIdUsuario());
 		
 		try {
 			cn= MySQL.getConnection();

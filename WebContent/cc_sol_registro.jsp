@@ -96,16 +96,6 @@
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-
-<script type="text/javascript">
-// YA TIENE EL PARAMETRO, NECESITO ENVIARLO AL SERVLET PARA QUE MUESTRE LA INFO DE ESE CLIENTE CON SUS SUMINISTROS EN EL COMBOBOX
-var cliente = ${param.idCliente};
-
-
-
-
-</script>
-
 <script type="text/javascript">
 // DocumentoCli,NombreCli,NombreRepresentanteCli,ApellidoRepresentanteCli
 				
@@ -801,9 +791,12 @@ var cliente = ${param.idCliente};
 <!-- 											<h4>Acciones del formulario</h4> -->
 <!-- 										</div> -->
 
+										<form action="SvCC_Solicitud" method="post">
+										<input id="proceso" name="proceso" value="Grabar" type="text" hidden="true"/>
+										<input id="ccIdSuministro" name="ccIdSuministro" value="CodigoQueNecesito" type="text" hidden="true"/>
 										<div class="form-actions center">
-											<button type="button" class="btn btn-primary"
-												onclick="Enviar()">
+											<button type="submit" class="btn btn-primary"
+												>
 												Enviar <i class="icon-share"></i>
 											</button>
 											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -817,6 +810,7 @@ var cliente = ${param.idCliente};
 												Cancelar <i class="icon-share"></i>
 											</button>
 										</div>
+										</form>
 
 									</div>
 								</div>
@@ -1073,6 +1067,8 @@ var cliente = ${param.idCliente};
 		                $("#txtTipo").val(cadena[4]);
 		                $("#txtDiametro").val(cadena[5]);
 		                $("#txtCategoria").val(cadena[6]);
+		                
+		                $("#ccIdSuministro").val(idSuministro);
 		                
 		                
 		       });

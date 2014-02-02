@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.CC_SolicitudService;
 import service.ContratoService;
 import service.PerfilService;
 import service.PredioService;
@@ -20,6 +21,7 @@ import bean.ContratoDTO;
 import bean.FiltroClienteDTO;
 import bean.PerfilDTO;
 import bean.PredioDTO;
+import bean.SolicitudCambioCatDTO;
 import bean.SuministroDTO;
 
 /**
@@ -33,6 +35,7 @@ public class SvCC_Solicitud extends ServletParent {
 	
 	ContratoService serviciocon = new ContratoService();
     PredioService serviciopredio= new PredioService();  
+    CC_SolicitudService servicioSolCC= new CC_SolicitudService();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -86,6 +89,8 @@ public class SvCC_Solicitud extends ServletParent {
              
              
         	out.println(datos);
+		}else if(proceso.equals("Grabar")){
+			System.out.println("Ingresa a grabar la solicitud de Cambio Categoria");
 		}
 		
 //		else if(proceso.equals("direccion")){
@@ -163,12 +168,58 @@ public class SvCC_Solicitud extends ServletParent {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		listarClientes(request,response);
+			String proceso= request.getParameter("proceso");
+		
+		if (proceso !=null) {
+			if (proceso.equals("Grabar")) {
+				registrarSolicitudCambioCategoria(request,response);
+			}else if(proceso.equals("listar")) {
+				listarClientes(request,response);
+			}
+		}
 	}
 	
 	
 	
 	
+	private void registrarSolicitudCambioCategoria(HttpServletRequest request, HttpServletResponse response) {
+		
+			String sidSuministro = request.getParameter("ccIdSuministro");
+			String cidUsuario = request.getSession().getAttribute("iduser").toString();
+			
+			System.out.println("ID Suministro numero:" + sidSuministro);
+			int idSuministro;
+			int idUsuario ;
+			try {
+				idSuministro=Integer.parseInt(sidSuministro);
+				idUsuario = Integer.parseInt(cidUsuario);
+			} catch (Exception e) {
+				idSuministro =-1;
+				idUsuario =-1;
+			}
+			
+			if (idSuministro!=-1 && idUsuario !=-1 ) {
+				
+				
+				
+				SolicitudCambioCatDTO solicitudcc= new SolicitudCambioCatDTO();
+				solicitudcc.setIdSuministro(idSuministro);
+				solicitudcc.setIdEstado(0); // nuevo
+				solicitudcc.setImgDNI(null); // momentaneamente
+				solicitudcc.setImgArchivo(null); // momentaneamente
+				solicitudcc.setIdUsuario(idUsuario); 
+				
+				servicioSolCC.registrarSolicitudCC(solicitudcc);
+				
+				
+				//Mensaje Exito
+			}else{
+				//Mensaje Error
+			}
+		
+		
+	}
+
 	private void listarClientes(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 //			
