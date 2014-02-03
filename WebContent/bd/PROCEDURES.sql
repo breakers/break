@@ -45,7 +45,7 @@ DELIMITER $
 DROP PROCEDURE IF EXISTS usp_listarSolicitudes $
 CREATE PROCEDURE usp_listarSolicitudes(estado int)
 BEGIN
-	select snc.idSolicitud,snc.nombres,snc.apepat,snc.apemat,snc.fechaSolicitud,esnc.desEstadoSolicitudNuevaConexion
+	select snc.idSolicitud,snc.nombres,snc.apepat,snc.apemat,razonsocial,snc.fechaSolicitud,esnc.desEstadoSolicitudNuevaConexion
 	from tb_solicitudnuevaconexion snc inner join tb_estadosolicitudnuevaconexion esnc
 	on snc.idEstadoSolicitudNuevaConexion = esnc.idEstadoSolicitudNuevaConexion
 	where esnc.idEstadoSolicitudNuevaConexion=estado;
@@ -446,4 +446,18 @@ INNER JOIN tb_diametroconexion as dc on dc.idDiametroConexion = con.idDiametroCo
 INNER JOIN tb_categoria cat on s.idCategoria = cat.idCategoria
 
 WHERE s.idSuministro = VidSuministro;
+END $
+
+DELIMITER $
+CREATE PROCEDURE usp_registrarSolicitudCC(
+VidSuministro int,
+VidUsuario int,
+VImgDNI blob,
+VImgArchivo blob,
+VrazonCambio varchar(255)
+)
+BEGIN
+INSERT INTO tb_solcambiocategoria VALUES(null,VidSuministro,1,VImgDNI,VImgArchivo,VidUsuario,now(),VrazonCambio);
+	
+
 END $

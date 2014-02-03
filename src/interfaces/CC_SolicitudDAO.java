@@ -7,7 +7,7 @@ import bean.SolicitudCambioCatDTO;
 
 public interface CC_SolicitudDAO {
 	
-	public void registrarSolicitudCC(SolicitudCambioCatDTO solicitudcc);
+	public boolean registrarSolicitudCC(SolicitudCambioCatDTO solicitudcc);
 	
 	public void actualizarEstadoSolicitudCC(int idSoliCC, int estado);
 	

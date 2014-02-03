@@ -15,7 +15,7 @@ create table tb_perfil (
     desPerfil varchar(50) comment 'indica el nombre del perfil',
     moduloContratos tinyint comment 'indica si el modulo Contratos esta activo (no/0,si/1)',
     moduloCategorias tinyint comment 'indica si el modulo Categorias esta activo (no/0,si/1)',
-    moduloLiquidacion tinyint comment 'indica si el modulo Liquidaci贸n esta activo (no/0,si/1)',
+    moduloLiquidacion tinyint comment 'indica si el modulo Liquidaci髇 esta activo (no/0,si/1)',
     moduloReportes tinyint comment 'indica si el modulo Reportes esta activo (no/0,si/1)',
     moduloManClientes tinyint comment 'indica si el modulo Mant. CLientesesta activo (no/0,si/1)',
     moduloManPerfiles tinyint comment 'indica si el modulo Mant. CLientes activo (no/0,si/1)',
@@ -76,12 +76,12 @@ create table tb_MensajesAlerta (
 );
 
 
-/*Tablas de Solicitud de Nueva Conexi贸n*/
+/*Tablas de Solicitud de Nueva Conexi髇*/
 
 create table tb_valorizaciones (
-    idValoriza int primary key auto_increment  comment 'indica el id de valorizaci贸n',
+    idValoriza int primary key auto_increment  comment 'indica el id de valorizaci髇',
     desValoriza varchar(40)  comment 'indica el campo a valorizar',
-    precioValoriza decimal  comment 'indica el precio de la valorizaci贸n'
+    precioValoriza decimal  comment 'indica el precio de la valorizaci髇'
 );
 
 create table tb_tipoDoc (
@@ -105,17 +105,17 @@ create table tb_diametroConexion (
 );
 
 create table tb_EstadoSolicitudNuevaConexion (
-    idEstadoSolicitudNuevaConexion int primary key auto_increment  comment 'indica el id del estado del estado de la solicitud nueva conexi贸n',
-    desEstadoSolicitudNuevaConexion varchar(100)  comment 'indica el estadi de la solicitud de neuva conexi贸n'
+    idEstadoSolicitudNuevaConexion int primary key auto_increment  comment 'indica el id del estado del estado de la solicitud nueva conexi髇',
+    desEstadoSolicitudNuevaConexion varchar(100)  comment 'indica el estadi de la solicitud de neuva conexi髇'
 );
 
 create table tb_solicitudNuevaConexion (
-    idSolicitud int primary key auto_increment  comment 'indica el id autogenerado de nueva conexi贸n',
+    idSolicitud int primary key auto_increment  comment 'indica el id autogenerado de nueva conexi髇',
 	fechaSolicitud date  comment 'indica la fecha de la solicitud',
 	tipoPersona int,
-    razonsocial varchar(50)  comment 'indica la raz贸n social (si es persona jur铆dica)',
-    ruc varchar(11)  comment 'indica el ruc (si es persona jur铆dica)',
-    url varchar(50)  comment 'indica el url de su web(si es persona jur铆dica)',
+    razonsocial varchar(50)  comment 'indica la raz髇 social (si es persona jur韉ica)',
+    ruc varchar(11)  comment 'indica el ruc (si es persona jur韉ica)',
+    url varchar(50)  comment 'indica el url de su web(si es persona jur韉ica)',
     nombres varchar(50) not null  comment 'indica el nombre del solicitante(o representante legal)',
     apepat varchar(50) not null comment 'indica el apellido paterno del solicitante(o representante legal)',
     apemat varchar(50) not null comment 'indica el apellido materno del solicitante(o representante legal)',
@@ -135,7 +135,7 @@ create table tb_solicitudNuevaConexion (
     area varchar(10)  comment 'indica el area del predio de la solicitud',
     idDiametroConexion int  comment 'referencia el diametro del predio de la solicitud',
     costo decimal comment 'indica el costo generado de la solicitud',
-    numcuotas int  comment 'indica el n煤mero de cuotas a pagar la solicitud',
+    numcuotas int  comment 'indica el n鷐ero de cuotas a pagar la solicitud',
     coordenadas varchar(40) comment 'indica las coordenadas del predio de la solicitud',
     idEstadoSolicitudNuevaConexion int comment 'referencia el estado de la solicitud',
     fileDocumentoIdentidad mediumblob  comment 'almacena el pdf del documento de identidad',
@@ -198,8 +198,8 @@ create table tb_Predio (
 create table tb_cliente (
     idCliente int auto_increment primary key comment 'indica el codigo autogenerado del cliente, sea natural o juridica',
     idtipoPersona int,
-	razonsocial varchar(50)  comment 'indica la raz贸n social (si es persona jur铆dica)',
-    rucCliente varchar(11)  comment 'indica el ruc (si es persona jur铆dica)',
+	razonsocial varchar(50)  comment 'indica la raz髇 social (si es persona jur韉ica)',
+    rucCliente varchar(11)  comment 'indica el ruc (si es persona jur韉ica)',
 	urlCliente varchar(50) default 'No aplica' comment 'indica la direccion web del cliente juridico',
     nomCliente varchar(50) comment 'indica el nombre del cliente',
     apepaCliente varchar(50) default 'No aplica' comment 'indica el apellido paterno del cliente',
@@ -276,22 +276,23 @@ create table tb_Boleta(
 
 create table tb_EstadoSolicitudCambio (
     idEstado int primary key auto_increment comment 'Indica id auto generado de estado de cambio de categoria',
-    desEstado varchar(100) comment 'indica la descripci贸n del estado de la solicitud de cambio de categoria'
+    desEstado varchar(100) comment 'indica la descripci髇 del estado de la solicitud de cambio de categoria'
 );
 
-create table tb_SolCambioCategoria (
+CREATE table tb_SolCambioCategoria (
     idSolCategoria int primary key auto_increment comment 'Indica el id autogenerado de la solicitud de cambio de categoria',
     idSuministro int comment 'Referencia al contrto al que se le desea cambair la categoria',
     idEstado int references tb_EstadoSolicitudCambio,
     imgDNI mediumblob comment 'Indica el DNI del solicitante',
-    imgArchivo mediumblob comment 'Indica la ubicai脙鲁n de la imagen guarda',
+    imgArchivo mediumblob comment 'Indica la ubicai贸n de la imagen guarda',
 	idUsuario int references tb_usuario,
-    fechaSolicitud datetime comment 'Indica al fecha de la creaci脙鲁n de la solicitud',
+    fechaSolicitud datetime comment 'Indica al fecha de la creaci贸n de la solicitud',
+	razoncambio varchar(255),
 
 	foreign key (idSuministro) references tb_suministro (idSuministro)
 );
 
-create table tb_DetalleSolicitudCambioCat (
+CREATE table tb_DetalleSolicitudCambioCat (
     idSolCategoria int references tb_SolCambioCategoria,
     idEstado int references tb_EstadoSolicitudCambio,
     idUsuario int references tb_usuario,

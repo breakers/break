@@ -27,8 +27,9 @@ public class MySqlCon_SolicitudDAO implements Con_SolicitudDAO{
 				solicitud.setNombres(rs.getString(2));
 				solicitud.setApepat(rs.getString(3));
 				solicitud.setApemat(rs.getString(4));
-				solicitud.setFechaSolicitud(rs.getString(5));
-				solicitud.setDesEstadoSolicitudNuevaConexion(rs.getString(6));
+				solicitud.setRazonsocial(rs.getString(5));
+				solicitud.setFechaSolicitud(rs.getString(6));
+				solicitud.setDesEstadoSolicitudNuevaConexion(rs.getString(7));
 				lista.add(solicitud);
 			}
 			

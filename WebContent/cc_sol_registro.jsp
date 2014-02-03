@@ -71,7 +71,7 @@
 <link rel="stylesheet" href="css/assets/bootstrap-timepicker.css" />
 <link rel="stylesheet" href="css/assets/daterangepicker.css" />
 <link rel="stylesheet" href="css/assets/colorpicker.css" />
-
+<link rel="stylesheet" href="css/jquery.gritter.css">
 <!-- fonts -->
 
 <link rel="stylesheet"
@@ -775,8 +775,7 @@
 										<div class="widget-body">
 											<div class="widget-main">
 												<div>
-													<label for="form-comentario"></label>
-													<textarea id="form-comentario" class="form-control limited"></textarea>
+													<textarea id="txtRazonCambio" class="form-control limited" onblur="onRazonCambiochange()" ></textarea>
 												</div>
 											</div>
 										</div>
@@ -791,9 +790,10 @@
 <!-- 											<h4>Acciones del formulario</h4> -->
 <!-- 										</div> -->
 
-										<form action="SvCC_Solicitud" method="post">
+										<form method="post" action="SvCC_Solicitud">
 										<input id="proceso" name="proceso" value="Grabar" type="text" hidden="true"/>
-										<input id="ccIdSuministro" name="ccIdSuministro" value="CodigoQueNecesito" type="text" hidden="true"/>
+										<input id="ccIdSuministro" name="ccIdSuministro" value="" type="text" hidden="true"/>
+										<input id="razonCambio" name="razonCambio" value="" type="text" hidden="true" />
 										<div class="form-actions center">
 											<button type="submit" class="btn btn-primary"
 												>
@@ -1010,28 +1010,17 @@
 	<script src="js/assets/chosen.jquery.min.js"></script>
 	<!-- Seleccionar de una lista desplegable -->
 	<script src="js/assets/fuelux/fuelux.spinner.min.js"></script>
-	<!-- 		ace scripts -->
 	<script src="js/assets/date-time/bootstrap-datepicker.min.js"></script>
-	<!-- 	ace scripts -->
 	<script src="js/assets/date-time/bootstrap-timepicker.min.js"></script>
-	<!--	ace scripts -->
 	<script src="js/assets/date-time/moment.min.js"></script>
-	<!-- 			ace scripts -->
 	<script src="js/assets/date-time/daterangepicker.min.js"></script>
-	<!--FFF	 		ace scripts -->
 	<script src="js/assets/bootstrap-colorpicker.min.js"></script>
-	<!--				ace scripts -->
 	<script src="js/assets/jquery.knob.min.js"></script>
-	<!-- 				ace scripts -->
 	<script src="js/assets/jquery.autosize.min.js"></script>
-	<!-- 				ace scripts -->
 	<script src="js/assets/jquery.inputlimiter.1.3.1.min.js"></script>
-	<!-- 			ace scripts -->
 	<script src="js/assets/jquery.maskedinput.min.js"></script>
-	<!-- 			ace scripts -->
 	<script src="js/assets/bootstrap-tag.min.js"></script>
-	<!-- 			ace scripts -->
-
+	<script src="js/jquery.gritter.min.js"></script>
 	<!-- ace scripts -->
 
 	<script src="js/ace-elements.min.js"></script>
@@ -1040,6 +1029,18 @@
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
 		jQuery(function($) {
+			
+			if("${sessionScope.evento}"==1){
+	 			<% sesion.setAttribute("evento", 0); %>
+	 			$.gritter.add({
+					title: "${sessionScope.mensaje.tituloMensajeAlerta}",
+					text: "${sessionScope.mensaje.cuerpoMensajeAlerta}",
+					image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
+					time: 2000,
+					class_name: 'gritter-light gritter-info'
+				});	
+	 		}
+			
 			$('#id-disable-check').on('click', function() {
 				var inp = $('#form-input-readonly').get(0);
 				if (inp.hasAttribute('disabled')) {
@@ -1052,9 +1053,7 @@
 					inp.value = "This text field is disabled!";
 				}
 			});
-			//FELIX
 			$("#cboSuministro").change(function(){
-					
 				var idSuministro = $("#cboSuministro").val();
 		        $.get("SvCC_Solicitud", { idSuministro:idSuministro, proceso:"mostrarDatosSuministro" },
 		            function(response){
@@ -1069,28 +1068,13 @@
 		                $("#txtCategoria").val(cadena[6]);
 		                
 		                $("#ccIdSuministro").val(idSuministro);
-		                
-		                
 		       });
 		    });
 			
-// 			$("#cboSuministro").change(function(){
-// 				var idContrato = $("#cboSuministro").val();
-// 					 $('#divTabla').load('cc_sol_registro_datos.jsp?idContrato='+idContrato+'&proceso=obtenerContrato');	
-// 			});
 			
 			  $("tr").click(function () {
 			        $(this).closest("tr").siblings().removeClass("highlighted");
 			        $(this).toggleClass("highlighted");
-			       /* 
-			        var num = $(this).find('td').eq(0).html();
-			        var nom = $(this).find('td').eq(1).html();
-			        var fec = $(this).find('td').eq(2).html();
-			        var est = $(this).find('td').eq(3).find('span').html();
-			        $("#txtNumero").val(num);
-				    $("#txtNombrePrueba").val(nom);
-				    $("#txtFecha").val(fec);
-				    $("#txtEstado").val(est);	*/
 			   });
 
 			$(".chosen-select").chosen();
@@ -1491,7 +1475,9 @@
 			});
 		};
 	  
-	
+		function onRazonCambiochange(){
+			$("#razonCambio").val($("#txtRazonCambio").val());
+		}
 	</script>
 </body>
 </html>

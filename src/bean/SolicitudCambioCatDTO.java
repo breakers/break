@@ -11,6 +11,7 @@ public class SolicitudCambioCatDTO {
     private String imgArchivo;
     private int idUsuario;
     private String fechaSolicitud;
+    private String razoncambio;
 	
 	//datos adicionales
 	private ArrayList<DetalleSolCambioCatDTO> detalles = new ArrayList<>();
@@ -107,6 +108,14 @@ public class SolicitudCambioCatDTO {
 
 	public void setCodSuministro(String codSuministro) {
 		this.codSuministro = codSuministro;
+	}
+
+	public String getRazoncambio() {
+		return razoncambio;
+	}
+
+	public void setRazoncambio(String razoncambio) {
+		this.razoncambio = razoncambio;
 	}
 	
 	

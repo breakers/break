@@ -865,13 +865,8 @@
 														<div class="message-list-container">
 															<div class="message-list" id="message-list">
 																<div class="message-item message-unread">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
 
-																	<i class="message-star icon-star orange2"></i>
-																	<span class="sender" title="Alex John Red Smith">Alex John Red Smith </span>
+																	<span class="sender">Alex John Red Smith </span>
 																	<span class="summary">
 																		<span class="text">
 																			Click to open this message
@@ -879,199 +874,26 @@
 																	</span>
 																	
 																	<span class="time">1:33 pm</span>
-																	<span class="attachment">
-																		<i class="icon-paper-clip"></i>
+																	
+																</div>
+																<div class="message-item ">
+
+																	<span class="sender">Alex John Red Smith </span>
+																	<span class="summary">
+																		<span class="text">
+																			Click to open this message
+																		</span>
 																	</span>
+																	
+																	<span class="time">1:33 pm</span>
 																	
 																</div>
 
-																<div class="message-item message-unread">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
 
-																	<i class="message-star icon-star-empty light-grey"></i>
 
-																	<span class="sender" title="John Doe">
-																		John Doe
-																		<span class="light-grey">(4)</span>
-																	</span>
-																	<span class="time">7:15 pm</span>
 
-																	<span class="attachment">
-																		<i class="icon-paper-clip"></i>
-																	</span>
 
-																	<span class="summary">
-																		<span class="badge badge-pink mail-tag"></span>
-																		<span class="text">
-																			Clik to open this message right here
-																		</span>
-																	</span>
-																</div>
 
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star-empty light-grey"></i>
-																	<span class="sender" title="Philip Markov">Philip Markov </span>
-																	<span class="time">10:15 am</span>
-
-																	<span class="attachment">
-																		<i class="icon-paper-clip"></i>
-																	</span>
-
-																	<span class="summary">
-																		<span class="message-flags">
-																			<i class="icon-reply light-grey"></i>
-																		</span>
-																		<span class="text">
-																			Photo booth beard raw denim letterpress vegan
-																		</span>
-																	</span>
-																</div>
-
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star orange2"></i>
-																	<span class="sender" title="Sabrina">Sabrina </span>
-																	<span class="time">Yesterday</span>
-
-																	<span class="summary">
-																		<span class="text">
-																			Nullam quis risus eget urna mollis ornare
-																		</span>
-																	</span>
-																</div>
-
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star-empty light-grey"></i>
-																	<span class="sender" title="Philip Markov">Philip Markov </span>
-																	<span class="time">Yesterday</span>
-
-																	<span class="attachment">
-																		<i class="icon-paper-clip"></i>
-																	</span>
-
-																	<span class="summary">
-																		<span class="badge badge-success mail-tag"></span>
-																		<span class="text">
-																			Vestibulum id ligula porta felis euismod
-																		</span>
-																	</span>
-																</div>
-
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star-empty light-grey"></i>
-																	<span class="sender" title="Doctor Gomenz">Doctor Gomenz </span>
-																	<span class="time">April 5</span>
-
-																	<span class="summary">
-																		<span class="text">
-																			Vim te vivendo convenire, summo fuisset
-																		</span>
-																	</span>
-																</div>
-
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star-empty light-grey"></i>
-																	<span class="sender" title="Robin Hood">Robin Hood </span>
-																	<span class="time">April 4</span>
-
-																	<span class="summary">
-																		<span class="message-flags">
-																			<i class="icon-reply light-grey"></i>
-																		</span>
-																		<span class="text">
-																			No eos veniam equidem mentitum, his porro
-																		</span>
-																	</span>
-																</div>
-
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star-empty light-grey"></i>
-																	<span class="sender" title="Google Inc">Google Inc </span>
-																	<span class="time">April 3</span>
-
-																	<span class="summary">
-																		<span class="badge badge-grey mail-tag"></span>
-																		<span class="text">
-																			Convallis facilisis euismod urna sodales
-																		</span>
-																	</span>
-																</div>
-
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star-empty light-grey"></i>
-																	<span class="sender" title="Shrek">Shrek </span>
-																	<span class="time">March 28</span>
-
-																	<span class="attachment">
-																		<i class="icon-paper-clip"></i>
-																	</span>
-
-																	<span class="summary">
-																		<span class="message-flags">
-																			<i class="icon-flag icon-flip-horizontal light-grey"></i>
-																		</span>
-																		<span class="text">
-																			Photo booth beard raw denim letterpress vegan messenger
-																		</span>
-																	</span>
-																</div>
-
-																<div class="message-item">
-																	<label class="inline">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-
-																	<i class="message-star icon-star-empty light-grey"></i>
-																	<span class="sender" title="Yahoo!">Yahoo! </span>
-																	<span class="time">March 27</span>
-
-																	<span class="summary">
-																		<span class="message-flags">
-																			<i class="icon-mail-forward light-grey"></i>
-																		</span>
-																		<span class="text">
-																			Tofu biodiesel williamsburg marfa, four loko mcsweeney
-																		</span>
-																	</span>
-																</div>
 															</div>
 														</div><!-- /.message-list-container -->
 
@@ -1127,8 +949,7 @@
 										</div><!-- /.tabbable -->
 									</div><!-- /.col -->
 								</div><!-- /.row -->
-
-								<form id="id-message-form" class="hide form-horizontal message-form  col-xs-12">
+				-								<form id="id-message-form" class="hide form-horizontal message-form  col-xs-12">
 									<div class="">
 										<div class="form-group">
 											<label class="col-sm-3 control-label no-padding-right" for="form-field-recipient"><fmt:message key="label.para"></fmt:message>:</label>
@@ -1152,58 +973,41 @@
 											<div class="col-sm-6 col-xs-12">
 												<div class="input-icon block col-xs-12 no-padding">
 													<input maxlength="100" type="text" class="col-xs-12" name="subject" id="form-field-subject"  />
-													<i class="icon-comment-alt"></i>
+												<i class="icon-comment-alt"></i>
 												</div>
 											</div>
 										</div>
 
 										<div class="hr hr-18 dotted"></div>
-
 										<div class="form-group">
 											<label class="col-sm-3 control-label no-padding-right">
 												<span class="inline space-24 hidden-480"></span>
-												<fmt:message key="label.mensaje"></fmt:message>:
+											<fmt:message key="label.mensaje"></fmt:message>:
 											</label>
 
 											<div class="col-sm-9">
-												<textarea rows="10" cols="70"></textarea>
+											<textarea rows="10" cols="70"></textarea>
 											</div>
-										</div>
+									</div>
 
 										<div class="hr hr-18 dotted"></div>
 
-										<div class="form-group no-margin-bottom">
-											<label class="col-sm-3 control-label no-padding-right"><fmt:message key="label.adjuntos"></fmt:message>:</label>
 
-											<div class="col-sm-9">
-												<div id="form-attachments">
-													<input type="file" name="attachment[]" />
-												</div>
-											</div>
-										</div>
-
-										<div class="align-right">
-											<button id="id-add-attachment" type="button" class="btn btn-sm btn-danger">
-												<i class="icon-paper-clip bigger-140"></i>
-												<fmt:message key="label.agregaradjunto"></fmt:message>
-											</button>
-										</div>
 
 										<div class="space"></div>
 									</div>
 								</form>
+				
 
 								<div class="hide message-content" id="id-message-content">
 									<div class="message-header clearfix">
 										<div class="pull-left">
-											<span class="blue bigger-125"> Clik to open this message </span>
 
 											<div class="space-4"></div>
 
-											<i class="icon-star orange2 mark-star"></i>
 
 											&nbsp;
-											<img class="middle" alt="John's Avatar" src="assets/avatars/avatar.png" width="32" />
+											<img class="middle"  src="img/users/2.jpg" width="32" />
 											&nbsp;
 											<a href="#" class="sender">John Doe</a>
 
@@ -1212,113 +1016,16 @@
 											<span class="time">Today, 7:15 pm</span>
 										</div>
 
-										<div class="action-buttons pull-right">
-											<a href="#">
-												<i class="icon-reply green icon-only bigger-130"></i>
-											</a>
-
-											<a href="#">
-												<i class="icon-mail-forward blue icon-only bigger-130"></i>
-											</a>
-
-											<a href="#">
-												<i class="icon-trash red icon-only bigger-130"></i>
-											</a>
-										</div>
 									</div>
 
 									<div class="hr hr-double"></div>
 
 									<div class="message-body">
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-										</p>
-
-										<p>
-											Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-										</p>
-
-										<p>
-											Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-										</p>
-
-										<p>
-											Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</p>
-
-										<p>
-											Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-										</p>
-
-										<p>
-											Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-										</p>
+										Mensajeeee...
 									</div>
 
 									<div class="hr hr-double"></div>
 
-									<div class="message-attachment clearfix">
-										<div class="attachment-title">
-											<span class="blue bolder bigger-110">Attachments</span>
-											&nbsp;
-											<span class="grey">(2 files, 4.5 MB)</span>
-
-											<div class="inline position-relative">
-												<a href="#" data-toggle="dropdown" class="dropdown-toggle">
-													&nbsp;
-													<i class="icon-caret-down bigger-125 middle"></i>
-												</a>
-
-												<ul class="dropdown-menu dropdown-lighter">
-													<li>
-														<a href="#">Download all as zip</a>
-													</li>
-
-													<li>
-														<a href="#">Display in slideshow</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-
-										&nbsp;
-										<ul class="attachment-list pull-left list-unstyled">
-											<li>
-												<a href="#" class="attached-file inline">
-													<i class="icon-file-alt bigger-110 middle"></i>
-													<span class="attached-name middle">Document1.pdf</span>
-												</a>
-
-												<div class="action-buttons inline">
-													<a href="#">
-														<i class="icon-download-alt bigger-125 blue"></i>
-													</a>
-
-													<a href="#">
-														<i class="icon-trash bigger-125 red"></i>
-													</a>
-												</div>
-											</li>
-
-											<li>
-												<a href="#" class="attached-file inline">
-													<i class="icon-film bigger-110 middle"></i>
-													<span class="attached-name middle">Sample.mp4</span>
-												</a>
-
-												<div class="action-buttons inline">
-													<a href="#">
-														<i class="icon-download-alt bigger-125 blue"></i>
-													</a>
-
-													<a href="#">
-														<i class="icon-trash bigger-125 red"></i>
-													</a>
-												</div>
-											</li>
-										</ul>
-
-									</div>
 								</div><!-- /.message-content -->
 
 							

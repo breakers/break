@@ -72,7 +72,7 @@
 												<thead>
 													<tr>
 														<th width="8%" style="text-align: center;">N°</th>
-														<th width="36%" style="text-align: center;">Nombre</th>
+														<th width="36%" style="text-align: center;">Nombre / Razón Social</th>
 
 														<th width="18%" style="text-align: center;">
 															<i class="icon-time bigger-110 hidden-480"></i>
@@ -87,7 +87,14 @@
 												<c:forEach var="sol" items="${requestScope.lista}">
 													<tr>
 														<td style="text-align: center;">${sol.idSolicitud}</td>
-														<td>${sol.nombres} ${sol.apepat} ${sol.apemat}</td>
+														<td>
+															<c:if test="${sol.razonsocial eq ''}">
+															${sol.nombres} ${sol.apepat} ${sol.apemat}
+															</c:if>
+															<c:if test="${sol.razonsocial ne ''}">
+															${sol.razonsocial}
+															</c:if>
+															</td>
 														<td style="text-align: center;">${sol.fechaSolicitud}</td>
 														<td class="hidden-480" style="text-align: center;">
 															<span class="label label-sm label-danger arrowed">${sol.desEstadoSolicitudNuevaConexion}</span>

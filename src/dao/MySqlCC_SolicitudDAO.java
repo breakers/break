@@ -13,35 +13,31 @@ import interfaces.CC_SolicitudDAO;
 public class MySqlCC_SolicitudDAO implements CC_SolicitudDAO{
 
 	@Override
-	public void registrarSolicitudCC(SolicitudCambioCatDTO solicitudcc) {
-//idSolCategoria,idSuministro,idEstado,dniSolicitud,archivo1,fechaSolicitud 
-		String sql = "call usp_registrarSolicitudCC(?,?,?,?,?)";
-		
-		Connection cn = null;
-		PreparedStatement ps = null;
-		
-		System.out.println("SSSS Suministro " + solicitudcc.getIdSuministro());
-		System.out.println("SSSS Suministro " + solicitudcc.getIdEstado());
-		System.out.println("SSSS Suministro " + solicitudcc.getImgDNI());
-		System.out.println("SSSS Suministro " + solicitudcc.getImgArchivo());
-		System.out.println("SSSS Suministro " + solicitudcc.getIdUsuario());
+	public boolean registrarSolicitudCC(SolicitudCambioCatDTO solicitudcc) {
+		boolean estado = true;
 		
 		try {
-			cn= MySQL.getConnection();
-			ps= cn.prepareStatement(sql);
+			String sql = "call usp_registrarSolicitudCC(?,?,?,?,?)";
+			
+			Connection cn = MySQL.getConnection();
+			PreparedStatement ps = cn.prepareStatement(sql);
 			ps.setInt(1, solicitudcc.getIdSuministro());
-			ps.setInt(2, solicitudcc.getIdEstado());
+			ps.setInt(2, solicitudcc.getIdUsuario());
 			ps.setString(3, solicitudcc.getImgDNI());
 			ps.setString(4, solicitudcc.getImgArchivo());
-			ps.setInt(5, solicitudcc.getIdUsuario());
+			ps.setString(5, solicitudcc.getRazoncambio());
 			ps.executeUpdate();
-			
+			estado = true;
 			ps.close();
 			cn.close();
 			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			estado = false;
 		}
+		
+		return estado;
 	}
 
 	@Override

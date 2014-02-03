@@ -13,8 +13,8 @@ public class CC_SolicitudService {
 	private CC_SolicitudDAO solCCDao = factory.getCc_SolicitudDAO();
 	
 	
-	public void registrarSolicitudCC(SolicitudCambioCatDTO solicitudcc) {
-		solCCDao.registrarSolicitudCC(solicitudcc);
+	public boolean registrarSolicitudCC(SolicitudCambioCatDTO solicitudcc) {
+		return solCCDao.registrarSolicitudCC(solicitudcc);
 	}
 	
 	public void actualizarEstadoSolicitudCC(int idSoliCC, int estado) {
