@@ -686,7 +686,7 @@ if(request.getAttribute("lista")==null){
 														<label class="col-sm-3">Nro. de Solicitud:</label> <input
 															class="col-sm-3 input-lg" type="text"
 															name="txIdSolicitud" id="txtIdSolicitud"
-															readonly="readonly"  value="${requestScope.IdSolicitudRes}" />
+															readonly="readonly"  value="${requestScope.solicitudcc.idSolCategoria}" />
 
 													</fieldset>
 													<br>

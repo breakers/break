@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +37,20 @@ public class ServletParent extends HttpServlet {
 		msj=utilMensaje.obtenerMensaje(mensajes , codigo, parametro);
 		
 		return msj;
+	}
+	
+	protected void Terminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+		request.getSession().invalidate();
+		rd.forward(request, response);
+	}
+	
+	protected void Terminar(HttpServletRequest request, HttpServletResponse response, String Mensaje) throws ServletException, IOException{
+		
+		request.getSession().setAttribute("evento", 1);
+		request.getSession().setAttribute("mensaje", obtenerMensaje(request,5,Mensaje));
+		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+		rd.forward(request, response);
 	}
 
 }

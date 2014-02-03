@@ -36,6 +36,9 @@ public class SvCC_Solicitud extends ServletParent {
 	ContratoService serviciocon = new ContratoService();
     PredioService serviciopredio= new PredioService();  
     CC_SolicitudService servicioSolCC= new CC_SolicitudService();
+    
+    
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,6 +51,9 @@ public class SvCC_Solicitud extends ServletParent {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String proceso = request.getParameter("proceso");
+		
+		if (proceso!=null ) {
+			
 		
 		if(proceso.equals("filtrar")){
 			filtrarClientes(request,response);
@@ -65,6 +71,11 @@ public class SvCC_Solicitud extends ServletParent {
 			mostrarSolicitudPendiente(request,response);
 			
 			
+		}else{
+			Terminar(request, response, "Operacion invalida, sesion terminada");
+		}
+		}else{
+			Terminar(request, response);
 		}
 		
 		
@@ -114,7 +125,12 @@ public class SvCC_Solicitud extends ServletParent {
 				}
 				
 				System.out.println("solcc "+solicitudcc.getIdSolCategoria());
-				request.setAttribute("IdSolicitudRes", solicitudcc.getIdSolCategoria());
+				request.setAttribute("sccIdSolicitud", solicitudcc.getIdSolCategoria());
+				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
+				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
+				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
+				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
+				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
 			}
 			listarSolicitudesCC(request, response);
 			
