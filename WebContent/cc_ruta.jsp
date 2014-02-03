@@ -288,7 +288,7 @@ html,body,#map-canvas {
 
 	function initialize() {
 		directionsDisplay = new google.maps.DirectionsRenderer();
-		var centro = new google.maps.LatLng(-16.411667, -71.532967);
+		var centro = new google.maps.LatLng(-16.398763888889, -71.536883333333);
 		var mapOptions = {
 			zoom : 18,
 			center : centro,

@@ -50,7 +50,7 @@
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
 						<h1> <fmt:message key="label.Contratos" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Ee"></fmt:message></small>
+							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.EvaluarSolicitud"></fmt:message></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->

@@ -154,7 +154,7 @@ html,body,#map-canvas {
 
 	function initialize() {
 		directionsDisplay = new google.maps.DirectionsRenderer();
-		var centro = new google.maps.LatLng(-16.410851,-71.53438);
+		var centro = new google.maps.LatLng(-16.398763888889, -71.536883333333);
 		var mapOptions = {
 			zoom : 16,
 			center : centro,
@@ -211,7 +211,7 @@ html,body,#map-canvas {
 				<a href="index.jsp" class="navbar-brand"><img
 					src="img/logo_sedapar.png" height="75" width="120"
 					title="Sedapar - Profesionales a su servicio"> <small
-					class="light-blue"> Solicitud de Nueva Conexion de Agua </small><i
+					class="light-blue"> <fmt:message key="nuevaconexion_Titulo" /> </small><i
 					class="icon-tint lightcyan"></i> </a>
 				<!-- /.brand -->
 			</div>
@@ -329,7 +329,7 @@ html,body,#map-canvas {
 						<!-- ########### Modificar Pagina -->
 						<h1>
 							<fmt:message key="label.Contenido" />
-							<small> <i class="icon-double-angle-right"></i> Solicitelo YA
+							<small> <i class="icon-double-angle-right"></i> <fmt:message key="nuevaconexion_Intro" />
 							</small>
 						</h1>
 					</div>
@@ -344,7 +344,7 @@ html,body,#map-canvas {
 									<div class="widget-box">
 										<div
 											class="widget-header widget-header-blue widget-header-flat">
-											<h4 class="lighter">Solicitud de Nueva Conexion de Agua</h4>
+											<h4 class="lighter"><fmt:message key="nuevaconexion_Titulo" /></h4>
 											<!-- 	<div class="widget-toolbar">
 													<label>
 														<small class="green">
@@ -364,16 +364,16 @@ html,body,#map-canvas {
 													data-target="#step-container">
 													<ul class="wizard-steps">
 														<li data-target="#step1" class="active"><span
-															class="step">1</span> <span class="title">Información del Cliente</span></li>
+															class="step">1</span> <span class="title"><fmt:message key="nuevaconexion_1" /></span></li>
 
 														<li data-target="#step2"><span class="step">2</span>
-															<span class="title">Informacion del Predio</span></li>
+															<span class="title"><fmt:message key="nuevaconexion_2" /></span></li>
 
 														<li data-target="#step3"><span class="step">3</span>
-															<span class="title">Presupuesto</span></li>
+															<span class="title"><fmt:message key="nuevaconexion_3" /></span></li>
 
 														<li data-target="#step4"><span class="step">4</span>
-															<span class="title">Cierre</span></li>
+															<span class="title"><fmt:message key="nuevaconexion_4" /></span></li>
 													</ul>
 												</div>
 
@@ -383,15 +383,13 @@ html,body,#map-canvas {
 												<div class="step-content row-fluid position-relative"
 													id="step-container">
 													<div class="step-pane active" id="step1">
-														<h3 class="lighter block green">Ingresa la siguiente
-															informacion</h3>
+														<h3 class="lighter block green"><fmt:message key="nuevaconexion_ingreseinformacion" /></h3>
 
 														<div class="form-horizontal">
 
 															<div class="form-group">
 																<label
-																	class="green control-label col-xs-12 col-sm-3 no-padding-right">Tipo
-																	de Persona:</label>
+																	class="green control-label col-xs-12 col-sm-3 no-padding-right"><fmt:message key="nuevaconexion_tipodepersona" /></label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
@@ -411,12 +409,12 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Nombre(s):</label>
+																	for="name"><fmt:message key="nuevaconexion_nombre" /></label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtNombres_nat" name="txtNombres_nat"
-																			class="col-xs-12 col-sm-5" placeholder="Ingrese su Nombre..."/>
+																			class="col-xs-12 col-sm-5" placeholder="<fmt:message key="nuevaconexion_nombre_ph" />"/>
 																	</div>
 																</div>
 															</div>
@@ -424,12 +422,12 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Apellido Paterno:</label>
+																	for="name"><fmt:message key="nuevaconexion_apepa" /></label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtApePat_nat" name="txtApePat_nat"
-																			class="col-xs-12 col-sm-5" placeholder="Ingrese su Apellido Paterno..."/>
+																			class="col-xs-12 col-sm-5" placeholder="<fmt:message key="nuevaconexion_apepa_ph" />"/>
 																	</div>
 																</div>
 															</div>
@@ -437,12 +435,12 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Apellido Materno:</label>
+																	for="name"><fmt:message key="nuevaconexion_apema" /></label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtApeMat_nat" name="txtApeMat_nat"
-																			class="col-xs-12 col-sm-5" placeholder="Ingrese su Apellido Materno..."/>
+																			class="col-xs-12 col-sm-5" placeholder="<fmt:message key="nuevaconexion_apema_ph" />"/>
 																	</div>
 																</div>
 															</div>
@@ -603,12 +601,12 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Nombre(s):</label>
+																	for="name"><fmt:message key="nuevaconexion_nombre" /></label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtNombres_jur" name="txtNombres_jur"
-																			class="col-xs-12 col-sm-5" />
+																			class="col-xs-12 col-sm-5" placeholder="<fmt:message key="nuevaconexion_nombre_ph" />"/>
 																	</div>
 																</div>
 															</div>
@@ -616,12 +614,12 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Apellido Paterno:</label>
+																	for="name"><fmt:message key="nuevaconexion_apepa" /></label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtApePat_jur" name="txtApePat_jur"
-																			class="col-xs-12 col-sm-5" />
+																			class="col-xs-12 col-sm-5" placeholder="<fmt:message key="nuevaconexion_apepa_ph" />"/>
 																	</div>
 																</div>
 															</div>
@@ -629,12 +627,12 @@ html,body,#map-canvas {
 															<div class="form-group">
 																<label
 																	class="control-label col-xs-12 col-sm-3 no-padding-right"
-																	for="name">Apellido Materno:</label>
+																	for="name"><fmt:message key="nuevaconexion_apema" /></label>
 
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="text" id="txtApeMat_jur" name="txtApeMat_jur"
-																			class="col-xs-12 col-sm-5" />
+																			class="col-xs-12 col-sm-5" placeholder="<fmt:message key="nuevaconexion_apema_ph" />"/>
 																	</div>
 																</div>
 															</div>

@@ -390,7 +390,7 @@
 						<ul class="submenu">
 							<li><a href="#" class="dropdown-toggle"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Solicitud" /> <b class="arrow icon-angle-down"></b>
+										key="label.Solicitudes" /> <b class="arrow icon-angle-down"></b>
 							</a>
 
 								<ul class="submenu">
@@ -406,12 +406,12 @@
 
 							<li><a href="SvContrato"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Generar" />
+										key="label.GenerarContrato" />
 							</a></li>
 
 							<li class="active"><a href="con_consulta.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Cc" />
+										key="label.ConsultarContrato" />
 							</a></li>
 
 
@@ -426,7 +426,7 @@
 						<ul class="submenu">
 							<li><a href="#" class="dropdown-toggle"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Solicitud" /><b class="arrow icon-angle-down"></b>
+										key="label.Solicitudes" /><b class="arrow icon-angle-down"></b>
 							</a>
 
 								<ul class="submenu">
@@ -446,17 +446,17 @@
 
 							<li><a href="cc_inspeccion.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Ii" />
+										key="label.InformeInspección" />
 							</a></li>
 
 							<li class="cc_evaluar"><a href="cc_evaluar.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Ee" />
+										key="label.EvaluarSolicitud" />
 							</a></li>
 
 							<li><a href="cc_validar.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Ve" />
+										key="label.VerificarCambioCategoria" />
 							</a></li>
 
 
@@ -471,12 +471,12 @@
 						<ul class="submenu">
 							<li><a href="liq_consulta.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Cd" />
+										key="label.ConsultarDeudas" />
 							</a></li>
 
 							<li><a href="liq_pago.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Rp" />
+										key="label.RegistrarPago" />
 							</a></li>
 
 						</ul></li>
@@ -489,7 +489,7 @@
 						<ul class="submenu">
 							<li><a href="rep_servicios.jsp"> <i
 									class="icon-double-angle-right"></i> <fmt:message
-										key="label.Sc" />
+										key="label.ServiciosContratados" />
 							</a></li>
 
 							<li><a href="SvReportes"> <i
@@ -588,7 +588,7 @@
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
 						<h1> <fmt:message key="label.Contratos" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Cc" /></small>
+							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.ConsultarContrato" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->

@@ -380,8 +380,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 	<div class="video-container"><iframe allowfullscreen="" frameborder="0" height="402" src="http://www.youtube.com/embed/_qTKJ2FcDNI?rel=0" width="714"></iframe></div>
 </div>
 <div class="video-copy last">
-	<p>La celebraciÃ³n del DÃ­a Mundial del Agua tiene por objeto fomentar la comprensiÃ³n de la importancia de los recursos hÃ­dricos en la productividad econÃ³mica y el bienestar social. El agua limpia es vida y nuestras vidas dependen de la manera en que protejamos la calidad de nuestras aguas.</p>
-	<p>La calidad de los recursos hÃ­dricos se ve cada vez mÃ¡s amenazada por la contaminaciÃ³n. Durante los Ãºltimos 50 aÃ±os la actividad humana ha provocado la contaminaciÃ³n de los recursos hÃ­dricos en una magnitud histÃ³ricamente sin precedentes.</p>
+	<p>La celebración del Día Mundial del Agua tiene por objeto fomentar la comprensión de la importancia de los recursos hídricos en la productividad económica y el bienestar social. El agua limpia es vida y nuestras vidas dependen de la manera en que protejamos la calidad de nuestras aguas.</p>
+	<p>La calidad de los recursos hídricos se ve cada vez más amenazada por la contaminación. Durante los últimos 50 años la actividad humana ha provocado la contaminación de los recursos hídricos en una magnitud históricamente sin precedentes.</p>
 </div>
 <p>&nbsp;</p>
 		

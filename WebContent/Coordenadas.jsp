@@ -117,7 +117,7 @@
                     });
               } else {
                   
-                  alert("No podemos encontrar la direcci&oacute;n, error: " + status);
+                  alert("No podemos encontrar la dirección, error: " + status);
               }
             });
           }

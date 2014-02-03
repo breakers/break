@@ -49,7 +49,7 @@
 					<div class="page-header">
 						<!-- ########### Modificar Pagina -->
 						<h1> <fmt:message key="label.Categoria" />
-							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.Ii" /></small>
+							<small> <i class="icon-double-angle-right"></i> <fmt:message key="label.InformeInspección" /></small>
 						</h1>
 					</div>
 					<!-- /.page-header -->

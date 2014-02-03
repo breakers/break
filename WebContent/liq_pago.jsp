@@ -52,7 +52,7 @@
 					<h1>
 						<fmt:message key="label.Liquidacion" />
 						<small> <i class="icon-double-angle-right"></i> <fmt:message
-								key="label.Rp"></fmt:message>
+								key="label.RegistrarPago"></fmt:message>
 						</small>
 					</h1>
 				</div>
