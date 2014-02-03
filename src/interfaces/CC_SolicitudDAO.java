@@ -9,7 +9,7 @@ public interface CC_SolicitudDAO {
 	
 	public boolean registrarSolicitudCC(SolicitudCambioCatDTO solicitudcc);
 	
-	public void actualizarEstadoSolicitudCC(int idSoliCC, int estado);
+	public void actualizarEstadoSolicitudCC(DetalleSolCambioCatDTO detallescc);
 	
 	public List<SolicitudCambioCatDTO> listarSolicitudesporEstado(int estado);
 	

@@ -855,11 +855,16 @@ if(request.getAttribute("lista")==null){
 							<div class="row">
 								<!-- begins row botones -->
 								<div class="hr hr-24"></div>
+								
+								<form method="post" action="SvCC_Solicitud">
+										<input id="proceso" name="proceso" value="ValidarSCC" type="text" hidden="true"/>
+										<input id="ccIdSolCategoria" name="ccIdSolCategoria" value="${requestScope.scc_idSolicitud }" type="text" hidden="true"/>
+								
 								<div class="col-sm-12" style="padding-left: 420px;">
 
 
 
-									<button class="btn btn-success" type="button">
+									<button class="btn btn-success" type="submit">
 										<i class="icon-thumbs-up bigger-110"></i> Aprobar
 									</button>
 
@@ -869,6 +874,7 @@ if(request.getAttribute("lista")==null){
 										<i class="icon-thumbs-down bigger-110"></i> Rechazar
 									</button>
 								</div>
+								</form>
 							</div>
 
 							<div id="modal-documento" class="modal" tabindex="-1">

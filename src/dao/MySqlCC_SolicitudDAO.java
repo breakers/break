@@ -43,8 +43,30 @@ public class MySqlCC_SolicitudDAO implements CC_SolicitudDAO{
 	}
 
 	@Override
-	public void actualizarEstadoSolicitudCC(int idSoliCC, int estado) {
-		// TODO Auto-generated method stub
+	public void actualizarEstadoSolicitudCC(DetalleSolCambioCatDTO detallescc) {
+		
+		String sql= "call usp_actualizarSolicitudCC(?,?,?)";
+		
+		Connection cn = null;
+		PreparedStatement ps= null;
+		
+		try {
+			cn = MySQL.getConnection();
+			ps= cn.prepareStatement(sql);
+			ps.setInt(1, detallescc.getIdSolCategoria());
+			ps.setInt(2, detallescc.getIdEstado());
+			ps.setInt(3, detallescc.getIdUsuario());
+			
+			ps.executeUpdate();
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 

@@ -20,6 +20,7 @@ import service.PredioService;
 import service.SuministroService;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
+import bean.DetalleSolCambioCatDTO;
 import bean.FiltroClienteDTO;
 import bean.PerfilDTO;
 import bean.PredioDTO;
@@ -76,7 +77,7 @@ public class SvCC_Solicitud extends ServletParent {
 			
 			
 		}else{
-			Terminar(request, response, "Operacion invalida, sesion terminada");
+			Terminar(request, response, "Operacion invalida");
 		}
 		}else{
 			Terminar(request, response);
@@ -84,10 +85,21 @@ public class SvCC_Solicitud extends ServletParent {
 		
 		
 	}
-
-
-
-
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String proceso = request.getParameter("proceso");
+		
+		if (proceso !=null) {
+			if (proceso.equals("Grabar")) {
+				registrarSolicitudCambioCategoria(request,response);
+			}else if(proceso.equals("ValidarSCC")){
+				validarSolicitudCambioCategoria(request,response);
+			}
+		}
+	}
 
 	private void listarSolicitudesCC(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -99,6 +111,43 @@ public class SvCC_Solicitud extends ServletParent {
 		RequestDispatcher rd = request.getRequestDispatcher("/cc_sol_revision.jsp");
 		rd.forward(request, response);
 		
+	}
+	
+	private void validarSolicitudCambioCategoria(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String sidSolicitud= request.getParameter("ccIdSolCategoria");
+		String cidUsuario = request.getSession().getAttribute("iduser").toString();
+		
+		System.out.println("Entro para Validar e ir a inspeccion solnumero:"+sidSolicitud);
+		
+		int idSolicitud;
+		int idUsuario ;
+		try {
+			idSolicitud=Integer.parseInt(sidSolicitud);
+			idUsuario = Integer.parseInt(cidUsuario);
+		} catch (Exception e) {
+			idSolicitud =-1;
+			idUsuario =-1;
+		}
+		
+		if (idSolicitud!=-1 && idUsuario !=-1 ) {
+			
+			DetalleSolCambioCatDTO detalle = new DetalleSolCambioCatDTO();
+			
+			detalle.setIdEstado(2);
+			detalle.setIdSolCategoria(idSolicitud);
+			detalle.setIdUsuario(idUsuario);
+			
+			servicioSolCC.actualizarEstadoSolicitudCC(detalle);
+			
+			request.getSession().setAttribute("evento", 1);
+			request.getSession().setAttribute("mensaje", obtenerMensaje(request,3,"Solicitud de cambio de categoria"));
+			RequestDispatcher rd = request.getRequestDispatcher("/cc_sol_revision.jsp");
+			rd.forward(request, response);
+
+		}else{
+			Terminar(request, response);
+		}
 	}
 
 	private void mostrarSolicitudPendiente(HttpServletRequest request,
@@ -131,7 +180,7 @@ public class SvCC_Solicitud extends ServletParent {
 				
 				System.out.println("LII: suministro.idpredio:" + suministro.getIdPredio());
 				System.out.println("LII: predio.idpredio:" + predio.getIdPredio());
-				System.out.println("LII: predio.direccion:" + predio.getId_calle() + " " +predio.getNumPredio() + " - "+predio.getNomDistrito() + " - "+ predio.getNomLocalidad());
+				System.out.println("LII: predio.direccion:" + predio.getId_calle() + " " +predio.getNumPredio() + " - "+predio.getNomLocalidad() + " - "+ predio.getNomDistrito());
 				System.out.println("LII: predio.descripcion tipo:" + predio.getDesTipoPredio());
 				
 				
@@ -143,7 +192,7 @@ public class SvCC_Solicitud extends ServletParent {
 					request.setAttribute("scc_idCliente", cliente.getIdCliente());
 					request.setAttribute("scc_codSuministro", suministro.getCodSuministro());
 					request.setAttribute("scc_nomCategoria", suministro.getNomCategoria());
-					request.setAttribute("scc_Direccion", predio.getId_calle() + " " +predio.getNumPredio() + " - "+predio.getNomDistrito() + " - "+ predio.getNomLocalidad());
+					request.setAttribute("scc_Direccion", predio.getNomCalle() + " " +predio.getNumPredio() + " - "+predio.getNomLocalidad() + " - "+ predio.getNomDistrito());
 					request.setAttribute("scc_nomDiametroConexion", suministro.getNomDiametroConexion());
 					request.setAttribute("scc_desTipoPredio", predio.getDesTipoPredio());
 					request.setAttribute("scc_detalles", solicitudcc.getRazoncambio());
@@ -154,7 +203,7 @@ public class SvCC_Solicitud extends ServletParent {
 					request.setAttribute("scc_idCliente", cliente.getIdCliente());
 					request.setAttribute("scc_codSuministro", suministro.getCodSuministro());
 					request.setAttribute("scc_nomCategoria", suministro.getNomCategoria());
-					request.setAttribute("scc_Direccion", predio.getNomCalle() + " " +predio.getNumPredio() + " - "+predio.getNomDistrito() + " - "+ predio.getNomLocalidad());
+					request.setAttribute("scc_Direccion", predio.getNomCalle() + " " +predio.getNumPredio() + " - "+predio.getNomLocalidad() + " - "+ predio.getNomDistrito());
 					request.setAttribute("scc_nomDiametroConexion", suministro.getNomDiametroConexion());
 					request.setAttribute("scc_desTipoPredio", predio.getDesTipoPredio());
 					request.setAttribute("scc_detalles", solicitudcc.getRazoncambio());
@@ -176,24 +225,6 @@ public class SvCC_Solicitud extends ServletParent {
 		
 	}
 
-
-
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String proceso = request.getParameter("proceso");
-		
-		if (proceso !=null) {
-			if (proceso.equals("Grabar")) {
-				registrarSolicitudCambioCategoria(request,response);
-			}
-		}
-	}
-	
-	
-	
 	
 	private void registrarSolicitudCambioCategoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

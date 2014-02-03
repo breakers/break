@@ -457,7 +457,22 @@ VImgArchivo blob,
 VrazonCambio varchar(255)
 )
 BEGIN
+DECLARE solicitudCCGenerada int;
+
 INSERT INTO tb_solcambiocategoria VALUES(null,VidSuministro,1,VImgDNI,VImgArchivo,VidUsuario,now(),VrazonCambio);
-	
+SET solicitudCCGenerada = (SELECT MAX(idSolCategoria) from tb_SolCambioCategoria);
+INSERT INTO tb_DetalleSolicitudCambioCat VALUES(solicitudCCGenerada,1,VidUsuario,now());	
+
+END $
+
+DELIMITER $
+CREATE PROCEDURE usp_actualizarSolicitudCC(
+idSolCategoria int,
+VidEstado int,
+VidUsuario int
+)
+BEGIN
+UPDATE tb_solcambiocategoria SET idEstado = VidEstado;
+INSERT INTO tb_DetalleSolicitudCambioCat VALUES(idSolCategoria,VidEstado,VidUsuario,now());	
 
 END $

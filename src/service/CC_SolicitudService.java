@@ -17,8 +17,8 @@ public class CC_SolicitudService {
 		return solCCDao.registrarSolicitudCC(solicitudcc);
 	}
 	
-	public void actualizarEstadoSolicitudCC(int idSoliCC, int estado) {
-		solCCDao.actualizarEstadoSolicitudCC(idSoliCC, estado);
+	public void actualizarEstadoSolicitudCC(DetalleSolCambioCatDTO detallescc) {
+		solCCDao.actualizarEstadoSolicitudCC(detallescc);
 	}
 	
 	public List<SolicitudCambioCatDTO> listarSolicitudesporEstado(int estado) {
