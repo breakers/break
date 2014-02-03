@@ -397,7 +397,15 @@ public class SvCC_Solicitud extends ServletParent {
 	
 	
 	public void mostrarDatosSuministro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-	int idSuministro = Integer.parseInt(request.getParameter("idSuministro"));
+		
+		String sidSuministro= request.getParameter("idSuministro");
+		int idSuministro=-1;
+		try {
+			idSuministro = Integer.parseInt(sidSuministro);
+		} catch (Exception e) {
+			idSuministro=-1;
+		}
+	
 	SuministroDTO datosSuministro = serviciocon.mostrarDatosSuministro(idSuministro);
 	
 	response.setContentType("text/html");
