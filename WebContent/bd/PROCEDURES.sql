@@ -323,7 +323,7 @@ BEGIN
 	CALL usp_llenarDatosPredio(VidSolicitud);
 	SET idPredioGenerado = (SELECT MAX(idPredio) from tb_predio);
 	
-	INSERT INTO tb_suministro VALUES(null,concat('SUM-00',VultimoSum),idClienteGenerado,idPredioGenerado,1);
+	INSERT INTO tb_suministro VALUES(null,concat('SUM-00',VultimoSum),idClienteGenerado,idPredioGenerado,1,VidDiametroConexion);
 	SET idSuministroGenerado = (SELECT MAX(idSuministro) from tb_suministro);
 
 	INSERT INTO tb_Contrato VALUES(null,idClienteGenerado,idPredioGenerado,idSuministroGenerado,VidUsuario,VidSolicitud,VidDiametroConexion,Vcosto);

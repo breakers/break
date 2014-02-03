@@ -11,11 +11,10 @@ public class PredioDTO {
     private int id_localidad;
     private int id_calle;
     private String numPredio;
+    private String referencias;
     private String CoordenadasPredio;
     
   //datos relacionados a otras tablas
-    private String nomTipoPredio;
-    private String nomEstadoPredio;
     private String nomProvincia;
     private String nomDistrito;
     private String nomLocalidad;
@@ -109,22 +108,6 @@ public class PredioDTO {
 		CoordenadasPredio = coordenadasPredio;
 	}
 
-	public String getNomTipoPredio() {
-		return nomTipoPredio;
-	}
-
-	public void setNomTipoPredio(String nomTipoPredio) {
-		this.nomTipoPredio = nomTipoPredio;
-	}
-
-	public String getNomEstadoPredio() {
-		return nomEstadoPredio;
-	}
-
-	public void setNomEstadoPredio(String nomEstadoPredio) {
-		this.nomEstadoPredio = nomEstadoPredio;
-	}
-
 	public String getNomProvincia() {
 		return nomProvincia;
 	}
@@ -203,6 +186,14 @@ public class PredioDTO {
 
 	public void setDiametro(DiametroConexionDTO diametro) {
 		this.diametro = diametro;
+	}
+	
+	public String getReferencias() {
+		return referencias;
+	}
+
+	public void setReferencias(String referencias) {
+		this.referencias = referencias;
 	}
 
 	public ContratoDTO getContrato() {

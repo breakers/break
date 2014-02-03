@@ -132,9 +132,55 @@ public class MySqlCC_SolicitudDAO implements CC_SolicitudDAO{
 	@Override
 	public SolicitudCambioCatDTO obtenerSolicitud(int idSolicitud) {
 		
-		SolicitudCambioCatDTO solicitud= new SolicitudCambioCatDTO();
-		solicitud.setIdSolCategoria(idSolicitud);
-		// TODO Auto-generated catch block
+		SolicitudCambioCatDTO solicitud= null;
+		
+		
+		String sql= "select * from tb_SolCambioCategoria Where idSolCategoria = ? ";
+		
+		Connection cn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			cn= MySQL.getConnection();
+			ps= cn.prepareStatement(sql);
+			ps.setInt(1, idSolicitud);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				solicitud= new SolicitudCambioCatDTO();
+				
+				solicitud.setIdSolCategoria(idSolicitud);
+				
+//				solicitud.getCodSuministro();
+//				solicitud.getDetalles();
+				solicitud.setFechaSolicitud(rs.getDate("fechaSolicitud").toString());
+				solicitud.setIdEstado(rs.getInt("idEstado"));
+				solicitud.setIdSuministro(rs.getInt("idSuministro"));
+				solicitud.setIdUsuario(rs.getInt("idUsuario"));
+				solicitud.setImgArchivo(rs.getString("imgArchivo"));
+				solicitud.setImgDNI(rs.getString("imgDNI"));
+//				solicitud.getNomEstado();
+//				solicitud.getNomUsuario();
+				solicitud.setRazoncambio(rs.getString("razoncambio"));
+				
+				
+				
+			}
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
 		
 		return solicitud;
 	}

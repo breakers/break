@@ -10,6 +10,7 @@ import interfaces.PagoDAO;
 import interfaces.PerfilDAO;
 import interfaces.PredioDAO;
 import interfaces.ReportesDAO;
+import interfaces.SuministroDAO;
 import interfaces.UsuarioDAO;
 
 public class MySqlDAOFactory extends DAOFactory{
@@ -62,6 +63,11 @@ public class MySqlDAOFactory extends DAOFactory{
 	@Override
 	public ClienteDAO getClienteDAO() {
 		return new MySqlClienteDAO();
+	}
+
+	@Override
+	public SuministroDAO getSuministroDAO() {
+		return new MySqlSuministroDAO();
 	}	
 	
 	

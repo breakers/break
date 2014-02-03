@@ -686,14 +686,16 @@ if(request.getAttribute("lista")==null){
 														<label class="col-sm-3">Nro. de Solicitud:</label> <input
 															class="col-sm-3 input-lg" type="text"
 															name="txIdSolicitud" id="txtIdSolicitud"
-															readonly="readonly"  value="${requestScope.solicitudcc.idSolCategoria}" />
+															readonly="readonly"  value="${requestScope.scc_idSolicitud}" />
 
 													</fieldset>
 													<br>
 													<fieldset>
-														<label class="col-sm-3">Nombre Cliente:</label> <input
-															class="col-sm-4" type="text" name="txtCliente"
-															id="txtCliente" readonly="readonly" /><label
+														<label class="col-sm-3">Nombre Cliente:</label> 
+														<input class="col-sm-4" type="text" name="txtCliente"
+															id="txtCliente" readonly="readonly"  value="${requestScope.scc_nomCliente}" />
+															
+														<label
 															class="col-sm-3"> <a href="#modal-cliente"
 															class="btn btn-info" data-toggle="modal"
 															style="height: 32px; padding-top: 0px; width: 153px; padding-left: 7px; padding-right: 4px;">
@@ -704,12 +706,12 @@ if(request.getAttribute("lista")==null){
 													<fieldset>
 														<br> <label class="col-sm-3">Código Cliente:</label>
 														<input class="col-sm-3" type="text" name="txtCodCliente"
-															id="txtCodCliente" readonly="readonly" />
+															id="txtCodCliente" readonly="readonly"  value="${requestScope.scc_idCliente}" />
 													</fieldset>
 													<fieldset>
 														<br> <label class="col-sm-3">Nro. Suministro:</label>
 														<input class="col-sm-3" type="text" name="txtSuministro"
-															id="txtSuministro" readonly="readonly" />
+															id="txtSuministro" readonly="readonly" value="${requestScope.scc_codSuministro}"  />
 													</fieldset>
 													<br>
 
@@ -717,9 +719,9 @@ if(request.getAttribute("lista")==null){
 														<label><strong>Datos del Servicio</strong></label>
 													</fieldset>
 													<fieldset>
-														<label class="col-sm-3">Categoria Actual:</label> <input
-															class="input-lg" type="text" name="txtCategoria"
-															id="txtCategoria" readonly="readonly" />
+														<label class="col-sm-3">Categoria Actual:</label> 
+														<input class="input-lg" type="text" name="txtCategoria"
+															id="txtCategoria" readonly="readonly"  value="${requestScope.scc_nomCategoria}" />
 													</fieldset>
 													<br>
 													<fieldset disabled>
@@ -727,24 +729,24 @@ if(request.getAttribute("lista")==null){
 														<textarea class="col-sm-4" rows="3" name="txtDireccion"
 															id="txtDireccion"
 															style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181); resize: none;"
-															readonly="readonly"></textarea>
+															readonly="readonly" >${requestScope.scc_Direccion}</textarea>
 
 													</fieldset>
 													<br>
-													<fieldset>
-														<label class="col-sm-3">Nro. de Pisos:</label> <input
-															type="text" name="txtPisos" id="txtPisos"
-															readonly="readonly" />
-													</fieldset>
+<!-- 													<fieldset> -->
+<!-- 														<label class="col-sm-3">Nro. de Pisos:</label> <input -->
+<!-- 															type="text" name="txtPisos" id="txtPisos" -->
+<!-- 															readonly="readonly" /> -->
+<!-- 													</fieldset> -->
 													<fieldset>
 														<br> <label class="col-sm-3">Diámetro
 															Tuberia:</label> <input type="text" name="txtTuberia"
-															id="txtTuberia" readonly="readonly" />
+															id="txtTuberia" readonly="readonly"  value="${requestScope.scc_nomDiametroConexion}"  />
 													</fieldset>
 													<fieldset>
 														<br> <label class="col-sm-3">Tipo de
 															Vivienda:</label> <input type="text" name="txtTipVivienda"
-															id="txtTipVivienda" readonly="readonly" />
+															id="txtTipVivienda" readonly="readonly"  value="${requestScope.scc_desTipoPredio}" />
 													</fieldset>
 													<br>
 												</form>
@@ -785,7 +787,7 @@ if(request.getAttribute("lista")==null){
 
 															<textarea class="col-sm-10" id="txtMotivo"
 																style="height: 100px; background: rgb(245, 245, 245); border-color: rgb(181, 181, 181); resize: none;"
-																readonly="readonly"></textarea>
+																readonly="readonly" >${requestScope.scc_detalles}</textarea>
 
 														</fieldset>
 														<br>

@@ -9,6 +9,7 @@ import interfaces.PagoDAO;
 import interfaces.PerfilDAO;
 import interfaces.PredioDAO;
 import interfaces.ReportesDAO;
+import interfaces.SuministroDAO;
 import interfaces.UsuarioDAO;
 
 public abstract class DAOFactory {
@@ -27,6 +28,7 @@ public abstract class DAOFactory {
 	public abstract ReportesDAO getReportesDAO();
 	public abstract CC_SolicitudDAO getCc_SolicitudDAO();
 	public abstract ClienteDAO getClienteDAO();
+	public abstract SuministroDAO getSuministroDAO();
 	
 	public static DAOFactory getDAOFactory(int w){
 		

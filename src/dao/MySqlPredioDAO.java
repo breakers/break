@@ -55,10 +55,12 @@ public class MySqlPredioDAO implements PredioDAO {
 				predio.setIdEstadoPredio(rs.getInt("idEstadoPredio"));
 				predio.setId_provincia(rs.getInt("id_provincia"));
 				predio.setId_distrito(rs.getInt("id_distrito"));
-				predio.setId_localidad(rs.getInt("id_distrito"));
+				predio.setId_localidad(rs.getInt("id_localidad"));
 				predio.setId_calle(rs.getInt("id_calle"));
 				predio.setNumPredio(rs.getString("numPredio"));
-				predio.setCoordenadasPredio(rs.getString("coordenadasPredio"));
+				predio.setReferencias(rs.getString("referencias"));
+				predio.setCoordenadasPredio(rs.getString("CoordenadasPredio"));
+				
 
 				
 
@@ -176,7 +178,7 @@ public class MySqlPredioDAO implements PredioDAO {
 				ResultSet rs = ps.executeQuery();
 
 				if (rs.next()) {
-					predio.setNomEstadoPredio(rs.getString("desEstadoPredio"));
+					predio.setDesEstadoPredio(rs.getString("desEstadoPredio"));
 				}
 
 				rs.close();
@@ -198,7 +200,7 @@ public class MySqlPredioDAO implements PredioDAO {
 				ResultSet rs = ps.executeQuery();
 
 				if (rs.next()) {
-					predio.setNomTipoPredio(rs.getString("desTipoPredio"));
+					predio.setDesTipoPredio(rs.getString("desTipoPredio"));
 				}
 
 				rs.close();

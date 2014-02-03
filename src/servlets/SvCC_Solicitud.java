@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.CC_SolicitudService;
+import service.ClienteService;
 import service.ContratoService;
 import service.PerfilService;
 import service.PredioService;
+import service.SuministroService;
 import bean.ClienteDTO;
 import bean.ContratoDTO;
 import bean.FiltroClienteDTO;
@@ -36,7 +38,9 @@ public class SvCC_Solicitud extends ServletParent {
 	ContratoService serviciocon = new ContratoService();
     PredioService serviciopredio= new PredioService();  
     CC_SolicitudService servicioSolCC= new CC_SolicitudService();
+    ClienteService serviciocli= new ClienteService();
     
+    SuministroService serviciosumi = new SuministroService();
     
     
     /**
@@ -119,18 +123,48 @@ public class SvCC_Solicitud extends ServletParent {
 			
 			if(solicitudcc!=null){
 				if(solicitudcc.getIdEstado()==1){
+					
+				ClienteDTO cliente = serviciocli.obtenerClientePorSuministro(solicitudcc.getIdSuministro());
+				SuministroDTO suministro= serviciosumi.obtenerSuministro(solicitudcc.getIdSuministro());
+				PredioDTO predio= serviciopredio.obtenerPredio(suministro.getIdPredio());
 				request.setAttribute("solicitudcc", solicitudcc);
+				
+				System.out.println("LII: suministro.idpredio:" + suministro.getIdPredio());
+				System.out.println("LII: predio.idpredio:" + predio.getIdPredio());
+				System.out.println("LII: predio.direccion:" + predio.getId_calle() + " " +predio.getNumPredio() + " - "+predio.getNomDistrito() + " - "+ predio.getNomLocalidad());
+				System.out.println("LII: predio.descripcion tipo:" + predio.getDesTipoPredio());
+				
+				
+				
+				if (cliente.getIdtipoPersona()==1) { // narutal
+					System.out.println("solcc al natural >"+solicitudcc.getIdSolCategoria());
+					request.setAttribute("scc_idSolicitud", solicitudcc.getIdSolCategoria());
+					request.setAttribute("scc_nomCliente", cliente.getNomCliente() + " " +cliente.getApepaCliente());
+					request.setAttribute("scc_idCliente", cliente.getIdCliente());
+					request.setAttribute("scc_codSuministro", suministro.getCodSuministro());
+					request.setAttribute("scc_nomCategoria", suministro.getNomCategoria());
+					request.setAttribute("scc_Direccion", predio.getId_calle() + " " +predio.getNumPredio() + " - "+predio.getNomDistrito() + " - "+ predio.getNomLocalidad());
+					request.setAttribute("scc_nomDiametroConexion", suministro.getNomDiametroConexion());
+					request.setAttribute("scc_desTipoPredio", predio.getDesTipoPredio());
+					request.setAttribute("scc_detalles", solicitudcc.getRazoncambio());
+				}else{ //juridica
+					System.out.println("solcc juridica"+solicitudcc.getIdSolCategoria());
+					request.setAttribute("scc_idSolicitud", solicitudcc.getIdSolCategoria());
+					request.setAttribute("scc_nomCliente", cliente.getRazonsocial());
+					request.setAttribute("scc_idCliente", cliente.getIdCliente());
+					request.setAttribute("scc_codSuministro", suministro.getCodSuministro());
+					request.setAttribute("scc_nomCategoria", suministro.getNomCategoria());
+					request.setAttribute("scc_Direccion", predio.getNomCalle() + " " +predio.getNumPredio() + " - "+predio.getNomDistrito() + " - "+ predio.getNomLocalidad());
+					request.setAttribute("scc_nomDiametroConexion", suministro.getNomDiametroConexion());
+					request.setAttribute("scc_desTipoPredio", predio.getDesTipoPredio());
+					request.setAttribute("scc_detalles", solicitudcc.getRazoncambio());
+					
+				}
+				
+				
 				}else{
 					request.setAttribute("solicitudcc", null);
 				}
-				
-				System.out.println("solcc "+solicitudcc.getIdSolCategoria());
-				request.setAttribute("sccIdSolicitud", solicitudcc.getIdSolCategoria());
-				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
-				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
-				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
-				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
-				request.setAttribute("sccIdSolicitudRes", solicitudcc.getIdSolCategoria());
 			}
 			listarSolicitudesCC(request, response);
 			
