@@ -6,7 +6,13 @@
 <html lang="es">
 <head>
 
-<%
+<%	
+
+if(request.getAttribute("lista")==null){
+// 	request.setAttribute("proceso", "cargarSolicitudesCC");
+	response.sendRedirect("SvCC_Solicitud?proceso=cargarSolicitudesCC");
+}
+
 	HttpSession sesion = request.getSession();
 	String nombre = (String) sesion.getAttribute("nombreCompleto");
 	String foto = (Integer) sesion.getAttribute("foto") + "";
@@ -620,8 +626,7 @@
 									</div>
 									<div class="table-responsive"
 										style="overflow: scroll; max-height: 570px;">
-										<table id="sample-table-1" class="table table-bordered "
-											style="margin-bottom: 0px;">
+										<table id="sample-table-1" class="table table-bordered " style="margin-bottom: 0px;">
 											<thead>
 												<tr>
 													<th width="100">Numero</th>
@@ -637,11 +642,14 @@
 											<tbody>
 												<c:forEach var="lista" items="${requestScope.lista}">
 													<tr>
-														<td>${lista.numero}</td>
-														<td>${lista.nomUsuario}&nbsp${lista.apepaUsuario}&nbsp${lista.apemaUsuario}</td>
-														<td>${lista.fecha}</td>
+														<td>${lista.idSolCategoria}</td>
+														<td>${lista.codSuministro}</td>
+														<td>${lista.fechaSolicitud}</td>
 														<td class="hidden-480"><span
-															class="label label-sm label-danger arrowed">${lista.estado}</span>
+															class="label label-sm label-danger arrowed">${lista.nomEstado}</span>
+														</td>
+														<td style="text-align: center;">
+															<a href="SvCC_Solicitud?proceso=mostrarSol&idSol=${lista.idSolCategoria}"><i class="icon-eye-open"></i> Ver Datos</a>
 														</td>
 													</tr>
 												</c:forEach>
@@ -655,7 +663,7 @@
 										style="left: 200px; top: 5px; padding-left: 31px;">Cantidad
 										de Solicitudes Pendientes:</label> <label id="lblCantidadSol"
 										class="col-sm-3 control-label no-padding-right"
-										style="left: 210px; top: 5px; padding-left: 0px;"><strong>9999</strong></label>
+										style="left: 210px; top: 5px; padding-left: 0px;"><strong>${lista.size() }</strong></label>
 								</div>
 
 
@@ -678,7 +686,7 @@
 														<label class="col-sm-3">Nro. de Solicitud:</label> <input
 															class="col-sm-3 input-lg" type="text"
 															name="txIdSolicitud" id="txtIdSolicitud"
-															readonly="readonly" />
+															readonly="readonly"  value="${requestScope.IdSolicitudRes}" />
 
 													</fieldset>
 													<br>
@@ -1096,9 +1104,76 @@
 
 
 
-	<div class="tooltip top in"
-		style="top: 447px; left: 980px; display: none;">
-		<div class="tooltip-inner">social networks : 38.7%</div>
-	</div>
+	<script type="text/javascript">
+	<!-- RENZO-->
+	$(document).ready(function () {
+		
+		 if("${sessionScope.evento}"==1){
+	 			<% sesion.setAttribute("evento", 0); %>
+	 			$.gritter.add({
+					title: "${sessionScope.mensaje.tituloMensajeAlerta}",
+					text: "${sessionScope.mensaje.cuerpoMensajeAlerta}",
+					image: "img/mensajes/${sessionScope.mensaje.imagenMensajeAlerta}",
+					time: 2000,
+					class_name: 'gritter-light gritter-info'
+				});	
+	 		}
+		
+		
+		
+		
+	    $("tr").click(function () {
+	        $(this).closest("tr").siblings().removeClass("highlighted");
+	        $(this).toggleClass("highlighted");
+	    });
+	    
+	    
+// 	    $( "#btnAprobar" ).on('click', function(e) {
+// 			e.preventDefault();
+		
+// 			$( "#dialog-confirm-aprobar" ).removeClass('hide').dialog({
+// 				resizable: false,
+// 				draggable: false,
+// 				modal: true,
+// 				title: "Confirmación",
+// 				title_html: true,
+// 				buttons: [
+// 					{
+// 						html: "<i class='icon-check bigger-110'></i>&nbsp; Confirmar",
+// 						"class" : "btn btn-success btn-xs",
+// 						click: function() {
+// 							$.ajax({
+// 								  url:"SvContrato",
+// 								  type:"POST",
+// 								  data:{id:"${requestScope.solicitud.idSolicitud}",generar:true},
+// 								  success: function(){
+// 									  location.href="SvContrato";
+// 								  }
+// 								});
+// 						}
+// 					}
+// 					,
+// 					{
+// 						html: "<i class='icon-remove bigger-110'></i>&nbsp; Cancelar",
+// 						"class" : "btn btn-xs",
+// 						click: function() {
+// 							$( this ).dialog( "close" );
+// 						}
+// 					}
+// 				]
+// 			});
+			
+// 	    });
+			
+			 
+			 
+		
+
+	    
+	    
+	    
+	});
+	
+	</script>
 </body>
 </html>

@@ -57,6 +57,14 @@ public class SvCC_Solicitud extends ServletParent {
 			
 		}else if(proceso.equals("mostrarDatosSuministro")){
 			mostrarDatosSuministro(request,response);
+		}else if(proceso.equals("Grabar")){
+			System.out.println("Ingresa a grabar la solicitud de Cambio Categoria");
+		}else if (proceso.equals("cargarSolicitudesCC")){
+			listarSolicitudesCC(request,response);
+		}else if(proceso.equals("mostrarSol")){
+			mostrarSolicitudPendiente(request,response);
+			
+			
 		}
 		
 		
@@ -66,6 +74,57 @@ public class SvCC_Solicitud extends ServletParent {
 
 
 
+	private void listarSolicitudesCC(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("SI ingresa a listar las solicitudes pendientes");
+		
+		List<SolicitudCambioCatDTO> lista = servicioSolCC.listarSolicitudesporEstado(1); //estado pendientes
+		System.out.println("tamanio lista"+lista.size());
+		request.setAttribute("lista", lista);
+		RequestDispatcher rd = request.getRequestDispatcher("/cc_sol_revision.jsp");
+		rd.forward(request, response);
+		
+	}
+
+	private void mostrarSolicitudPendiente(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// Muestra Solicitud Pendiente para su aprobacion
+		String sidSolicitud = request.getParameter("idSol");
+		String cidUsuario = request.getSession().getAttribute("iduser").toString();
+		
+		System.out.println("ID Solicitud numero:" + sidSolicitud);
+		int idSolicitud;
+		int idUsuario ;
+		try {
+			idSolicitud=Integer.parseInt(sidSolicitud);
+			idUsuario = Integer.parseInt(cidUsuario);
+		} catch (Exception e) {
+			idSolicitud =-1;
+			idUsuario =-1;
+		}
+		
+		if (idSolicitud!=-1 && idUsuario !=-1 ) {
+			SolicitudCambioCatDTO solicitudcc=servicioSolCC.obtenerSolicitud(idSolicitud);
+			
+			if(solicitudcc!=null){
+				if(solicitudcc.getIdEstado()==1){
+				request.setAttribute("solicitudcc", solicitudcc);
+				}else{
+					request.setAttribute("solicitudcc", null);
+				}
+				
+				System.out.println("solcc "+solicitudcc.getIdSolCategoria());
+				request.setAttribute("IdSolicitudRes", solicitudcc.getIdSolCategoria());
+			}
+			listarSolicitudesCC(request, response);
+			
+		}else{
+			//Mensaje de Error
+		}
+		
+		
+		
+	}
 
 
 
@@ -76,8 +135,10 @@ public class SvCC_Solicitud extends ServletParent {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String proceso = request.getParameter("proceso");
 		
-		if(proceso.equals("Grabar")){
-			registrarSolicitudCambioCategoria(request,response);
+		if (proceso !=null) {
+			if (proceso.equals("Grabar")) {
+				registrarSolicitudCambioCategoria(request,response);
+			}
 		}
 	}
 	
@@ -86,9 +147,30 @@ public class SvCC_Solicitud extends ServletParent {
 	
 	private void registrarSolicitudCambioCategoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			int idSuministro = Integer.parseInt(request.getParameter("ccIdSuministro"));
-			int idUsuario = Integer.parseInt(request.getSession().getAttribute("iduser").toString());
+			String sidSuministro = request.getParameter("ccIdSuministro");
+			String cidUsuario = request.getSession().getAttribute("iduser").toString();
 			String razonCambio = request.getParameter("razonCambio");
+			System.out.println("ID Suministro numero:" + sidSuministro);
+			int idSuministro;
+			int idUsuario ;
+			try {
+				idSuministro=Integer.parseInt(sidSuministro);
+				idUsuario = Integer.parseInt(cidUsuario);
+			} catch (Exception e) {
+				idSuministro =-1;
+				idUsuario =-1;
+			}
+			
+			if (idSuministro!=-1 && idUsuario !=-1 ) {
+				
+				//**************Validar Suministro no Tenga solicitud en curso
+				
+				int estado = servicioSolCC.obtenerEstadoSCC(idSuministro);
+				System.out.println("estado solicitud suminis:"+idSuministro+"estado:"+estado);
+				//sino encuentra -1
+				if (estado==-1 || estado == 6) {
+					
+				
 				
 				SolicitudCambioCatDTO solicitudcc= new SolicitudCambioCatDTO();
 				solicitudcc.setIdSuministro(idSuministro);
@@ -102,6 +184,21 @@ public class SvCC_Solicitud extends ServletParent {
 					
 					request.getRequestDispatcher("/cc_sol_registro.jsp").forward(request, response);
 				}
+			}
+				else{
+					//Mensaje Cliente ya tiene una operacion pendiente
+					request.getSession().setAttribute("evento", 1);
+					request.getSession().setAttribute("mensaje", obtenerMensaje(request,5,"Suministro que no tenga solicitudes en curso"));
+					RequestDispatcher rd = request.getRequestDispatcher("/cc_sol_registro.jsp");
+					rd.forward(request, response);
+				}
+			}else{
+				//Mensaje Error
+				request.getSession().setAttribute("evento", 1);
+				request.getSession().setAttribute("mensaje", obtenerMensaje(request,5,"Suministro valido"));
+				RequestDispatcher rd = request.getRequestDispatcher("/cc_sol_registro.jsp");
+				rd.forward(request, response);
+			}
 				
 				
 	}

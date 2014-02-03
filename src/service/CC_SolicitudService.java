@@ -33,4 +33,12 @@ public class CC_SolicitudService {
 		return solCCDao.obtenerDetalleSolCC(idSolidd, estado);
 	}
 
+	public int obtenerEstadoSCC(int idSuministro) {
+		return solCCDao.obtenerEstadoSCC(idSuministro);
+	}
+
+	public SolicitudCambioCatDTO obtenerSolicitud(int idSolicitud) {
+		return solCCDao.obtenerSolicitud(idSolicitud);
+	}
+
 }

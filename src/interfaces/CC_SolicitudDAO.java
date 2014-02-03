@@ -16,5 +16,9 @@ public interface CC_SolicitudDAO {
 	public List<DetalleSolCambioCatDTO> detallesSolicitudCC(int idSolicc);
 	
 	public DetalleSolCambioCatDTO obtenerDetalleSolCC(int idSolidd,int estado);
+
+	public int obtenerEstadoSCC(int idSuministro);
+
+	SolicitudCambioCatDTO obtenerSolicitud(int idSolicitud);
 	
 }
