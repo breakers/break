@@ -16,4 +16,6 @@ public interface PredioDAO {
 	
 	public List<PredioDTO> listarPredios();
 	
+	public PredioDTO obtenerPredioPorSuministro(int idSuministro);
+	
 }

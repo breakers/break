@@ -72,39 +72,64 @@
 											<form>
 												<fieldset>
 													<label>Punto 1</label> 
-													<input type="text" id="txtDir1" name="txtDir1"  /> 
+													<input type="text" id="txtDir1" name="txtDir1"  placeholder="Direccion 1"  /> 
 													<input type="text" id="txtCor1" name="txtCor1" hidden="true" /> 
 													<label class="pull-right">
-														<button class="btn btn-xs btn-danger" value="-16.411667,-71.532967" id="punto1"
-															onclick="location.href='#EliminarPunto';"> Eliminar
+														<button class="btn btn-xs btn-danger" type="reset"> Quitar
 															<i class="icon-trash"></i>
 														</button>
 													</label>
 												</fieldset>
-
+											</form>
+											<form>
 												<fieldset>
 													<label>Punto 2</label> 
-													<input type="text" id="txtDir2" name="txtDir2"  /> 
+													<input type="text" id="txtDir2" name="txtDir2"  placeholder="Direccion 2"  /> 
 													<input type="text" id="txtCor2" name="txtCor2" hidden="true" /> 
 													<label class="pull-right">
-														<button class="btn btn-xs btn-danger" value="-12.122165,-77.027813" id="punto2"
-															onclick="location.href='#EliminarPunto';"> Eliminar
+														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
 															<i class="icon-trash"></i>
 														</button>
 													</label>
 												</fieldset>
-
+											</form>
+											<form>
 												<fieldset>
 													<label>Punto 3</label> 
 													<input type="text" id="txtDir3" name="txtDir3" placeholder="Direccion 3" /> 
 													<input type="text" id="txtCor3" name="txtCor3" hidden="true" /> 
 													<label class="pull-right">
-														<button class="btn btn-xs btn-danger" value="-16.412472,-71.532063" id="punto3"
-															onclick="location.href='#EliminarPunto';"> Eliminar
+														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
 															<i class="icon-trash"></i>
 														</button>
 													</label>
 												</fieldset>
+										</form>
+											<form>
+												<fieldset>
+													<label>Punto 4</label> 
+													<input type="text" id="txtDir4" name="txtDir4" placeholder="Direccion 4" /> 
+													<input type="text" id="txtCor4" name="txtCor4" hidden="true" /> 
+													<label class="pull-right">
+														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
+															<i class="icon-trash"></i>
+														</button>
+													</label>
+												</fieldset>
+											</form>
+											<form>
+												<fieldset>
+													<label>Punto 5</label> 
+													<input type="text" id="txtDir5" name="txtDir5" placeholder="Direccion 5" /> 
+													<input type="text" id="txtCor5" name="txtCor5" hidden="true" /> 
+													<label class="pull-right">
+														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
+															<i class="icon-trash"></i>
+														</button>
+													</label>
+												</fieldset>
+											</form>
+											
 												<div class="form-actions center">
 													<button class="btn btn-xs btn-success"
 															onclick="location.href='#AgregarDireccion';"> Agregar Direccion
@@ -120,7 +145,7 @@
 
 
 
-											</form>
+											
 										</div>
 									</div>
 
@@ -304,44 +329,510 @@ html,body,#map-canvas {
 	}
 
 	function calcRuta() {
+		
+		
 		var lista = [];
 		
 		
-		lista.push((((document.getElementById('txtDir1').value).replace(")","")).replace("(","")).split(","));
-		lista.push((((document.getElementById('txtDir2').value).replace(")","")).replace("(","")).split(","));
-		lista.push((((document.getElementById('txtDir3').value).replace(")","")).replace("(","")).split(","));
+		lista.push((((document.getElementById('txtCor1').value).replace(")","")).replace("(","")).split(","));
+		lista.push((((document.getElementById('txtCor2').value).replace(")","")).replace("(","")).split(","));
+		lista.push((((document.getElementById('txtCor3').value).replace(")","")).replace("(","")).split(","));
+		lista.push((((document.getElementById('txtCor4').value).replace(")","")).replace("(","")).split(","));
+		lista.push((((document.getElementById('txtCor5').value).replace(")","")).replace("(","")).split(","));
 
 		var punto1 = [ lista[0][0], lista[0][1] ];
 		var punto2 = [];
 		var punto3 = [];
-
-		var a = Math.pow((lista[1][0] - lista[0][0]), 2);
-		var b = Math.pow((lista[1][1] - lista[0][1]), 2);
+		var punto4 = [];
+		var punto5 = [];
+		
+		var a = Math.pow((lista[1][0] - lista[0][0]), 2);//
+		var b = Math.pow((lista[1][1] - lista[0][1]), 2);//
 		var distancia0a1 = Math.pow(a + b, (1 / 2));
 
-		a = Math.pow((lista[2][0] - lista[0][0]), 2);
+		a = Math.pow((lista[2][0] - lista[0][0]), 2);//
 		b = Math.pow((lista[2][1] - lista[0][1]), 2);
 		var distancia0a2 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[3][0] - lista[0][0]), 2);//
+		b = Math.pow((lista[3][1] - lista[0][1]), 2);
+		var distancia0a3 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[4][0] - lista[0][0]), 2);//
+		b = Math.pow((lista[4][1] - lista[0][1]), 2);
+		var distancia0a4 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[2][0] - lista[1][0]), 2);///
+		b = Math.pow((lista[2][1] - lista[1][1]), 2);
+		var distancia0a5 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[3][0] - lista[1][0]), 2);
+		b = Math.pow((lista[3][1] - lista[1][1]), 2);
+		var distancia0a6 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[4][0] - lista[1][0]), 2);
+		b = Math.pow((lista[4][1] - lista[1][1]), 2);
+		var distancia0a7 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[3][0] - lista[2][0]), 2);///
+		b = Math.pow((lista[3][1] - lista[2][1]), 2);
+		var distancia0a8 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[4][0] - lista[2][0]), 2);
+		b = Math.pow((lista[4][1] - lista[2][1]), 2);
+		var distancia0a9 = Math.pow(a + b, (1 / 2));
+		
+		a = Math.pow((lista[4][0] - lista[3][0]), 2);
+		b = Math.pow((lista[4][1] - lista[3][1]), 2);
+		var distancia0a10 = Math.pow(a + b, (1 / 2));
+		
 
 		if (distancia0a1 < distancia0a2) {
-			punto2 = [ lista[1][0], lista[1][1] ];
-			punto3 = [ lista[2][0], lista[2][1] ];
+			if (distancia0a1 < distancia0a3) {
+				if (distancia0a1 < distancia0a4) {
+					punto2 = [ lista[1][0], lista[1][1] ];
+// 					punto3 = [ lista[4][0], lista[4][1] ];
+					if (distancia0a5<distancia0a6) {
+						if (distancia0a5<distancia0a7) {
+							punto3 = [ lista[2][0], lista[2][1] ];
+							// ** 8 ,9
+							if(distancia0a8<distancia0a9){
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}
+							
+							
+						}else{
+							punto3 = [ lista[4][0], lista[4][1] ];
+							// **
+							if(distancia0a9<distancia0a10){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+						}
+					}else{
+						if (distancia0a6<distancia0a7) {
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// ** 8,10
+							if(distancia0a8<distancia0a10){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+						}else{
+							punto3 = [ lista[4][0], lista[4][1] ];
+							// **
+							if(distancia0a9<distancia0a10){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+						}
+					}
+					
+				}else{
+					punto2 = [ lista[4][0], lista[4][1] ];
+// 					punto3 = [ lista[1][0], lista[1][1] ];7,9,10
+					if (distancia0a7<distancia0a9) {
+						if (distancia0a7<distancia0a10) {
+							punto3 = [ lista[1][0], lista[1][1] ];
+							// **
+							if(distancia0a9<distancia0a10){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// ** 6,8
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}
+					}else{
+						if (distancia0a9<distancia0a10) {
+							punto3 = [ lista[2][0], lista[2][1] ];
+							// ** 5, 8
+							if(distancia0a5<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+							
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// ** 6, 8
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}
+					}
+				}
+			}else{
+				if (distancia0a3 < distancia0a4) {
+					punto2 = [ lista[3][0], lista[3][1] ];
+// 					punto3 = [ lista[4][0], lista[4][1] ]; 6,8,10
+					if (distancia0a6<distancia0a8) {
+						if (distancia0a6<distancia0a10) {
+							punto3 = [ lista[1][0], lista[1][1] ];
+							// ** 5, 7
+							if(distancia0a5<distancia0a7){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+							
+						}else{
+							punto3 = [ lista[4][0], lista[4][1] ];
+							// ** 7 y 9
+							if(distancia0a7<distancia0a9){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}
+					}else{
+						if (distancia0a8<distancia0a10) {
+							punto3 = [ lista[2][0], lista[2][1] ];
+							// ** 5,9
+							if(distancia0a5<distancia0a9){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}else{
+							punto3 = [ lista[4][0], lista[4][1] ];
+							// ** 7,9
+							if(distancia0a7<distancia0a9){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}
+					}
+					
+				}else{
+					punto2 = [ lista[4][0], lista[4][1] ];
+// 					punto3 = [ lista[3][0], lista[3][1] ];
+					if (distancia0a7<distancia0a9) {
+						if (distancia0a7<distancia0a10) {
+							punto3 = [ lista[1][0], lista[1][1] ];
+							// ** 5,6
+							if(distancia0a5<distancia0a6){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+							
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// **6,8
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}
+					}else{
+						if (distancia0a9<distancia0a10) {
+							punto3 = [ lista[2][0], lista[2][1] ];
+							// **5,8
+							if(distancia0a5<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// **
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}
+					}
+				}
+			}
+			
 		} else {
-			punto2 = [ lista[2][0], lista[2][1] ];
-			punto3 = [ lista[1][0], lista[1][1] ];
+			if (distancia0a2 < distancia0a3) {
+				if (distancia0a2 < distancia0a4) {
+					punto2 = [ lista[2][0], lista[2][1] ];
+// 					punto3 = [ lista[4][0], lista[4][1] ];5,8,9
+					if (distancia0a5<distancia0a8) {
+						if (distancia0a5<distancia0a9) {
+							punto3 = [ lista[1][0], lista[1][1] ];
+							//6,7
+							if(distancia0a6<distancia0a7){
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}
+							
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							//6,10
+							if(distancia0a6<distancia0a10){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}
+					}else{
+						if (distancia0a8<distancia0a9) {
+							punto3 = [ lista[3][0], lista[3][1] ];
+							//
+							if(distancia0a6<distancia0a10){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}else{
+							punto3 = [ lista[4][0], lista[4][1] ];
+							//7,10
+							if(distancia0a7<distancia0a10){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}
+					}
+					
+				}else{
+					punto2 = [ lista[4][0], lista[4][1] ];
+// 					punto3 = [ lista[1][0], lista[1][1] ];7,9,10
+					if (distancia0a7<distancia0a9) {
+						if (distancia0a7<distancia0a10) {
+							punto3 = [ lista[1][0], lista[1][1] ];
+							// **
+							if(distancia0a9<distancia0a10){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// ** 6,8
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}
+					}else{
+						if (distancia0a9<distancia0a10) {
+							punto3 = [ lista[2][0], lista[2][1] ];
+							// ** 5, 8
+							if(distancia0a5<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+							
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// ** 6, 8
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}
+					}
+				}
+			}else{
+				if (distancia0a3 < distancia0a4) {
+					punto2 = [ lista[3][0], lista[3][1] ];
+// 					punto3 = [ lista[4][0], lista[4][1] ]; 6,8,10
+					if (distancia0a6<distancia0a8) {
+						if (distancia0a6<distancia0a10) {
+							punto3 = [ lista[1][0], lista[1][1] ];
+							// ** 5, 7
+							if(distancia0a5<distancia0a7){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+							
+						}else{
+							punto3 = [ lista[4][0], lista[4][1] ];
+							// ** 7 y 9
+							if(distancia0a7<distancia0a9){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}
+					}else{
+						if (distancia0a8<distancia0a10) {
+							punto3 = [ lista[2][0], lista[2][1] ];
+							// ** 5,9
+							if(distancia0a5<distancia0a9){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[4][0], lista[4][1] ];
+							}else{
+								punto4 = [ lista[4][0], lista[4][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}else{
+							punto3 = [ lista[4][0], lista[4][1] ];
+							// ** 7,9
+							if(distancia0a7<distancia0a9){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}
+					}
+				}else{
+					punto2 = [ lista[4][0], lista[4][1] ];
+// 					punto3 = [ lista[1][0], lista[1][1] ];7,9,10
+					if (distancia0a7<distancia0a9) {
+						if (distancia0a7<distancia0a10) {
+							punto3 = [ lista[1][0], lista[1][1] ];
+							// **
+							if(distancia0a9<distancia0a10){
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// ** 6,8
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+						}
+					}else{
+						if (distancia0a9<distancia0a10) {
+							punto3 = [ lista[2][0], lista[2][1] ];
+							// ** 5, 8
+							if(distancia0a5<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[3][0], lista[3][1] ];
+							}else{
+								punto4 = [ lista[3][0], lista[3][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+							
+							
+						}else{
+							punto3 = [ lista[3][0], lista[3][1] ];
+							// ** 6, 8
+							if(distancia0a6<distancia0a8){
+								punto4 = [ lista[1][0], lista[1][1] ];
+								punto5 = [ lista[2][0], lista[2][1] ];
+							}else{
+								punto4 = [ lista[2][0], lista[2][1] ];
+								punto5 = [ lista[1][0], lista[1][1] ];
+							}
+						}
+					}
+				}
+			}
 		}
+		
 		var puntosMedios = [];
 		puntosMedios.push({
 			location : new google.maps.LatLng(parseFloat(punto2[0]),
 					parseFloat(punto2[1])),
 			stopover : true
 		});
+		puntosMedios.push({
+			location : new google.maps.LatLng(parseFloat(punto3[0]),
+					parseFloat(punto3[1])),
+			stopover : true
+		});
+		puntosMedios.push({
+			location : new google.maps.LatLng(parseFloat(punto4[0]),
+					parseFloat(punto4[1])),
+			stopover : true
+		});
 
 		var request = {
 			origin : new google.maps.LatLng(parseFloat(punto1[0]),
 					parseFloat(punto1[1])),
-			destination : new google.maps.LatLng(parseFloat(punto3[0]),
-					parseFloat(punto3[1])),
+			destination : new google.maps.LatLng(parseFloat(punto5[0]),
+					parseFloat(punto5[1])),
 			travelMode : google.maps.TravelMode.DRIVING,
 			waypoints : puntosMedios,
 			optimizeWaypoints : true
@@ -378,30 +869,40 @@ html,body,#map-canvas {
 		    		var coord = [ lista[r][0],lista[r][1] ];//un tercer valor para la ubicacion del sitio string
 		    		var latitudc = parseFloat(coord[0]);
 		    		var longitudc= parseFloat(coord[1]);
-		    		direcciones.push(latitudc,longitudc);//se almacenaria en otro array
+		    		
+		    		var dires= [ lista[r][2],lista[r][3] ]; // nombre y direccion
+		    		var nombre=dires[0];
+		    		var dir=dires[1];
+		    		direcciones.push(nombre,dir);//se almacenaria en otro array
 		    		
 		    		var coordenadas = new google.maps.LatLng(latitudc, longitudc); /* Debo crear un punto geografico utilizando google.maps.LatLng */
 		            var marker = new google.maps.Marker({
 		            	position: coordenadas,
 		            	map: map,
 		            	animation: google.maps.Animation.DROP, 
-		            	title:"Sedapar"
+		            	title:dir
 		            	});
 					markersArray.push(marker);
 					google.maps.event.addListener(marker, 'click', function () {
 // 							alert(this.position);
 
-							var tx1= $("#txtDir1");
+							
 							
 							if(txtDir1.value==""){
-								$("#txtDir1").val(this.position);
+								$("#txtDir1").val(this.title);
 								$("#txtCor1").val(this.position);
 							}else if(txtDir2.value==""){
-								$("#txtDir2").val(this.position);
-								$("#txtCor3").val(this.position);
+								$("#txtDir2").val(this.title);
+								$("#txtCor2").val(this.position);
 							}else if(txtDir3.value==""){
-								$("#txtDir3").val(this.position);
+								$("#txtDir3").val(this.title);
 								$("#txtCor3").val(this.position);
+							}else if(txtDir4.value==""){
+								$("#txtDir4").val(this.title);
+								$("#txtCor4").val(this.position);
+							}else if(txtDir5.value==""){
+								$("#txtDir5").val(this.title);
+								$("#txtCor5").val(this.position);
 							}else{
 								alert("Debe borrar alguna direccion para poder ingresar otra");
 							}

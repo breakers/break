@@ -17,6 +17,7 @@ import bean.MensajeAlertaDTO;
 public class ServletParent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	//Variables de mensajes
 	public static final int REGISTRADOCORRECTAMENTE = 1;
 	public static final int BIENVENIDO =2;
 	public static final int ACTUALIZADOCORRECTAMENTE =3;
@@ -24,7 +25,19 @@ public class ServletParent extends HttpServlet {
 	public static final int DEBESELECCIONAR=5;
 	public static final int GENERADOCORRECTAMENTE =6;
 	
+	//variables de estado cambio categoria
 	
+	public static final int REGISTRADA=1;
+	public static final int VALIDADO=2;
+	public static final int ASIGNADAINSPECCION=3;
+	public static final int INSPECCIONADA=4;
+	public static final int EVALUADA=5;
+	public static final int FINALIZADA=6;
+	
+	//Tipo persona
+	
+	public static final int NATURAL=1;
+	public static final int JURIDICA=2;
 	
     public ServletParent() {
         super();

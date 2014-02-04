@@ -97,6 +97,7 @@ public class MySqlCC_SolicitudDAO implements CC_SolicitudDAO{
 				SolicitudCambioCatDTO soli = new SolicitudCambioCatDTO();
 				soli.setIdSolCategoria(rs.getInt("idSolCategoria"));
 				soli.setCodSuministro(rs.getString("codSuministro"));
+				soli.setIdSuministro(rs.getInt("idSuministro"));
 				soli.setFechaSolicitud(rs.getDate("fechaSolicitud").toString());
 				soli.setNomEstado(rs.getString("desEstado"));
 				lista.add(soli);

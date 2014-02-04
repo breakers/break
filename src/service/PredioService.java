@@ -35,4 +35,8 @@ public class PredioService{
 		return null;
 	}
 
+	public PredioDTO obtenerPredioPorSuministro(int idSuministro) {
+		return objPredio.obtenerPredioPorSuministro(idSuministro);
+	}
+
 }
