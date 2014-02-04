@@ -72,7 +72,8 @@
 											<form>
 												<fieldset>
 													<label>Punto 1</label> 
-													<input type="text" placeholder="Sedapar" /> 
+													<input type="text" id="txtDir1" name="txtDir1"  /> 
+													<input type="text" id="txtCor1" name="txtCor1" hidden="true" /> 
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger" value="-16.411667,-71.532967" id="punto1"
 															onclick="location.href='#EliminarPunto';"> Eliminar
@@ -83,7 +84,8 @@
 
 												<fieldset>
 													<label>Punto 2</label> 
-													<input type="text" placeholder="Cibertec Miraflores" /> 
+													<input type="text" id="txtDir2" name="txtDir2"  /> 
+													<input type="text" id="txtCor2" name="txtCor2" hidden="true" /> 
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger" value="-12.122165,-77.027813" id="punto2"
 															onclick="location.href='#EliminarPunto';"> Eliminar
@@ -94,7 +96,8 @@
 
 												<fieldset>
 													<label>Punto 3</label> 
-													<input type="text" placeholder="Parque Francisco Mostajo" /> 
+													<input type="text" id="txtDir3" name="txtDir3" placeholder="Direccion 3" /> 
+													<input type="text" id="txtCor3" name="txtCor3" hidden="true" /> 
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger" value="-16.412472,-71.532063" id="punto3"
 															onclick="location.href='#EliminarPunto';"> Eliminar
@@ -302,9 +305,11 @@ html,body,#map-canvas {
 
 	function calcRuta() {
 		var lista = [];
-		lista.push(document.getElementById('punto1').value.split(","));
-		lista.push(document.getElementById('punto2').value.split(","));
-		lista.push(document.getElementById('punto3').value.split(","));
+		
+		
+		lista.push((((document.getElementById('txtDir1').value).replace(")","")).replace("(","")).split(","));
+		lista.push((((document.getElementById('txtDir2').value).replace(")","")).replace("(","")).split(","));
+		lista.push((((document.getElementById('txtDir3').value).replace(")","")).replace("(","")).split(","));
 
 		var punto1 = [ lista[0][0], lista[0][1] ];
 		var punto2 = [];
@@ -352,16 +357,17 @@ html,body,#map-canvas {
 	
 	
     
-
+	var markersArray = [];
+	
 	function mostrardirecciones(){
 		
 		$.get("SvInspecciones", { operacion:"listarDirecciones" },
 		        function(response){
-		    	
-		    	var lista = [];  // lista inicial con valores en string
+				deleteOverlays();
+		    	var lista = [];  //lista inicial con valores en string
 		    	var direcciones= []; // lista final de direcciones en float
 		    	var cadena = response.split("/"); //cadena que se convertira ejemplo: 1232,12323/12323,1232/12321,12323
-
+		    	var image = 'img/icon.png';
 		    	for (var i = 0; i < cadena.length; i++) {
 					lista.push(cadena[i].split(","));
 
@@ -369,45 +375,62 @@ html,body,#map-canvas {
 		    	
 		    	for (var r = 0; r < lista.length; r++) {
 		    		
-		    		var coord = [ lista[r][0],lista[r][1] ];
+		    		var coord = [ lista[r][0],lista[r][1] ];//un tercer valor para la ubicacion del sitio string
 		    		var latitudc = parseFloat(coord[0]);
 		    		var longitudc= parseFloat(coord[1]);
-		    		direcciones.push(latitudc,longitudc);
+		    		direcciones.push(latitudc,longitudc);//se almacenaria en otro array
 		    		
-		    		var coordenadas1 = new google.maps.LatLng(latitudc, longitudc); /* Debo crear un punto geografico utilizando google.maps.LatLng */
-		            var marcador1 = new google.maps.Marker({position: coordenadas1,map: map, animation: google.maps.Animation.DROP, title:"Sedapar"});
-					
+		    		var coordenadas = new google.maps.LatLng(latitudc, longitudc); /* Debo crear un punto geografico utilizando google.maps.LatLng */
+		            var marker = new google.maps.Marker({
+		            	position: coordenadas,
+		            	map: map,
+		            	animation: google.maps.Animation.DROP, 
+		            	title:"Sedapar"
+		            	});
+					markersArray.push(marker);
+					google.maps.event.addListener(marker, 'click', function () {
+// 							alert(this.position);
+
+							var tx1= $("#txtDir1");
+							
+							if(txtDir1.value==""){
+								$("#txtDir1").val(this.position);
+								$("#txtCor1").val(this.position);
+							}else if(txtDir2.value==""){
+								$("#txtDir2").val(this.position);
+								$("#txtCor3").val(this.position);
+							}else if(txtDir3.value==""){
+								$("#txtDir3").val(this.position);
+								$("#txtCor3").val(this.position);
+							}else{
+								alert("Debe borrar alguna direccion para poder ingresar otra");
+							}
+							
+						  
+// 							  marker.setAnimation(google.maps.Animation.BOUNCE);
+						  
+						});
 				}
 		   });
-		
-
-// 	var lista = [];
-// 	lista.push(document.getElementById('punto1').value.split(","));
-// 	lista.push(document.getElementById('punto2').value.split(","));
-// 	lista.push(document.getElementById('punto3').value.split(","));
-
-// 	var punto1 = [ lista[0][0], lista[0][1] ];
-// 	var punto2 = [ lista[2][0], lista[2][1] ];
-
-// 	var latitud1 = parseFloat(punto1[0]);
-// 	var longitud1 = parseFloat(punto1[1]);
-
-
-// 	var coordenadas1 = new google.maps.LatLng(latitud1, longitud1); /* Debo crear un punto geografico utilizando google.maps.LatLng */
-//     var marcador1 = new google.maps.Marker({position: coordenadas1,map: map, animation: google.maps.Animation.DROP, title:"Sedapar"});
-
-//     //alert(coordenadas1);
-
-//     var latitud2 = parseFloat(punto2[0]);
-// 	var longitud2 = parseFloat(punto2[1]);
-
-	
-	
-// 	var coordenadas2 = new google.maps.LatLng(latitud2, longitud2); /* Debo crear un punto geografico utilizando google.maps.LatLng */
-//     var marcador2 = new google.maps.Marker({position: coordenadas2,map: map, animation: google.maps.Animation.DROP, title:"Parque"});
-
-    //alert(coordenadas2);
 }
+	
+	function deleteOverlays() {
+		  if (markersArray) {
+		    for (i in markersArray) {
+		      markersArray[i].setMap(null);
+		    }
+		    markersArray.length = 0;
+		  }
+		}
+	
+	function toggleBounce() {
+
+		  if (marcador.getAnimation() != null) {
+			  marcador.setAnimation(null);
+		  } else {
+			  marcador.setAnimation(google.maps.Animation.BOUNCE);
+		  }
+		}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
