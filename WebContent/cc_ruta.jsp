@@ -349,33 +349,62 @@ html,body,#map-canvas {
 		});
 
 	}
+	
+	
+    
 
 	function mostrardirecciones(){
+		
+		$.get("SvInspecciones", { operacion:"listarDirecciones" },
+		        function(response){
+		    	
+		    	var lista = [];  // lista inicial con valores en string
+		    	var direcciones= []; // lista final de direcciones en float
+		    	var cadena = response.split("/"); //cadena que se convertira ejemplo: 1232,12323/12323,1232/12321,12323
 
-	var lista = [];
-	lista.push(document.getElementById('punto1').value.split(","));
-	lista.push(document.getElementById('punto2').value.split(","));
-	lista.push(document.getElementById('punto3').value.split(","));
+		    	for (var i = 0; i < cadena.length; i++) {
+					lista.push(cadena[i].split(","));
 
-	var punto1 = [ lista[0][0], lista[0][1] ];
-	var punto2 = [ lista[2][0], lista[2][1] ];
+				}
+		    	
+		    	for (var r = 0; r < lista.length; r++) {
+		    		
+		    		var coord = [ lista[r][0],lista[r][1] ];
+		    		var latitudc = parseFloat(coord[0]);
+		    		var longitudc= parseFloat(coord[1]);
+		    		direcciones.push(latitudc,longitudc);
+		    		
+		    		var coordenadas1 = new google.maps.LatLng(latitudc, longitudc); /* Debo crear un punto geografico utilizando google.maps.LatLng */
+		            var marcador1 = new google.maps.Marker({position: coordenadas1,map: map, animation: google.maps.Animation.DROP, title:"Sedapar"});
+					
+				}
+		   });
+		
 
-	var latitud1 = parseFloat(punto1[0]);
-	var longitud1 = parseFloat(punto1[1]);
+// 	var lista = [];
+// 	lista.push(document.getElementById('punto1').value.split(","));
+// 	lista.push(document.getElementById('punto2').value.split(","));
+// 	lista.push(document.getElementById('punto3').value.split(","));
+
+// 	var punto1 = [ lista[0][0], lista[0][1] ];
+// 	var punto2 = [ lista[2][0], lista[2][1] ];
+
+// 	var latitud1 = parseFloat(punto1[0]);
+// 	var longitud1 = parseFloat(punto1[1]);
 
 
-	var coordenadas1 = new google.maps.LatLng(latitud1, longitud1); /* Debo crear un punto geografico utilizando google.maps.LatLng */
-    var marcador1 = new google.maps.Marker({position: coordenadas1,map: map, animation: google.maps.Animation.DROP, title:"Sedapar"});
+// 	var coordenadas1 = new google.maps.LatLng(latitud1, longitud1); /* Debo crear un punto geografico utilizando google.maps.LatLng */
+//     var marcador1 = new google.maps.Marker({position: coordenadas1,map: map, animation: google.maps.Animation.DROP, title:"Sedapar"});
 
-    //alert(coordenadas1);
+//     //alert(coordenadas1);
 
-    var latitud2 = parseFloat(punto2[0]);
-	var longitud2 = parseFloat(punto2[1]);
+//     var latitud2 = parseFloat(punto2[0]);
+// 	var longitud2 = parseFloat(punto2[1]);
 
 	
 	
-	var coordenadas2 = new google.maps.LatLng(latitud2, longitud2); /* Debo crear un punto geografico utilizando google.maps.LatLng */
-    var marcador2 = new google.maps.Marker({position: coordenadas2,map: map, animation: google.maps.Animation.DROP, title:"Parque"});
+// 	var coordenadas2 = new google.maps.LatLng(latitud2, longitud2); /* Debo crear un punto geografico utilizando google.maps.LatLng */
+//     var marcador2 = new google.maps.Marker({position: coordenadas2,map: map, animation: google.maps.Animation.DROP, title:"Parque"});
 
     //alert(coordenadas2);
 }

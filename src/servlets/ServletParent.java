@@ -16,7 +16,16 @@ import bean.MensajeAlertaDTO;
 @WebServlet("/ServletParent")
 public class ServletParent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
+	public static final int REGISTRADOCORRECTAMENTE = 1;
+	public static final int BIENVENIDO =2;
+	public static final int ACTUALIZADOCORRECTAMENTE =3;
+	public static final int ELIMINADOCORRECTAMENTE =4;
+	public static final int DEBESELECCIONAR=5;
+	public static final int GENERADOCORRECTAMENTE =6;
+	
+	
+	
     public ServletParent() {
         super();
     }
@@ -29,12 +38,12 @@ public class ServletParent extends HttpServlet {
 	
 	
 	@SuppressWarnings("unchecked")
-	protected MensajeAlertaDTO obtenerMensaje(HttpServletRequest request,int codigo,String parametro){
+	protected MensajeAlertaDTO obtenerMensaje(HttpServletRequest request, int CODIGO,String parametro){
 		
 		MensajeAlertaDTO msj;
 		List<MensajeAlertaDTO> mensajes;
 		mensajes = (List<MensajeAlertaDTO>) request.getSession().getAttribute("mensajesAlerta");
-		msj=utilMensaje.obtenerMensaje(mensajes , codigo, parametro);
+		msj=utilMensaje.obtenerMensaje(mensajes , CODIGO, parametro);
 		
 		return msj;
 	}
@@ -48,7 +57,7 @@ public class ServletParent extends HttpServlet {
 	protected void Terminar(HttpServletRequest request, HttpServletResponse response, String Mensaje) throws ServletException, IOException{
 		
 		request.getSession().setAttribute("evento", 1);
-		request.getSession().setAttribute("mensaje", obtenerMensaje(request,5,Mensaje));
+		request.getSession().setAttribute("mensaje", obtenerMensaje(request,DEBESELECCIONAR,Mensaje));
 		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 		rd.forward(request, response);
 	}
