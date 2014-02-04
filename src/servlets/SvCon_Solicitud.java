@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -15,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
+import bean.FiltroSolicitudPendienteDTO;
 import bean.SolicitudNuevaConexionDTO;
 import service.Con_SolicitudService;
 
@@ -31,6 +35,10 @@ public class SvCon_Solicitud extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("est")!=null){
 			evaluarSolicitud(request,response);
+		}
+		if(request.getParameter("proceso").equalsIgnoreCase("filtrar")){
+			filtrarSolicitudesPendientes(request, response);
+			
 		}
 			
 	}
@@ -78,4 +86,56 @@ public class SvCon_Solicitud extends HttpServlet {
 		listarSolicitudesPendientes(request, response);
 	}
 	
+	
+	protected void filtrarSolicitudesPendientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	System.out.println("a filtrar");
+	
+	String nombreRazSocial = request.getParameter("txtNombreFiltro");
+	int nroSolicitud;
+	
+	if(request.getParameter("txtNumeroFiltro").equals("")){
+		nroSolicitud = 0;
+	}else{
+		nroSolicitud = Integer.parseInt(request.getParameter("txtNumeroFiltro"));
+	}
+	
+	String fechaDesde = request.getParameter("dtFechaDesde");
+	String fechaHasta = request.getParameter("dtFechaHasta");
+	
+	FiltroSolicitudPendienteDTO filtrosol = new FiltroSolicitudPendienteDTO();
+	filtrosol.setNombreRazSocial(nombreRazSocial);
+	filtrosol.setNroSolicitud(nroSolicitud);
+	filtrosol.setFechaDesde(fechaDesde);
+	filtrosol.setFechaHasta(fechaHasta);
+	
+	ArrayList<SolicitudNuevaConexionDTO> listafiltrada = servicioSolicitud.filtrarSolicitudesPendientes(filtrosol);
+//		if(listafiltrada!=null){
+//			RequestDispatcher rd = request.getRequestDispatcher("/con_sol_revision.jsp");
+//			request.setAttribute("lista", listafiltrada);
+//			rd.forward(request, response);
+//		}
+		
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		for (SolicitudNuevaConexionDTO sol : listafiltrada) {
+			out.println("<tr>");
+			out.println("<td style=\"text-align: center;\">" + sol.getIdSolicitud() +"</td>");
+			out.println("<td>");
+			if(sol.getRazonsocial().equals("")){
+				out.println(sol.getNombres()+" "+sol.getApepat()+" "+sol.getApemat());
+			}else{
+				out.println(sol.getRazonsocial());
+			}
+			out.println("</td>");
+			out.println("<td style=\"text-align: center;\">" + sol.getFechaSolicitud() + "</td>");
+			out.println("<td class=\"hidden-480\" style=\"text-align: center;\">");
+			out.println("<span class=\"label label-sm label-danger arrowed\">" + sol.getDesEstadoSolicitudNuevaConexion() + "</span");
+			out.println("</td>");
+			out.println("<td style=\"text-align: center;\">");
+			out.println("<a href=\"SvCon_Solicitud?num=" + sol.getIdSolicitud() + "\"><i class=\"icon-eye-open\"></i> Ver Datos</a>");
+			out.println("</td>");
+			out.println("</tr>");
+		}
+		
+		}
 }

@@ -6,6 +6,7 @@ import interfaces.Con_SolicitudDAO;
 
 import java.util.ArrayList;
 
+import bean.FiltroSolicitudPendienteDTO;
 import bean.SolicitudNuevaConexionDTO;
 import dao.DAOFactory;
 
@@ -25,6 +26,10 @@ public class Con_SolicitudService {
 
 	public boolean evaluarSolicitud(int idSolicitud, int estado) {
 		return con_solicituddao.evaluarSolicitud(idSolicitud,estado);
+	}
+
+	public ArrayList<SolicitudNuevaConexionDTO> filtrarSolicitudesPendientes(FiltroSolicitudPendienteDTO filtrosol) {
+		return con_solicituddao.filtrarSolicitudesPendientes(filtrosol);
 	}
 
 

@@ -86,7 +86,6 @@ public class SvNuevaConexion extends HttpServlet {
 		solicitud.setNumcuotas(numcuotas);
 		solicitud.setCoordenadas(coordenadas);
 		solicitud.setFileDocumentoIdentidad(fileDocSolicitante);
-		
 		 response.setContentType("text/plain");
 	        PrintWriter out = response.getWriter();
 	        

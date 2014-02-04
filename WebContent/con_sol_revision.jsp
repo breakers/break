@@ -1,6 +1,7 @@
 <%@ include file="contenido_head.jsp"%>
 <% request.getSession().setAttribute("pagina", "con_sol_revision"); %>
 <link rel="stylesheet" href="css/assets/jquery-ui-1.10.3.full.min.css" />
+<link rel="stylesheet" href="css/datepicker.css" />
 <div class="main-container" id="main-container">
 	<script type="text/javascript">
 		try {
@@ -61,6 +62,49 @@
 							<div class="row">
 								
 									<div class="col-sm-6">
+									
+									<div class="widget-box" >
+											<div class="widget-header">
+												<h4 class="smaller">Filtros</h4>
+												<div class="widget-toolbar">
+													<label>
+														<small class="green">
+															<b>Filtros</b>
+														</small>
+
+														<input id="onFiltros" type="checkbox" class="ace ace-switch ace-switch-5" />
+														<span class="lbl"></span>
+													</label>
+												</div>
+												
+											</div>
+
+											<div class="widget-body" id="divFiltros" hidden="true">
+												<div class="widget-main" style="padding-left: 0px;padding-top: 10px;">
+												<fieldset style="margin-bottom: 5px;">
+													<label for="txtNombreFiltro" id="lblNombreFiltro" class="col-sm-4 control-label no-padding-right">Nombre / Raz. Social</label> 
+													<input id="txtNombreFiltro" name="txtNombreFiltro" class="col-xs-10 col-sm-4" type="text" placeholder="" style="padding-bottom:0px;"/> 
+												</fieldset>
+												<fieldset style="margin-bottom: 5px;">
+													<label for="txtNumeroFiltro" id="lblNumeroFiltro" class="col-sm-4 control-label no-padding-right">N° Solicitud</label> 
+													<input id="txtNumeroFiltro" name="txtNumeroFiltro" class="col-xs-10 col-sm-4" type="text" placeholder="" style="padding-bottom:0px;"/> 
+												</fieldset>
+													<fieldset>
+													<label for="dtFechaDesde" id="lblFechaDesde" class="col-sm-4 control-label no-padding-right" style="padding-top: 5px;">Fecha:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Desde</label> 
+													<input type="date" id="dtFechaDesde" name="dtFechaDesde" style="padding-bottom:0px;"/>
+												</fieldset>
+												<fieldset>
+													<label for="dtFechaHasta" id="lblFechaHasta" class="col-sm-4 control-label no-padding-right" style="padding-top: 5px;padding-left: 122px;">Hasta</label> 
+													<input type="date" id="dtFechaHasta" name="dtFechaHasta" style="padding-bottom:0px;"/>	
+													<button id="btnFiltrar" class="btn btn-sm btn-info" style="margin-left: 100px;"><i class="icon-search"></i>Buscar</button>
+												</fieldset>
+												<input type="hidden" id="procesoFiltrar" name="proceso" value="filtrar"/>
+												</div>
+											</div>
+										</div>
+									
+									
+									
 									<div class="widget-header header-color-red">
 												<h5 class="bigger lighter">
 													<i class="icon-table"></i>
@@ -83,7 +127,7 @@
 													</tr>
 												</thead>
 
-												<tbody>
+												<tbody id="tbodyLista">
 												<c:forEach var="sol" items="${requestScope.lista}">
 													<tr>
 														<td style="text-align: center;">${sol.idSolicitud}</td>
@@ -483,10 +527,24 @@
 	
 	<script src="js/jquery-ui-1.10.3.full.min.js"></script>
 	<script src="js/jjquery.ui.touch-punch.min.js"></script>
+	<script src="js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript">
 	<!-- RENZO-->
 	$(document).ready(function () {
 		
+		
+		$("#onFiltros").change(function(){
+			if($("#onFiltros").is(":checked")){
+				$("#divFiltros").slideToggle( "slow" );
+			}else{
+				$("#divFiltros").slideToggle( "slow" );
+			}
+		});
+
+		$('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
+			$(this).prev().focus();
+		});
+
 		var cant = $('#sample-table-1 >tbody >tr').length;
 		$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
 		
@@ -569,10 +627,22 @@
 			
 			});
 			 
-			 
+			 $( "#btnFiltrar" ).on('click', function(e) {
+					var txtNombreFiltro = $("#txtNombreFiltro").val();
+					var txtNumeroFiltro = $("#txtNumeroFiltro").val();
+					var dtFechaDesde = $("#dtFechaDesde").val();
+					var dtFechaHasta = $("#dtFechaHasta").val();
+					var proceso = $("#procesoFiltrar").val();
+					
+					 $.post("SvCon_Solicitud", {txtNombreFiltro:txtNombreFiltro,txtNumeroFiltro:txtNumeroFiltro,
+						 dtFechaDesde:dtFechaDesde,dtFechaHasta:dtFechaHasta,proceso:proceso},
+					            function(response){
+							 			$("#tbodyLista").html(response);
+							 			var cant = $('#sample-table-1 >tbody >tr').length;
+							 			$("#lblCantidadSol").html('<strong>'+cant+'</strong>');
+					       });
+			 });
 		
-
-	    
 	    
 	    
 	});

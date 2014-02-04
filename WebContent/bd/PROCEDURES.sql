@@ -476,3 +476,35 @@ UPDATE tb_solcambiocategoria SET idEstado = VidEstado;
 INSERT INTO tb_DetalleSolicitudCambioCat VALUES(idSolCategoria,VidEstado,VidUsuario,now());	
 
 END $
+
+DELIMITER $
+CREATE PROCEDURE usp_filtrarSolicitudesPendientes(
+VNombreRazonSocial varchar(50),
+VNroSolicitud int,
+VFechaDesde varchar(30),
+VFechaHasta varchar(30)
+)
+BEGIN
+
+IF VNroSolicitud = 0 THEN
+	SET VNroSolicitud = NULL;
+END IF;
+
+SELECT 
+	snc.idSolicitud,
+	snc.nombres,
+	snc.apepat,
+	snc.apemat,
+	razonsocial,
+	snc.fechaSolicitud,
+	esnc.desEstadoSolicitudNuevaConexion
+	FROM tb_solicitudnuevaconexion snc INNER JOIN tb_estadosolicitudnuevaconexion esnc
+	ON snc.idEstadoSolicitudNuevaConexion = esnc.idEstadoSolicitudNuevaConexion
+	WHERE esnc.idEstadoSolicitudNuevaConexion=1
+	AND (IFNULL(snc.nombres LIKE concat(VNombreRazonSocial,'%'),snc.nombres)
+	OR IFNULL(snc.razonsocial LIKE concat(VNombreRazonSocial,'%'),snc.razonsocial))
+	AND IFNULL(snc.idSolicitud = VNroSolicitud,snc.idSolicitud)
+	AND DATE_FORMAT(snc.fechaSolicitud,'%Y/%m/%d') BETWEEN
+ 	  IFNULL(DATE_FORMAT(VFechaDesde,'%Y/%m/%d'), DATE_FORMAT(snc.fechaSolicitud,'%Y/%m/%d')) AND
+ 	  IFNULL(DATE_FORMAT(VFechaHasta,'%Y/%m/%d'), DATE_FORMAT(snc.fechaSolicitud,'%Y/%m/%d'));
+END $

@@ -1370,7 +1370,7 @@ html,body,#map-canvas {
 						var telefonoSolicitante = "";
 						var celularSolicitante = "";
 						var fileDocSolicitante = "";
-						var tipoPersona = 0;
+						var tipoPersona = "0";
 						// JURIDICA
 						if($("#txtNombres_nat").val() == ""){
 							razSocSolicitante = $("#txtRazSocial_jur").val();
@@ -1385,7 +1385,7 @@ html,body,#map-canvas {
 							correoSolicitante = $("#txtCorreo_jur").val();
 							telefonoSolicitante = $("#txtTelefono_jur").val();
 							celularSolicitante = $("#txtCelular_jur").val();
-							tipoPersona = 2;
+							tipoPersona = "2";
 						}else{	// NATURAL
 							nombreSolicitante = $("#txtNombres_nat").val();
 							apePatSolicitante = $("#txtApePat_nat").val();
@@ -1396,7 +1396,7 @@ html,body,#map-canvas {
 							correoSolicitante = $("#txtCorreo_nat").val();
 							telefonoSolicitante = $("#txtTelefono_nat").val();
 							celularSolicitante = $("#txtCelular_nat").val();
-							tipoPersona = 1;
+							tipoPersona = "1";
 						}
 						
 						var provPredio = $("#cbProvincia").val();

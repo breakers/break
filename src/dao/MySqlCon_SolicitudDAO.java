@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
 import util.MySQL;
+import util.utilMensaje;
+import bean.FiltroSolicitudPendienteDTO;
 import bean.SolicitudNuevaConexionDTO;
 import interfaces.Con_SolicitudDAO;
 
@@ -110,6 +113,40 @@ public class MySqlCon_SolicitudDAO implements Con_SolicitudDAO{
 		estadoEvaluacion = false;
 		}
 		return estadoEvaluacion;
+	}
+
+	@Override
+	public ArrayList<SolicitudNuevaConexionDTO> filtrarSolicitudesPendientes(FiltroSolicitudPendienteDTO filtrosol) {
+		ArrayList<SolicitudNuevaConexionDTO> listafiltrada = new ArrayList<SolicitudNuevaConexionDTO>();
+			
+		try {
+			Connection cn = MySQL.getConnection();
+			String sql = "call usp_filtrarSolicitudesPendientes(?,?,?,?)";
+			PreparedStatement pst = cn.prepareStatement(sql);
+			pst.setString(1, filtrosol.getNombreRazSocial());
+			pst.setInt(2, filtrosol.getNroSolicitud());
+			pst.setString(3, filtrosol.getFechaDesde());
+			pst.setString(4, filtrosol.getFechaHasta());
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()){
+				SolicitudNuevaConexionDTO solicitud =new SolicitudNuevaConexionDTO();
+				solicitud.setIdSolicitud(rs.getInt(1));
+				solicitud.setNombres(rs.getString(2));
+				solicitud.setApepat(rs.getString(3));
+				solicitud.setApemat(rs.getString(4));
+				solicitud.setRazonsocial(rs.getString(5));
+				solicitud.setFechaSolicitud(rs.getString(6));
+				solicitud.setDesEstadoSolicitudNuevaConexion(rs.getString(7));
+				listafiltrada.add(solicitud);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return listafiltrada;
 	}
 
 }
