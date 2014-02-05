@@ -61,7 +61,7 @@
 
 						<!-- PAGE CONTENT BEGINS -->
 						<div class="col-xs-12">
-							<div class="row">
+							<div class="row" id=divimprimir>
 								<div class="col-sm-4">
 									<div class="widget-box">
 										<div class="widget-header">
@@ -145,6 +145,11 @@
 												<div class="form-actions center">
 													<button type="button" class="btn btn-primary" onclick="calcRuta()"> Generar Ruta
 															<i class="icon-share"></i>
+													</button>
+													
+													<button type="button" class="btn btn-primary" onclick="javascript:imprSelec('divimprimir')"> Imprimir Ruta
+															<i class="icon-share"></i>
+															
 													</button>
 												</div>
 
@@ -314,6 +319,12 @@ html,body,#map-canvas {
 </style>
 <script
 	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+<script type="text/javascript">
+function imprSelec(muestra)
+{var ficha=document.getElementById(muestra);var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);ventimp.document.close();ventimp.print();ventimp.close();}
+</script>
+
 <script type="text/javascript">
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
@@ -855,6 +866,7 @@ html,body,#map-canvas {
     
 	var markersArray = [];
 	
+	
 	function mostrardirecciones(){
 		
 		$.get("SvInspecciones", { operacion:"listarDirecciones" },
@@ -864,6 +876,7 @@ html,body,#map-canvas {
 		    	var direcciones= []; // lista final de direcciones en float
 		    	var cadena = response.split("/"); //cadena que se convertira ejemplo: 1232,12323/12323,1232/12321,12323
 		    	var image = 'img/icon.png';
+		    	
 		    	for (var i = 0; i < cadena.length; i++) {
 					lista.push(cadena[i].split(","));
 
@@ -875,9 +888,10 @@ html,body,#map-canvas {
 		    		var latitudc = parseFloat(coord[0]);
 		    		var longitudc= parseFloat(coord[1]);
 		    		
-		    		var dires= [ lista[r][2],lista[r][3] ]; // nombre y direccion
+		    		var dires= [ lista[r][2],lista[r][3],lista[r][4] ]; // nombre , direccion y idsolicitud
 		    		var nombre=dires[0];
 		    		var dir=dires[1];
+		    		var idsolicitud=dires[2];
 		    		direcciones.push(nombre,dir);//se almacenaria en otro array
 		    		
 		    		var contenido= "<div id=\"content\">"+
@@ -892,8 +906,9 @@ html,body,#map-canvas {
 		            	position: coordenadas,
 		            	map: map,
 		            	animation: google.maps.Animation.DROP, 
-		            	title:dir,
-		            	sexo: "Amor amor"
+		            	title:nombre,
+		            	idsol: idsolicitud,
+		            	onedirection: dir
 		            	});
 		    		
 		            (function(marker, contenido){                       
@@ -910,20 +925,25 @@ html,body,#map-canvas {
 							
 							
 							if(txtDir1.value==""){
-								$("#txtDir1").val(this.sexo);
+								$("#txtDir1").val(this.onedirection);
 								$("#txtCor1").val(this.position);
+								$("#txtIdSol1").val(this.idsol);
 							}else if(txtDir2.value==""){
-								$("#txtDir2").val(this.title);
+								$("#txtDir2").val(this.onedirection);
 								$("#txtCor2").val(this.position);
+								$("#txtIdSol2").val(this.idsol);
 							}else if(txtDir3.value==""){
-								$("#txtDir3").val(this.title);
+								$("#txtDir3").val(this.onedirection);
 								$("#txtCor3").val(this.position);
+								$("#txtIdSol3").val(this.idsol);
 							}else if(txtDir4.value==""){
-								$("#txtDir4").val(this.title);
+								$("#txtDir4").val(this.onedirection);
 								$("#txtCor4").val(this.position);
+								$("#txtIdSol4").val(this.idsol);
 							}else if(txtDir5.value==""){
-								$("#txtDir5").val(this.title);
+								$("#txtDir5").val(this.onedirection);
 								$("#txtCor5").val(this.position);
+								$("#txtIdSol5").val(this.idsol);
 							}else{
 								alert("Debe borrar alguna direccion para poder ingresar otra");
 							}

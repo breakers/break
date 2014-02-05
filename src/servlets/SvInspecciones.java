@@ -81,9 +81,11 @@ public class SvInspecciones extends ServletParent {
 			System.out.println("predio de inspeccion>"+pred.getNomCalle());
 			
 			if (clie.getIdtipoPersona()==NATURAL) { //natural
-				datos+=pred.getCoordenadasPredio()+","+clie.getNomCliente()+" "+clie.getApepaCliente()+","+pred.getNomCalle()+" "+pred.getNumPredio()+"-"+pred.getNomLocalidad();
+				datos+=pred.getCoordenadasPredio()+","+clie.getNomCliente()+" "+clie.getApepaCliente()+","+
+			pred.getNomCalle()+" "+pred.getNumPredio()+"-"+pred.getNomLocalidad()+","+sol.getIdSolCategoria();
 			}else{
-				datos+=pred.getCoordenadasPredio()+","+clie.getRazonsocial()+","+pred.getNomCalle()+" "+pred.getNumPredio()+"-"+pred.getNomLocalidad();
+				datos+=pred.getCoordenadasPredio()+","+clie.getRazonsocial()+","+
+			pred.getNomCalle()+" "+pred.getNumPredio()+"-"+pred.getNomLocalidad()+","+sol.getIdSolCategoria();
 			}
 
 			if (i<lista.size()-1) {
