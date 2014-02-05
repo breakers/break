@@ -72,8 +72,9 @@
 											<form>
 												<fieldset>
 													<label>Punto 1</label> 
-													<input type="text" id="txtDir1" name="txtDir1"  placeholder="Direccion 1"  /> 
-													<input type="text" id="txtCor1" name="txtCor1" hidden="true" /> 
+													<input type="text" id="txtDir1" name="txtDir1"  placeholder="Direccion 1" readonly="true" /> 
+													<input type="text" id="txtCor1" name="txtCor1" hidden="true" />
+													<input type="text" id="txtIdSol1" name="txtIdSol1" hidden="true" /> 
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger" type="reset"> Quitar
 															<i class="icon-trash"></i>
@@ -84,8 +85,9 @@
 											<form>
 												<fieldset>
 													<label>Punto 2</label> 
-													<input type="text" id="txtDir2" name="txtDir2"  placeholder="Direccion 2"  /> 
+													<input type="text" id="txtDir2" name="txtDir2"  placeholder="Direccion 2" readonly="true" /> 
 													<input type="text" id="txtCor2" name="txtCor2" hidden="true" /> 
+													<input type="text" id="txtIdSol2" name="txtIdSol2" hidden="true" />
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
 															<i class="icon-trash"></i>
@@ -96,8 +98,9 @@
 											<form>
 												<fieldset>
 													<label>Punto 3</label> 
-													<input type="text" id="txtDir3" name="txtDir3" placeholder="Direccion 3" /> 
+													<input type="text" id="txtDir3" name="txtDir3" placeholder="Direccion 3" readonly="true"/> 
 													<input type="text" id="txtCor3" name="txtCor3" hidden="true" /> 
+													<input type="text" id="txtIdSol3" name="txtIdSol3" hidden="true" />
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
 															<i class="icon-trash"></i>
@@ -108,8 +111,9 @@
 											<form>
 												<fieldset>
 													<label>Punto 4</label> 
-													<input type="text" id="txtDir4" name="txtDir4" placeholder="Direccion 4" /> 
+													<input type="text" id="txtDir4" name="txtDir4" placeholder="Direccion 4" readonly="true" /> 
 													<input type="text" id="txtCor4" name="txtCor4" hidden="true" /> 
+													<input type="text" id="txtIdSol4" name="txtIdSol4" hidden="true" />
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
 															<i class="icon-trash"></i>
@@ -120,8 +124,9 @@
 											<form>
 												<fieldset>
 													<label>Punto 5</label> 
-													<input type="text" id="txtDir5" name="txtDir5" placeholder="Direccion 5" /> 
-													<input type="text" id="txtCor5" name="txtCor5" hidden="true" /> 
+													<input type="text" id="txtDir5" name="txtDir5" placeholder="Direccion 5" readonly="true" /> 
+													<input type="text" id="txtCor5" name="txtCor5" hidden="true" />
+													<input type="text" id="txtIdSol5" name="txtIdSol5" hidden="true" /> 
 													<label class="pull-right">
 														<button class="btn btn-xs btn-danger"  type="reset"> Quitar
 															<i class="icon-trash"></i>
@@ -875,6 +880,13 @@ html,body,#map-canvas {
 		    		var dir=dires[1];
 		    		direcciones.push(nombre,dir);//se almacenaria en otro array
 		    		
+		    		var contenido= "<div id=\"content\">"+
+		            "<b><h4>"+nombre+"</h4></b>"+
+	                "<div id=\"bodyContent\">" +
+	                    "<p>" + dir+
+	                    ".</p>"+
+	                "</div>"+
+	        		"</div>";
 		    		var coordenadas = new google.maps.LatLng(latitudc, longitudc); /* Debo crear un punto geografico utilizando google.maps.LatLng */
 		            var marker = new google.maps.Marker({
 		            	position: coordenadas,
@@ -882,6 +894,14 @@ html,body,#map-canvas {
 		            	animation: google.maps.Animation.DROP, 
 		            	title:dir
 		            	});
+		    		
+		            (function(marker, contenido){                       
+		                google.maps.event.addListener(marker, 'click', function() {
+		                    infowindow.setContent(contenido);
+		                    infowindow.open(map, marker);
+		                });
+		            })(marker,contenido);
+		            
 					markersArray.push(marker);
 					google.maps.event.addListener(marker, 'click', function () {
 // 							alert(this.position);
@@ -911,9 +931,14 @@ html,body,#map-canvas {
 // 							  marker.setAnimation(google.maps.Animation.BOUNCE);
 						  
 						});
+					
+					infowindow.open(map, marker);
 				}
 		   });
-}
+		}
+	var infowindow = new google.maps.InfoWindow({
+	    content: ''
+	});
 	
 	function deleteOverlays() {
 		  if (markersArray) {
