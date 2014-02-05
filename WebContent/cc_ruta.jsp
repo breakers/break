@@ -892,7 +892,8 @@ html,body,#map-canvas {
 		            	position: coordenadas,
 		            	map: map,
 		            	animation: google.maps.Animation.DROP, 
-		            	title:dir
+		            	title:dir,
+		            	sexo: "Amor amor"
 		            	});
 		    		
 		            (function(marker, contenido){                       
@@ -909,7 +910,7 @@ html,body,#map-canvas {
 							
 							
 							if(txtDir1.value==""){
-								$("#txtDir1").val(this.title);
+								$("#txtDir1").val(this.sexo);
 								$("#txtCor1").val(this.position);
 							}else if(txtDir2.value==""){
 								$("#txtDir2").val(this.title);
